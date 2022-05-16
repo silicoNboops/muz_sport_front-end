@@ -4,8 +4,8 @@ const Header = () => {
 
     return(
 
-    <header className="d-flex flex-wrap align-items-center justify-content-center
-         justify-content-md-between py-2 mb-4 border-bottom">
+    <header className="d-flex header flex-wrap align-items-center justify-content-center
+         justify-content-md-between py-3 mb-4 border-bottom">
         <a href="/" className="align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
             <img src="assets/images/logo.png" width="140px" alt="logo"/>
         </a>

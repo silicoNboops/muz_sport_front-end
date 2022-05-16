@@ -1,5 +1,5 @@
-.header-height{
-    max-height: 110px;
+.header{
+    max-height: 70px;
 }
 
 .icon-md {
@@ -33,7 +33,7 @@
 }
 
 .footer{
-    height:120px;
+    height:170px;
     margin-top: 50%;
     width:100%;
     background-color: #161433;

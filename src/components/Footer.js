@@ -14,6 +14,7 @@ const Footer = () => {
                                 </a>
                             </aside>
                         </div>
+
                         <div className="col-4 text-end p-3">
                             <ul className="list-unstyled">
                                 <li>
@@ -26,13 +27,30 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
+
                         <div className="col-3 p-3">
-                            <p className="text-white">К оплате принимаются:</p>
+                            <ul>
+                                <li>
+                                    <p className="text-white">К оплате принимаются:</p>
+                                </li>
+                                <li className="d-inline-flex">
+                                    <img src="assets/icons/card.PNG" className="me-1" height='40px'/>
+                                    <img src="assets/icons/qiwi.PNG" className="me-1" height='40px'/>
+                                    <img src="assets/icons/y-money.PNG" className="me-1" height='40px'/>
+                                    <img src="assets/icons/pay.PNG" className="me-1" height='40px'/>
+                                </li>
+                            </ul>
                         </div>
 
                         <div className="col-3 p-5">
-                            <a className="text-white">Реклама на сайте</a>
+                            <div className="icon-link-badged">
+                                <a href="#" className="text-white">
+                                    <img src="assets/icons/ad.PNG" width="30px"/>
+                                    Реклама на сайте
+                                </a>
+                            </div>
                         </div>
+
                     </div>
             </div>
         </footer>
