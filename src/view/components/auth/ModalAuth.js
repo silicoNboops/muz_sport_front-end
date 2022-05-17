@@ -9,17 +9,21 @@ export const ModalAuth = (props) => {
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const submit = (e) => {
     e.preventDefault();
+
     const user = {
       username,
       password,
     };
+
     API.createUser(user)
       .then((res) => {
-        props.authUser(res.data.access)
+        props.authUser(res.data.access);
+
         if(res.status === 200) {
           props.setModal(false);
           // запоминаем новый чекпоинт
@@ -36,13 +40,14 @@ export const ModalAuth = (props) => {
         }
       });
   };
+
   return (
     <div className="modal active">
       <div className={css.content} onClick={(e) => e.stopPropagation()}>
         <h1 className={css.contentH1}>Вход</h1>
           {props.authToken ?
-              <p></p> : <p className={css.modalTextAuth}>Войдите в аккаунт</p>}
-        <div className={css.line}></div>
+              <p/> : <p className={css.modalTextAuth}>Войдите в аккаунт</p>}
+        <div className={css.line}/>
         <form onSubmit={submit} className={css.form}>
           <input
             value={username}
@@ -74,7 +79,8 @@ export const ModalAuth = (props) => {
           <p className={css.forgotLink}>Забыли пароль?</p>
           <button>ВОЙТИ</button>
         </form>
-          <div onClick={() => props.setModal(!props.modal)} className={css.modalFalse}><img src={closeImg}/></div>
+          <div onClick={() => props.setModal(!props.modal)} className={css.modalFalse}>
+              <img src={closeImg} alt='close_img'/></div>
       </div>
     </div>
   );
