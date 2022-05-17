@@ -3,14 +3,8 @@ import React from 'react';
 const Main = (props) => {
 
     return (
-        <section className="">
+        <section>
             <div className="container p-3">
-                <h3 className="p-4 banner-alert">
-                    В связи с тем, что в стране инфляция, цены товаров могут незначительно отличаться.
-                    <br/>
-                    Для уточнения звоните по телефону, указанному на
-                    странице <a className="banner-link" href="/contacts">Контакты</a>.
-                </h3>
                 <div className="row">
                     <aside className="col-md-3 padding-y">
 
@@ -29,16 +23,7 @@ const Main = (props) => {
                     </aside>
                     <div className="col-md-9 ">
                         <div className="row">
-                            <div className="center-x col-md-12">
-                                <h1>Серии</h1>
-                            </div>
-                        </div>
-
-                        <div className="row">
-
-
                             <div className="card series-img col-md-6 border-light">
-
                                 <div id="linked_to_card_click" style={{transform: "rotate(0)"}}>
                                     <div className="row">
                                         <div className="img-wrap">
