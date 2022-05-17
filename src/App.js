@@ -24,7 +24,7 @@ function App() {
 
     const authUser = (tokenJWT) => {
         localStorage.setItem("authToken", JSON.stringify(tokenJWT));
-        setAuthToken(tokenJWT)
+        setAuthToken(tokenJWT);
     }
 
     return (
@@ -39,12 +39,19 @@ function App() {
                         {/*<Route exact path="/" element={<AuthChecker/>}>*/}
                         {/*    <Route exact path='/' element={<Home/>}/>*/}
                         {/*</Route>*/}
-                        <Route exact path="/"
-                               element={<AuthChecker Component={Main} authToken={authToken} />}
-                        />
+                        <Route path="/" element={<Main/>}/>
+                        {/*<Route exact path="/"*/}
+                        {/*       element={<AuthChecker Component={Main} authToken={authToken} />}*/}
+                        {/*/>*/}
                         {/*<Route path="/error" element={<Error404/>}/>*/}
                         <Route path="*" element={<Error404/>}/>
-                        <Route path="/login" element={<Authorization/>}/>
+                        <Route path="/login" element={<Authorization authUser={authUser}/>}/>
+                        {/*<Route exact path="/login"*/}
+                        {/*       element={<AuthChecker Component={Authorization} authToken={authToken} />}*/}
+                        {/*/>*/}
+                        <Route exact path="/register"
+                               element={<AuthChecker Component={Authorization} authUser={authUser} />}
+                        />
                         {/*<Route path="/account"*/}
                         {/*       element={<AuthChecker Component={Account} authToken={authToken} />}*/}
                         {/*/>*/}

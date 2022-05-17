@@ -23,21 +23,21 @@ const Header = (props) => {
         </a>
 
         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" className="nav-link px-2 link-secondary">Каталог</a></li>
-            <li><a href="/" className="nav-link px-2 link-dark">Услуги</a></li>
-            <li><a href="/" className="nav-link px-2 link-dark">Партнерство</a></li>
-            <li><a href="/" className="nav-link px-2 link-dark">Проект</a></li>
+            <li><a href="/dodo" className="nav-link px-2 link-secondary">Каталог</a></li>
+            <li><a href="/lol" className="nav-link px-2 link-dark">Услуги</a></li>
+            <li><a href="/aga" className="nav-link px-2 link-dark">Партнерство</a></li>
+            <li><a href="/s" className="nav-link px-2 link-dark">Проект</a></li>
         </ul>
 
         <div className="col-md-3">
             <div className="icon-link-badged mr-3">
-                <a href="/account" className="icon-md">
+                <a href="/login" className="icon-md">
                     <img src="assets/icons/account.png" width="35px"/>
                     Вход
                 </a>
             </div>
             <div className="icon-link-badged mr-3">
-                <a href="/register" className="icon-md">
+                <a href="/account" className="icon-md">
                     <img src="assets/icons/account.png" width="35px"/>
                     Регистрация
                 </a>

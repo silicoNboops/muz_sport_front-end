@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
+import API from "../../../api/API";
+import {useNavigate} from "react-router-dom";
 
-const Authorization = () => {
-    const [login, setLogin] = useState('')
+const Authorization = (props) => {
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [loginDirty, setLoginDirty] = useState(false)
     const [passwordDirty, setPasswordDirty] = useState(false)
@@ -9,20 +11,26 @@ const Authorization = () => {
     const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
     const [formValid, setFormValid] = useState(false)
 
-    const authorization = (e) => {
-        // TODO Добавить файл env с путями
-        fetch(process.env.REACT_APP_NKS_API + 'auth/token/login/', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+    const navigate = useNavigate();
 
-        })
-            .then(res => res.json())
-            .then((result) => {
-                },
-            )
+    const authorization = (e) => {
+        e.preventDefault();
+
+        const user = {username, password};
+        console.log(user);
+
+        API.createUser(user)
+            .then((res) => {
+                props.authUser(res.data.access);
+
+                if(res.status === 200) {
+                    // запоминаем новый чекпоинт
+                    navigate("/", { replace: true });
+                }
+            })
+            .catch((error) => {
+                console.log('error_login');
+            });
     }
 
     useEffect(() => {
@@ -34,7 +42,7 @@ const Authorization = () => {
     }, [loginError, passwordError])
 
     const loginHandler = (e) => {
-        setLogin(e.target.value)
+        setUsername(e.target.value)
         setLoginError("")
     }
 
@@ -68,12 +76,12 @@ const Authorization = () => {
             <form onSubmit={authorization}>
                 <div className="authorization_header">Авторизация</div>
                 {(loginDirty && loginError) && <div style={{color:'red'} }>{loginError}</div>}
-                <input onChange={e => loginHandler(e)} value={login} onBlur={e => blurHandler(e)} name = 'login'
+                <input onChange={e => loginHandler(e)} value={username} onBlur={e => blurHandler(e)} name = 'login'
                        type="text" placeholder="Enter your login"/>
                 {(passwordError && passwordDirty) && <div style={{color:'red'} }>{passwordError}</div>}
                 <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)}
                        name = 'password' type="password" placeholder="Enter your password"/>
-                <button className="authorization_btn" disabled={!formValid} type="submit">Authorization</button>
+                <button className="authorization_btn" disabled={!formValid} type="submit">Войти</button>
             </form>
         </div>
     )
