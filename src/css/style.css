@@ -34,7 +34,17 @@
 
 .footer{
     height:170px;
-    margin-top: 50%;
+    /*margin-top: 50%;*/
     width:100%;
     background-color: #161433;
+}
+
+.main-page{
+    background-color: rgba(21, 20, 51, 0.74);
+}
+
+.elem-ad{
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px rgba(21, 21, 21, 0.45);
+    background-color: rgba(21, 20, 51, 0.33);
 }
