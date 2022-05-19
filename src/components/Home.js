@@ -13,14 +13,14 @@ const Home = () => {
 
             <div className="pt-5">
                 <h1 className="pt-4 text-start text-white">Как это работает?</h1>
-                <div className="container d-inline-flex m-3 pt-4">
+                <div className="d-inline-flex m-3 pt-4">
                     <ul className="list-unstyled me-2">
                         <li>
                             <img height="100px" src="assets/icons/magic.png"/>
                         </li>
                         <li>
-                            <p className="text-white text-wrap pt-3" style={{width:"185px"}}>Создается трек профессионального звучания
-                                по вашим параметрам</p>
+                            <p className="text-white text-wrap pt-3" style={{width:"185px"}}>Создается трек
+                                профессионального звучания по вашим параметрам</p>
                         </li>
                     </ul>
 
@@ -30,7 +30,7 @@ const Home = () => {
                         </li>
                         <li>
                             <p className="text-white text-wrap pt-3" style={{width:"175px"}}>В него внедряется суггестивная
-                            информация для повышения концетрации</p>
+                            информация для повышения концетрации и мобилизации на соревновании</p>
                         </li>
                     </ul>
 
@@ -64,8 +64,8 @@ const Home = () => {
                             <img height="100px" src="assets/icons/goal.png"/>
                         </li>
                         <li>
-                            <p className="text-white text-wrap pt-3" style={{width:"205px"}}>Достижение поставленных спортивных
-                            целей без вреда для здоровья и применения запрещенных препаратов</p>
+                            <p className="text-white text-wrap pt-3" style={{width:"205px"}}>Достижение поставленных
+                                спортивных целей без вреда для здоровья и применения запрещенных препаратов</p>
                         </li>
                     </ul>
                 </div>

@@ -48,3 +48,29 @@
     box-shadow: 1px 1px 1px rgba(21, 21, 21, 0.45);
     background-color: rgba(21, 20, 51, 0.33);
 }
+
+.img-wrap {
+    position: relative;
+}
+.img-wrap p {
+    position: absolute;
+    height: 60%;
+    /*font-weight: bold;*/
+    color: rgb(10, 8, 8);
+    font-size: 35px;
+    margin-bottom: 30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.img-wrap h6 {
+    position: absolute;
+    height: 5%;
+    /*font-weight: bold;*/
+    color: rgb(135, 129, 129);
+    font-size: 20px;
+    margin-bottom: 20px;
+    left: 22%;
+    bottom: 0;
+    width: 100%;
+}
