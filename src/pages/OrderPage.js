@@ -46,7 +46,7 @@ const OrderPage = () => {
                     {/*</tr>*/}
                     </tbody>
                 </table>
-                <div className="card col-3 row offset-9">
+                <div className="card  col-3 row offset-9">
                     <h5>Стоимость : 1600 ₽</h5>
                 </div>
 
