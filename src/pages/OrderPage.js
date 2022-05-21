@@ -76,10 +76,14 @@ const OrderPage = () => {
 
                 <div className="row p-4 justify-content-end">
                     <div className="col-1 me-4">
-                        <button type="button" className="btn btn-lg btn-light">Назад</button>
+                        <button type="button" className="btn btn-lg btn-light">
+                            <a href="/" className="link-unstyled">Назад</a>
+                        </button>
                     </div>
                     <div className="col-1">
-                        <button type="button" className="btn btn-lg btn-light">Далее</button>
+                        <button type="button" className="btn btn-lg btn-light">
+                            <a href="/order2" className="link-unstyled">Далее</a>
+                        </button>
                     </div>
                 </div>
 

@@ -34,7 +34,7 @@ const OrderPage2 = () => {
 
                 <div className="col-6">
                     <p className="mb-1 text-left">Телефон</p>
-                    <input type="tel"
+                    <input type="tel" required
                            className="form-control input-box"/>
                 </div>
             </div>
@@ -91,10 +91,14 @@ const OrderPage2 = () => {
 
             <div className="row p-4 justify-content-end">
                 <div className="col-1 me-4">
-                    <button type="button" className="btn btn-lg btn-light">Назад</button>
+                    <button type="button" className="btn btn-lg btn-light">
+                        <a href="/order" className="link-unstyled">Назад</a>
+                    </button>
                 </div>
                 <div className="col-1 me-4">
-                    <button type="button" className="btn btn-lg btn-light">Оформить</button>
+                    <button type="button" className="btn btn-lg btn-light">
+                        <a href="#" className="link-unstyled">Оформить</a>
+                    </button>
                 </div>
             </div>
 

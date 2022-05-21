@@ -92,5 +92,8 @@
 .features-text {
     font-family: "Century Gothic", sans-serif;
     font-size:16px;
-
+}
+.link-unstyled{
+    text-decoration: none;
+    color: black;
 }
