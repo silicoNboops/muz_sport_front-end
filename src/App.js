@@ -19,12 +19,12 @@ function App() {
     const [modal, setModal] = useState(false);
 
     const [authToken, setAuthToken] = useState(() =>
-        JSON.parse(localStorage.getItem("authToken"))
+        localStorage.getItem("authToken")
     );
 
-    const authUser = (tokenJWT) => {
-        localStorage.setItem("authToken", JSON.stringify(tokenJWT));
-        setAuthToken(tokenJWT);
+    const authUser = (token) => {
+        localStorage.setItem("authToken", token);
+        setAuthToken(token);
     }
 
     return (
@@ -56,6 +56,9 @@ function App() {
                         {/*       element={<AuthChecker Component={Account} authToken={authToken} />}*/}
                         {/*/>*/}
                         <Route path="/account" element={<Account/>}/>
+                        <Route exact path="/logout"
+                               element={<AuthChecker Component={Authorization} authUser={authUser} />}
+                        />
                     </Routes>
                 </div>
             </BrowserRouter>

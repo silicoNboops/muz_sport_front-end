@@ -20,7 +20,7 @@ export const ModalAuth = (props) => {
       password,
     };
 
-    API.createUser(user)
+    API.loginUser(user)
       .then((res) => {
         props.authUser(res.data.access);
 

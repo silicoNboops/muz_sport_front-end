@@ -19,13 +19,13 @@ const Authorization = (props) => {
         const user = {username, password};
         console.log(user);
 
-        API.createUser(user)
+        API.loginUser(user)
             .then((res) => {
-                props.authUser(res.data.access);
+                props.authUser(res.data.auth_token);
 
                 if(res.status === 200) {
                     // запоминаем новый чекпоинт
-                    navigate("/", { replace: true });
+                    navigate('/account', { replace: true });
                 }
             })
             .catch((error) => {
