@@ -7,6 +7,8 @@ import {BrowserRouter, Route,  Routes} from "react-router-dom";
 import OrderPage from "./pages/OrderPage";
 import OrderPage2 from "./pages/OrderPage2";
 import OrderSuccess from "./pages/OrderSuccess";
+import Partnership from "./pages/Partnership";
+import AdPage from "./pages/AdPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
                       <Route exact path="/order" element={<OrderPage/>} />
                       <Route exact path="/order2" element={<OrderPage2/>} />
                       <Route exact path="/order3" element={<OrderSuccess/>} />
+                      <Route exact path="/partnership" element={<Partnership/>} />
+                      <Route exact path="/ad" element={<AdPage/>} />
                   </Routes>
               <Footer/>
           </BrowserRouter>

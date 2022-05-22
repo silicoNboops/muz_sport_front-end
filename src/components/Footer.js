@@ -44,8 +44,8 @@ const Footer = () => {
 
                         <div className="col-3 p-5">
                             <div className="icon-link-badged">
-                                <a href="#" className="text-white">
-                                    <img src="assets/icons/ad.PNG" width="30px"/>
+                                <a href="ad" className="text-white">
+                                    <img src="assets/icons/horn.png" width="30px"/>
                                     Реклама на сайте
                                 </a>
                             </div>

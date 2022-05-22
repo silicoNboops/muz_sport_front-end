@@ -3,16 +3,59 @@ import React, {useEffect, useState} from "react";
 
 
 const OrderPage2 = () => {
+
+    const [name, setName] = useState('');
+    const [last_name, setLast_name] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+
+    const initData = () => {
+        setName('');
+        setPhone('');
+        setEmail('');
+        setLast_name('');
+    }
+
+    const placeOrder = (e) => {
+        e.preventDefault();
+        const order_number = 12345
+        const price = 123
+        const order = {name, last_name, phone, email, order_number, price};
+
+        console.log(JSON.stringify(order))
+
+        fetch(process.env.REACT_APP_MUZSPORT_API + 'order/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then((result) => {
+                    setTimeout(function(){
+                        window.location.href = "/";
+
+                    }, 3500);
+                },
+                (error) => {
+                })
+    };
+
     return(
         <div className="container-fluid row p-5">
+            <form onSubmit={placeOrder}>
             <div className="col-6">
-
-            <div className="row m-1 text-white text-start">
+                <div className="row m-1 text-white text-start">
                     <div className="col-6">
                         <div className="form-group mb-2">
                             <p className="mb-1">Имя</p>
                             <input type="text" required
-                                   className="form-control input-box"/>
+                                   value={name}
+                                   className="form-control input-box"
+                                   onChange={(e) =>
+                                       setName(e.target.value)}/>
                         </div>
                     </div>
 
@@ -20,7 +63,10 @@ const OrderPage2 = () => {
                         <div className="form-group mb-1">
                             <p className="mb-1">Фамилия</p>
                             <input type="text" required
-                                   className="form-control input-box"/>
+                                   value={last_name}
+                                   className="form-control input-box"
+                                   onChange={(e) =>
+                                       setLast_name(e.target.value)}/>
                         </div>
                     </div>
             </div>
@@ -29,13 +75,19 @@ const OrderPage2 = () => {
                 <div className="col-6">
                     <p className="mb-1 text-left">Email</p>
                     <input type="email" required
-                           className="form-control input-box"/>
+                           value={email}
+                           className="form-control input-box"
+                           onChange={(e) =>
+                               setEmail(e.target.value)}/>
                 </div>
 
                 <div className="col-6">
                     <p className="mb-1 text-left">Телефон</p>
                     <input type="tel" required
-                           className="form-control input-box"/>
+                           value={phone}
+                           className="form-control input-box"
+                           onChange={(e) =>
+                               setPhone(e.target.value)}/>
                 </div>
             </div>
 
@@ -96,12 +148,14 @@ const OrderPage2 = () => {
                     </button>
                 </div>
                 <div className="col-1 me-4">
-                    <button type="button" className="btn btn-lg btn-light">
-                        <a href="#" className="link-unstyled">Оформить</a>
+                    <button type="submit" className="btn btn-lg btn-light">
+                        {/*<a href="#" className="link-unstyled">*/}
+                            Оформить
+                        {/*</a>*/}
                     </button>
                 </div>
             </div>
-
+            </form>
         </div>
     )
 }
