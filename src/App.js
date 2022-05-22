@@ -9,6 +9,7 @@ import OrderPage2 from "./pages/OrderPage2";
 import OrderSuccess from "./pages/OrderSuccess";
 import Partnership from "./pages/Partnership";
 import AdPage from "./pages/AdPage";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                       <Route exact path="/order3" element={<OrderSuccess/>} />
                       <Route exact path="/partnership" element={<Partnership/>} />
                       <Route exact path="/ad" element={<AdPage/>} />
+                      <Route exact path="/project" element={<Project/>} />
                   </Routes>
               <Footer/>
           </BrowserRouter>
