@@ -11,6 +11,7 @@ import Partnership from "./pages/Partnership";
 import AdPage from "./pages/AdPage";
 import Project from "./pages/Project";
 import ServicesPage from "./pages/ServicesPage";
+import FinishedTrack from "./components/FinishedTrack";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                       <Route exact path="/ad" element={<AdPage/>} />
                       <Route exact path="/project" element={<Project/>} />
                       <Route exact path="/services" element={<ServicesPage/>} />
+                      <Route exact path="/test" element={<FinishedTrack/>} />
                   </Routes>
               <Footer/>
           </BrowserRouter>
