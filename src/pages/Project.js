@@ -7,6 +7,17 @@ const Project = () => {
             <div className="p-5">
                 <div className="icon-link-badged">
                     <h5 className="text-white">
+                        <img src="assets/icons/about-us.png" className="pe-3" width="80px"/>
+                        Кто мы:
+                    </h5>
+                    <h6 className="text-white pt-2">Сообщество профессиональных звукорежиссеров и специалистов в области
+                        саунддизайна. Некоторые из наших сотрудников сами музыканты и выпускают свои работы на лейблах.
+                        Суммарно через нас прошло уже более 5000 заказов и поэтому мы прекрасно разбираемся в том, чем
+                        занимаемся.
+                    </h6>
+                </div>
+                <div className="icon-link-badged pt-4">
+                    <h5 className="text-white">
                         <img src="assets/icons/premium.png" className="pe-3" width="80px"/>
                         Наша особенность:
                     </h5>

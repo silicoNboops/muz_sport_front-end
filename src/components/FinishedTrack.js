@@ -10,13 +10,14 @@ const FinishedTrack = () => {
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseOne"
                     aria-expanded="true"
+                    style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
                 <span className="sr-only">Доработать трек!</span>
             </button>
             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
-                <div className="accordion-body">
-                    <div className="container card col-6 p-5">
+                <div className="accordion-body" >
+                    <div className="container card col-6 p-5" style={{borderRadius:"12px"}}>
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder">Название трека:</span>
@@ -39,7 +40,9 @@ const FinishedTrack = () => {
                                 </span>
                             </div>
                             <div className="card-props card-text">
-                                <span className="font-weight-bolder">Хронометраж*:</span>
+                                <span className="font-weight-bolder">
+                                    <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                                    Хронометраж*:</span>
                                 <span className="font-weight-bold">от "time" до "time"</span>
                             </div>
                             <div className="card-props card-text">
@@ -69,7 +72,9 @@ const FinishedTrack = () => {
                                     </div>
                                 </span>
                             </div>
-                            <h5 className="text-start">Компоновка*</h5>
+                            <h5 className="text-start">
+                                <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                                Компоновка*</h5>
                             <img src="assets/icons/auto.png" className="float-start" height="50px"/>
                             <img src="assets/icons/palm-of-hand.png" className="float-start ms-2" height="45px"/>
                         </figcaption>

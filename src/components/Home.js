@@ -4,15 +4,15 @@ import Ad from "./Ad";
 const Home = () => {
     return (
         <div className="container-fluid main-page p-5">
-            <h1 className="text-start text-white text-wrap"  style={{width:"700px"}}> Музыка для спортивных
+            <h1 className="text-start text-white text-wrap ms-5"  style={{width:"700px"}}> Музыка для спортивных
                 выступлений на заказ </h1>
-            <h5 className="text-white">с элементом суггестивного воздействия и релаксационным модулем</h5>
-            <h6 className="text-white text-start"> создано в партнерстве с институтом ИМБИТ
+            <h5 className="text-white me-5">с элементом суггестивного воздействия и релаксационным модулем</h5>
+            <h6 className="text-white text-start ms-5"> создано в партнерстве с институтом ИМБИТ
                 <a className="text-white p-3" href="#">подробнее</a>
             </h6>
 
             <div className="pt-5">
-                <h1 className="pt-4 text-start text-white">Как это работает?</h1>
+                <h1 className="pt-4 ps-5 text-start text-white">Как это работает?</h1>
                 <div className="d-inline-flex m-3 pt-4">
                     <ul className="list-unstyled me-2">
                         <li>

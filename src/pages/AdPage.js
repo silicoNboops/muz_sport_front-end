@@ -16,7 +16,7 @@ const AdPage = () => {
                     спортивной программы для Вашего чемпиона. Надеемся на понимание =)</h6>
                 </div>
 
-                <div className="icon-link-badged pt-4 pb-3">
+                <div className="icon-link-badged pt-5 pb-3">
                     <h5 className="text-white text-start">
                         <img src="assets/icons/premium.png" className="pe-3" width="80px"/>
                         Рекламодателю
@@ -24,14 +24,14 @@ const AdPage = () => {
                     <h6 className="text-white">На главной странице сайта в версии для ПК существует два слота в верхней
                     части (перед фильтром) для размещения вашей рекламы.</h6>
 
-                    <h5 className="text-white pt-5">Широкоформатный баннер:</h5>
+                    <h5 className="text-white pt-4">Широкоформатный баннер:</h5>
                     <h6 className="text-white pt-3">Размеры 1225*440</h6>
                     <h6 className="text-white ">Маска изображения : закругленные углы 20px (автоматическая обрезка
                         по маске)</h6>
                     <h6 className="text-white ">Формат размещения : статическое изображение (JPG, PNG, PDF, SVG)</h6>
                     <h6 className="text-white ">Стоимость : 1200/мес</h6>
                     <div className="col-8">
-                        <div className="card-img img-wrap text-center">
+                        <div className="card-img img-wrap text-center pt-3">
                             <img src="assets/images/ad.png" className="elem-ad" height="345px" width="100%"/>
                             <p>Красивое платье - еще полдела...</p>
                             <h6>1225*440</h6>
