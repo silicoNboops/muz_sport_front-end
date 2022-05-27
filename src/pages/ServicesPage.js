@@ -14,10 +14,10 @@ const ServicesPage = () => {
                     </div>
                     <div className="card service-card col-12">
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Две доработки программы в рамках согласованного трека</h6>
                         <p className="text-white mt-auto service-style" style={{backgroundColor:"#1e1950"}}>
                             каждый доп. трек к программе +1500 руб (но не более 2-ух)</p>
@@ -36,13 +36,13 @@ const ServicesPage = () => {
 
                     <div className="card service-card col-12" style={{minHeight:"625px"}}>
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px", marginTop:"60px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Две доработки программы в рамках согласованного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Введение суггестивной информации для повышения концетрации и мобилизации спортсмена на
                         соревнованиях <a href="#" className="text-muted">подробнее о методе</a></h6>
                         <p className="mt-auto" style={{paddingTop:"50px"}}>
@@ -62,17 +62,17 @@ const ServicesPage = () => {
                     </div>
                     <div className="card service-card col-12">
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Две доработки программы в рамках согласованного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Введение суггестивной информации для повышения концетрации и мобилизации спортсмена на
                             соревнованиях</h6>
                         <h6 className="pt-2 text-wrap pe-1" style={{width:"315px"}}>
-                            <img src="assets/icons/check-purp.psd" className="me-3" width="25px"/>
+                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Создание доп. разгрузочного модуля, для достижения эффекта расслабления и снятия стресса
                             после тренировки</h6>
                         <p className="mt-auto">

@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {Dropdown} from "react-bootstrap";
 
 const FinishedTrack = () => {
+    const [commentary, setCommentary] = useState('');
+
+    const initData = () => {
+        setCommentary('');
+    }
+
     return(
         <div className="container-fluid p-5">
             <button type="button"
@@ -12,9 +18,9 @@ const FinishedTrack = () => {
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
-                <span className="sr-only">Доработать трек!</span>
+                <span>Доработать трек!</span>
             </button>
-            <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne"
+            <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <div className="accordion-body" >
                     <div className="container card col-6 p-5" style={{borderRadius:"12px"}}>
@@ -72,12 +78,34 @@ const FinishedTrack = () => {
                                     </div>
                                 </span>
                             </div>
-                            <h5 className="text-start">
-                                <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
-                                Компоновка*</h5>
-                            <img src="assets/icons/auto.png" className="float-start" height="50px"/>
-                            <img src="assets/icons/palm-of-hand.png" className="float-start ms-2" height="45px"/>
+                                <h5 className="text-start">
+                                    <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                                    Компоновка*</h5>
+                                <img src="assets/icons/auto.png" className="float-start" height="50px"/>
+                                <img src="assets/icons/palm-of-hand.png"
+                                     data-bs-toggle="collapse"
+                                     data-bs-target="#collapseTwo"
+                                     aria-expanded="true"
+                                     aria-controls="collapseTwo"
+                                    className="float-start ms-2" height="45px"/>
                         </figcaption>
+                        <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingOne"
+                             data-bs-parent="#accordionExample">
+                            <p className="text-start">Здесь будут кнопки доработок(Подумать, как она будет закрываться,
+                                если человек нажмет на AUTO)</p>
+                        </div>
+
+                        <div className="text-start pt-3">
+                            <h5>Комментарии к данному треку:</h5>
+                            <h6>По желанию. Только если остались какие-то неуточненные моменты</h6>
+                            <textarea type="text"
+                                   value={commentary}
+                                   className="form-control input-box"
+                                   placeholder="Пример:
+                                   -Оставить все энергичные части трека"
+                                   onChange={(e) =>
+                                       setCommentary(e.target.value)}/>
+                        </div>
                     </div>
                 </div>
             </div>
