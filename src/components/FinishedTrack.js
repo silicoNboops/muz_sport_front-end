@@ -23,7 +23,7 @@ const FinishedTrack = () => {
             <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <div className="accordion-body" >
-                    <div className="container card col-6 p-5" style={{borderRadius:"12px"}}>
+                    <div className="container card col-8 p-5" style={{borderRadius:"12px"}}>
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder">Название трека:</span>
