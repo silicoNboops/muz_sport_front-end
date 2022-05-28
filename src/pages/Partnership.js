@@ -4,6 +4,9 @@ import React, {useEffect, useState} from "react";
 const Partnership = () => {
     const [email, setEmail] = useState('')
 
+    const initData = () => {
+        setEmail('')
+    }
     return (
         <div className="container-fluid">
             <div className="p-5">
@@ -37,14 +40,14 @@ const Partnership = () => {
                 сайт ИМБИТ </a></p>
             </div>
 
-            <div className="col-4 row p-4">
-                <div className="form-group mb-1">
+            <div className="col-4 d-inline-flex p-4">
                     <input type="text" required
                            placeholder="Ваш e-mail"
-                           // value={email}
+                           value={email}
                            className="form-control input-box"
+                           onChange={(e) =>
+                               setEmail(e.target.value)}
                            />
-                </div>
                 <button className="btn btn-light col-4">Подписаться</button>
             </div>
         </div>

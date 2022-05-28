@@ -49,7 +49,14 @@ const FinishedTrack = () => {
                                 <span className="font-weight-bolder">
                                     <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                                     Хронометраж*:</span>
-                                <span className="font-weight-bold">от "time" до "time"</span>
+                                <span className="font-weight-bold">от
+                                    <input type="time" id="appt" name="appt" style={{backgroundColor:"#948eba",
+                                        borderRadius:"10px"}} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                           required/>до
+                                <input type="time" id="appt" name="appt" style={{backgroundColor:"#948eba",
+                                    borderRadius:"10px"}} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                       required/>
+                                </span>
                             </div>
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder">Пик в начале:</span>
