@@ -45,7 +45,7 @@ const OrderPage2 = () => {
 
     return(
         <div className="container-fluid row p-5">
-            <form onSubmit={placeOrder}>
+            <form className="row" onSubmit={placeOrder}>
             <div className="col-6">
                 <div className="row m-1 text-white text-start">
                     <div className="col-6">
@@ -100,7 +100,7 @@ const OrderPage2 = () => {
 
 
             <div className="mt-4 col-6 text-white">
-                <p className="text-start">Детали заказа</p>
+                <h5 className="text-start pb-3">Детали заказа</h5>
                 <figcaption className="card-props-column features-text">
                     <div className="card-props card-text">
                         <span className="font-weight-bolder">Тип заказа(1):</span>
