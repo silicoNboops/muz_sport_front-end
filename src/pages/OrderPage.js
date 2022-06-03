@@ -53,7 +53,6 @@ const OrderPage = () => {
                     <h5>Стоимость : 1600 ₽</h5>
                 </div>
 
-                <form onSubmit={submit}>
 
                     <div className="ms-3 row">
                         <div className="col-3">
@@ -73,7 +72,6 @@ const OrderPage = () => {
                             </button >
                         </div>
                     </div>
-                </form>
 
 
                 <div className="card col-4 row offset-8">

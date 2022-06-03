@@ -8,7 +8,7 @@ const Partnership = () => {
         setEmail('')
     }
     return (
-        <div className="container-fluid">
+        <div className="container-fluid text-start">
             <div className="p-5">
                 <div className="icon-link-badged">
                     <h5 className="text-white text-start">
@@ -25,7 +25,7 @@ const Partnership = () => {
                 </div>
 
                 <div className="icon-link-badged pt-5">
-                    <h5 className="text-white text-start">
+                    <h5 className="text-white">
                         <img src="assets/icons/medal.png" width="70px"/>
                         Спортивным школам:
                     </h5>
