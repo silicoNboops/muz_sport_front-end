@@ -8,8 +8,11 @@ const OrderPage = () => {
         // cartTotal} = useCart();
     const [coupon, setCoupon] = useState('');
 
-    const submit = (e) => {
-        const number = coupon
+
+
+    const getCoupon = (coupon) => {
+        const resProduct = fetch(process.env.REACT_APP_MUZSPORT_API + 'coupon/' + coupon);
+        const dataProduct = resProduct.json();
     }
 
         const initData = () => {
@@ -64,7 +67,10 @@ const OrderPage = () => {
                             </div>
                         </div>
                         <div className="col-1">
-                            <button type="submit" className="btn btn-light">Применить</button>
+                            <button className="btn btn-light btn-danger btn-block"
+                                    onClick={() => getCoupon(coupon)}>
+                                    Применить
+                            </button >
                         </div>
                     </div>
                 </form>
