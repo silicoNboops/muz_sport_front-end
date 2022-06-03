@@ -191,11 +191,26 @@
     /*max-height: 40px;*/
     width: auto;
 }
-.features-text {
-    font-family: "Century Gothic", sans-serif;
-    font-size:16px;
-}
+
+/*.features-text {*/
+/*    font-family: "Century Gothic", sans-serif;*/
+/*    font-size:16px;*/
+/*}*/
+
 .link-unstyled{
     text-decoration: none;
     color: black;
+}
+.service-card{
+    min-height: 520px;
+    border-radius: 10px;
+}
+.service-style{
+    /*background-color: #d7d4e5;*/
+    border-radius: 10px;
+    margin: 12px;
+}
+.dropdown-menu {
+    height: 130px;
+    overflow-y: scroll;
 }

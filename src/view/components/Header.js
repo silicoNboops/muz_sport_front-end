@@ -28,8 +28,8 @@ const Header = (props) => {
     }
 
     return (
-        <header className="d-flex flex-wrap align-items-center justify-content-center
-         justify-content-md-between py-2 mb-4 border-bottom">
+        <header className="d-flex header flex-wrap align-items-center justify-content-center
+         justify-content-md-between py-3 border-bottom">
 
             {props.modal ?
                 // TODO юзать другой компонент
@@ -42,27 +42,27 @@ const Header = (props) => {
                 /> : <></>}
 
             <a href="/" className="align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-                <img src="assets/images/logo.JPG" width="150px" alt="logo"/>
+                <img src="assets/images/logo.png" width="140px" alt="logo"/>
             </a>
 
             <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/dodo" className="nav-link px-2 link-secondary">Каталог</a></li>
-                <li><a href="/lol" className="nav-link px-2 link-dark">Услуги</a></li>
-                <li><a href="/aga" className="nav-link px-2 link-dark">Партнерство</a></li>
-                <li><a href="/s" className="nav-link px-2 link-dark">Проект</a></li>
+                <li><a href="#" className="nav-link px-2 link-dark">Каталог</a></li>
+                <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>
+                <li><a href="/partnership" className="nav-link px-2 link-dark">Партнерство</a></li>
+                <li><a href="/project" className="nav-link px-2 link-dark">Проект</a></li>
             </ul>
 
             <div className="col-md-3">
                 {props.authToken === null ? (
                     <>
-                        <div className="icon-link-badged mr-3">
-                            <a href="/login" className="icon-md">
+                        <div className="icon-link-badged mr-3 px-2">
+                            <a href="/login" className="icon-md text-black">
                                 <img src="assets/icons/account.png" width="35px"/>
                                 Вход
                             </a>
                         </div>
-                        <div className="icon-link-badged mr-3">
-                            <a href="/register" className="icon-md">
+                        <div className="icon-link-badged mr-3 px-2">
+                            <a href="/register" className="icon-md text-black">
                                 <img src="assets/icons/account.png" width="35px"/>
                                 Регистрация
                             </a>
@@ -70,8 +70,8 @@ const Header = (props) => {
                     </>
                 ) : (
                     <>
-                        <div className="icon-link-badged mr-3">
-                            <a href="/account" className="icon-md">
+                        <div className="icon-link-badged mr-3 px-2">
+                            <a href="/account" className="icon-md text-black">
                                 <img src="assets/icons/account.png" width="35px"/>
                                 Личный кабинет
                             </a>
@@ -81,7 +81,7 @@ const Header = (props) => {
                             {/*    <img src="assets/icons/account.png" width="35px"/>*/}
                             {/*    Выйти*/}
                             {/*</a>*/}
-                            <button className="icon-md"
+                            <button className="icon-md text-black"
                                     type="button"
                                     onClick={logout}>
                                 Выйти
