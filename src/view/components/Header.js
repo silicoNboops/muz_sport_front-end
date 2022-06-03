@@ -4,7 +4,7 @@ import API from "../../api/API";
 import { useNavigate } from "react-router-dom";
 
 
-const Header = (props) => {
+const Header = React.memo((props) => {
 
     const navigate = useNavigate();
 
@@ -92,6 +92,6 @@ const Header = (props) => {
             </div>
         </header>
     )
+});
 
-}
 export default Header;
