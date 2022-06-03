@@ -2,6 +2,12 @@ import React, {useEffect, useState} from "react";
 
 
 const Project = () => {
+    const [email, setEmail] = useState('')
+
+    const initData = () => {
+        setEmail('')
+    }
+
     return(
         <div className="container-fluid text-start">
             <div className="p-5">
@@ -52,6 +58,16 @@ const Project = () => {
                         долгожданную программу, под которую ему захочется выступать снова и снова.
                     </h6>
                 </div>
+            </div>
+            <div className="col-4 d-inline-flex p-4">
+                <input type="text" required
+                       placeholder="Ваш e-mail"
+                        value={email}
+                       className="form-control input-box"
+                       onChange={(e) =>
+                           setEmail(e.target.value)}
+                />
+                <button className="btn btn-light col-4">Подписаться</button>
             </div>
         </div>
     )
