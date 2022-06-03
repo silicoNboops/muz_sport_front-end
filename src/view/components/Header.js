@@ -56,13 +56,13 @@ const Header = (props) => {
                 {props.authToken === null ? (
                     <>
                         <div className="icon-link-badged mr-3 px-2">
-                            <a href="/login" className="icon-md text-black">
+                            <a href="/login" className="text-black">
                                 <img src="assets/icons/account.png" width="35px"/>
                                 Вход
                             </a>
                         </div>
                         <div className="icon-link-badged mr-3 px-2">
-                            <a href="/register" className="icon-md text-black">
+                            <a href="/register" className="text-black">
                                 <img src="assets/icons/account.png" width="35px"/>
                                 Регистрация
                             </a>
@@ -71,7 +71,7 @@ const Header = (props) => {
                 ) : (
                     <>
                         <div className="icon-link-badged mr-3 px-2">
-                            <a href="/account" className="icon-md text-black">
+                            <a href="/account" className="text-black">
                                 <img src="assets/icons/account.png" width="35px"/>
                                 Личный кабинет
                             </a>
@@ -81,7 +81,7 @@ const Header = (props) => {
                             {/*    <img src="assets/icons/account.png" width="35px"/>*/}
                             {/*    Выйти*/}
                             {/*</a>*/}
-                            <button className="icon-md text-black"
+                            <button className="text-black"
                                     type="button"
                                     onClick={logout}>
                                 Выйти
