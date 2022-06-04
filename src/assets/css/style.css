@@ -41,15 +41,16 @@
     color: #282643;
     background-color: white;
     border-radius: 8px;
+    /*border-color: white;*/
 }
 .btn-muz:hover {
     color: white;
     background-color: #6b6697;
     border-color: #6b6697;
 }
-/*.btn-muz:focus, .btn-muz.focus {*/
-/*    box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);*/
-/*}*/
+.btn-muz:focus, .btn-muz.focus {
+    box-shadow: 0 0 0 0 #6b6697;
+}
 /*.btn-muz.disabled, .btn-muz:disabled {*/
 /*    color: #fff;*/
 /*    background-color: #3950c4;*/
@@ -64,9 +65,14 @@
 /*    box-shadow: 0 0 0 0.2rem rgba(80, 126, 238, 0.5);*/
 /*}*/
 
+/* класс для кнопок секций в личном кабинете */
+.btn-muz-section {
+    min-width: 170px;
+}
+
 /* inputs */
 .input-muz {
-    border-radius: 9px;
+    border-radius: 8px;
 }
 
 
@@ -183,4 +189,13 @@
 .dropdown-menu {
     height: 130px;
     overflow-y: scroll;
+}
+
+
+/* стили для селекторов */
+option[disabled] {
+    color: #838d9a !important;
+}
+option[disabled]:checked {
+    color: #999 !important;
 }

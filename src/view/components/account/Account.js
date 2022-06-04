@@ -16,14 +16,18 @@ const Account = () => {
     }, [activeSection])
 
     const chooseSection = (sectionName) => {
+        console.log(sectionName);
         if (sectionName == 'Заказы') {
+            // TODO
             return <Orders/>;
         } else if (sectionName == 'Купоны') {
-            return <Coupons/>;
+            // TODO
+            return <Coupons setActiveSection={setActiveSection} />;
         } else if (sectionName == 'Подписка') {
+            // TODO
             return <Subscription/>;
         } else {
-            return <Profile activeSection={activeSection} setActiveSection={setActiveSection}/>;
+            return <Profile setActiveSection={setActiveSection} />;
         }
     }
 
@@ -31,8 +35,8 @@ const Account = () => {
         <>
             <section className="container">
                 <div className="row inner-block-1 p-1">
-                    <div className="inner-block-3 me-3 ms-3 mt-1 mb-1">
-                        <span>LOL</span>
+                    <div className="inner-block-3 me-3 ms-3 mt-1 mb-1 text-start">
+                        <span className="ms-3 text-danger">LOL</span>
                     </div>
                 </div>
             </section>
