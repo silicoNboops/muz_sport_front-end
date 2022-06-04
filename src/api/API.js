@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // dev api host + port
-// export const API_URL = "http://ovz1.kupalex.n03kn.vps.myjino.ru:49192/";
-export const API_URL = "http://127.0.0.1:5000/";
+export const API_URL = "http://ovz1.kupalex.n03kn.vps.myjino.ru:49192/";
+// export const API_URL = "http://127.0.0.1:5000/";
 
 const API = axios.create({
     withCredentials: true,
