@@ -30,6 +30,7 @@ const Authorization = (props) => {
             })
             .catch((error) => {
                 console.log('error_login');
+                navigate('/', { replace: true });
             });
     }
 
