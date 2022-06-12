@@ -11,8 +11,10 @@ const OrderPage = () => {
 
 
     const getCoupon = (coupon) => {
-        const resProduct = fetch(process.env.REACT_APP_MUZSPORT_API + 'coupon/' + coupon);
-        const dataProduct = resProduct.json();
+        fetch(process.env.REACT_APP_MUZSPORT_API + 'coupon/' + coupon)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            // JSON.stringify(data))
     }
 
         const initData = () => {
@@ -75,7 +77,7 @@ const OrderPage = () => {
 
 
                 <div className="card col-4 row offset-8">
-                    <h5>Стоимость со скидкой : 1545,6 ₽</h5>
+                    <h5>Стоимость со скидкой : 1360 ₽</h5>
                 </div>
 
                 <div className="row p-4 justify-content-end">

@@ -15,6 +15,7 @@ import FinishedTrack from "./components/FinishedTrack";
 import AddSuggestiveEffect from "./components/AddSuggestiveEffect";
 import UnloadingModule from "./components/UnloadingModule";
 import SpecialWishes from "./components/SpecialWishes";
+import Waveform from "./components/Player";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                       <Route exact path="/test2" element={<AddSuggestiveEffect/>} />
                       <Route exact path="/test3" element={<UnloadingModule/>} />
                       <Route exact path="/test4" element={<SpecialWishes/>} />
+                      <Route exact path="/player" element={<Waveform/>} />
                   </Routes>
               <Footer/>
           </BrowserRouter>
