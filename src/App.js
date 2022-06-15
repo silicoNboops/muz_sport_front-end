@@ -16,6 +16,7 @@ import AddSuggestiveEffect from "./components/AddSuggestiveEffect";
 import UnloadingModule from "./components/UnloadingModule";
 import SpecialWishes from "./components/SpecialWishes";
 import Waveform from "./components/Player";
+import CatalogTemplate from "./components/filters/CatalogTemplate";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
                       <Route exact path="/test3" element={<UnloadingModule/>} />
                       <Route exact path="/test4" element={<SpecialWishes/>} />
                       <Route exact path="/player" element={<Waveform/>} />
+                      <Route exact path="/tracks" element={<CatalogTemplate/>}/>
                   </Routes>
               <Footer/>
           </BrowserRouter>

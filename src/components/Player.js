@@ -1,10 +1,40 @@
 import React, { Component } from 'react';
 import WaveSurfer from 'wavesurfer.js';
+import styled from "styled-components";
 
-// import { WaveformContianer, Wave, PlayButton } from './Waveform.styled';
+const WaveformContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;  width: 100%;
+  background: transparent;
+`;
 
-class Waveform extends Component {
+const Wave = styled.div`
+  width: 100%;
+  height: 90px;
+`;
 
+const PlayButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: #EFEFEF;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-bottom: 3px;
+  
+  &:hover {
+    background: #DDD;
+  }
+`;
+
+export default class Waveform extends Component {
     state = {
         playing: false,
     };
@@ -13,10 +43,10 @@ class Waveform extends Component {
         const track = document.querySelector('#track');
 
         this.waveform = WaveSurfer.create({
-            barWidth: 3,
+            barWidth: 1,
             cursorWidth: 1,
-            container: '#waveform',
-            backend: 'WebAudio',
+            container: document.querySelector('#wave'),
+            backend: 'MediaElement',
             height: 80,
             progressColor: '#000000',
             responsive: true,
@@ -36,15 +66,13 @@ class Waveform extends Component {
         const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3';
 
         return (
-            <div className="wave-form-container">
-                <div className="wave-play-btn" onClick={this.handlePlay} >
+            <WaveformContainer>
+                <PlayButton onClick={this.handlePlay} >
                     {!this.state.playing ? 'Play' : 'Pause'}
-                </div>
-                <div className="wave" id="waveform" />
+                </PlayButton>
+                <Wave id="wave" />
                 <audio id="track" src={url} />
-            </div>
+            </WaveformContainer>
         );
     }
 };
-
-export default Waveform;
