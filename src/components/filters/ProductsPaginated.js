@@ -8,6 +8,9 @@ const Products = ({productsCurrent}) => {
         <Row>
             {productsCurrent.map((product) => (
                 <Col xxl={3} lg={4} md={6} sm={12} className='padding-bottom-sm'>
+                    <div>
+                        LOL
+                    </div>
                 </Col>
             ))}
         </Row>

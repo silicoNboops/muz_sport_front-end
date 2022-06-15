@@ -11,7 +11,7 @@ const OrderPage = () => {
 
 
     const getCoupon = (coupon) => {
-        fetch(process.env.REACT_APP_MUZSPORT_API + 'coupon/' + coupon)
+        fetch(process.env.REACT_APP_MUZSPORT_API + '/coupon/' + coupon)
             .then(res => res.json())
             .then(data => console.log(data))
             // JSON.stringify(data))

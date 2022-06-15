@@ -6,8 +6,7 @@ import {toast} from "react-toastify";
 
 
 const CatalogTemplate = React.memo(() => {
-    // в пропсы передаем тип товаров и его потом в ссылки толкаем - чтоб код по сто раз не писать
-    const itemsReqUrlDefault = process.env.REACT_APP_MUZSPORT_API + 'tracks' + '/';
+    const itemsReqUrlDefault = process.env.REACT_APP_MUZSPORT_API + '/tracks/';
 
     const [productsData, setProductsData] = useState({});
     const [filterVariants, setFilterVariants] = useState({});
@@ -21,15 +20,8 @@ const CatalogTemplate = React.memo(() => {
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
         async function fetchInitData() {
-            // TODO сделать на беке получение фильтров для каждого из типов продуктов
-            await fetch(process.env.REACT_APP_MUZSPORT_API + `tracks/filtersAll`, {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/filtersAll`, {
                 method: 'GET',
-                mode: 'cors',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    // 'Origin': 'http://nksgroup33.ru:8000'
-                }
             })
                 .then(res => res.json())
                 .then((filters) => {
@@ -40,8 +32,7 @@ const CatalogTemplate = React.memo(() => {
                     setFiltersError(error);
                 });
 
-            // TODO заменить на слэш! /products -> и в остальных местах тоже
-            await fetch(process.env.REACT_APP_MUZSPORT_API + 'tracks/', {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/tracks/', {
             })
                 .then(res => res.json())
                 .then((products) => {
@@ -62,7 +53,7 @@ const CatalogTemplate = React.memo(() => {
             filtersQueryParams = '';
         }
 
-        await fetch(process.env.REACT_APP_MUZSPORT_API + `tracks/?${filtersQueryParams}`)
+        await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/?${filtersQueryParams}`)
             .then(res => res.json())
             .then((products) => {
                 setProductsData(products);
@@ -80,7 +71,7 @@ const CatalogTemplate = React.memo(() => {
             filtersQueryParams = '';
         }
 
-        const reqUrl = process.env.REACT_APP_MUZSPORT_API + `tracks/?${filtersQueryParams}`;
+        const reqUrl = process.env.REACT_APP_MUZSPORT_API + `/tracks/?${filtersQueryParams}`;
         setItemsReqUrl(reqUrl);
     };
 

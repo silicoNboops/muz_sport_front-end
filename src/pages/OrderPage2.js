@@ -24,7 +24,7 @@ const OrderPage2 = () => {
 
         console.log(JSON.stringify(order))
 
-        fetch(process.env.REACT_APP_MUZSPORT_API + 'order/', {
+        fetch(process.env.REACT_APP_MUZSPORT_API + '/order/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
