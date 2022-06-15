@@ -29,6 +29,8 @@ export default {
     registerUser: (data) => API.post("auth/users/", data),
     getUser: () => API.get("auth/users/me/"),
     logout: () => API.post('auth/token/logout'),
+    addOrderSegment: (data) => API.post('order/segment/add/'),
+    deleteOrderSegment: (data) => API.post('order/segment/delete/'),
     getWishlist: () => API.get("wishlist/"),
     createWishlist: (id, data) => API.post("wishlist/create/" + id + "/", data),
     deleteWishlist: (id) => API.post("wishlist/delete/" + id),
