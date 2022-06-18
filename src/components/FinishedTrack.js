@@ -23,15 +23,15 @@ const FinishedTrack = () => {
             <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <div className="accordion-body" >
-                    <div className="container card col-8 p-5" style={{borderRadius:"12px"}}>
+                    <div className="container-fluid card col-8 p-5" style={{borderRadius:"12px"}}>
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder">Название трека:</span>
-                                <span className="font-weight-bold">RuPaul - Call Me Mother</span>
+                                <span className="font-weight-bold container col-6 pb-4">RuPaul - Call Me Mother</span>
                             </div>
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder ">Программа для*:</span>
-                                <span className="font-weight-bold">
+                                <span className="font-weight-bold container col-6 pb-4">
                                     <Dropdown>
                                       <Dropdown.Toggle style={{backgroundColor:"#948eba"}} id="dropdown-basic">
                                         Вид спорта...
@@ -49,7 +49,7 @@ const FinishedTrack = () => {
                                 <span className="font-weight-bolder">
                                     <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                                     Хронометраж*:</span>
-                                <span className="font-weight-bold">от
+                                <span className="font-weight-bold container col-6 pb-4">от
                                     <input type="time" id="appt" name="appt" style={{backgroundColor:"#948eba",
                                         borderRadius:"10px"}} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                            required/>до
@@ -62,7 +62,7 @@ const FinishedTrack = () => {
                                 <span className="font-weight-bolder">Пик в начале:</span>
                                 <span className="font-weight-bold">
                                     <div className="form-check">
-                                      <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                      <input className="form-check-input" type="checkbox" id="flexCheckDefault"/>
                                       <label className="form-check-label" htmlFor="flexCheckDefault">Добавить</label>
                                     </div>
                                 </span>
@@ -108,8 +108,11 @@ const FinishedTrack = () => {
                             <textarea type="text"
                                    value={commentary}
                                    className="form-control input-box"
+                                   style={{minHeight:"150px", backgroundColor:"#f4f4f4"}}
                                    placeholder="Пример:
-                                   -Оставить все энергичные части трека"
+                                   -Оставить все энергичные части трека
+                                   или
+                                   -Убрать все части с вокалом"
                                    onChange={(e) =>
                                        setCommentary(e.target.value)}/>
                         </div>

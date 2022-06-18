@@ -25,7 +25,7 @@ const AddSuggestiveEffect = () => {
             </button>
             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
-                <div className="accordion-body" >
+                <div className="accordion-body " >
                     <div className="container card col-8 p-5" style={{borderRadius:"12px"}}>
                         <p className="text-start">Добавление суггестивного эффекта в спортивную программу позволит повысить концетрацию и
                         мобилизацию спортсмена на соревновании, а так же окажет психологическую поддержку спортсмена во
@@ -33,7 +33,7 @@ const AddSuggestiveEffect = () => {
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder">Имя спортсмена:</span>
-                                <span className="font-weight-bold">
+                                <span className="font-weight-bold container col-7">
                                     <input type="text" required
                                            value={name}
                                            placeholder="Указать имя (опционально)"
@@ -45,7 +45,7 @@ const AddSuggestiveEffect = () => {
                             </div>
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder ">Направление воздействия эффекта:</span>
-                                <span className="font-weight-bold">
+                                <span className="font-weight-bold container pt-4 pb-4">
                                     <Dropdown>
                                       <Dropdown.Toggle style={{backgroundColor:"#948eba"}} id="dropdown-basic">
                                         Выберите направление

@@ -15,12 +15,13 @@ const SpecialWishes = () => {
 
     return(
         <div className="container-fluid p-5">
-            <div className="container card col-8 ps-5 pt-3">
-                <h5 className="text-start">Особые пожелания</h5>
+            <div className="container card col-8 ps-5 pt-3" style={{borderRadius:"12px"}}>
+                <h5 className="text-start pt-3">Особые пожелания</h5>
                 <h6 className="text-start">Что-то, что относится ко всей спортивной программе</h6>
                 <textarea type="text"
                           value={commentary}
                           className="form-control input-box mb-5 mt-3"
+                          style={{minHeight:"220px", backgroundColor:"#f4f4f4"}}
                           placeholder="ТОП-3 бесполежных особых пожелания =)
                           -Чтобы тренеру понравилось
                           -Чтобы душа пела
@@ -40,7 +41,7 @@ const SpecialWishes = () => {
                            aria-expanded="true"
                            style={{borderRadius:"12px"}}
                            aria-controls="collapseOne"/>
-                    <label className="form-check-label text-start" htmlFor="flexCheckDefault">Отмечая данный пункт я подтверждаю, что
+                    <label className="form-check-label text-start pb-3" htmlFor="flexCheckDefault">Отмечая данный пункт я подтверждаю, что
                     меня уведомили о сроке выполнения заказа (обычно от 5 до 7 рабочих дней).</label>
                 </div>
                 <div id="collapseFive" className="accordion-collapse collapse" aria-labelledby="headingOne"

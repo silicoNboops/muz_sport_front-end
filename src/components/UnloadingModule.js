@@ -32,7 +32,7 @@ const UnloadingModule = () => {
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder ">Направление воздействия эффекта:</span>
-                                <span className="font-weight-bold">
+                                <span className="font-weight-bold container pt-3">
                                     <Dropdown>
                                       <Dropdown.Toggle style={{backgroundColor:"#948eba"}} id="dropdown-basic">
                                         Выберите направление
@@ -53,7 +53,7 @@ const UnloadingModule = () => {
                                 вызывает у обычного человека чувство расслабления. Рекомендуемая продолжительность: 5-12
                                 мин.
                                 </h6>
-                                <div className="container d-inline-flex pt-3">
+                                <div className=" d-inline-flex pt-3">
                                     <img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>
                                     <img src="assets/icons/download.png" className="card p-1" height="50px"/>
                                 </div>
