@@ -7,8 +7,8 @@ const ServicesPage = () => {
             <h2 className="text-white">Индивидуальный заказ спортивной программы</h2>
             <h5 className="text-white">Выберите подходящее Вам пакетное предложение</h5>
 
-            <div className="row">
-                <div className="container pt-5 col-4" style={{marginTop:"119px"}}>
+            <div className="row pt-4">
+                <div className="container col-4" style={{marginTop:"119px"}}>
                     <div className="card col-10 mb-2 float-start" style={{borderRadius:"12px"}}>
                         <h5 className="service-style" style={{backgroundColor:"#d7d4e5"}}>Спортивная программа</h5>
                     </div>
@@ -25,7 +25,7 @@ const ServicesPage = () => {
                     </div>
                 </div>
 
-                <div className="container pt-5 col-4">
+                <div className="container col-4">
 
                     <div className="info-block-services">
                         <div className="card col-10 d-inline-flex" id="navi" style={{borderRadius:"12px"}}>
@@ -56,7 +56,7 @@ const ServicesPage = () => {
                     </div>
                 </div>
 
-                <div className="container pt-5 col-4" style={{marginTop:"57px"}}>
+                <div className="container col-4" style={{marginTop:"57px"}}>
                     <div className="card col-10 float-end mb-2" style={{borderRadius:"12px"}}>
                         <h5 className="service-style" style={{backgroundColor:"#d7d4e5"}}>Спортивная программа</h5>
                         <h6>с суггестивным эффектом</h6>
