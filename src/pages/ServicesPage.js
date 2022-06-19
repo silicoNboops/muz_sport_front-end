@@ -27,14 +27,16 @@ const ServicesPage = () => {
 
                 <div className="container pt-5 col-4">
 
-                    <div className="card col-10 d-inline-flex" style={{borderRadius:"12px"}}>
-                        <h5 className="service-style" style={{backgroundColor:"#d7d4e5"}}>Спортивная программа</h5>
-                        <h6>с суггестивным эффектом</h6>
+                    <div className="info-block-services">
+                        <div className="card col-10 d-inline-flex" id="navi" style={{borderRadius:"12px"}}>
+                            <h5 className="service-style" style={{backgroundColor:"#d7d4e5"}}>Спортивная программа</h5>
+                            <h6>с суггестивным эффектом</h6>
+                        </div>
+                        <p className="card col-10 d-inline-flex" style={{borderRadius:"12px", backgroundColor:"#b6ef9d"}}>
+                            Оптимальный выбор</p>
                     </div>
-                    <p className="card col-10 d-inline-flex" style={{borderRadius:"12px", backgroundColor:"#b6ef9d"}}>
-                        Оптимальный выбор</p>
 
-                    <div className="card service-card col-12" style={{minHeight:"625px"}}>
+                    <div className="card service-card col-12 block-services" style={{minHeight:"625px"}}>
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px", marginTop:"60px"}}>
                             <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
