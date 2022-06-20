@@ -34,7 +34,7 @@ const PlayButton = styled.button`
   }
 `;
 
-export default class Waveform extends Component {
+class Waveform extends Component {
     state = {
         playing: false,
     };
@@ -43,12 +43,12 @@ export default class Waveform extends Component {
         const track = document.querySelector('#track');
 
         this.waveform = WaveSurfer.create({
-            barWidth: 1,
+            barWidth: 3,
             cursorWidth: 1,
-            container: document.querySelector('#wave'),
-            backend: 'MediaElement',
+            container: '#waveform',
+            backend: 'WebAudio',
             height: 80,
-            progressColor: '#000000',
+            progressColor: '#2D5BFF',
             responsive: true,
             waveColor: '#EFEFEF',
             cursorColor: 'transparent',
@@ -66,13 +66,16 @@ export default class Waveform extends Component {
         const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3';
 
         return (
-            <WaveformContainer>
-                <PlayButton onClick={this.handlePlay} >
-                    {!this.state.playing ? 'Play' : 'Pause'}
-                </PlayButton>
-                <Wave id="wave" />
-                <audio id="track" src={url} />
-            </WaveformContainer>
+            <div className="card mt-5 mb-5">
+                <WaveformContainer>
+                    <PlayButton onClick={this.handlePlay} >
+                        {!this.state.playing ? 'Play' : 'Pause'}
+                    </PlayButton>
+                    <Wave id="waveform" />
+                    <audio id="track" src={url} />
+                </WaveformContainer>
+            </div>
         );
     }
 };
+export default Waveform;

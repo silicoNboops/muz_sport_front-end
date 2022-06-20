@@ -4,15 +4,15 @@ import React from "react";
 const ServicesPage = () => {
     return(
         <div className="container-fluid p-5">
-            <h2 className="text-white">Индивидуальный заказ спортивной программы</h2>
-            <h5 className="text-white">Выберите подходящее Вам пакетное предложение</h5>
+            <h1 className="text-white">Индивидуальный заказ спортивной программы</h1>
+            <h4 className="text-white">Выберите подходящее Вам пакетное предложение</h4>
 
             <div className="row pt-4">
                 <div className="container col-4" style={{marginTop:"119px"}}>
                     <div className="card col-10 mb-2 float-start" style={{borderRadius:"12px"}}>
                         <h5 className="service-style" style={{backgroundColor:"#d7d4e5"}}>Спортивная программа</h5>
                     </div>
-                    <div className="card service-card col-12">
+                    <div className="card service-card col-12 pb-2">
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px"}}>
                             <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
@@ -36,7 +36,7 @@ const ServicesPage = () => {
                             Оптимальный выбор</p>
                     </div>
 
-                    <div className="card service-card col-12 block-services" style={{minHeight:"625px"}}>
+                    <div className="card service-card col-12 block-services pb-3" style={{minHeight:"625px"}}>
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px", marginTop:"60px"}}>
                             <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
@@ -47,7 +47,7 @@ const ServicesPage = () => {
                             <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Введение суггестивной информации для повышения концетрации и мобилизации спортсмена на
                         соревнованиях <a href="#" className="text-muted">подробнее о методе</a></h6>
-                        <p className="mt-auto" style={{paddingTop:"50px"}}>
+                        <p className="mt-auto" style={{paddingTop:"80px"}}>
                             <img src="assets/icons/coupon.png" className="me-3" width="60px"/>
                             Промокод на будущий заказ 8%</p>
                         <p className="text-white mt-auto service-style" style={{backgroundColor:"#00bd00"}}>
@@ -62,7 +62,7 @@ const ServicesPage = () => {
                         <h6>с суггестивным эффектом</h6>
                         <h6 className="pt-2">+ разгрузочный модуль</h6>
                     </div>
-                    <div className="card service-card col-12">
+                    <div className="card service-card col-12 pb-4">
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px"}}>
                             <img src="assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
