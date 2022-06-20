@@ -34,7 +34,7 @@ const PlayButton = styled.button`
   }
 `;
 
-class Waveform extends Component {
+export default class Waveform extends Component {
     state = {
         playing: false,
     };
@@ -43,12 +43,12 @@ class Waveform extends Component {
         const track = document.querySelector('#track');
 
         this.waveform = WaveSurfer.create({
-            barWidth: 3,
+            barWidth: 1,
             cursorWidth: 1,
-            container: '#waveform',
-            backend: 'WebAudio',
+            container: document.querySelector('#wave'),
+            backend: 'MediaElement',
             height: 80,
-            progressColor: '#2D5BFF',
+            progressColor: '#000000',
             responsive: true,
             waveColor: '#EFEFEF',
             cursorColor: 'transparent',
@@ -71,11 +71,10 @@ class Waveform extends Component {
                     <PlayButton onClick={this.handlePlay} >
                         {!this.state.playing ? 'Play' : 'Pause'}
                     </PlayButton>
-                    <Wave id="waveform" />
+                    <Wave id="wave" />
                     <audio id="track" src={url} />
                 </WaveformContainer>
             </div>
         );
     }
 };
-export default Waveform;
