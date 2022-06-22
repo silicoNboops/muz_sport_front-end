@@ -125,3 +125,16 @@
     position: relative;
     left: 0px;
 }
+
+.track-image{
+    height: 180px;
+    width: 180px;
+    padding: 10px;
+}
+
+.price-icon{
+    right: 30px;
+    position: relative;
+    margin-top: 65px;
+    height: 60px;
+}

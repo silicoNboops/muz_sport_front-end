@@ -2,7 +2,7 @@ import React from 'react';
 
 const Ad = () => {
     return (
-        <div className="container row">
+        <div className="container row pb-3">
             <div className="col-8">
                 <div className="card-img img-wrap">
                         <img src="assets/images/ad.png" className="elem-ad" height="345px" width="100%"/>

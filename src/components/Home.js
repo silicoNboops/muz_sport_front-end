@@ -1,5 +1,6 @@
 import React from 'react';
 import Ad from "./Ad";
+import Waveform from "./Player";
 
 const Home = () => {
     return (
@@ -71,6 +72,7 @@ const Home = () => {
                 </div>
             </div>
             <Ad/>
+            <Waveform/>
         </div>
     )
 };

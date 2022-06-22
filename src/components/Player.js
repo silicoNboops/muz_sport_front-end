@@ -7,13 +7,13 @@ const WaveformContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 100px;  width: 100%;
+  height: 60px;  width: 100%;
   background: transparent;
 `;
 
 const Wave = styled.div`
   width: 100%;
-  height: 90px;
+  height: 80px;
 `;
 
 const PlayButton = styled.button`
@@ -34,7 +34,7 @@ const PlayButton = styled.button`
   }
 `;
 
-export default class Waveform extends Component {
+class Waveform extends Component {
     state = {
         playing: false,
     };
@@ -43,7 +43,7 @@ export default class Waveform extends Component {
         const track = document.querySelector('#track');
 
         this.waveform = WaveSurfer.create({
-            barWidth: 1,
+            barWidth: 2,
             cursorWidth: 1,
             container: document.querySelector('#wave'),
             backend: 'MediaElement',
@@ -66,15 +66,27 @@ export default class Waveform extends Component {
         const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3';
 
         return (
-            <div className="card mt-5 mb-5">
-                <WaveformContainer>
-                    <PlayButton onClick={this.handlePlay} >
-                        {!this.state.playing ? 'Play' : 'Pause'}
-                    </PlayButton>
-                    <Wave id="wave" />
-                    <audio id="track" src={url} />
-                </WaveformContainer>
+            <div className="container pt-5 pb-5">
+                <div className="row">
+                    <img src="assets/images/baetman.jpg" className="track-image"/>
+                        <div className="card mt-5 mb-5 p-3 col-8" style={{borderRadius: '12px'}}>
+                            <WaveformContainer>
+                                <PlayButton onClick={this.handlePlay} >
+                                    {!this.state.playing ? 'Play' : 'Pause'}
+                                </PlayButton>
+                                <Wave id="wave" />
+                                <audio id="track" src={url} />
+                            </WaveformContainer>
+                        </div>
+                    <img src='assets/icons/price-tag.png' className='price-icon col'/>
+                    <div className="row">
+                        <p className="card col-2 me-2">Худ.гимнастика</p>
+                        <p className="card col-2 me-2">Энергичная</p>
+                        <p className="card col-2">Америка</p>
+                    </div>
+                </div>
             </div>
-        );
+    );
     }
 };
+export default Waveform
