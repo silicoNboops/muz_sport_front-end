@@ -15,14 +15,16 @@ import FinishedTrack from "./components/FinishedTrack";
 import AddSuggestiveEffect from "./components/AddSuggestiveEffect";
 import UnloadingModule from "./components/UnloadingModule";
 import SpecialWishes from "./components/SpecialWishes";
-import Waveform from "./components/Player";
 import CatalogTemplate from "./components/filters/CatalogTemplate";
+import Waveform from "./components/Player";
+
 
 function App() {
   return (
-      <div className="App">
-          <BrowserRouter>
+      <BrowserRouter>
+        <div className="App">
               <Header/>
+
                   <Routes>
                       <Route exact path="/" element={<Home/>} />
                       <Route exact path="/order" element={<OrderPage/>} />
@@ -39,9 +41,11 @@ function App() {
                       <Route exact path="/player" element={<Waveform/>} />
                       <Route exact path="/tracks" element={<CatalogTemplate/>}/>
                   </Routes>
+
               <Footer/>
-          </BrowserRouter>
-      </div>
+            </div>
+      </BrowserRouter>
+
   );
 }
 
