@@ -36,6 +36,7 @@ const PlayButton = styled.button`
 
 class Waveform extends Component {
     state = {
+        tracks: [],
         playing: false,
     };
 
@@ -54,8 +55,20 @@ class Waveform extends Component {
             cursorColor: 'transparent',
         });
 
+
         this.waveform.load(track);
     };
+
+    // componentDidMount() {
+    //     fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks`)
+    //         .then(res => res.json())
+    //         .then(tracks => {
+    //             this.setState({
+    //                 tracks: []
+    //             });
+    //             console.log(tracks)
+    //         });
+    // }
 
     handlePlay = () => {
         this.setState({ playing: !this.state.playing });
@@ -68,6 +81,7 @@ class Waveform extends Component {
         return (
             <div className="container pt-5 pb-5">
                 <div className="row">
+                    <h4 className="text-white track-title">The Weekend - False Alarm</h4>
                     <img src="assets/images/baetman.jpg" className="track-image"/>
                         <div className="card mt-5 mb-5 p-3 col-8" style={{borderRadius: '12px'}}>
                             <WaveformContainer>
@@ -79,10 +93,16 @@ class Waveform extends Component {
                             </WaveformContainer>
                         </div>
                     <img src='assets/icons/price-tag.png' className='price-icon col'/>
-                    <div className="row">
-                        <p className="card col-2 me-2">Худ.гимнастика</p>
-                        <p className="card col-2 me-2">Энергичная</p>
-                        <p className="card col-2">Америка</p>
+                    <div className="row track-description">
+                        <p className="card col-2 me-2 text-white" style={{backgroundColor: '#6d669a',
+                            borderRadius: '12px'}}>Худ.гимнастика
+                        </p>
+                        <p className="card col-2 me-2 text-white" style={{backgroundColor: '#6d669a',
+                            borderRadius: '12px'}}>Энергичная
+                        </p>
+                        <p className="card col-2 text-white" style={{backgroundColor: '#6d669a',
+                            borderRadius: '12px'}}>Америка
+                        </p>
                     </div>
                 </div>
             </div>

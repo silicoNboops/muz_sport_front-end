@@ -145,6 +145,17 @@
     position: relative;
     transform: rotate(15deg);
 }
+.track-title{
+    position: relative;
+    top: 45px;
+    text-align: start;
+    padding-left: 195px;
+}
+.track-description{
+    position: relative;
+    padding-left: 195px;
+    bottom: 42px;
+}
 
 
 
