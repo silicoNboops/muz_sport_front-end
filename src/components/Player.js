@@ -92,7 +92,10 @@ class Waveform extends Component {
                                 <audio id="track" src={url} />
                             </WaveformContainer>
                         </div>
-                    <img src='assets/icons/price-tag.png' className='price-icon col'/>
+                    <div className="col imgblock-track">
+                        <img src='assets/icons/price-tag.png' className='price-icon'/>
+                        <span className="text-start">540 ₽</span>
+                    </div>
                     <div className="row track-description">
                         <p className="card col-2 me-2 text-white" style={{backgroundColor: '#6d669a',
                             borderRadius: '12px'}}>Худ.гимнастика

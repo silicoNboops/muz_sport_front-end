@@ -138,6 +138,14 @@
     margin-top: 65px;
     height: 60px;
 }
+.price-icon span{
+    z-index: 1;
+    color: black;
+    position: absolute;
+    right: 0;
+    font-size: 28px;
+    margin: -5px 20px;
+}
 .price-icon-services {
     z-index: 1;
     margin-left: 120px;
@@ -156,6 +164,33 @@
     padding-left: 195px;
     bottom: 42px;
 }
+.imgblock-service {
+    position: relative;
+    display: inline-block;
+}
 
+.imgblock-service span {
+    transform: rotate(15deg);
+    z-index: 1;
+    color: black;
+    position: absolute;
+    right: 0;
+    font-size: 28px;
+    /*margin-right: 20px;*/
+    margin: -5px 20px;
+}
+.imgblock-track {
+    position: relative;
+    display: inline-block;
+}
+.imgblock-track span {
+    z-index: 1;
+    color: black;
+    position: absolute;
+    right: 0;
+    font-size: 34px;
+    margin-top: 70px;
+    margin-right: 80px;
+}
 
 

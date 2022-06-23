@@ -1,6 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Ad = () => {
+    const [ad, setAd] = useState([])
+
+    // useEffect(() => {
+    //         fetch(process.env.REACT_APP_MUZSPORT_API + `/adbig`, {
+    //             'method': 'GET',
+    //             headers: {
+    //                 'Content-Type' : 'applicator/json'
+    //             }
+    //         })
+    //             .then(res => res.json())
+    //             .then(res => )
+    //     },
+    //         []);
+
     return (
         <div className="container row pb-3">
             <div className="col-8">
