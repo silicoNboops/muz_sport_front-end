@@ -133,9 +133,9 @@
 }
 
 .price-icon{
-    right: 30px;
+    right: 33px;
     position: relative;
-    margin-top: 65px;
+    margin-top: 50px;
     height: 60px;
 }
 .price-icon span{
@@ -157,13 +157,19 @@
     position: relative;
     top: 45px;
     text-align: start;
-    padding-left: 195px;
+    padding-left: 125px;
 }
 .track-description{
     position: relative;
-    padding-left: 195px;
+    padding-left: 125px;
     bottom: 42px;
 }
+.track-description p{
+    background-color: #6d669a;
+    border-radius: 12px;
+    max-width: 140px;
+}
+
 .imgblock-service {
     position: relative;
     display: inline-block;
@@ -189,8 +195,8 @@
     position: absolute;
     right: 0;
     font-size: 34px;
-    margin-top: 70px;
-    margin-right: 80px;
+    margin-top: 55px;
+    margin-right: 75px;
 }
 
 

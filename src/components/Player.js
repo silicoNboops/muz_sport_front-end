@@ -1,37 +1,30 @@
 import React, { Component } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import styled from "styled-components";
+import FinishedTrack from "./FinishedTrack";
 
 const WaveformContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 60px;  width: 100%;
+  height: 30px;  width: 100%;
   background: transparent;
 `;
 
 const Wave = styled.div`
-  width: 100%;
-  height: 80px;
+  width: 97%;
+  height: 60px;
 `;
 
 const PlayButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
-  background: #EFEFEF;
-  border-radius: 50%;
   border: none;
-  outline: none;
-  cursor: pointer;
+  background: rgba(37, 36, 64, 0.01);
   padding-bottom: 3px;
-  
-  &:hover {
-    background: #DDD;
-  }
+
 `;
 
 class Waveform extends Component {
@@ -48,7 +41,7 @@ class Waveform extends Component {
             cursorWidth: 1,
             container: document.querySelector('#wave'),
             backend: 'MediaElement',
-            height: 80,
+            height: 60,
             progressColor: '#000000',
             responsive: true,
             waveColor: '#EFEFEF',
@@ -76,37 +69,45 @@ class Waveform extends Component {
     };
 
     render() {
-        const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3';
+        const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track4.mp3';
 
         return (
             <div className="container pt-5 pb-5">
                 <div className="row">
                     <h4 className="text-white track-title">The Weekend - False Alarm</h4>
-                    <img src="assets/images/baetman.jpg" className="track-image"/>
-                        <div className="card mt-5 mb-5 p-3 col-8" style={{borderRadius: '12px'}}>
+
+                    <div className="col-1" style={{paddingTop: '35px'}}>
+                        <PlayButton onClick={this.handlePlay} >
+                            {!this.state.playing ?
+                                <img src="assets/icons/play-button-arrowhead.png" height="80px"/>
+                                :
+                                <img src="assets/icons/pause.png" height="80px"/>
+                            }
+                        </PlayButton>
+                    </div>
+
+                        <div className="card mt-5 mb-5 p-3 col-9" style={{borderRadius: '12px'}}>
                             <WaveformContainer>
-                                <PlayButton onClick={this.handlePlay} >
-                                    {!this.state.playing ? 'Play' : 'Pause'}
-                                </PlayButton>
                                 <Wave id="wave" />
                                 <audio id="track" src={url} />
                             </WaveformContainer>
                         </div>
-                    <div className="col imgblock-track">
-                        <img src='assets/icons/price-tag.png' className='price-icon'/>
-                        <span className="text-start">540 ₽</span>
+                    <div className="col-2 imgblock-track">
+                        <a href="#" className="link-unstyled">
+                            <img src='assets/icons/price-tag.png' className='price-icon'/>
+                            <span className="text-start text-white">540 ₽</span>
+                            <h6 className="text-white me-4">Купить</h6>
+                        </a>
                     </div>
+
                     <div className="row track-description">
-                        <p className="card col-2 me-2 text-white" style={{backgroundColor: '#6d669a',
-                            borderRadius: '12px'}}>Худ.гимнастика
-                        </p>
-                        <p className="card col-2 me-2 text-white" style={{backgroundColor: '#6d669a',
-                            borderRadius: '12px'}}>Энергичная
-                        </p>
-                        <p className="card col-2 text-white" style={{backgroundColor: '#6d669a',
-                            borderRadius: '12px'}}>Америка
-                        </p>
+                        {/*<marquee width="140px" classname="dotted deeppink">your running text</marquee>*/}
+                        <p className="card col-2 me-2 text-white">Худ.гимнастика</p>
+                        <p className="card col-2 me-2 text-white">Электронная</p>
+                        <p className="card col-2 me-2 text-white">Энергичная</p>
+                        <p className="card col-2 text-white">Америка</p>
                     </div>
+
                 </div>
             </div>
     );
