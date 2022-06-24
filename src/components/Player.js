@@ -109,9 +109,9 @@ class Waveform extends Component {
                         <p className="card col-2 me-2 text-white">Энергичная</p>
                         <p className="card col-2 text-white">Америка</p>
                         <div className="col-4 text-end">
-                            {/*<FinishedTrackBtn/>*/}
+                            <FinishedTrackBtn/>
                         </div>
-                        {/*<FinishedTrackBody/>*/}
+                        <FinishedTrackBody/>
                     </div>
                 </div>
             </div>
