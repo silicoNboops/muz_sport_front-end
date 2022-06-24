@@ -11,12 +11,12 @@ import Partnership from "./pages/Partnership";
 import AdPage from "./pages/AdPage";
 import Project from "./pages/Project";
 import ServicesPage from "./pages/ServicesPage";
-import FinishedTrack from "./components/FinishedTrack";
 import AddSuggestiveEffect from "./components/AddSuggestiveEffect";
 import UnloadingModule from "./components/UnloadingModule";
 import SpecialWishes from "./components/SpecialWishes";
 import CatalogTemplate from "./components/filters/CatalogTemplate";
 import Waveform from "./components/Player";
+import FinishedTrackBtn from "./components/FinishedTrack/FinishedTrackBtn";
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
                       <Route exact path="/ad" element={<AdPage/>} />
                       <Route exact path="/project" element={<Project/>} />
                       <Route exact path="/services" element={<ServicesPage/>} />
-                      <Route exact path="/test" element={<FinishedTrack/>} />
+                      <Route exact path="/test" element={<FinishedTrackBtn/>} />
                       <Route exact path="/test2" element={<AddSuggestiveEffect/>} />
                       <Route exact path="/test3" element={<UnloadingModule/>} />
                       <Route exact path="/test4" element={<SpecialWishes/>} />

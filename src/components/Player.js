@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import styled from "styled-components";
-import FinishedTrack from "./FinishedTrack";
+import FinishedTrackBtn from "./FinishedTrack/FinishedTrackBtn";
+import FinishedTrackBody from "./FinishedTrack/FinishedTrackBody";
+
 
 const WaveformContainer = styled.div`
   display: flex;
@@ -106,8 +108,11 @@ class Waveform extends Component {
                         <p className="card col-2 me-2 text-white">Электронная</p>
                         <p className="card col-2 me-2 text-white">Энергичная</p>
                         <p className="card col-2 text-white">Америка</p>
+                        <div className="col-4 text-end">
+                            {/*<FinishedTrackBtn/>*/}
+                        </div>
+                        {/*<FinishedTrackBody/>*/}
                     </div>
-
                 </div>
             </div>
     );
