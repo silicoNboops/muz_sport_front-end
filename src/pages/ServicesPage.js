@@ -24,8 +24,10 @@ const ServicesPage = () => {
                         <h6 className="text-start ms-3 mb-4">минимальный тариф без экономии</h6>
                     </div>
                     <div className="imgblock-service">
-                    <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
-                        <span>10320 ₽</span>
+                        <a href="#" className="link-unstyled">
+                            <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
+                            <span>10320 ₽</span>
+                        </a>
                     </div>
                 </div>
 
@@ -59,8 +61,10 @@ const ServicesPage = () => {
                         <h6 className="text-start ms-3 mb-4">экономия 1000 руб.</h6>
                     </div>
                     <div className="imgblock-service">
-                        <img src='assets/icons/price-tag.png' className="price-icon-services"/>
-                        <span style={{bottom: '40px'}}>10320 ₽</span>
+                        <a href="#" className="link-unstyled">
+                            <img src='assets/icons/price-tag.png' className="price-icon-services"/>
+                            <span style={{bottom: '40px'}}>10320 ₽</span>
+                        </a>
                     </div>
                 </div>
 
@@ -93,8 +97,10 @@ const ServicesPage = () => {
                         <h6 className="text-start ms-3 mb-4">экономия 2000 руб.</h6>
                     </div>
                     <div className="imgblock-service">
-                        <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
-                        <span>10320 ₽</span>
+                        <a href="#" className="link-unstyled">
+                            <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
+                            <span>10320 ₽</span>
+                        </a>
                     </div>
                 </div>
 

@@ -29,14 +29,20 @@ const PlayButton = styled.button`
 
 `;
 
+
+
+
+
 class Waveform extends Component {
+
     state = {
         tracks: [],
         playing: false,
     };
 
-    componentDidMount() {
+componentDidMount() {
         const track = document.querySelector('#track');
+
 
         this.waveform = WaveSurfer.create({
             barWidth: 2,
@@ -55,13 +61,12 @@ class Waveform extends Component {
     };
 
     // componentDidMount() {
-    //     fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks`)
+    //     fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/1`)
     //         .then(res => res.json())
     //         .then(tracks => {
     //             this.setState({
     //                 tracks: []
     //             });
-    //             console.log(tracks)
     //         });
     // }
 
@@ -70,11 +75,12 @@ class Waveform extends Component {
         this.waveform.playPause();
     };
 
+
     render() {
         const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track4.mp3';
 
         return (
-            <div className="container pt-5 pb-5">
+            <div className="container pt-2 pb-2">
                 <div className="row">
                     <h4 className="text-white track-title">The Weekend - False Alarm</h4>
 
@@ -94,16 +100,16 @@ class Waveform extends Component {
                                 <audio id="track" src={url} />
                             </WaveformContainer>
                         </div>
+
                     <div className="col-2 imgblock-track">
                         <a href="#" className="link-unstyled">
                             <img src='assets/icons/price-tag.png' className='price-icon'/>
-                            <span className="text-start text-white">540 ₽</span>
+                            <span className="text-start text-white">330 ₽</span>
                             <h6 className="text-white me-4">Купить</h6>
                         </a>
                     </div>
 
                     <div className="row track-description">
-                        {/*<marquee width="140px" classname="dotted deeppink">your running text</marquee>*/}
                         <p className="card col-2 me-2 text-white">Худ.гимнастика</p>
                         <p className="card col-2 me-2 text-white">Электронная</p>
                         <p className="card col-2 me-2 text-white">Энергичная</p>

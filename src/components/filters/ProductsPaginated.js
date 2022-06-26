@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from "react";
 import ReactPaginate from "react-paginate";
 import {Col, Row} from "react-bootstrap";
+import Player from "../Player";
 
 
 const Products = ({productsCurrent}) => {
     return (
         <Row>
             {productsCurrent.map((product) => (
-                <Col xxl={3} lg={4} md={6} sm={12} className='padding-bottom-sm'>
+                <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
                     <div>
-                        LOL
+                        <Player product={product}/>
                     </div>
                 </Col>
             ))}

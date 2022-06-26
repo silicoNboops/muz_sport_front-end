@@ -1,6 +1,6 @@
 import {Form} from "react-bootstrap";
 import React from "react";
-import {TableContainer} from "@mui/material";
+import {TableRow} from "@mui/material";
 
 
 const Selects = React.memo(({fieldList, selectedValues, handlerChangeSelect}) => {
@@ -19,15 +19,15 @@ const Selects = React.memo(({fieldList, selectedValues, handlerChangeSelect}) =>
 
 
 const SelectFilter = React.memo((props) => {
-    console.log('SELECT_INPUT');
+    // console.log('SELECT_INPUT');
 
     const {selectedValue, product_prop, name, values, handler} = props;
 
     // TODO подумать как тут предотвращать рендеры ВСЕХ затронутых элементов
     // TODO мб через хендлер
     return (
-        <Form.Group className="col-2" as={TableContainer} controlId={product_prop}>
-            <Form.Label>{name}</Form.Label>
+        <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
+            <Form.Label className="text-white">{name}</Form.Label>
             <Form.Control
                 as='select'
                 name={name}

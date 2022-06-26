@@ -200,6 +200,16 @@
     margin-top: 55px;
     margin-right: 75px;
 }
+.delete-track{
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+.empty-page{
+    height: 400px;
+}
 
 
 
