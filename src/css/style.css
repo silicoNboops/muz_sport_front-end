@@ -210,6 +210,10 @@
 .empty-page{
     height: 400px;
 }
-
+.text-oao{
+    position: relative;
+    bottom: 40px;
+    padding-left: 100px;
+}
 
 
