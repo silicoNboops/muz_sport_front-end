@@ -29,10 +29,6 @@ const PlayButton = styled.button`
 
 `;
 
-
-
-
-
 class Waveform extends Component {
 
     state = {
@@ -43,6 +39,13 @@ class Waveform extends Component {
 componentDidMount() {
         const track = document.querySelector('#track');
 
+        fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/1`)
+            .then(res => res.json())
+            .then(tracks => {
+                this.setState({
+                    tracks: []
+                });
+            });
 
         this.waveform = WaveSurfer.create({
             barWidth: 2,
@@ -60,15 +63,6 @@ componentDidMount() {
         this.waveform.load(track);
     };
 
-    // componentDidMount() {
-    //     fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/1`)
-    //         .then(res => res.json())
-    //         .then(tracks => {
-    //             this.setState({
-    //                 tracks: []
-    //             });
-    //         });
-    // }
 
     handlePlay = () => {
         this.setState({ playing: !this.state.playing });

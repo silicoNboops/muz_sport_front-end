@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-// import {useCart} from "react-use-cart";
+import {useCart} from "react-use-cart";
 
 
 const OrderPage2 = () => {
@@ -8,6 +8,7 @@ const OrderPage2 = () => {
     const [last_name, setLast_name] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    const {items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems, cartTotal} = useCart();
 
     const initData = () => {
         setName('');

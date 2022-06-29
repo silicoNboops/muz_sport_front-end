@@ -25,9 +25,8 @@ const Header = () => {
                 </a>
             </div>
             <div className="icon-link-badged px-2">
-                <a href="#" className="text-black">
-                    <img src="assets/icons/account.png" width="35px"/>
-                    Регистрация
+                <a href="/order" className="text-black d-inline ps-2">
+                    <img src="assets/icons/cart.png" width="30px"/>
                 </a>
             </div>
         </div>

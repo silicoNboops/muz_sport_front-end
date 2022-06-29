@@ -7,7 +7,7 @@ const OrderPage = () => {
     const {items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems, cartTotal} = useCart();
     const [data, setData] = useState();
     // const discounted = (cartTotal * ((100 - data) / 100)
-    const discounted = 1600 * ((100 - data) / 100)
+    const discounted = 560 * ((100 - data) / 100)
 
 
     const getCoupon = (coupon) => {
@@ -73,7 +73,7 @@ const OrderPage = () => {
                     </div>
                     :
                     <div className="card  col-3 row offset-9">
-                        <h5>Стоимость : 1600 ₽</h5>
+                        <h5>Стоимость : 560 ₽</h5>
                     </div>
                 }
 
