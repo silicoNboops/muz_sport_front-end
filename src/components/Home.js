@@ -1,6 +1,7 @@
 import React from 'react';
 import Ad from "./Ad";
-import Waveform from "./Player";
+import Waveform from "./PlayerBlya/Player";
+import NewPlayer from "./PlayerBlya/FinishedPlayer";
 
 const Home = () => {
     return (
@@ -74,7 +75,7 @@ const Home = () => {
                 </div>
             </div>
             <Ad/>
-            <Waveform/>
+            <NewPlayer/>
         </div>
     )
 };

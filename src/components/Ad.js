@@ -16,8 +16,9 @@ const Ad = () => {
         <div className="container row pb-3">
             <div className="col-8">
                 <div className="card-img img-wrap">
-                    <img src="assets/images/ad.png" className="elem-ad" height="345px" width="100%"/>
+
                     {/*{console.log(adImage.photo)}*/}
+                    {adImage.photo && <img src={adImage.photo} className="elem-ad" height="345px" width="100%"></img>}
                     {/*<img src={adImage.photo} className="elem-ad" height="345px" width="100%"/>*/}
                     <p>Красивое платье - еще полдела...</p>
                     <h6>место для вашей рекламы : 1225*440</h6>

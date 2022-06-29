@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ReactPaginate from "react-paginate";
 import {Col, Row} from "react-bootstrap";
-import Player from "../Player";
+import Player from "../PlayerBlya/Player";
+import NewPlayer from "../PlayerBlya/FinishedPlayer";
 
 
 const Products = ({productsCurrent}) => {
@@ -10,7 +11,7 @@ const Products = ({productsCurrent}) => {
             {productsCurrent.map((product) => (
                 <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
                     <div>
-                        <Player product={product}/>
+                        <NewPlayer product={product}/>
                     </div>
                 </Col>
             ))}

@@ -4,9 +4,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import {BrowserRouter, Route,  Routes} from "react-router-dom";
-import OrderPage from "./pages/OrderPage";
-import OrderPage2 from "./pages/OrderPage2";
-import OrderSuccess from "./pages/OrderSuccess";
+import OrderPage from "./pages/OrderPage\'s/OrderPage";
+import OrderPage2 from "./pages/OrderPage\'s/OrderPage2";
+import OrderSuccess from "./pages/OrderPage\'s/OrderSuccess";
 import Partnership from "./pages/Partnership";
 import AdPage from "./pages/AdPage";
 import Project from "./pages/Project";
@@ -15,8 +15,8 @@ import AddSuggestiveEffect from "./components/AddSuggestiveEffect";
 import UnloadingModule from "./components/UnloadingModule";
 import SpecialWishes from "./components/SpecialWishes";
 import CatalogTemplate from "./components/filters/CatalogTemplate";
-import Waveform from "./components/Player";
 import FinishedTrackBtn from "./components/FinishedTrack/FinishedTrackBtn";
+import NewPlayer from "./components/PlayerBlya/FinishedPlayer";
 
 
 function App() {
@@ -38,7 +38,8 @@ function App() {
                       <Route exact path="/test2" element={<AddSuggestiveEffect/>} />
                       <Route exact path="/test3" element={<UnloadingModule/>} />
                       <Route exact path="/test4" element={<SpecialWishes/>} />
-                      <Route exact path="/player" element={<Waveform/>} />
+                      {/*<Route exact path="/player" element={<Waveform/>} />*/}
+                      <Route exact path="/player" element={<NewPlayer/>} />
                       <Route exact path="/tracks" element={<CatalogTemplate/>}/>
                   </Routes>
 
