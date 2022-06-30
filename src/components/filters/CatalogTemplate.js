@@ -22,6 +22,11 @@ const CatalogTemplate = React.memo(() => {
         async function fetchInitData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/filtersAll`, {
                 method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
             })
                 .then(res => res.json())
                 .then((filters) => {
@@ -151,8 +156,6 @@ const CatalogTemplate = React.memo(() => {
 
                         const checkbox = [];
                         const checkboxBlock = [];
-
-                        console.log('adad');
 
                         checkboxFilters.map((checkboxFilter, index) =>
                             // TODO col-lg and etc. for adaptive design (4 to 2 elems in row)

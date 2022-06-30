@@ -32,29 +32,32 @@ const PlayButton = styled.button`
 
 `;
 
-const NewPlayer = () => {
+const NewPlayer = (props) => {
+    const {product} = props;
     const {items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
-    const [product, setProduct] = useState({});
+    // const [product, setProduct] = useState({});
+    // console.log(product)
 
 
-    const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track4.mp3';
+    // const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track4.mp3';
+    console.log(product.file)
 
     useEffect(() => {
-        const track = document.querySelector('#track');
+        const track = document.querySelector('#track' + product.id);
 
-        async function fetchInitData() {
-            await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/`)
-            .then(response => response.json())
-            // 4. Setting *dogImage* to the image url that we received from the response above
-            .then(data => setProduct(data.results))
-        }
+        // async function fetchInitData() {
+        //     await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/`)
+        //     .then(response => response.json())
+        //     // 4. Setting *dogImage* to the image url that we received from the response above
+        //     .then(data => console.log(data.results))
+        // }
 
         let wavesurfer = WaveSurfer.create({
             barWidth: 2,
             cursorWidth: 1,
-            container: document.querySelector('#wave'),
+            container: document.querySelector('#wave' + product.id),
             backend: 'MediaElement',
             height: 60,
             progressColor: '#000000',
@@ -65,7 +68,7 @@ const NewPlayer = () => {
 
         wavesurfer.load(track);
         setWaver(wavesurfer);
-        fetchInitData();
+        // fetchInitData();
 
 
     }, []);
@@ -92,8 +95,8 @@ const NewPlayer = () => {
 
                 <div className="card mt-5 mb-5 p-3 col-9" style={{borderRadius: '12px'}}>
                     <WaveformContainer>
-                        <Wave id="wave" />
-                        <audio id="track" src={url} />
+                        <Wave id={'wave' + product.id} />
+                        <audio id={'track' + product.id} src={product.file} />
                     </WaveformContainer>
                 </div>
 
