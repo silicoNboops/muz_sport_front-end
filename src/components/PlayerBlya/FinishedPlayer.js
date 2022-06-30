@@ -38,10 +38,8 @@ const NewPlayer = (props) => {
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
     // const [product, setProduct] = useState({});
-    // console.log(product)
 
 
-    // const url = 'https://www.mfiles.co.uk/mp3-downloads/gs-cd-track4.mp3';
     console.log(product.file)
 
     useEffect(() => {
