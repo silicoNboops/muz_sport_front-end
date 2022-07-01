@@ -14,7 +14,6 @@ const CatalogTemplate = React.memo(() => {
     const [selectedFiltersValues, setSelectedFiltersValues] = useState({});
     const [loading, setLoading] = useState(true);
     const [filtersError, setFiltersError] = useState(null);
-    const [productsError, setProductsError] = useState(null);
     const [itemsReqUrl, setItemsReqUrl] = useState(itemsReqUrlDefault);
 
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
@@ -35,41 +34,12 @@ const CatalogTemplate = React.memo(() => {
                 }, (error) => {
                     console.log('Не удалось получить список фильтров');
                     setFiltersError(error);
-                });
-
-            await fetch(process.env.REACT_APP_MUZSPORT_API + '/tracks/', {
-            })
-                .then(res => res.json())
-                .then((products) => {
-                    setProductsError(null);
-                    setProductsData(products);
-                }, (error) => {
-                    console.log('Не удалось получить продукты');
-                    setProductsError(error);
                 })
                 .then(() => setLoading(false));
         }
 
         fetchInitData();
     }, []);
-
-    const getProducts = async (filtersQueryParams) => {
-        if (!filtersQueryParams) {
-            filtersQueryParams = '';
-        }
-
-        await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/?${filtersQueryParams}`)
-            .then(res => res.json())
-            .then((products) => {
-                setProductsData(products);
-                setProductsError(null);
-                return products;
-            }, (error) => {
-                console.log('Не удалось получить продукты');
-                setProductsError(error);
-                return null;
-            })
-    };
 
     const generateItemsReqUrl = (filtersQueryParams) => {
         if (!filtersQueryParams) {
@@ -235,15 +205,6 @@ const CatalogTemplate = React.memo(() => {
                     {/* TODO хз как юзать */}
                     <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
                 </Form>
-
-                <div className="padding-y-sm" style={{minHeight: '200px'}}>
-                    {productsError ?
-                        <div className="alert alert-danger" role="alert">
-                            {productsError}
-                        </div>
-                        : <ProductsPaginated itemsReqUrl={itemsReqUrl}/>
-                    }
-                </div>
             </>
         );
     }
@@ -252,6 +213,10 @@ const CatalogTemplate = React.memo(() => {
         <>
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
                 {content(loading)}
+
+                <div className="padding-y-sm" style={{minHeight: '200px'}}>
+                    <ProductsPaginated itemsReqUrl={itemsReqUrl}/>
+                </div>
             </div>
         </>
     )
