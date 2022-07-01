@@ -1,7 +1,8 @@
 import {Dropdown} from "react-bootstrap";
 import React, {useState} from "react";
 
-const FinishedTrackBody = () => {
+const FinishedTrackBody = (props) => {
+    const {product} = props;
     const [commentary, setCommentary] = useState('');
 
     const initData = () => {
@@ -9,14 +10,14 @@ const FinishedTrackBody = () => {
     }
 
     return (
-        <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne"
+        <div id={'track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
             <div className="accordion-body">
                 <div className="card col-10 p-5" style={{borderRadius: "12px"}}>
                     <figcaption className="card-props-column">
                         <div className="card-props card-text">
                             <span className="font-weight-bolder">Название трека:</span>
-                            <span className="font-weight-bold container col-6 pb-4">RuPaul - Call Me Mother</span>
+                            <span className="font-weight-bold container col-6 pb-4">{product.author} - {product.title}</span>
                         </div>
                         <div className="card-props card-text">
                             <span className="font-weight-bolder ">Программа для*:</span>

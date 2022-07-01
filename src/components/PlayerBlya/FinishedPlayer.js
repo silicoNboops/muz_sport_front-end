@@ -4,7 +4,6 @@ import styled from "styled-components";
 import FinishedTrackBtn from "../FinishedTrack/FinishedTrackBtn";
 import FinishedTrackBody from "../FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 import {useCart} from "react-use-cart";
 
 
@@ -112,9 +111,9 @@ const NewPlayer = (props) => {
                     <p className="card col-2 me-2 text-white">{product.mood_name}</p>
                     <p className="card col-2 text-white">{product.country_name}</p>
                     <div className="col-4 text-end">
-                        <FinishedTrackBtn/>
+                        <FinishedTrackBtn product={product}/>
                     </div>
-                    <FinishedTrackBody/>
+                    <FinishedTrackBody product={product}/>
                 </div>
             </div>
         </div>

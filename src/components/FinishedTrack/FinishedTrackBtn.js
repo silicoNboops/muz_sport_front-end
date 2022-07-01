@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import {Dropdown} from "react-bootstrap";
 
 
-const FinishedTrackBtn = () => {
+const FinishedTrackBtn = (props) => {
+    const {product} = props
     const [commentary, setCommentary] = useState('');
 
     const initData = () => {
@@ -15,7 +16,7 @@ const FinishedTrackBtn = () => {
                     //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
                     className="btn btn-light btn-sm col-9 dropdown-toggle-split"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
+                    data-bs-target={'#track' + product.id}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
