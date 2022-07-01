@@ -11,11 +11,8 @@ import Partnership from "./pages/Partnership";
 import AdPage from "./pages/AdPage";
 import Project from "./pages/Project";
 import ServicesPage from "./pages/ServicesPage";
-import AddSuggestiveEffect from "./components/AddSuggestiveEffect";
-import UnloadingModule from "./components/UnloadingModule";
 import SpecialWishes from "./components/SpecialWishes";
 import CatalogTemplate from "./components/filters/CatalogTemplate";
-import FinishedTrackBtn from "./components/FinishedTrack/FinishedTrackBtn";
 import NewPlayer from "./components/PlayerBlya/FinishedPlayer";
 
 
@@ -34,9 +31,6 @@ function App() {
                       <Route exact path="/ad" element={<AdPage/>} />
                       <Route exact path="/project" element={<Project/>} />
                       <Route exact path="/services" element={<ServicesPage/>} />
-                      <Route exact path="/test" element={<FinishedTrackBtn/>} />
-                      <Route exact path="/test2" element={<AddSuggestiveEffect/>} />
-                      <Route exact path="/test3" element={<UnloadingModule/>} />
                       <Route exact path="/test4" element={<SpecialWishes/>} />
                       {/*<Route exact path="/player" element={<Waveform/>} />*/}
                       <Route exact path="/player" element={<NewPlayer/>} />

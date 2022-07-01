@@ -1,5 +1,9 @@
 import {Dropdown} from "react-bootstrap";
 import React, {useState} from "react";
+import AddSuggestiveEffectBtn from "../AddSuggestiveEffect/AddSuggestiveEffectBtn";
+import AddSuggestiveEffectBody from "../AddSuggestiveEffect/AddSuggestiveEffectBody";
+import UnloadingModuleBtn from "../UnloadingModule/UnloadingModuleBtn";
+import UnloadingModuleBody from "../UnloadingModule/UnloadingModuleBody";
 
 const FinishedTrackBody = (props) => {
     const {product} = props;
@@ -10,10 +14,10 @@ const FinishedTrackBody = (props) => {
     }
 
     return (
-        <div id={'track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+        <div id={'finished_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
             <div className="accordion-body">
-                <div className="card col-10 p-5" style={{borderRadius: "12px"}}>
+                <div className="card col-11 p-5" style={{borderRadius: "12px"}}>
                     <figcaption className="card-props-column">
                         <div className="card-props card-text">
                             <span className="font-weight-bolder">Название трека:</span>
@@ -111,6 +115,11 @@ const FinishedTrackBody = (props) => {
                                       setCommentary(e.target.value)}/>
                     </div>
                 </div>
+                <AddSuggestiveEffectBtn product={product}/>
+                <AddSuggestiveEffectBody product={product}/>
+
+                <UnloadingModuleBtn product={product}/>
+                <UnloadingModuleBody product={product}/>
             </div>
         </div>
     )

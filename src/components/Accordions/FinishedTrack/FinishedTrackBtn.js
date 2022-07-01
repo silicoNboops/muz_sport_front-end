@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {Dropdown} from "react-bootstrap";
 
 
 const FinishedTrackBtn = (props) => {
@@ -16,7 +15,7 @@ const FinishedTrackBtn = (props) => {
                     //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
                     className="btn btn-light btn-sm col-9 dropdown-toggle-split"
                     data-bs-toggle="collapse"
-                    data-bs-target={'#track' + product.id}
+                    data-bs-target={'#finished_track' + product.id}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">

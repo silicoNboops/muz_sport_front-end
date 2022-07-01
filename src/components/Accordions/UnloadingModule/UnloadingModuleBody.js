@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {Dropdown} from "react-bootstrap";
 
-const UnloadingModule = () => {
+const UnloadingModuleBody = (props) => {
+    const {product} = props
     const [link, setLink] = useState('')
     const [file, setFile] = useState('')
 
@@ -11,24 +12,12 @@ const UnloadingModule = () => {
     }
 
     return(
-        <div className="container-fluid p-5">
-            <button type="button"
-                    className="btn btn-lg dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
-                    aria-expanded="true"
-                    style={{borderRadius:"12px"}}
-                    aria-controls="collapseOne">
-                <span className="text-white">
-                    <img src="assets/icons/relax.png" className="pe-3" width="70px"/>
-                    Создание разгрузочного модуля:</span>
-            </button>
-            <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingOne"
+            <div id={'unloading_module' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <div className="accordion-body" >
-                    <div className="container card col-8 p-5" style={{borderRadius:"12px"}}>
-                        <p className="text-start">Разгрузочный модуль окажет психологическое расслабление после спортивного выступления
-                        (соревнования), а также в перерывах между интенсивными тренировками</p>
+                    <div className=" card col-11 p-5" style={{borderRadius:"12px"}}>
+                        <h6 className="text-start">Разгрузочный модуль окажет психологическое расслабление после спортивного выступления
+                        (соревнования), а также в перерывах между интенсивными тренировками</h6>
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder ">Направление воздействия эффекта:</span>
@@ -76,7 +65,6 @@ const UnloadingModule = () => {
                             </div>
                         </div>
                     </div>
-                </div>
     )
 }
-export default UnloadingModule
+export default UnloadingModuleBody

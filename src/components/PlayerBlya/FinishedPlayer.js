@@ -1,8 +1,8 @@
 import React from 'react';
 import WaveSurfer from '../../../node_modules/wavesurfer.js/dist/wavesurfer';
 import styled from "styled-components";
-import FinishedTrackBtn from "../FinishedTrack/FinishedTrackBtn";
-import FinishedTrackBody from "../FinishedTrack/FinishedTrackBody";
+import FinishedTrackBtn from "../Accordions/FinishedTrack/FinishedTrackBtn";
+import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
 import {useCart} from "react-use-cart";
 
@@ -33,23 +33,12 @@ const PlayButton = styled.button`
 
 const NewPlayer = (props) => {
     const {product} = props;
-    const {items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems, cartTotal,} = useCart();
+    const {items,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
-    // const [product, setProduct] = useState({});
-
-
-    console.log(product.file)
 
     useEffect(() => {
         const track = document.querySelector('#track' + product.id);
-
-        // async function fetchInitData() {
-        //     await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/`)
-        //     .then(response => response.json())
-        //     // 4. Setting *dogImage* to the image url that we received from the response above
-        //     .then(data => console.log(data.results))
-        // }
 
         let wavesurfer = WaveSurfer.create({
             barWidth: 2,
@@ -65,7 +54,6 @@ const NewPlayer = (props) => {
 
         wavesurfer.load(track);
         setWaver(wavesurfer);
-        // fetchInitData();
 
 
     }, []);

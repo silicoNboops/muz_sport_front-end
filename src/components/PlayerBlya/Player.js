@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import WaveSurfer from '../../../node_modules/wavesurfer.js/dist/wavesurfer';
 import styled from "styled-components";
-import FinishedTrackBtn from "../FinishedTrack/FinishedTrackBtn";
-import FinishedTrackBody from "../FinishedTrack/FinishedTrackBody";
+import FinishedTrackBtn from "../Accordions/FinishedTrack/FinishedTrackBtn";
+import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 
 
 const WaveformContainer = styled.div`
