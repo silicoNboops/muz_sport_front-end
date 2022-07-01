@@ -5,6 +5,8 @@ import NewPlayer from "../PlayerBlya/FinishedPlayer";
 
 
 const Products = ({productsCurrent}) => {
+    console.log('proddds')
+
     return (
         <Row>
             {productsCurrent.map((product) => (
@@ -21,18 +23,18 @@ const Products = ({productsCurrent}) => {
 
 
 const ProductsPaginated = ({itemsReqUrl}) => {
-    const [currentProducts, setCurrentProducts] = useState(null);
+    const [currentProducts, setCurrentProducts] = useState([]);
     const [pageOffset, setPageOffset] = useState(0);
     const [productsPerPage, setProductsPerPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
 
-    useEffect(async () => {
+    useEffect(() => {
         console.log(itemsReqUrl);
-        await getItems(itemsReqUrl);
+        getItems(itemsReqUrl);
         setPageOffset(0);
     }, [itemsReqUrl]);
 
-    useEffect(async () => {
+    useEffect(() => {
         let pageParamSeparator = '';
         console.log(itemsReqUrl);
         if (itemsReqUrl.charAt(itemsReqUrl.length - 1) === '/') {
@@ -42,7 +44,7 @@ const ProductsPaginated = ({itemsReqUrl}) => {
         }
         const paginatedUrl = itemsReqUrl + pageParamSeparator + `page=${pageOffset + 1}`
 
-        await getItems(paginatedUrl);
+        getItems(paginatedUrl);
     }, [pageOffset]);
 
     const getItems = async (itemsReqUrl) => {
@@ -52,8 +54,9 @@ const ProductsPaginated = ({itemsReqUrl}) => {
                 setCurrentProducts(itemsData.results);
                 setProductsPerPage(itemsData.per_page);
                 setPageCount(itemsData.page_count);
+                console.log(itemsData);
             }, (error) => {
-                setCurrentProducts(null);
+                setCurrentProducts([]);
                 console.log('Не удалось получить товары');
             })
     };
@@ -73,51 +76,51 @@ const ProductsPaginated = ({itemsReqUrl}) => {
 
     return (
         <>
-            <ReactPaginate
-                nextLabel="> Следующая"
-                onPageChange={handlePageChange}
-                pageRangeDisplayed={5}
-                marginPagesDisplayed={2}
-                pageCount={pageCount}
-                previousLabel="Предыдущая <"
-                pageClassName="page-item"
-                pageLinkClassName="page-link"
-                previousClassName="page-item"
-                previousLinkClassName="page-link"
-                nextClassName="page-item"
-                nextLinkClassName="page-link"
-                breakLabel="..."
-                breakClassName="page-item"
-                breakLinkClassName="page-link"
-                containerClassName="navigationButtons"
-                activeClassName="active"
-                renderOnZeroPageCount={null}
-                forcePage={pageOffset}
-            />
+            {/*<ReactPaginate*/}
+            {/*    nextLabel="> Следующая"*/}
+            {/*    onPageChange={handlePageChange}*/}
+            {/*    pageRangeDisplayed={5}*/}
+            {/*    marginPagesDisplayed={2}*/}
+            {/*    pageCount={pageCount}*/}
+            {/*    previousLabel="Предыдущая <"*/}
+            {/*    pageClassName="page-item"*/}
+            {/*    pageLinkClassName="page-link"*/}
+            {/*    previousClassName="page-item"*/}
+            {/*    previousLinkClassName="page-link"*/}
+            {/*    nextClassName="page-item"*/}
+            {/*    nextLinkClassName="page-link"*/}
+            {/*    breakLabel="..."*/}
+            {/*    breakClassName="page-item"*/}
+            {/*    breakLinkClassName="page-link"*/}
+            {/*    containerClassName="navigationButtons"*/}
+            {/*    activeClassName="active"*/}
+            {/*    renderOnZeroPageCount={null}*/}
+            {/*    forcePage={pageOffset}*/}
+            {/*/>*/}
             {/*TODO до сюда не доходит бляяя*/}
             <Products productsCurrent={currentProducts} />
 
-            <ReactPaginate
-                nextLabel="> Следующая"
-                onPageChange={handlePageChange}
-                pageRangeDisplayed={5}
-                marginPagesDisplayed={2}
-                pageCount={pageCount}
-                previousLabel="Предыдущая <"
-                pageClassName="page-item"
-                pageLinkClassName="page-link"
-                previousClassName="page-item"
-                previousLinkClassName="page-link"
-                nextClassName="page-item"
-                nextLinkClassName="page-link"
-                breakLabel="..."
-                breakClassName="page-item"
-                breakLinkClassName="page-link"
-                containerClassName="navigationButtons"
-                activeClassName="navigationActive"
-                renderOnZeroPageCount={null}
-                forcePage={pageOffset}
-            />
+            {/*<ReactPaginate*/}
+            {/*    nextLabel="> Следующая"*/}
+            {/*    onPageChange={handlePageChange}*/}
+            {/*    pageRangeDisplayed={5}*/}
+            {/*    marginPagesDisplayed={2}*/}
+            {/*    pageCount={pageCount}*/}
+            {/*    previousLabel="Предыдущая <"*/}
+            {/*    pageClassName="page-item"*/}
+            {/*    pageLinkClassName="page-link"*/}
+            {/*    previousClassName="page-item"*/}
+            {/*    previousLinkClassName="page-link"*/}
+            {/*    nextClassName="page-item"*/}
+            {/*    nextLinkClassName="page-link"*/}
+            {/*    breakLabel="..."*/}
+            {/*    breakClassName="page-item"*/}
+            {/*    breakLinkClassName="page-link"*/}
+            {/*    containerClassName="navigationButtons"*/}
+            {/*    activeClassName="navigationActive"*/}
+            {/*    renderOnZeroPageCount={null}*/}
+            {/*    forcePage={pageOffset}*/}
+            {/*/>*/}
         </>
     );
 };
