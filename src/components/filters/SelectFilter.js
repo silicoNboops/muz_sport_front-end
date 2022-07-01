@@ -38,11 +38,14 @@ const SelectFilter = React.memo((props) => {
                     Все
                 </option>
                 {/*TODO и вот тут я в кейс добавил индекс чтоб при ресете менялись значения*/}
-                {values.map((filter, index) =>
-                    <option key={filter + '_' + index + '_' + selectedValue} value={filter}>
-                        {filter}
-                    </option>
-                )}
+                {values.map((filter, index) => {
+                    console.log(filter)
+                    return(
+                        <option key={filter.id + '_' + index + '_' + product_prop} value={filter.id}>
+                            {filter.title}
+                        </option>
+                    );
+                })}
             </Form.Control>
         </Form.Group>
     )

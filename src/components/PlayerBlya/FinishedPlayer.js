@@ -31,8 +31,7 @@ const PlayButton = styled.button`
 
 `;
 
-const NewPlayer = (props) => {
-    const {product} = props;
+const NewPlayer = ({product}) => {
     const {items,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
@@ -95,8 +94,16 @@ const NewPlayer = (props) => {
 
                 <div className="row track-description">
                     <p className="card col-2 me-2 text-white">{product.sports_name}</p>
-                    <p className="card col-2 me-2 text-white">{product.direction_music}</p>
-                    <p className="card col-2 me-2 text-white">{product.mood_name}</p>
+                    <p className="card col-2 me-2 text-white">
+                        {product.direction_music.map((dir, index) =>
+                            <>{dir} {index < product.direction_music.length - 1 ? ", " : ""}</>
+                        )}
+                    </p>
+                    <p className="card col-2 me-2 text-white">
+                        {product.mood_name.map((mood, index) =>
+                            <>{mood} {index < product.mood_name.length - 1 ? ", " : ""}</>
+                        )}
+                    </p>
                     <p className="card col-2 text-white">{product.country_name}</p>
                     <div className="col-4 text-end">
                         <FinishedTrackBtn product={product}/>
