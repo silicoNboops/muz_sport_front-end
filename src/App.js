@@ -32,7 +32,6 @@ function App() {
                       <Route exact path="/project" element={<Project/>} />
                       <Route exact path="/services" element={<ServicesPage/>} />
                       <Route exact path="/test4" element={<SpecialWishes/>} />
-                      {/*<Route exact path="/player" element={<Waveform/>} />*/}
                       <Route exact path="/player" element={<NewPlayer/>} />
                       <Route exact path="/tracks" element={<CatalogTemplate/>}/>
                   </Routes>

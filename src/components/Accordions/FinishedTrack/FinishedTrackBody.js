@@ -4,6 +4,8 @@ import AddSuggestiveEffectBtn from "../AddSuggestiveEffect/AddSuggestiveEffectBt
 import AddSuggestiveEffectBody from "../AddSuggestiveEffect/AddSuggestiveEffectBody";
 import UnloadingModuleBtn from "../UnloadingModule/UnloadingModuleBtn";
 import UnloadingModuleBody from "../UnloadingModule/UnloadingModuleBody";
+import AdditionalTrackBtn from "../AdditionalTrack/AdditionalTrackBtn";
+import AdditionalTrackBody from "../AdditionalTrack/AdditionalTrackBody";
 
 const FinishedTrackBody = (props) => {
     const {product} = props;
@@ -96,8 +98,8 @@ const FinishedTrackBody = (props) => {
                     </figcaption>
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingOne"
                          data-bs-parent="#accordionExample">
-                        <p className="text-start">Здесь будут кнопки доработок(Подумать, как она будет закрываться,
-                            если человек нажмет на AUTO)</p>
+                        <h6 className="text-start">Здесь будут кнопки доработок(Подумать, как она будет закрываться,
+                            если человек нажмет на AUTO)</h6>
                     </div>
 
                     <div className="text-start pt-3">
@@ -115,11 +117,15 @@ const FinishedTrackBody = (props) => {
                                       setCommentary(e.target.value)}/>
                     </div>
                 </div>
+                <AdditionalTrackBtn product={product}/>
+                <AdditionalTrackBody product={product}/>
+
                 <AddSuggestiveEffectBtn product={product}/>
                 <AddSuggestiveEffectBody product={product}/>
 
                 <UnloadingModuleBtn product={product}/>
                 <UnloadingModuleBody product={product}/>
+
             </div>
         </div>
     )
