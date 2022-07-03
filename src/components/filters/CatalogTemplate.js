@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import ProductsPaginated from "./ProductsPaginated";
-import Selects from "./SelectFilter";
+import Selects from "./Filters";
 import {toast} from "react-toastify";
 
 
 const CatalogTemplate = React.memo(() => {
     const itemsReqUrlDefault = process.env.REACT_APP_MUZSPORT_API + '/tracks/';
 
-    const [productsData, setProductsData] = useState({});
     const [filterVariants, setFilterVariants] = useState({});
-    // TODO через пропсы засовывать сюда уже selectedFiltersValues когда будем на страницах разных продуктов делать
     const [selectedFiltersValues, setSelectedFiltersValues] = useState({});
     const [loading, setLoading] = useState(true);
     const [filtersError, setFiltersError] = useState(null);
@@ -58,8 +56,6 @@ const CatalogTemplate = React.memo(() => {
 
         let convertedQueryParams = '';
 
-        // const formData = new FormData(event.target)
-
         Object.entries(selectedFiltersValues).forEach(([fieldName, value]) => {
             if (value !== '') {
                 convertedQueryParams += `${fieldName}=${value}&`;
@@ -91,6 +87,7 @@ const CatalogTemplate = React.memo(() => {
         }
 
         reset();
+
         toast.success('Фильтры сброшены', {
             position: "top-left",
             autoClose: 1000,
@@ -110,7 +107,6 @@ const CatalogTemplate = React.memo(() => {
 
     const handlerCHANGER = (event) => {
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: event.target.value});
-
     }
 
     // TODO переделать по аналогии с селектами, сделать компоненты
@@ -127,17 +123,16 @@ const CatalogTemplate = React.memo(() => {
                         const checkboxBlock = [];
 
                         checkboxFilters.map((checkboxFilter, index) =>
-                            // TODO col-lg and etc. for adaptive design (4 to 2 elems in row)
                             checkbox.push(
                                 <Form.Group
-                                    key={checkboxFilter + '_' + index}
-                                    controlId={checkboxFilter}
+                                    key={checkboxFilter.db_name + '_' + index}
+                                    controlId={checkboxFilter.db_name}
                                 >
-                                    <Form.Check name={checkboxFilter}
+                                    <Form.Check name={checkboxFilter.db_name}
                                                 inline
                                                 type='checkbox'
-                                                id={checkboxFilter + '_' + index}
-                                                label={checkboxFilter}
+                                                id={checkboxFilter.db_name + '_' + index}
+                                                label={checkboxFilter.verbose_name}
                                     />
                                 </Form.Group>)
                         );
@@ -147,8 +142,6 @@ const CatalogTemplate = React.memo(() => {
                                 {checkbox}
                             </Row>);
 
-                        console.log('RUN');
-
                         return checkboxBlock;
                     })
                 }
@@ -156,7 +149,7 @@ const CatalogTemplate = React.memo(() => {
         );
     };
 
-    const content = (loading) => {
+    const filters = (loading) => {
         if (loading) {
             return (
                 <div className="d-flex justify-content-center">
@@ -177,13 +170,13 @@ const CatalogTemplate = React.memo(() => {
         return (
             <>
                 <Form onSubmit={handleSubmitFiltered}>
-
                     <Row className="mb-3">
                         <Selects fieldList={filterVariants.select}
-                            // resetValues={resetSelectsKey}
                                  selectedValues={selectedFiltersValues}
                                  handlerChangeSelect={handlerCHANGER}
                         />
+
+                        {checkboxList()}
                     </Row>
 
                     <Row>
@@ -201,7 +194,7 @@ const CatalogTemplate = React.memo(() => {
                         </Col>
                     </Row>
 
-                    {/* TODO хз как юзать */}
+                    {/* TODO можно поюзать, для обратной отдачи юзеру при неправильном вводе данных формы */}
                     <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
                 </Form>
             </>
@@ -211,7 +204,7 @@ const CatalogTemplate = React.memo(() => {
     return (
         <>
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
-                {content(loading)}
+                {filters(loading)}
 
                 <div className="padding-y-sm" style={{minHeight: '200px'}}>
                     <ProductsPaginated itemsReqUrl={itemsReqUrl}/>

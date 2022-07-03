@@ -3,10 +3,10 @@ import React from "react";
 import {TableRow} from "@mui/material";
 
 
-const Selects = React.memo(({fieldList, selectedValues, handlerChangeSelect}) => {
-
+// TODO здесь и селекты сразу отображать
+const Filters = React.memo(({fieldList, selectedValues, handlerChangeSelect}) => {
     return fieldList.map((filterSelect, index) =>
-            <SelectFilter
+            <FilterSelect
                 key={filterSelect + '_' + index}
                 handler={handlerChangeSelect}
                 product_prop={filterSelect.product_prop}
@@ -18,13 +18,10 @@ const Selects = React.memo(({fieldList, selectedValues, handlerChangeSelect}) =>
 });
 
 
-const SelectFilter = React.memo((props) => {
-    // console.log('SELECT_INPUT');
-
+const FilterSelect = React.memo((props) => {
     const {selectedValue, product_prop, name, values, handler} = props;
 
-    // TODO подумать как тут предотвращать рендеры ВСЕХ затронутых элементов
-    // TODO мб через хендлер
+    // TODO подумать как тут предотвращать рендеры ВСЕХ затронутых элементов, мб через хендлер
     return (
         <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
             <Form.Label className="text-white">{name}</Form.Label>
@@ -37,7 +34,7 @@ const SelectFilter = React.memo((props) => {
                 <option value=''>
                     Все
                 </option>
-                {/*TODO и вот тут я в кейс добавил индекс чтоб при ресете менялись значения*/}
+                {/* в key добавил индекс чтоб при ресете фильтров менялись значения */}
                 {values.map((filter, index) => {
                     console.log(filter)
                     return(
@@ -51,4 +48,4 @@ const SelectFilter = React.memo((props) => {
     )
 });
 
-export default Selects;
+export default Filters;

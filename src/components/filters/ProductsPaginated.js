@@ -11,7 +11,6 @@ const Products = ({productsCurrent}) => {
             {productsCurrent.map((product) => (
                 <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
                     <div>
-                        {/*TODO до сюда не доходит бляяя*/}
                         <NewPlayer product={product}/>
                     </div>
                 </Col>
@@ -60,6 +59,7 @@ const ProductsPaginated = ({itemsReqUrl}) => {
             })
     };
 
+    // TODO переделать под пагинацию при скролле
     const handlePageChange = (event) => {
         setPageOffset(event.selected);
     };
@@ -75,6 +75,7 @@ const ProductsPaginated = ({itemsReqUrl}) => {
 
     return (
         <>
+            {/* TODO юзать другую пагинацию */}
             {/*<ReactPaginate*/}
             {/*    nextLabel="> Следующая"*/}
             {/*    onPageChange={handlePageChange}*/}
@@ -96,7 +97,7 @@ const ProductsPaginated = ({itemsReqUrl}) => {
             {/*    renderOnZeroPageCount={null}*/}
             {/*    forcePage={pageOffset}*/}
             {/*/>*/}
-            {/*TODO до сюда не доходит бляяя*/}
+
             <Products productsCurrent={currentProducts} />
 
             {/*<ReactPaginate*/}
