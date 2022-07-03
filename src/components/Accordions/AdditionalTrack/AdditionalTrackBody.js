@@ -16,6 +16,10 @@ const AdditionalTrackBody = (props) => {
     return(
         <div id={'additional_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
+            <div className="col-2 imgblock-accordion">
+                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                <span>{product.price} ₽</span>
+            </div>
             <div className="accordion-body">
 
                 <div className="card col-11 p-5" style={{borderRadius:"12px"}}>
@@ -43,10 +47,10 @@ const AdditionalTrackBody = (props) => {
                         <img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>
                         <img src="assets/icons/download.png" className="card p-1 me-3" height="50px"/>
                         <img src="assets/icons/list.png" className="card p-1" height="50px"/>
-                        <div className="col-2 imgblock-accordion">
-                                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                                <span>{product.price} ₽</span>
-                        </div>
+                        {/*<div className="col-2 imgblock-accordion">*/}
+                        {/*        <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>*/}
+                        {/*        <span>{product.price} ₽</span>*/}
+                        {/*</div>*/}
 
                     </div>
 

@@ -14,6 +14,10 @@ const UnloadingModuleBody = (props) => {
     return(
             <div id={'unloading_module' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
+                <div className="col-2 imgblock-accordion">
+                    <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                    <span>{product.price} ₽</span>
+                </div>
                 <div className="accordion-body" >
                     <div className=" card col-11 p-5" style={{borderRadius:"12px"}}>
                         <h6 className="text-start">Разгрузочный модуль окажет психологическое расслабление после спортивного выступления

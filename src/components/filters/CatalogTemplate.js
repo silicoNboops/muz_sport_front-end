@@ -130,6 +130,7 @@ const CatalogTemplate = React.memo(() => {
                                 >
                                     <Form.Check name={checkboxFilter.db_name}
                                                 inline
+                                                className="text-white"
                                                 type='checkbox'
                                                 id={checkboxFilter.db_name + '_' + index}
                                                 label={checkboxFilter.verbose_name}

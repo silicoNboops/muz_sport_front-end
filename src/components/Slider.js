@@ -2,11 +2,11 @@ import React from "react";
 
 const Slider = () => {
     return(
-        <label className="form-label" htmlFor="customRange1">Example range
-    <div className="range">
-        <input type="range" className="form-range" id="customRange1"/>
+    <div className="container">
+        <label className="text-white" htmlFor="agitated">1:12</label>
+            <input type="range" min="0" max="100" id="fader"/>
+        <label className="text-white" htmlFor="tired">2:23</label>
     </div>
-        </label>
     )
 }
 export default Slider;

@@ -18,6 +18,10 @@ const FinishedTrackBody = (props) => {
     return (
         <div id={'finished_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
+            <div className="col-2 imgblock-accordion">
+                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                <span>{product.price} ₽</span>
+            </div>
             <div className="accordion-body">
                 <div className="card col-11 p-5" style={{borderRadius: "12px"}}>
                     <figcaption className="card-props-column">

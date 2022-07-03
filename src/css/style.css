@@ -147,15 +147,11 @@
     margin: -5px 20px;
 }
 .price-icon-accordion{
-    left: 470%;
-    position: relative;
-    height: 60px;
-}
-.price-icon-accordion span{
     z-index: 1;
-    color: black;
+    left: 277%;
+    top: 400%;
     position: absolute;
-    font-size: 28px;
+    height: 60px;
 }
 .price-icon-services {
     z-index: 1;
@@ -238,6 +234,16 @@
     position: relative;
     bottom: 40px;
     padding-left: 100px;
+}
+
+input[type=range] {
+    height: 10px;
+    width: 200px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+}
+input[type=range]:focus {
+    outline: none;
 }
 
 
