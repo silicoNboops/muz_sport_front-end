@@ -146,6 +146,17 @@
     font-size: 28px;
     margin: -5px 20px;
 }
+.price-icon-accordion{
+    left: 470%;
+    position: relative;
+    height: 60px;
+}
+.price-icon-accordion span{
+    z-index: 1;
+    color: black;
+    position: absolute;
+    font-size: 28px;
+}
 .price-icon-services {
     z-index: 1;
     margin-left: 120px;
@@ -199,6 +210,19 @@
     font-size: 34px;
     margin-top: 55px;
     margin-right: 75px;
+}
+.imgblock-accordion {
+    position: relative;
+    display: inline-block;
+}
+.imgblock-accordion span {
+    z-index: 1;
+    color: black;
+    position: relative;
+    right: 0;
+    font-size: 34px;
+    bottom: 50%;
+    left: 500%;
 }
 .delete-track{
     background-color: white;

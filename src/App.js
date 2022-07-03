@@ -14,6 +14,7 @@ import ServicesPage from "./pages/ServicesPage";
 import SpecialWishes from "./components/SpecialWishes";
 import CatalogTemplate from "./components/filters/CatalogTemplate";
 import NewPlayer from "./components/PlayerBlya/FinishedPlayer";
+import Slider from "./components/Slider";
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
                       <Route exact path="/test4" element={<SpecialWishes/>} />
                       <Route exact path="/player" element={<NewPlayer/>} />
                       <Route exact path="/tracks" element={<CatalogTemplate/>}/>
+                      <Route exact path="/slider" element={<Slider/>} />
+
                   </Routes>
 
               <Footer/>

@@ -17,13 +17,40 @@ const AdditionalTrackBody = (props) => {
         <div id={'additional_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
             <div className="accordion-body">
+
                 <div className="card col-11 p-5" style={{borderRadius:"12px"}}>
                     <h5 className="text-start ">Материал (трек) для компановки программы*:</h5>
                     <div className="d-inline-flex pt-3">
+
+                        {/*<div className="btn-group" role="group" aria-label="Basic radio toggle button group">*/}
+                        {/*    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off"*/}
+                        {/*           checked/>*/}
+                        {/*    <label className="btn btn-outline-primary" htmlFor="btnradio1">*/}
+                        {/*        <img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>*/}
+                        {/*    </label>*/}
+
+                        {/*    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off"/>*/}
+                        {/*    <label className="btn btn-outline-primary" htmlFor="btnradio2">*/}
+                        {/*        <img src="assets/icons/download.png" className="card p-1 me-3" height="50px"/>*/}
+                        {/*    </label>*/}
+
+                        {/*    <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off"/>*/}
+                        {/*    <label className="btn btn-outline-primary" htmlFor="btnradio3">*/}
+                        {/*        <img src="assets/icons/list.png" className="card p-1" height="50px"/>*/}
+                        {/*    </label>*/}
+                        {/*</div>*/}
+
                         <img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>
                         <img src="assets/icons/download.png" className="card p-1 me-3" height="50px"/>
                         <img src="assets/icons/list.png" className="card p-1" height="50px"/>
+                        <div className="col-2 imgblock-accordion">
+                                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                                <span>{product.price} ₽</span>
+                        </div>
+
                     </div>
+
+
                     <div className="col-6 pt-3">
                         <input type="url" required
                                value={link}

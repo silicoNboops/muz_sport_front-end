@@ -5,7 +5,6 @@ import NewPlayer from "../PlayerBlya/FinishedPlayer";
 
 
 const Products = ({productsCurrent}) => {
-    console.log('proddds')
 
     return (
         <Row>

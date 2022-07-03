@@ -111,7 +111,6 @@ const CatalogTemplate = React.memo(() => {
     const handlerCHANGER = (event) => {
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: event.target.value});
 
-        // console.log(selectedFiltersValues);
     }
 
     // TODO переделать по аналогии с селектами, сделать компоненты
