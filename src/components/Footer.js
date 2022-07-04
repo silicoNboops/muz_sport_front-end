@@ -1,6 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 const Footer = () => {
+    const [Footer, setFooter] = useState({})
+
+    useEffect(() => {
+        async function fetchInitData() {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/footer/1')
+                .then(response => response.json())
+                .then(data => setFooter(data))
+        }
+        fetchInitData();
+    },[])
+
     return(
         <footer className="footer">
                 <div className="container">
@@ -23,7 +34,8 @@ const Footer = () => {
                                     и разгрузочным модулем</h6>
                                 </li>
                                 <li>
-                                    <h5 className="text-center text-muted">2021-2022</h5>
+                                    <h5 className="text-center text-muted">{Footer.year_count_start}-
+                                        {Footer.year_count_end}</h5>
                                 </li>
                             </ul>
                         </div>
@@ -44,10 +56,15 @@ const Footer = () => {
 
                         <div className="col-3 p-5">
                             <div className="icon-link-badged">
-                                <a href="ad" className="text-white">
-                                    <img src="assets/icons/horn.png" width="30px"/>
-                                    Реклама на сайте
-                                </a>
+                                {!Footer.link_icon ?
+                                    null
+                                    :
+                                    <a href="ad" className="text-white">
+                                        <img src="assets/icons/horn.png" width="30px"/>
+                                        Реклама на сайте
+                                    </a>
+                                }
+
                             </div>
                         </div>
 
