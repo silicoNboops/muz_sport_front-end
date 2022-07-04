@@ -9,7 +9,7 @@ const Home = () => {
         <div className="container-fluid main-page p-5">
             <h1 className="text-start text-white text-wrap ms-5"  style={{width:"700px"}}> Музыка для спортивных
                 выступлений на заказ </h1>
-            <h4 className="text-white me-5 text-oao">с элементом суггестивного воздействия и релаксационным модулем</h4>
+            <h4 className="text-white me-5 text-home">с элементом суггестивного воздействия и релаксационным модулем</h4>
             {/*<img src="assets/icons/imbit_tag.png" height="50px"/>*/}
             <h6 className="text-white text-start ms-5 position-relative" style={{bottom:'30px'}}> создано в партнерстве
                 с институтом ИМБИТ
