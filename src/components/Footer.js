@@ -3,9 +3,11 @@ import React, {useState, useEffect} from "react";
 const Footer = () => {
     const [Footer, setFooter] = useState({})
 
+
+
     useEffect(() => {
         async function fetchInitData() {
-            await fetch(process.env.REACT_APP_MUZSPORT_API + '/footer/1')
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/footer/2')
                 .then(response => response.json())
                 .then(data => setFooter(data))
         }
@@ -46,11 +48,24 @@ const Footer = () => {
                                     <p className="text-white">К оплате принимаются:</p>
                                 </li>
                                 <li className="d-inline-flex">
-                                    <img src="assets/icons/card.PNG" className="me-1" height='40px'/>
-                                    <img src="assets/icons/qiwi.PNG" className="me-1" height='40px'/>
-                                    <img src="assets/icons/y-money.PNG" className="me-1" height='40px'/>
-                                    <img src="assets/icons/pay.PNG" className="me-1" height='40px'/>
+
+                                {Footer.payment_icons.map((payment_icon) => {
+                                    return(
+                                        <img src={process.env.REACT_APP_MUZSPORT_MEDIA + payment_icon}
+                                             className="me-1" height='40px'/>
+
+                                    );
+                                })}
                                 </li>
+
+
+                                {/*<li className="d-inline-flex">*/}
+                                {/*    <img src="assets/icons/card.PNG" className="me-1" height='40px'/>*/}
+                                {/*    <img src="assets/icons/qiwi.PNG" className="me-1" height='40px'/>*/}
+                                {/*    <img src="assets/icons/y-money.PNG" className="me-1" height='40px'/>*/}
+                                {/*    <img src="assets/icons/pay.PNG" className="me-1" height='40px'/>*/}
+                                {/*</li>*/}
+
                             </ul>
                         </div>
 
