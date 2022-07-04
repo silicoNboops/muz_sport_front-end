@@ -3,8 +3,6 @@ import React, {useState, useEffect} from "react";
 const Footer = () => {
     const [Footer, setFooter] = useState({})
 
-
-
     useEffect(() => {
         async function fetchInitData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + '/footer/2')
@@ -49,7 +47,7 @@ const Footer = () => {
                                 </li>
                                 <li className="d-inline-flex">
 
-                                {Footer.payment_icons.map((payment_icon) => {
+                                {Footer.payment_icons && Footer.payment_icons.map((payment_icon) => {
                                     return(
                                         <img src={process.env.REACT_APP_MUZSPORT_MEDIA + payment_icon}
                                              className="me-1" height='40px'/>
@@ -58,13 +56,6 @@ const Footer = () => {
                                 })}
                                 </li>
 
-
-                                {/*<li className="d-inline-flex">*/}
-                                {/*    <img src="assets/icons/card.PNG" className="me-1" height='40px'/>*/}
-                                {/*    <img src="assets/icons/qiwi.PNG" className="me-1" height='40px'/>*/}
-                                {/*    <img src="assets/icons/y-money.PNG" className="me-1" height='40px'/>*/}
-                                {/*    <img src="assets/icons/pay.PNG" className="me-1" height='40px'/>*/}
-                                {/*</li>*/}
 
                             </ul>
                         </div>
