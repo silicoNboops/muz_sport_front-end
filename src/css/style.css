@@ -177,15 +177,16 @@
     color: black;
     position: relative;
     font-size: 34px;
-    left: 275%;
+    left: 247%;
 }
 .price-icon-accordion{
     z-index: 1;
-    left: 277%;
+    left: 237%;
     top: 400%;
     position: absolute;
     height: 60px;
 }
+
 
 /* IMG WRAP */
 
@@ -241,5 +242,40 @@ input[type=range] {
 input[type=range]:focus {
     outline: none;
 }
+
+
+/* RADIO BTN */
+
+.buttons {
+    border-radius: 12px;
+    position: relative;
+    width: fit-content;
+}
+
+.buttons input {
+    text-align: center;
+    appearance: none;
+    width: 220px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 16px;
+    background: #c1c1c1;
+    color: #ececec;
+    font-size: 18px;
+    font-family: sans-serif;
+    transition: all 0.1s;
+}
+
+.buttons input:checked {
+    background: #948eba;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0px #808080;
+}
+
+.buttons input::before {
+    content: attr(label);
+    text-align: center;
+}
+
 
 

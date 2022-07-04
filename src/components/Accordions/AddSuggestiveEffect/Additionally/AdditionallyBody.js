@@ -8,9 +8,9 @@ const AdditionallyBody = (props) => {
     const [file, setFile] = useState('')
 
     return (
-        <div id={'additionally' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
-             data-bs-parent="#accordionExample">
-            <div className="p-3 col-11 text-white" style={{borderRadius: "12px", backgroundColor: "#66647c"}}>
+        <div id={'additionally' + product.id} className="accordion-collapse row justify-content-center collapse"
+             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div className="p-3 col-8  text-white" style={{borderRadius: "12px", backgroundColor: "#66647c"}}>
                 <h6 className="text-start">Для повышения эффективности суггестивного воздействия вы также можете
                     загрузить
                     слова одобрения, поддержки и другие положительно подкрепляемые эмоциональные фразы

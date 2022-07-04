@@ -101,7 +101,6 @@ const CatalogTemplate = React.memo(() => {
     }
 
     const runCallback = (cb) => {
-        console.log('RUN_CALLBACK');
         return cb();
     }
 
@@ -111,7 +110,6 @@ const CatalogTemplate = React.memo(() => {
 
     // TODO переделать по аналогии с селектами, сделать компоненты
     const checkboxList = () => {
-        console.log('CHECKBOXES');
 
         return (
             <Row className="mb-3">

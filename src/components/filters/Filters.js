@@ -36,7 +36,6 @@ const FilterSelect = React.memo((props) => {
                 </option>
                 {/* в key добавил индекс чтоб при ресете фильтров менялись значения */}
                 {values.map((filter, index) => {
-                    console.log(filter)
                     return(
                         <option key={filter.id + '_' + index + '_' + product_prop} value={filter.id}>
                             {filter.title}

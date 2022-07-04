@@ -5,7 +5,7 @@ const Footer = () => {
 
     useEffect(() => {
         async function fetchInitData() {
-            await fetch(process.env.REACT_APP_MUZSPORT_API + '/footer/2')
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/footer/1')
                 .then(response => response.json())
                 .then(data => setFooter(data))
         }
@@ -77,7 +77,6 @@ const Footer = () => {
                     </div>
             </div>
         </footer>
-
     )
 }
 

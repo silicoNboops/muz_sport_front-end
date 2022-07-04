@@ -1,10 +1,21 @@
-import React, {useState} from "react";
-import {Dropdown} from "react-bootstrap";
+import React, {useState, useEffect} from "react";
+import { Form} from "react-bootstrap";
 
 const UnloadingModuleBody = (props) => {
     const {product} = props
     const [link, setLink] = useState('')
     const [file, setFile] = useState('')
+    const [directionEffect, setDirectionEffect] = useState([])
+
+
+    useEffect(() => {
+        async function fetchInitData() {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/direction_effect/')
+                .then(response => response.json())
+                .then(data => setDirectionEffect(data))
+        }
+        fetchInitData();
+    },[])
 
     const initData = () => {
         setFile('');
@@ -18,25 +29,34 @@ const UnloadingModuleBody = (props) => {
                     <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
                     <span>{product.price} ₽</span>
                 </div>
-                <div className="accordion-body" >
-                    <div className=" card col-11 p-5" style={{borderRadius:"12px"}}>
+                <div className="accordion-body row justify-content-center" >
+                    <div className=" card col-8 p-5" style={{borderRadius:"12px"}}>
                         <h6 className="text-start">Разгрузочный модуль окажет психологическое расслабление после спортивного выступления
                         (соревнования), а также в перерывах между интенсивными тренировками</h6>
                         <figcaption className="card-props-column">
                             <div className="card-props card-text">
                                 <span className="font-weight-bolder ">Направление воздействия эффекта:</span>
-                                <span className="font-weight-bold container pt-3">
-                                    <Dropdown>
-                                      <Dropdown.Toggle style={{backgroundColor:"#948eba"}} id="dropdown-basic">
-                                        Выберите направление
-                                      </Dropdown.Toggle>
+                                <span className="font-weight-bold container pt-4 pb-2">
+                                    <Form.Group className="col-8 container">
+                                        <Form.Control
+                                            className="text-center"
+                                            style={{backgroundColor:"rgba(153,147,196,0.73)", borderRadius:"16px"}}
+                                            as='select'
+                                        >
+                                            <option className="">
+                                                Выберите направление
+                                            </option>
 
-                                      <Dropdown.Menu className="dropdown-menu">
-                                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                      </Dropdown.Menu>
-                                    </Dropdown>
+                                            {directionEffect.map(directionEffectObj => {
+                                                return(
+                                                    <option id={directionEffectObj.id}>
+                                                        {directionEffectObj.direction_effect}
+                                                    </option>
+                                                );
+                                            })}
+
+                                        </Form.Control>
+                                    </Form.Group>
                                 </span>
                             </div>
                         </figcaption>

@@ -37,7 +37,6 @@ const NewPlayer = ({product}) => {
     const [playing, setPlaying] = useState(false);
 
     useEffect(() => {
-        console.log('sadadad')
         const track = document.querySelector('#track' + product.id);
 
         let wavesurfer = WaveSurfer.create({
