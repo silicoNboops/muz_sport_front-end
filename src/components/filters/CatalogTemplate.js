@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import ProductsPaginated from "./ProductsPaginated";
-import Selects from "./Filters";
+import Filters from "./Filters";
 import {toast} from "react-toastify";
 
 
@@ -86,7 +86,9 @@ const CatalogTemplate = React.memo(() => {
             await setItemsReqUrl(itemsReqUrlDefault);
         }
 
-        reset();
+        reset().then(r =>
+            console.log(r)
+        );
 
         toast.success('Фильтры сброшены', {
             position: "top-left",
@@ -100,60 +102,57 @@ const CatalogTemplate = React.memo(() => {
         });
     }
 
-    const runCallback = (cb) => {
-        return cb();
-    }
-
     const handlerCHANGER = (event) => {
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: event.target.value});
     }
 
     // TODO переделать по аналогии с селектами, сделать компоненты
-    const checkboxList = () => {
-
-        return (
-            <Row className="mb-3">
-                {
-                    runCallback(() => {
-                        const checkboxFilters = filterVariants.checkbox;
-
-                        const checkbox = [];
-                        const checkboxBlock = [];
-
-                        checkboxFilters.map((checkboxFilter, index) =>
-                            checkbox.push(
-                                <Form.Group
-                                    key={checkboxFilter.db_name + '_' + index}
-                                    controlId={checkboxFilter.db_name}
-                                >
-                                    <Form.Check name={checkboxFilter.db_name}
-                                                inline
-                                                className="text-white"
-                                                type='checkbox'
-                                                id={checkboxFilter.db_name + '_' + index}
-                                                label={checkboxFilter.verbose_name}
-                                    />
-                                </Form.Group>)
-                        );
-
-                        checkboxBlock.push(
-                            <Row className="mb-3">
-                                {checkbox}
-                            </Row>);
-
-                        return checkboxBlock;
-                    })
-                }
-            </Row>
-        );
-    };
+    // const checkboxList = () => {
+    //     console.log('CHECKBOXES');
+    //
+    //     return (
+    //         <Row className="mb-3">
+    //             {
+    //                 runCallback(() => {
+    //                     const checkboxFilters = filterVariants.checkbox;
+    //
+    //                     const checkbox = [];
+    //                     const checkboxBlock = [];
+    //
+    //                     checkboxFilters.map((checkboxFilter, index) =>
+    //                         checkbox.push(
+    //                             <Form.Group
+    //                                 key={checkboxFilter.db_name + '_' + index}
+    //                                 controlId={checkboxFilter.db_name}
+    //                             >
+    //                                 <Form.Check name={checkboxFilter.db_name}
+    //                                             inline
+    //                                             className="text-white"
+    //                                             type='checkbox'
+    //                                             id={checkboxFilter.db_name + '_' + index}
+    //                                             label={checkboxFilter.verbose_name}
+    //                                 />
+    //                             </Form.Group>)
+    //                     );
+    //
+    //                     checkboxBlock.push(
+    //                         <Row className="mb-3">
+    //                             {checkbox}
+    //                         </Row>);
+    //
+    //                     return checkboxBlock;
+    //                 })
+    //             }
+    //         </Row>
+    //     );
+    // };
 
     const filters = (loading) => {
         if (loading) {
             return (
                 <div className="d-flex justify-content-center">
                     <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only">Загрузка...</span>
                     </div>
                 </div>
             );
@@ -170,12 +169,10 @@ const CatalogTemplate = React.memo(() => {
             <>
                 <Form onSubmit={handleSubmitFiltered}>
                     <Row className="mb-3">
-                        <Selects fieldList={filterVariants.select}
+                        <Filters filterVariants={filterVariants}
                                  selectedValues={selectedFiltersValues}
                                  handlerChangeSelect={handlerCHANGER}
                         />
-
-                        {checkboxList()}
                     </Row>
 
                     <Row>
@@ -205,9 +202,11 @@ const CatalogTemplate = React.memo(() => {
             <div className="padding-y-sm" style={{minHeight: '900px'}}>
                 {filters(loading)}
 
-                <div className="padding-y-sm" style={{minHeight: '200px'}}>
-                    <ProductsPaginated itemsReqUrl={itemsReqUrl}/>
-                </div>
+                {!loading && (
+                    <div className="padding-y-sm" style={{minHeight: '200px'}}>
+                        <ProductsPaginated itemsReqUrl={itemsReqUrl}/>
+                    </div>)
+                }
             </div>
         </>
     )

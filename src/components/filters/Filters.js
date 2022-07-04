@@ -3,18 +3,84 @@ import React from "react";
 import {TableRow} from "@mui/material";
 
 
-// TODO здесь и селекты сразу отображать
-const Filters = React.memo(({fieldList, selectedValues, handlerChangeSelect}) => {
-    return fieldList.map((filterSelect, index) =>
-            <FilterSelect
-                key={filterSelect + '_' + index}
-                handler={handlerChangeSelect}
-                product_prop={filterSelect.product_prop}
-                name={filterSelect.name}
-                values={filterSelect.values}
-                selectedValue={selectedValues ? selectedValues[filterSelect.product_prop] : ''}
-            />
-    );
+const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect}) => {
+    const filterNameSequence = ['sport', 'len', 'direction', 'character', 'words', 'country']
+
+    let filters = []
+
+    console.log(Object.entries(filterVariants));
+
+    for (const [filterName, filter] of Object.entries(filterVariants)) {
+        console.log([filterName, filter]);
+    }
+
+    filterNameSequence.map(filterName => {
+        // console.log(filterName);
+        // console.log(filterVariants[filterName]);
+        // console.log(Object.values(filterVariants))
+
+        let filter = filterVariants[filterName];
+        console.log(filter.type);
+
+        if (filter.type === 'select') {
+            filters.push(
+                <FilterSelect
+                    key={filter.product_prop + '_' + filter.type + '_' + filter.name}
+                    handler={handlerChangeSelect}
+                    product_prop={filter.product_prop}
+                    name={filter.name}
+                    values={filter.values}
+                    selectedValue={selectedValues ? selectedValues[filter.product_prop] : ''}
+                />
+            )
+        } else {
+            filters.push(
+                <Form.Group
+                    key={filter.db_name + '_' + filter.verbose_name}
+                    controlId={filter.db_name}
+                >
+                    <Form.Check name={filter.db_name}
+                                inline
+                                type='checkbox'
+                                id={filter.db_name + '_' + filter.verbose_name}
+                                label={filter.verbose_name}
+                                onChange={handlerChangeSelect}
+                    />
+                </Form.Group>
+            )
+        }
+    });
+
+    console.log(filters);
+
+    return filters;
+
+    // return filterVariants.map((filter, index) => {
+    //     if (filter.type === 'select') {
+    //         return(
+    //             <FilterSelect
+    //                 key={filter + '_' + index}
+    //                 handler={handlerChangeSelect}
+    //                 product_prop={filter.product_prop}
+    //                 name={filter.name}
+    //                 values={filter.values}
+    //                 selectedValue={selectedValues ? selectedValues[filter.product_prop] : ''}
+    //             />);
+    //     } else {
+    //         return(
+    //             <Form.Group
+    //                 key={filter.db_name + '_' + index}
+    //                 controlId={filter.db_name}
+    //             >
+    //                 <Form.Check name={filter.db_name}
+    //                             inline
+    //                             type='checkbox'
+    //                             id={filter.db_name + '_' + index}
+    //                             label={filter.verbose_name}
+    //                 />
+    //             </Form.Group>);
+    //     }
+    // });
 });
 
 

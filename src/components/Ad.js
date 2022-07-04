@@ -5,6 +5,7 @@ const Ad = () => {
     const [SmallImage, setSmallImage] = useState({})
 
     useEffect(() => {
+        // TODO картинка блочится расширением браузера!
         async function fetchInitData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + '/adbig/1')
                 .then(response => response.json())

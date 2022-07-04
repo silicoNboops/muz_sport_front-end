@@ -27,14 +27,12 @@ const ProductsPaginated = ({itemsReqUrl}) => {
     const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
-        console.log(itemsReqUrl);
         getItems(itemsReqUrl);
         setPageOffset(0);
     }, [itemsReqUrl]);
 
     useEffect(() => {
         let pageParamSeparator = '';
-        console.log(itemsReqUrl);
         if (itemsReqUrl.charAt(itemsReqUrl.length - 1) === '/') {
             pageParamSeparator = '?';
         } else {
@@ -43,16 +41,16 @@ const ProductsPaginated = ({itemsReqUrl}) => {
         const paginatedUrl = itemsReqUrl + pageParamSeparator + `page=${pageOffset + 1}`
 
         getItems(paginatedUrl);
-    }, [pageOffset]);
+    }, [itemsReqUrl, pageOffset]);
 
-    const getItems = async (itemsReqUrl) => {
-        await fetch(itemsReqUrl)
+    const getItems = (itemsReqUrl) => {
+        console.log(itemsReqUrl);
+        fetch(itemsReqUrl)
             .then(res => res.json())
             .then((itemsData) => {
                 setCurrentProducts(itemsData.results);
                 setProductsPerPage(itemsData.per_page);
                 setPageCount(itemsData.page_count);
-                console.log(itemsData);
             }, (error) => {
                 setCurrentProducts([]);
                 console.log('Не удалось получить товары');
