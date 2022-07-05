@@ -95,7 +95,7 @@ const FinishedTrackBody = (props) => {
                             <span className="font-weight-bold">
                                 <div className="position-relative" style={{right: "250%"}}>
                                   <input type="checkbox" id="coffee"/>
-                                  <label htmlFor="coffee">Coffee</label>
+                                  <label id="label" htmlFor="coffee">Coffee</label>
                                 </div>
                             </span>
                         </div>

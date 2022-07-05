@@ -287,7 +287,7 @@ input[type="checkbox"] {
     display: block;
 }
 
-label {
+#label {
     padding-left: 25px;
     position: relative;
     margin-bottom: 15px;
@@ -295,7 +295,7 @@ label {
     cursor:pointer;
 }
 
-label:before {
+#label:before {
     background: #948eba;
     content: "";
     position: absolute;
@@ -306,7 +306,7 @@ label:before {
     border-radius: 100%;
 }
 
-label:after {
+#label:after {
     content: "";
     position: absolute;
     width: 14px;
@@ -321,6 +321,6 @@ label:after {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked + label:after {
+input[type="checkbox"]:checked + #label:after {
     opacity: 1;
 }
