@@ -1,21 +1,21 @@
 import React, {useState} from "react";
 
-
 const AdditionalTrackBody = (props) => {
     const {product} = props
     const [link, setLink] = useState(false)
     const [file, setFile] = useState(false)
     const [catalog, setCatalog] = useState(false)
+    const [valueFile, setValueFile] = useState('')
+    const [valueLink, setValueLink] = useState('')
     const [commentary, setCommentary] = useState('');
     const [auto, setAuto] = useState(true)
     const [manual, setManual] = useState(false)
 
 
-    // const initData = () => {
-    //     setFile('');
-    //     setLink('');
-    //     setCommentary('');
-    // }
+    const initData = () => {
+        setValueFile('');
+        setValueLink('');
+    }
     const handleAuto = () => {
         setManual(false)
     };
@@ -35,18 +35,19 @@ const AdditionalTrackBody = (props) => {
     const handleCatalog = () => {
         setLink(false)
         setFile(false)
-        setCatalog(true)    };
+        setCatalog(true)
+    };
 
     return(
-        <div id={'additional_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+        <div id={'additional_track' + product.id} className="accordion-collapse collapse " aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
-            <div className="col-2 imgblock-accordion">
+            <div className=" imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
                 <span>{product.price} ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">
+                <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
 
-                <div className="card col-8 p-5" style={{borderRadius:"12px"}}>
                     <h5 className="text-start ">Материал (трек) для компановки программы*:</h5>
                     <div className="d-inline-flex pt-3">
                         <div className="float-start">
@@ -60,33 +61,31 @@ const AdditionalTrackBody = (props) => {
                                 <img src="assets/icons/list.png" className="card p-1" height="50px"/>
                             </button>
                         </div>
-                        {/*<img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>*/}
-                        {/*<img src="assets/icons/download.png" className="card p-1 me-3" height="50px"/>*/}
-                        {/*<img src="assets/icons/list.png" className="card p-1" height="50px"/>*/}
                     </div>
 
                     {link ?
                         <div className="col-6 pt-4 pb-2">
                             <input type="url" required
-                                // value={link}
+                                // value={valueLink}
                                    placeholder="Ссылка на файл..."
                                    className="form-control input-box"
-                                // onChange={(e) =>
-                                //     setLink(e.target.value)}
+                                   onChange={(e) =>
+                                       setValueLink(e.target.value)}
                             />
                         </div>
                             :
                             null
                     }
 
+
                     {file ?
                         <div className="col-6 pt-2 pb-2">
                             <input type="file"
-                                // value={file}
+                                value={valueFile}
                                    placeholder="формат mp3, mpeg"
                                    className="form-control input-box mt-3"
-                                // onChange={(e) =>
-                                //     setFile(e.target.value)}
+                                   onChange={(e) =>
+                                       setValueFile(e.target.value)}
                             />
                         </div>
                         :
@@ -104,7 +103,7 @@ const AdditionalTrackBody = (props) => {
                     <h5 className="text-start">
                         <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                         Компоновка*</h5>
-                    <div className="text-start">
+                    <div className="float-start d-flex">
                         <button className="btn btn-sm" onClick={handleAuto}>
                             <img src="assets/icons/auto.png" className="float-start" height="50px"/>
                         </button>
@@ -122,10 +121,10 @@ const AdditionalTrackBody = (props) => {
                         <div className="float-start">
                             <div className="row">
                                 <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment" checked/>
-                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment"/>
+                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1" checked/>
+                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"/>
                                 </div>
-                                <span className="font-weight-bold col-6 pt-5">от
+                                <span className="font-weight-bold d-block col ms-2 text-start pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
                                             backgroundColor: "#948eba",
                                             borderRadius: "10px"
@@ -142,12 +141,12 @@ const AdditionalTrackBody = (props) => {
                                         </span>
 
                             </div>
-                            <div className="row col-12">
+                            <div className="row ">
                                 <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment2" value="smooth" checked/>
-                                    <input label="Добавить отрезок" type="radio" name="segment2" value="sharp"/>
+                                    <input label="Удалить отрезок" type="radio" name="segment2" value="smooth1" checked/>
+                                    <input label="Добавить отрезок" type="radio" name="segment2" value="sharp1"/>
                                 </div>
-                                <span className="font-weight-bold col-7 pt-5">от
+                                <span className="font-weight-bold d-block col pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
                                             backgroundColor: "#948eba",
                                             borderRadius: "10px"

@@ -37,14 +37,14 @@ const FinishedTrackBody = (props) => {
 
 
     return (
-        <div id={'finished_track' + product.id} className="accordion-collapse collapse " aria-labelledby="headingOne"
+        <div id={'finished_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
-            <div className="col-2 imgblock-accordion">
+            <div className=" imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
                 <span className="text-white">{product.price} ₽</span>
             </div>
-            <div className="accordion-body row justify-content-center">
-                <div className="card col-8 p-5" style={{borderRadius: "12px"}}>
+            <div className="accordion-body row container justify-content-center">
+                <div className="card style-accordion p-5" style={{borderRadius: "12px"}}>
                     <figcaption className="card-props-column">
                         <div className="card-props card-text">
                             <span className="font-weight-bolder">Название трека:</span>
@@ -93,12 +93,11 @@ const FinishedTrackBody = (props) => {
                         <div className="card-props card-text">
                             <span className="font-weight-bolder">Пик в начале:</span>
                             <span className="font-weight-bold">
-                                    <div className="form-check">
-                                      <input className="form-check-input checkbox-accordion" type="checkbox"
-                                              id="flexCheckDefault"/>
-                                      <label className="form-check-label" htmlFor="flexCheckDefault">Добавить</label>
-                                    </div>
-                                </span>
+                                <div className="position-relative" style={{right: "250%"}}>
+                                  <input type="checkbox" id="coffee"/>
+                                  <label htmlFor="coffee">Coffee</label>
+                                </div>
+                            </span>
                         </div>
 
                         <div className="card-props card-text">
@@ -135,7 +134,7 @@ const FinishedTrackBody = (props) => {
                                         <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment" checked/>
                                         <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment"/>
                                     </div>
-                                    <span className="font-weight-bold col-6 pt-5">от
+                                    <span className="font-weight-bold ms-2 text-start d-block col pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
                                             backgroundColor: "#948eba",
                                             borderRadius: "10px"
@@ -152,12 +151,12 @@ const FinishedTrackBody = (props) => {
                                         </span>
 
                                 </div>
-                                <div className="row col-12">
+                                <div className="row ">
                                     <div className="buttons d-grid pt-4">
                                         <input label="Удалить отрезок" type="radio" name="segment2" value="smooth" checked/>
                                         <input label="Добавить отрезок" type="radio" name="segment2" value="sharp"/>
                                     </div>
-                                    <span className="font-weight-bold col-7 pt-5">от
+                                    <span className="font-weight-bold d-block col pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
                                             backgroundColor: "#948eba",
                                             borderRadius: "10px"

@@ -169,7 +169,8 @@
 /* IMG BLOCK ACCORDION */
 
 .imgblock-accordion {
-    position: relative;
+    position: absolute;
+    padding-top: 7%;
     display: inline-block;
 }
 .imgblock-accordion span {
@@ -177,16 +178,18 @@
     color: black;
     position: relative;
     font-size: 34px;
-    left: 247%;
+    left: 490%;
 }
 .price-icon-accordion{
     z-index: 1;
-    left: 237%;
-    top: 400%;
+    left: 430%;
     position: absolute;
     height: 60px;
 }
+.style-accordion{
+    width: 756px!important;
 
+}
 
 /* IMG WRAP */
 
@@ -277,5 +280,47 @@ input[type=range]:focus {
     text-align: center;
 }
 
+/* CHECKBOX */
 
+input[type="checkbox"] {
+    visibility: hidden;
+    display: block;
+}
 
+label {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    cursor:pointer;
+}
+
+label:before {
+    background: #948eba;
+    content: "";
+    position: absolute;
+    top:3px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+
+label:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 6px;
+    background: transparent;
+    top: 9px;
+    left: 3px;
+    border: 2px  solid #ffffff;
+    border-top:none;
+    border-right:none;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}

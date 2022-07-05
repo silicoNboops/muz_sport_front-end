@@ -4,7 +4,7 @@ const AdditionalTrackBtn = (props) => {
     const {product} = props
 
     return(
-        <div className="text-center">
+        <div>
             <button type="button"
                     className="btn btn-sm dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="collapse"
