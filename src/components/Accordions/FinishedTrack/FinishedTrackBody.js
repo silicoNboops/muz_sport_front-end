@@ -11,6 +11,8 @@ const FinishedTrackBody = (props) => {
     const {product} = props;
     const [commentary, setCommentary] = useState('');
     const [sportsName, setSportsName] = useState([])
+    const [auto, setAuto] = useState(true)
+    const [manual, setManual] = useState(false)
 
 
     useEffect(() => {
@@ -25,6 +27,14 @@ const FinishedTrackBody = (props) => {
     const initData = () => {
         setCommentary('');
     }
+
+    const handleAuto = () => {
+        setManual(false)
+    };
+    const handleManual = () => {
+        setManual(true)
+    };
+
 
     return (
         <div id={'finished_track' + product.id} className="accordion-collapse collapse " aria-labelledby="headingOne"
@@ -103,22 +113,29 @@ const FinishedTrackBody = (props) => {
                         <h5 className="text-start">
                             <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                             Компоновка*</h5>
-                        <img src="assets/icons/auto.png" className="float-start" height="50px"/>
-                        <img src="assets/icons/palm-of-hand.png"
-                             data-bs-toggle="collapse"
-                             data-bs-target="#collapseTwo"
-                             aria-expanded="true"
-                             aria-controls="collapseTwo"
-                             className="float-start ms-2" height="45px"/>
-                    </figcaption>
-                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingOne"
-                         data-bs-parent="#accordionExample">
-                        <div className="row">
-                            <div className="buttons d-grid pt-4">
-                                <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment" checked/>
-                                <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment"/>
-                            </div>
-                                <span className="font-weight-bold col-6 pt-5">от
+
+                    <div className="float-start">
+                        <button className="btn btn-sm" onClick={handleAuto}>
+                            <img src="assets/icons/auto.png" className="float-start" height="50px"/>
+                        </button>
+                        <button className="btn btn-sm" onClick={handleManual}>
+                            <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
+                        </button>
+                    </div>
+
+                        {auto ?
+                            null
+                        :
+                            null
+                        }
+                        {manual ?
+                            <div className="float-start">
+                                <div className="row">
+                                    <div className="buttons d-grid pt-4">
+                                        <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment" checked/>
+                                        <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment"/>
+                                    </div>
+                                    <span className="font-weight-bold col-6 pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
                                             backgroundColor: "#948eba",
                                             borderRadius: "10px"
@@ -134,13 +151,13 @@ const FinishedTrackBody = (props) => {
                                         </button>
                                         </span>
 
-                        </div>
-                        <div className="row col-12">
-                            <div className="buttons d-grid pt-4">
-                                <input label="Удалить отрезок" type="radio" name="segment2" value="smooth" checked/>
-                                <input label="Добавить отрезок" type="radio" name="segment2" value="sharp"/>
-                            </div>
-                            <span className="font-weight-bold col-7 pt-5">от
+                                </div>
+                                <div className="row col-12">
+                                    <div className="buttons d-grid pt-4">
+                                        <input label="Удалить отрезок" type="radio" name="segment2" value="smooth" checked/>
+                                        <input label="Добавить отрезок" type="radio" name="segment2" value="sharp"/>
+                                    </div>
+                                    <span className="font-weight-bold col-7 pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
                                             backgroundColor: "#948eba",
                                             borderRadius: "10px"
@@ -164,8 +181,13 @@ const FinishedTrackBody = (props) => {
                                             <img src="assets/icons/minus-pink.png" height="25px"/>
                                         </button>
                                         </span>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
+                            :
+                            null
+                        }
+                    </figcaption>
+
 
                     <div className="text-start pt-3">
                         <h5>Комментарии к данному треку:</h5>

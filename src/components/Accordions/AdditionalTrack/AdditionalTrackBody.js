@@ -3,16 +3,40 @@ import React, {useState} from "react";
 
 const AdditionalTrackBody = (props) => {
     const {product} = props
-    const [link, setLink] = useState('')
-    const [file, setFile] = useState('')
+    const [link, setLink] = useState(false)
+    const [file, setFile] = useState(false)
+    const [catalog, setCatalog] = useState(false)
     const [commentary, setCommentary] = useState('');
+    const [auto, setAuto] = useState(true)
+    const [manual, setManual] = useState(false)
 
 
-    const initData = () => {
-        setFile('');
-        setLink('');
-        setCommentary('');
-    }
+    // const initData = () => {
+    //     setFile('');
+    //     setLink('');
+    //     setCommentary('');
+    // }
+    const handleAuto = () => {
+        setManual(false)
+    };
+    const handleManual = () => {
+        setManual(true)
+    };
+    const handleLink = () => {
+        setLink(true)
+        setFile(false)
+        setCatalog(false)
+    };
+    const handleFile = () => {
+        setLink(false)
+        setFile(true)
+        setCatalog(false)
+    };
+    const handleCatalog = () => {
+        setLink(false)
+        setFile(false)
+        setCatalog(true)    };
+
     return(
         <div id={'additional_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
@@ -25,44 +49,133 @@ const AdditionalTrackBody = (props) => {
                 <div className="card col-8 p-5" style={{borderRadius:"12px"}}>
                     <h5 className="text-start ">Материал (трек) для компановки программы*:</h5>
                     <div className="d-inline-flex pt-3">
-                        <img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>
-                        <img src="assets/icons/download.png" className="card p-1 me-3" height="50px"/>
-                        <img src="assets/icons/list.png" className="card p-1" height="50px"/>
+                        <div className="float-start">
+                            <button className="btn btn-sm" onClick={handleLink}>
+                                <img src="assets/icons/www.png" className="card p-1" height="50px"/>
+                            </button>
+                            <button className="btn btn-sm" onClick={handleFile}>
+                                <img src="assets/icons/download.png" className="card p-1" height="50px"/>
+                            </button>
+                            <button className="btn btn-sm" onClick={handleCatalog}>
+                                <img src="assets/icons/list.png" className="card p-1" height="50px"/>
+                            </button>
+                        </div>
+                        {/*<img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>*/}
+                        {/*<img src="assets/icons/download.png" className="card p-1 me-3" height="50px"/>*/}
+                        {/*<img src="assets/icons/list.png" className="card p-1" height="50px"/>*/}
                     </div>
 
-                    <div className="col-6 pt-3">
-                        <input type="url" required
-                               value={link}
-                               placeholder="Ссылка на файл..."
-                               className="form-control input-box"
-                               onChange={(e) =>
-                                   setLink(e.target.value)}
-                        />
-                        <input type="file"
-                               value={file}
-                               placeholder="формат mp3, mpeg"
-                               className="form-control input-box mt-3"
-                               onChange={(e) =>
-                                   setFile(e.target.value)}
-                        />
-                    </div>
+                    {link ?
+                        <div className="col-6 pt-4 pb-2">
+                            <input type="url" required
+                                // value={link}
+                                   placeholder="Ссылка на файл..."
+                                   className="form-control input-box"
+                                // onChange={(e) =>
+                                //     setLink(e.target.value)}
+                            />
+                        </div>
+                            :
+                            null
+                    }
+
+                    {file ?
+                        <div className="col-6 pt-2 pb-2">
+                            <input type="file"
+                                // value={file}
+                                   placeholder="формат mp3, mpeg"
+                                   className="form-control input-box mt-3"
+                                // onChange={(e) =>
+                                //     setFile(e.target.value)}
+                            />
+                        </div>
+                        :
+                        null
+                    }
+
+                    {catalog ?
+                        <div className="col-6 pt-2 pb-2">
+                            <h6>Вот так уот</h6>
+                        </div>
+                        :
+                        null
+                    }
+
                     <h5 className="text-start">
                         <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                         Компоновка*</h5>
-                    <figcaption className="card-props-column">
-                    <img src="assets/icons/auto.png" className="float-start" height="50px"/>
-                    <img src="assets/icons/palm-of-hand.png"
-                         data-bs-toggle="collapse"
-                         data-bs-target="#collapseTwo"
-                         aria-expanded="true"
-                         aria-controls="collapseTwo"
-                         className="float-start ms-2" height="45px"/>
-                    </figcaption>
-                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingOne"
-                         data-bs-parent="#accordionExample">
-                        <h6 className="text-start">Здесь будут кнопки доработок(Подумать, как она будет закрываться,
-                            если человек нажмет на AUTO)</h6>
+                    <div className="text-start">
+                        <button className="btn btn-sm" onClick={handleAuto}>
+                            <img src="assets/icons/auto.png" className="float-start" height="50px"/>
+                        </button>
+                        <button className="btn btn-sm" onClick={handleManual}>
+                            <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
+                        </button>
                     </div>
+
+                    {auto ?
+                        null
+                        :
+                        null
+                    }
+                    {manual ?
+                        <div className="float-start">
+                            <div className="row">
+                                <div className="buttons d-grid pt-4">
+                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment" checked/>
+                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment"/>
+                                </div>
+                                <span className="font-weight-bold col-6 pt-5">от
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>до
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>
+                                        <button type="button" className="btn mb-2 ">
+                                            <img src="assets/icons/plus-purple.png" height="25px"/>
+                                        </button>
+                                        </span>
+
+                            </div>
+                            <div className="row col-12">
+                                <div className="buttons d-grid pt-4">
+                                    <input label="Удалить отрезок" type="radio" name="segment2" value="smooth" checked/>
+                                    <input label="Добавить отрезок" type="radio" name="segment2" value="sharp"/>
+                                </div>
+                                <span className="font-weight-bold col-7 pt-5">от
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>до
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>на
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>
+
+                                        <button type="button" className="btn mb-2">
+                                            <img src="assets/icons/plus-purple.png" height="25px"/>
+                                        </button>
+                                        <button type="button" className="btn mb-2">
+                                            <img src="assets/icons/minus-pink.png" height="25px"/>
+                                        </button>
+                                        </span>
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
                     <div className="text-start pt-3">
                         <h5>Комментарии к данному треку:</h5>
                         <h6>По желанию. Только если остались какие-то неуточненные моменты</h6>

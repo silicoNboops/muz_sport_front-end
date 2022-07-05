@@ -3,9 +3,18 @@ import { Form} from "react-bootstrap";
 
 const UnloadingModuleBody = (props) => {
     const {product} = props
-    const [link, setLink] = useState('')
-    const [file, setFile] = useState('')
     const [directionEffect, setDirectionEffect] = useState([])
+    const [link, setLink] = useState(true)
+    const [file, setFile] = useState(false)
+
+    const handleLink = () => {
+        setLink(true)
+        setFile(false)
+    };
+    const handleFile = () => {
+        setLink(false)
+        setFile(true)
+    };
 
 
     useEffect(() => {
@@ -17,10 +26,6 @@ const UnloadingModuleBody = (props) => {
         fetchInitData();
     },[])
 
-    const initData = () => {
-        setFile('');
-        setLink('');
-    }
 
     return(
             <div id={'unloading_module' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
@@ -66,26 +71,42 @@ const UnloadingModuleBody = (props) => {
                                 вызывает у обычного человека чувство расслабления. Рекомендуемая продолжительность: 5-12
                                 мин.
                                 </h6>
-                                <div className=" d-inline-flex pt-3">
-                                    <img src="assets/icons/www.png" className="card me-3 p-1" height="50px"/>
-                                    <img src="assets/icons/download.png" className="card p-1" height="50px"/>
-                                </div>
-                                <div className="col-6 pt-3">
-                                    <input type="url" required
-                                           value={link}
-                                           placeholder="Ссылка на файл..."
-                                           className="form-control input-box"
-                                           onChange={(e) =>
-                                               setLink(e.target.value)}
-                                    />
-                                    <input type="file"
-                                           value={file}
-                                           placeholder="формат mp3, mpeg"
-                                           className="form-control input-box mt-3"
-                                           onChange={(e) =>
-                                               setFile(e.target.value)}
-                                    />
-                                </div>
+                        <div className="text-start pb-2">
+                            <button className="btn btn-sm" onClick={handleLink}>
+                                <img src="assets/icons/www.png" className="card p-1" height="50px"/>
+                            </button>
+                            <button className="btn btn-sm" onClick={handleFile}>
+                                <img src="assets/icons/download.png" className="card p-1" height="50px"/>
+                            </button>
+                        </div>
+                        {link ?
+                            <div className="col-6 pt-3 pb-2">
+                                <input type="url" required
+                                    // value={link}
+                                       placeholder="Ссылка на файл..."
+                                       className="form-control input-box"
+                                    // onChange={(e) =>
+                                    //     setLink(e.target.value)}
+                                />
+                            </div>
+                            :
+                            null
+                        }
+
+                        {file ?
+                            <div className="col-6 pb-2">
+                                <input type="file"
+                                    // value={file}
+                                       placeholder="формат mp3, mpeg"
+                                       className="form-control input-box mt-3"
+                                    // onChange={(e) =>
+                                    //     setFile(e.target.value)}
+                                />
+                            </div>
+                            :
+                            null
+                        }
+
                             </div>
                         </div>
                     </div>
