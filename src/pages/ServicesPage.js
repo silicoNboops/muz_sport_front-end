@@ -1,7 +1,17 @@
-import React from "react";
-
+import React, {useEffect, useState} from "react";
 
 const ServicesPage = () => {
+    const [price, setPrice] = useState([])
+
+    useEffect(() => {
+        // TODO картинка блочится расширением браузера!
+        async function fetchInitData() {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/price/1')
+                .then(response => response.json())
+                .then(data => setPrice(data))
+        }
+        fetchInitData();
+    },[])
     return(
         <div className="container-fluid p-5">
             <h1 className="text-white">Индивидуальный заказ спортивной программы</h1>
@@ -26,7 +36,7 @@ const ServicesPage = () => {
                     <div className="imgblock-service">
                         <a href="#" className="link-unstyled">
                             <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
-                            <span>10320 ₽</span>
+                            <span>{price.sports_programme_min} ₽</span>
                         </a>
                     </div>
                 </div>
@@ -63,7 +73,7 @@ const ServicesPage = () => {
                     <div className="imgblock-service">
                         <a href="#" className="link-unstyled">
                             <img src='assets/icons/price-tag.png' className="price-icon-services"/>
-                            <span style={{bottom: '40px'}}>10320 ₽</span>
+                            <span style={{bottom: '40px'}}>{price.sports_programme_medium} ₽</span>
                         </a>
                     </div>
                 </div>
@@ -99,7 +109,7 @@ const ServicesPage = () => {
                     <div className="imgblock-service">
                         <a href="#" className="link-unstyled">
                             <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
-                            <span>10320 ₽</span>
+                            <span>{price.sports_programme_max} ₽</span>
                         </a>
                     </div>
                 </div>

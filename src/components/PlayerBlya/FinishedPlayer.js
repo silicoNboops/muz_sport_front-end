@@ -39,7 +39,7 @@ const NewPlayer = ({product}) => {
     useEffect(() => {
         const track = document.querySelector('#track' + product.id);
 
-        let wavesurfer = WaveSurfer.create({
+        const wavesurfer = WaveSurfer.create({
             barWidth: 2,
             cursorWidth: 1,
             container: document.querySelector('#wave' + product.id),
@@ -107,9 +107,13 @@ const NewPlayer = ({product}) => {
                     </p>
                     {/* TODO with_words*/}
                     <p className="card col-2 text-white">{product.country_name}</p>
+                    <button type="submit" name="learn" value="myimage" className="col-1 btn btn-sm ps-4">
+                        <img src="assets/icons/heart.png"  height="30px"/>
+                    </button>
 
-                    <div className="col-4 text-end">
-                        <FinishedTrackBtn product={product}/>
+
+                    <div className="col-4 row">
+                        <div className="position-relative" style={{right: "15%"}}><FinishedTrackBtn product={product}/></div>
                     </div>
                     <FinishedTrackBody product={product}/>
                 </div>

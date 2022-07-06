@@ -10,6 +10,8 @@ const Header = () => {
             <img src="assets/images/logo.png" width="140px" alt="logo"/>
         </a>
 
+
+
         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="/tracks" className="nav-link px-2 link-dark">Каталог</a></li>
             <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>
@@ -29,6 +31,12 @@ const Header = () => {
                     <img src="assets/icons/cart.png" width="30px"/>
                 </a>
             </div>
+            <div className="icon-link-badged px-2">
+                <a href="/wishlist" className="text-black d-inline ps-2">
+                    <img src="assets/icons/heart.png"  height="30px"/>
+                </a>
+            </div>
+
         </div>
     </header>
     )
