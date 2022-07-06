@@ -42,16 +42,13 @@ const Footer = () => {
 
                         <div className="col-3 p-3">
                             <ul>
-                                <li>
                                     <p className="text-white">К оплате принимаются:</p>
-                                </li>
                                 <li className="d-inline-flex">
 
                                 {Footer.payment_icons && Footer.payment_icons.map((payment_icon) => {
                                     return(
                                         <img src={process.env.REACT_APP_MUZSPORT_MEDIA + payment_icon}
                                              className="me-1" height='40px'/>
-
                                     );
                                 })}
                                 </li>
