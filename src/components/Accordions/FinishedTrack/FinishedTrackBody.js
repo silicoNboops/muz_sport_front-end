@@ -37,13 +37,14 @@ const FinishedTrackBody = (props) => {
 
 
     return (
-        <div id={'finished_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+        <div id={'finished_track' + product.id} className="accordion-collapse collapse pe-5" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
+            <div className="card background-accordion ps-5 container">
             <div className=" imgblock-accordion">
-                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                <span className="text-white">{product.price} ₽</span>
+                <img src='assets/icons/price-tag.png' style={{left: "900%"}} className='price-icon-accordion'/>
+                <span className="text-black" style={{left:"800px"}}>{product.price} ₽</span>
             </div>
-            <div className="accordion-body row container justify-content-center">
+            <div className="accordion-body row container justify-content-center mt-5">
                 <div className="card style-accordion p-5" style={{borderRadius: "12px"}}>
                     <figcaption className="card-props-column">
                         <div className="card-props card-text">
@@ -93,9 +94,9 @@ const FinishedTrackBody = (props) => {
                         <div className="card-props card-text">
                             <span className="font-weight-bolder">Пик в начале:</span>
                             <span className="font-weight-bold">
-                                <div className="position-relative" style={{right: "250%"}}>
-                                  <input type="checkbox" id="coffee"/>
-                                  <label id="label" htmlFor="coffee">Coffee</label>
+                                <div className="position-relative" style={{right: "200%"}}>
+                                  <input type="checkbox" id="add"/>
+                                  <label id="label" htmlFor="add">Добавить</label>
                                 </div>
                             </span>
                         </div>
@@ -203,16 +204,18 @@ const FinishedTrackBody = (props) => {
                                       setCommentary(e.target.value)}/>
                     </div>
                 </div>
-                <AdditionalTrackBtn product={product}/>
-                <AdditionalTrackBody product={product}/>
 
-                <AddSuggestiveEffectBtn product={product}/>
-                <AddSuggestiveEffectBody product={product}/>
-
-                <UnloadingModuleBtn product={product}/>
-                <UnloadingModuleBody product={product}/>
 
             </div>
+            </div>
+            <AdditionalTrackBtn product={product}/>
+            <AdditionalTrackBody product={product}/>
+
+            <AddSuggestiveEffectBtn product={product}/>
+            <AddSuggestiveEffectBody product={product}/>
+
+            <UnloadingModuleBtn product={product}/>
+            <UnloadingModuleBody product={product}/>
         </div>
     )
 }

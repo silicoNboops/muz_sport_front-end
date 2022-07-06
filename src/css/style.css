@@ -178,17 +178,22 @@
     color: black;
     position: relative;
     font-size: 34px;
-    left: 490%;
+    left: 1000%;
 }
 .price-icon-accordion{
     z-index: 1;
-    left: 430%;
+    left: 930%;
     position: absolute;
     height: 60px;
 }
 .style-accordion{
-    width: 756px!important;
-
+    min-width: 796px!important;
+}
+.background-accordion{
+    background-color: #44415d;
+    padding-left: 25px;
+    border-radius: 14px;
+    width: 826px;
 }
 
 /* IMG WRAP */

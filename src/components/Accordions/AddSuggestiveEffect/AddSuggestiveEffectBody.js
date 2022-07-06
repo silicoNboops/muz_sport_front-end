@@ -27,11 +27,12 @@ const AddSuggestiveEffectBody = (props) => {
     return(
         <div id={'suggestive_effect' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
+            <div className="card background-accordion ps-4 container">
             <div className="imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
                 <span>{product.price} ₽</span>
             </div>
-            <div className="accordion-body row justify-content-center">
+            <div className="accordion-body row justify-content-center mt-3">
                 <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
                     <h6 className="text-start pb-4">Добавление суггестивного эффекта в спортивную программу позволит повысить концетрацию и
                         мобилизацию спортсмена на соревновании, а так же окажет психологическую поддержку спортсмена во
@@ -77,6 +78,7 @@ const AddSuggestiveEffectBody = (props) => {
                     <AdditionallyBtn product={product}/>
                 </div>
                 <AdditionallyBody product={product}/>
+            </div>
             </div>
         </div>
     )
