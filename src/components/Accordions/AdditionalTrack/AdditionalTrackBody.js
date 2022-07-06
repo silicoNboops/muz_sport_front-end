@@ -41,12 +41,23 @@ const AdditionalTrackBody = (props) => {
     return(
         <div id={'additional_track' + product.id} className="accordion-collapse collapse " aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
+            <button type="button"
+                    data-bs-toggle="collapse"
+                    className="btn-close close-accordion"
+                    data-bs-target={'#additional_track' + product.id}
+                    aria-expanded="true"
+                    style={{borderRadius:"12px"}}
+                    aria-controls="collapseOne">
+            </button>
             <div className="card background-accordion ps-4 container">
-            <div className=" imgblock-accordion">
+
+                <h5 className="text-white position-relative" style={{right:"33%", top:"10px"}}>Добавить трек к
+                    программе</h5>
+                <div className=" imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
                 <span>{product.price} ₽</span>
             </div>
-            <div className="accordion-body row justify-content-center mt-3">
+            <div className="accordion-body row justify-content-center">
                 <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
 
                     <h5 className="text-start ">Материал (трек) для компановки программы*:</h5>

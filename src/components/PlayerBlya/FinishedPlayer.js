@@ -36,8 +36,10 @@ const NewPlayer = ({product}) => {
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
 
+
     useEffect(() => {
         const track = document.querySelector('#track' + product.id);
+        //TODO useEffect вызывается не один раз , поэтому происходит хуйня со множеством волн
 
         const wavesurfer = WaveSurfer.create({
             barWidth: 2,

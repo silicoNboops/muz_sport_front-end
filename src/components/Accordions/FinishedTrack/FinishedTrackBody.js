@@ -39,12 +39,21 @@ const FinishedTrackBody = (props) => {
     return (
         <div id={'finished_track' + product.id} className="accordion-collapse collapse pe-5" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
+            <button type="button"
+                    data-bs-toggle="collapse"
+                    className="btn-close close-accordion"
+                    data-bs-target={'#finished_track' + product.id}
+                    aria-expanded="true"
+                    style={{borderRadius:"12px"}}
+                    aria-controls="collapseOne">
+            </button>
             <div className="card background-accordion ps-5 container">
+                <h5 className="text-white position-absolute mt-2" style={{right:"78%"}}>Доработать трек</h5>
             <div className=" imgblock-accordion">
                 <img src='assets/icons/price-tag.png' style={{left: "900%"}} className='price-icon-accordion'/>
                 <span className="text-black" style={{left:"800px"}}>{product.price} ₽</span>
             </div>
-            <div className="accordion-body row container justify-content-center mt-5">
+            <div className="accordion-body row container justify-content-center mt-4">
                 <div className="card style-accordion p-5" style={{borderRadius: "12px"}}>
                     <figcaption className="card-props-column">
                         <div className="card-props card-text">
