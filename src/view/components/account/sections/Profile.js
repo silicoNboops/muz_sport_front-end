@@ -5,17 +5,13 @@ import SectionData from "./parts/SectionData";
 
 const Profile = ({setActiveSection}) => {
     // ФИО, Эл. почта, Телефон, Предпочтительный вид спорта
-    // TODO получать эти данные с бека
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [preferredSport, setPreferredSport] = useState(undefined);
 
-    const resetForm = () => {
-        initData();
-    }
-
     const initData = () => {
+        // TODO получать эти данные с бека
         setName('');
         setEmail('');
         setPhone('');

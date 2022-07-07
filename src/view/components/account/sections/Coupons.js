@@ -5,14 +5,10 @@ import SectionData from "./parts/SectionData";
 
 const Coupons = ({setActiveSection}) => {
     // Купон, срок.действия, Статус
-    // TODO получать эти данные с бека
     const [coupons, setCoupons] = useState([]);
 
-    const resetForm = () => {
-        initData();
-    }
-
     const initData = () => {
+        // TODO получать эти данные с бека
         setCoupons([]);
     }
 
