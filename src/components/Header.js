@@ -42,7 +42,7 @@ const Header = React.memo((props) => {
             <a href="/" className="align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
                 <img src="assets/images/logo.png" width="140px" alt="logo"/>
             </a>
-            
+
             <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/tracks" className="nav-link px-2 link-dark">Каталог</a></li>
                 <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>

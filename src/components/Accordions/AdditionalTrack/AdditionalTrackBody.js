@@ -2,14 +2,19 @@ import React, {useState} from "react";
 
 const AdditionalTrackBody = (props) => {
     const {product} = props
-    const [link, setLink] = useState(false)
-    const [file, setFile] = useState(false)
-    const [catalog, setCatalog] = useState(false)
     const [valueFile, setValueFile] = useState('')
     const [valueLink, setValueLink] = useState('')
     const [commentary, setCommentary] = useState('');
+    const [link, setLink] = useState(false)
+    const [file, setFile] = useState(false)
+    const [catalog, setCatalog] = useState(false)
+
     const [auto, setAuto] = useState(true)
     const [manual, setManual] = useState(false)
+
+    const [AddSegment, setAddSegment] = useState(false)
+    const [DeleteSegment, setDeleteSegment] = useState(false)
+    const [CountSegment, setCountSegment] = (useState(1))
 
 
     const initData = () => {
@@ -36,6 +41,14 @@ const AdditionalTrackBody = (props) => {
         setLink(false)
         setFile(false)
         setCatalog(true)
+    };
+    const addSegment = () => {
+        setAddSegment(true)
+        setDeleteSegment(false)
+    };
+    const deleteSegment = () => {
+        setDeleteSegment(true)
+        setAddSegment(false)
     };
 
     return(
@@ -129,58 +142,55 @@ const AdditionalTrackBody = (props) => {
                         null
                     }
                     {manual ?
-                        <div className="float-start">
+                        <div className="col-12 float-start">
                             <div className="row">
                                 <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1" checked/>
-                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"/>
+                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
+                                           onClick={deleteSegment}/>
+                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
+                                           onClick={addSegment}/>
                                 </div>
-                                <span className="font-weight-bold d-block col ms-2 text-start pt-5">от
-                                        <input type="time" id="appt" name="appt" style={{
-                                            backgroundColor: "#948eba",
-                                            borderRadius: "10px"
-                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                               required/>до
-                                        <input type="time" id="appt" name="appt" style={{
-                                            backgroundColor: "#948eba",
-                                            borderRadius: "10px"
-                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                               required/>
-                                        <button type="button" className="btn mb-2 ">
-                                            <img src="assets/icons/plus-purple.png" height="25px"/>
-                                        </button>
+                                {DeleteSegment ?
+                                    <span className="font-weight-bold ms-3 text-start d-block col pt-5">от
+                                            <input type="time" id="appt" name="appt" style={{
+                                                backgroundColor: "#948eba",
+                                                borderRadius: "10px"
+                                            }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                                   required/>до
+                                            <input type="time" id="appt" name="appt" style={{
+                                                backgroundColor: "#948eba",
+                                                borderRadius: "10px"
+                                            }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                                   required/>
+                                            <button type="button" className="btn mb-2">
+                                                <img src="assets/icons/plus-purple.png" height="25px"/>
+                                            </button>
                                         </span>
-
-                            </div>
-                            <div className="row ">
-                                <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment2" value="smooth1" checked/>
-                                    <input label="Добавить отрезок" type="radio" name="segment2" value="sharp1"/>
-                                </div>
-                                <span className="font-weight-bold d-block col pt-5">от
-                                        <input type="time" id="appt" name="appt" style={{
-                                            backgroundColor: "#948eba",
-                                            borderRadius: "10px"
-                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                               required/>до
-                                        <input type="time" id="appt" name="appt" style={{
-                                            backgroundColor: "#948eba",
-                                            borderRadius: "10px"
-                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                               required/>на
-                                        <input type="time" id="appt" name="appt" style={{
-                                            backgroundColor: "#948eba",
-                                            borderRadius: "10px"
-                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                               required/>
-
-                                        <button type="button" className="btn mb-2">
-                                            <img src="assets/icons/plus-purple.png" height="25px"/>
-                                        </button>
-                                        <button type="button" className="btn mb-2">
-                                            <img src="assets/icons/minus-pink.png" height="25px"/>
-                                        </button>
+                                    :
+                                    <span className="font-weight-bold d-block col pt-5">от
+                                            <input type="time" id="appt" name="appt" style={{
+                                                backgroundColor: "#948eba",
+                                                borderRadius: "10px"
+                                            }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                                   required/>до
+                                             <input type="time" id="appt" name="appt" style={{
+                                                 backgroundColor: "#948eba",
+                                                 borderRadius: "10px"
+                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                                    required/>на
+                                            <input type="time" id="appt" name="appt" style={{
+                                                backgroundColor: "#948eba",
+                                                borderRadius: "10px"
+                                            }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                                   required/>
+                                            <button type="button" className="btn mb-2">
+                                                <img src="assets/icons/plus-purple.png" height="25px"/>
+                                            </button>
+                                            <button type="button" className="btn mb-2">
+                                                <img src="assets/icons/minus-pink.png" height="25px"/>
+                                            </button>
                                         </span>
+                                }
                             </div>
                         </div>
                         :
