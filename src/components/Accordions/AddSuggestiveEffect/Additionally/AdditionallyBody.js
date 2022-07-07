@@ -6,7 +6,13 @@ const AdditionallyBody = (props) => {
     const {product} = props
     const [link, setLink] = useState(true)
     const [file, setFile] = useState(false)
+    const [valueFile, setValueFile] = useState('')
+    const [valueLink, setValueLink] = useState('')
 
+    const initData = () => {
+        setValueFile('');
+        setValueLink('');
+    }
     const handleLink = () => {
         setLink(true)
         setFile(false)
@@ -40,11 +46,11 @@ const AdditionallyBody = (props) => {
                 {link ?
                     <div className="col-6 pb-2">
                         <input type="url" required
-                            // value={link}
+                            // value={valueLink}
                                placeholder="Ссылка на файл..."
                                className="form-control input-box"
-                            // onChange={(e) =>
-                            //     setLink(e.target.value)}
+                               onChange={(e) =>
+                                   setValueLink(e.target.value)}
                         />
                     </div>
                     :
@@ -54,11 +60,10 @@ const AdditionallyBody = (props) => {
                 {file ?
                     <div className="col-6 pb-2">
                         <input type="file"
-                            // value={file}
                                placeholder="формат mp3, mpeg"
                                className="form-control input-box mt-3"
-                            // onChange={(e) =>
-                            //     setFile(e.target.value)}
+                               onChange={(e) =>
+                                   setValueFile(e.target.files)}
                         />
                     </div>
                     :

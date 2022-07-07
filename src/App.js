@@ -18,6 +18,7 @@ import Slider from "./components/Slider";
 import WishList from "./pages/WishList";
 
 
+
 function App() {
   return (
       <BrowserRouter>

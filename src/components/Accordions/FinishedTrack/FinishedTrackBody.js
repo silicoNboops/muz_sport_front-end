@@ -8,6 +8,7 @@ import AdditionalTrackBtn from "../AdditionalTrack/AdditionalTrackBtn";
 import AdditionalTrackBody from "../AdditionalTrack/AdditionalTrackBody";
 
 const FinishedTrackBody = (props) => {
+    const {price} = props;
     const {product} = props;
     const [commentary, setCommentary] = useState('');
     const [sportsName, setSportsName] = useState([])

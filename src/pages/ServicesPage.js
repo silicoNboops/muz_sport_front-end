@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
+import FinishedTrackBody from "../components/Accordions/FinishedTrack/FinishedTrackBody";
 
-const ServicesPage = () => {
+const ServicesPage = (props) => {
     const [price, setPrice] = useState([])
+
 
     useEffect(() => {
         // TODO картинка блочится расширением браузера!
