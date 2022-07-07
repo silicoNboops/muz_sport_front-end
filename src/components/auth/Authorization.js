@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import API from "../../../api/API";
+import API from "../../api/API";
 import {useNavigate} from "react-router-dom";
 
 const Authorization = (props) => {

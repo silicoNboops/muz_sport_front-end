@@ -25,7 +25,7 @@ const Account = () => {
             return <Coupons setActiveSection={setActiveSection} />;
         } else if (sectionName == 'Подписка') {
             // TODO
-            return <Subscription/>;
+            // return <Subscription/>;
         } else {
             return <Profile setActiveSection={setActiveSection} />;
         }

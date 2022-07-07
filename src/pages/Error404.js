@@ -1,9 +1,7 @@
 import React from "react";
 
 export default function Error404(props) {
-
     return(
-
         <section className="padding-y-sm">
             <div className="container">
                 <div className="error-page">
@@ -13,9 +11,9 @@ export default function Error404(props) {
                             <h3>404</h3>
                         </div>
                     </div>
-                    <h2 className="back-home">Вернуться на <a href="/">главную</a></h2>
+                    <h2 className="back-home">Вернуться на <a href="/src/view/pages">главную</a></h2>
                 </div>
             </div>
         </section>
     )
-}
+};

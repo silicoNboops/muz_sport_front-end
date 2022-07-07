@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import './css/style.css';
 import './App.css';
-// TODO
 import Header from "./components/Header";
-// import Header from "./view/components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import OrderPage from "./pages/OrderPage\'s/OrderPage";
@@ -20,10 +18,10 @@ import NewPlayer from "./components/PlayerBlya/FinishedPlayer";
 import Slider from "./components/Slider";
 import WishList from "./pages/WishList";
 import './assets/css/style.css';
-import Error404 from "./view/pages/Error404";
-import Authorization from "./view/components/auth/Authorization";
+import Error404 from "./pages/Error404";
+import Authorization from "./components/auth/Authorization";
 import {AuthChecker} from "./routing/AuthChecker";
-import Account from "./view/components/account/Account";
+import Account from "./components/account/Account";
 // import {ToastContainer, Zoom} from "react-toastify";
 // import 'react-toastify/dist/ReactToastify.css';
 // import Authorization from "./components/Authorization";
