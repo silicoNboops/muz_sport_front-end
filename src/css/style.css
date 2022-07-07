@@ -1,3 +1,43 @@
+.header-height {
+    max-height: 110px;
+}
+
+.icon-md {
+    width: 60px;
+    height: 60px;
+    line-height: 60px !important;
+    font-size: 28px;
+}
+
+.icon-link-badged {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    /* чтоб у бейджика менялся размер шрифта, 75%*/
+    font-size: 20px;
+}
+
+
+.icontext {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+
+.icontext .icon {
+    position: relative;
+    margin-right: 10px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+
+.dropdown-block {
+    background-color: #282643;
+}
+
+
 .header{
     max-height: 70px;
     background-color: white !important;
