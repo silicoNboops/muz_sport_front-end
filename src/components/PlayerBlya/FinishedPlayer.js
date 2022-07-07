@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import WaveSurfer from '../../../node_modules/wavesurfer.js/dist/wavesurfer';
 import styled from "styled-components";
 import FinishedTrackBtn from "../Accordions/FinishedTrack/FinishedTrackBtn";
 import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
 import {useCart} from "react-use-cart";
+import WishList from "../../pages/WishList";
 
 
 const WaveformContainer = styled.div`
@@ -31,7 +32,10 @@ const PlayButton = styled.button`
 
 `;
 
+
+
 const NewPlayer = ({product}) => {
+    // const wishlist = useContext(WishListContext);
     const {items,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
@@ -39,7 +43,9 @@ const NewPlayer = ({product}) => {
 
     useEffect(() => {
         const track = document.querySelector('#track' + product.id);
-        //TODO useEffect вызывается не один раз , поэтому происходит хуйня со множеством волн
+        //TODO useEffect вызывается не один раз , поэтому происходит хуйня со множеством волн,
+        //TODO хз , мб сделать какую то проверку на уникальность track'а
+
 
         const wavesurfer = WaveSurfer.create({
             barWidth: 2,
@@ -57,7 +63,7 @@ const NewPlayer = ({product}) => {
         setWaver(wavesurfer);
 
 
-    }, [product.id]);
+    }, []);
 
     const handlePlay = () => {
         setPlaying(!playing);
