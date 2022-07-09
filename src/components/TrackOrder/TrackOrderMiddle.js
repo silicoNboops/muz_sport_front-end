@@ -22,7 +22,7 @@ const TrackOrderMiddle = () => {
     const [link, setLink] = useState(false)
     const [file, setFile] = useState(false)
     const [catalog, setCatalog] = useState(false)
-
+    const [price, setPrice] = useState([])
 
     useEffect(() => {
         async function fetchInitData() {
@@ -30,8 +30,15 @@ const TrackOrderMiddle = () => {
                 .then(response => response.json())
                 .then(data => setSportsName(data))
         }
+        async function fetchData() {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/price/1')
+                .then(response => response.json())
+                .then(data => setPrice(data))
+        }
+        fetchData();
         fetchInitData();
     },[])
+
 
     const initData = () => {
         setCommentary('');
@@ -80,34 +87,12 @@ const TrackOrderMiddle = () => {
 
     return(
         <div className="container pt-4 pb-5">
-            <div className="container-fluid">
-                <button type="button"
-                    //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
-                        className="btn btn-light btn-sm col-2 dropdown-toggle-split"
-                        data-bs-toggle="collapse"
-                        data-bs-target={'#track_order'}
-                        aria-expanded="true"
-                        style={{borderRadius:"12px"}}
-                        aria-controls="collapseOne">
-                    <span style={{fontSize: '15px'}}>Заказ трека</span>
-                </button>
-            </div>
-            <div id={'track_order'} className="accordion-collapse collapse pe-5" aria-labelledby="headingOne"
-                 data-bs-parent="#accordionExample">
-                <button type="button"
-                        data-bs-toggle="collapse"
-                        className="btn-close close-accordion"
-                        data-bs-target={'#track_order'}
-                        aria-expanded="true"
-                        style={{borderRadius:"12px"}}
-                        aria-controls="collapseOne">
-                </button>
-
+            <div className="container pe-5">
                 <div className="card background-accordion ps-5 container">
                     <h5 className="text-white position-absolute mt-2" style={{right:"83%"}}>Заказ трека</h5>
                     <div className=" imgblock-accordion">
                         <img src='assets/icons/price-tag.png' style={{left: "750px"}} className='price-icon-accordion'/>
-                        <span className="text-black" style={{left:"800px"}}>1500 ₽</span>
+                        <span className="text-black" style={{left:"800px"}}>{price.sports_programme_medium} ₽</span>
                     </div>
                     <div className="accordion-body row container justify-content-center mt-4">
                         <div className="card style-accordion p-5" style={{borderRadius: "12px"}}>
@@ -337,10 +322,10 @@ const TrackOrderMiddle = () => {
                     </div>
                 </div>
                 <AdditionalTrackBtn/>
-                <AdditionalTrackBody/>
+                <AdditionalTrackBody price={price.sports_programme_medium}/>
 
                 <AddSuggestiveEffectBtn/>
-                <AddSuggestiveEffectBody/>
+                <AddSuggestiveEffectBody price={price.sports_programme_medium}/>
 
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Form} from "react-bootstrap";
 
-const UnloadingModuleBody = () => {
+const UnloadingModuleBody = ({price}) => {
     const [directionEffect, setDirectionEffect] = useState([])
     const [link, setLink] = useState(true)
     const [file, setFile] = useState(false)
@@ -48,7 +48,7 @@ const UnloadingModuleBody = () => {
                     модуля</h5>
                     <div className="imgblock-accordion">
                     <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                    <span>540 ₽</span>
+                    <span>{price} ₽</span>
                 </div>
                 <div className="accordion-body row justify-content-center" >
                     <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>

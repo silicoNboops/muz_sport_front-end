@@ -4,10 +4,10 @@ import AdditionallyBtn from "./Additionally/AdditionallyBtn";
 import AdditionallyBody from "./Additionally/AdditionallyBody";
 
 
-const AddSuggestiveEffectBody = () => {
+const AddSuggestiveEffectBody = ({price}) => {
     const [name, setName] = useState('');
     const [directionEffect, setDirectionEffect] = useState([])
-
+    // console.log(price)
 
     useEffect(() => {
         async function fetchInitData() {
@@ -38,7 +38,7 @@ const AddSuggestiveEffectBody = () => {
                 <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Добавить суггестивный эффект</h5>
                 <div className="imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                <span>540 ₽</span>
+                <span>{price} ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">
                 <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>

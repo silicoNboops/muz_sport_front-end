@@ -4,11 +4,9 @@ import styled from "styled-components";
 import FinishedTrackBtn from "../Accordions/FinishedTrack/FinishedTrackBtn";
 import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
-import {useCart} from "react-use-cart";
-import WishList from "../../pages/WishList";
+
 import Variations from "../Accordions/Variations";
 import API from "../../api/API";
-import {useParams} from "react-router-dom";
 
 
 const WaveformContainer = styled.div`
@@ -37,17 +35,17 @@ const PlayButton = styled.button`
 
 const NewPlayer = ({product}) => {
     const [select, setSelect] = useState(false);
-    const {items,totalItems, cartTotal,} = useCart();
+    // const {items,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
     const [price, setPrice] = useState([])
 
     const createWish = () => {
-        API.createWishlist(product.id)
+        API.createWishlist({id : product.id})
         setSelect(true)
     }
     const deleteWish = () => {
-        API.deleteWishlist(product.id)
+        API.deleteWishlist({id : product.id})
         setSelect(false)
     }
 

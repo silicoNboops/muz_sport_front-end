@@ -32,7 +32,7 @@ export default {
     addOrderSegment: (data) => API.post('order/segment/add/'),
     deleteOrderSegment: (data) => API.post('order/segment/delete/'),
     getWishlist: () => API.get("wishlist/"),
-    createWishlist: (id, data) => API.post("wishlist/create/", id, data),
+    createWishlist: ( data) => API.post("wishlist/create/", data),
     deleteWishlist: (id) => API.post("wishlist/delete/"),
     accountProfileSave: (data) => API.post('account/profile/save/', data),
     accountSubscriptionInfo: () => API.get('account/subscription/'),

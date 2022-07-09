@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const AdditionalTrackBody = () => {
+const AdditionalTrackBody = ({price}) => {
     const [valueFile, setValueFile] = useState('')
     const [valueLink, setValueLink] = useState('')
     const [commentary, setCommentary] = useState('');
@@ -67,7 +67,7 @@ const AdditionalTrackBody = () => {
                     программе</h5>
                 <div className=" imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                <span>540 ₽</span>
+                <span>{price} ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">
                 <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
