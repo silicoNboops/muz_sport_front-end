@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactPaginate from "react-paginate";
 import {Col, Row} from "react-bootstrap";
-import NewPlayer from "../PlayerBlya/FinishedPlayer";
+import NewPlayer from "../WaveFormPlayer/FinishedPlayer";
 
 
 const Products = ({productsCurrent}) => {

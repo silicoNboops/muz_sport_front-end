@@ -48,11 +48,12 @@ const Header = React.memo((props) => {
                 <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>
                 <li><a href="/partnership" className="nav-link px-2 link-dark">Партнерство</a></li>
                 <li><a href="/project" className="nav-link px-2 link-dark">Проект</a></li>
+
             </ul>
 
             <div className="col-md-3">
                 <div className="icon-link-badged px-2">
-                    <a href="/order" className="text-black d-inline ps-2">
+                    <a href="/order" className="text-black heart-style d-inline ps-2">
                         <img src="assets/icons/cart.png" width="30px"/>
                     </a>
                 </div>
@@ -65,20 +66,20 @@ const Header = React.memo((props) => {
                                 Вход
                             </a>
                         </div>
-                        <div className="icon-link-badged mr-3 px-2">
-                            <a href="/register" className="text-black">
-                                <img src="assets/icons/account.png" width="30px"/>
-                                Регистрация
-                            </a>
-                        </div>
                     </>
                 ) : (
                     <>
                         <div className="icon-link-badged px-2">
-                            <a href="/wishlist" className="text-black d-inline ps-2">
-                                <img src="assets/icons/heart.png" height="30px"/>
+                            <a href="/wishlist" className="text-black header-btn d-inline ps-2">
+                                {/*<img src="assets/icons/heart.png" height="30px"/>*/}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                     fill="currentColor" className="bi bi-heart-fill heart-style" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd"
+                                          d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                                </svg>
                             </a>
                         </div>
+
                         <div className="icon-link-badged mr-3 px-2">
                             <a href="/account" className="text-black">
                                 <img src="assets/icons/account.png" width="35px"/>

@@ -4,9 +4,7 @@ import AdditionallyBtn from "./Additionally/AdditionallyBtn";
 import AdditionallyBody from "./Additionally/AdditionallyBody";
 
 
-const AddSuggestiveEffectBody = (props) => {
-    const {product} = props
-    const {price} = props
+const AddSuggestiveEffectBody = () => {
     const [name, setName] = useState('');
     const [directionEffect, setDirectionEffect] = useState([])
 
@@ -26,12 +24,12 @@ const AddSuggestiveEffectBody = (props) => {
     }
 
     return(
-        <div id={'suggestive_effect' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+        <div id={'suggestive_effect'} className="accordion-collapse collapse" aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
             <button type="button"
                     data-bs-toggle="collapse"
                     className="btn-close close-accordion"
-                    data-bs-target={'#suggestive_effect' + product.id}
+                    data-bs-target={'#suggestive_effect'}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
@@ -40,7 +38,7 @@ const AddSuggestiveEffectBody = (props) => {
                 <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Добавить суггестивный эффект</h5>
                 <div className="imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                <span>{price.price_suggestive_effect} ₽</span>
+                <span>540 ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">
                 <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
@@ -85,9 +83,8 @@ const AddSuggestiveEffectBody = (props) => {
                                 </span>
                             </div>
                     </figcaption>
-                    <AdditionallyBtn product={product}/>
                 </div>
-                <AdditionallyBody product={product}/>
+
             </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ import Project from "./pages/Project";
 import ServicesPage from "./pages/ServicesPage";
 import SpecialWishes from "./components/SpecialWishes";
 import CatalogTemplate from "./components/filters/CatalogTemplate";
-import NewPlayer from "./components/PlayerBlya/FinishedPlayer";
+import NewPlayer from "./components/WaveFormPlayer/FinishedPlayer";
 import Slider from "./components/Slider";
 import WishList from "./pages/WishList";
 import './assets/css/style.css';
@@ -22,6 +22,9 @@ import Error404 from "./pages/Error404";
 import Authorization from "./components/auth/Authorization";
 import {AuthChecker} from "./routing/AuthChecker";
 import Account from "./components/account/Account";
+import TrackOrderMax from "./components/TrackOrder/TrackOrderMax";
+import TrackOrderMiddle from "./components/TrackOrder/TrackOrderMiddle";
+import TrackOrderMin from "./components/TrackOrder/TrackOrderMin";
 // import {ToastContainer, Zoom} from "react-toastify";
 // import 'react-toastify/dist/ReactToastify.css';
 // import Authorization from "./components/Authorization";
@@ -58,6 +61,11 @@ function App() {
                     <Route exact path="/tracks" element={<CatalogTemplate/>}/>
                     <Route exact path="/wishlist" element={<WishList/>}/>
                     <Route exact path="/slider" element={<Slider/>}/>
+
+                    <Route exact path="/track_order_max" element={<TrackOrderMax/>}/>
+                    <Route exact path="/track_order_middle" element={<TrackOrderMiddle/>}/>
+                    <Route exact path="/track_order_min" element={<TrackOrderMin/>}/>
+
 
                     {/*<Route exact path="/" element={<AuthChecker/>}>*/}
                     {/*    <Route exact path='/' element={<Home/>}/>*/}

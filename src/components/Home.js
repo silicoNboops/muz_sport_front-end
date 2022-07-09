@@ -1,7 +1,7 @@
 import React from 'react';
 import Ad from "./Ad";
-import NewPlayer from "./PlayerBlya/FinishedPlayer";
-import FinishedPlayer from "./PlayerBlya/FinishedPlayer";
+import NewPlayer from "./WaveFormPlayer/FinishedPlayer";
+import FinishedPlayer from "./WaveFormPlayer/FinishedPlayer";
 import CatalogTemplate from "./filters/CatalogTemplate";
 
 const Home = () => {

@@ -6,6 +6,9 @@ import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
 import {useCart} from "react-use-cart";
 import WishList from "../../pages/WishList";
+import Variations from "../Accordions/Variations";
+import API from "../../api/API";
+import {useParams} from "react-router-dom";
 
 
 const WaveformContainer = styled.div`
@@ -32,20 +35,32 @@ const PlayButton = styled.button`
 
 `;
 
-
-
 const NewPlayer = ({product}) => {
-    // const wishlist = useContext(WishListContext);
+    const [select, setSelect] = useState(false);
     const {items,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
+    const [price, setPrice] = useState([])
+
+    const createWish = () => {
+        API.createWishlist(product.id)
+        setSelect(true)
+    }
+    const deleteWish = () => {
+        API.deleteWishlist(product.id)
+        setSelect(false)
+    }
 
 
     useEffect(() => {
-        const track = document.querySelector('#track' + product.id);
-        //TODO useEffect вызывается не один раз , поэтому происходит хуйня со множеством волн,
-        //TODO хз , мб сделать какую то проверку на уникальность track'а
+        async function fetchData() {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/price/1')
+                .then(response => response.json())
+                .then(data => setPrice(data))
+        }
+        fetchData();
 
+        const track = document.querySelector('#track' + product.id);
 
         const wavesurfer = WaveSurfer.create({
             barWidth: 2,
@@ -87,7 +102,7 @@ const NewPlayer = ({product}) => {
 
                 <div className="card mt-5 mb-5 p-3 col-9" style={{borderRadius: '12px'}}>
                     <WaveformContainer>
-                        <Wave id={'wave' + product.id} />
+                        <Wave id={'wave' + product.id}/>
                         <audio id={'track' + product.id} src={product.file} />
                     </WaveformContainer>
                 </div>
@@ -97,6 +112,7 @@ const NewPlayer = ({product}) => {
                         <img src='assets/icons/price-tag.png' className='price-icon'/>
                         <span className="text-start text-white">{product.price} ₽</span>
                         <h6 className="text-white me-4">Купить</h6>
+
                     </a>
                 </div>
 
@@ -115,15 +131,32 @@ const NewPlayer = ({product}) => {
                     </p>
                     {/* TODO with_words*/}
                     <p className="card col-2 text-white">{product.country_name}</p>
-                    <button type="submit" name="learn" value="myimage" className="col-1 btn btn-sm ps-4">
-                        <img src="assets/icons/heart.png"  height="30px"/>
-                    </button>
+                    {select?
+                        <button type="button" className="btn col-1" onClick={deleteWish}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "red"}} height="28"
+                                 fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fillRule="evenodd"
+                                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                            </svg>
+                        </button>
+                        :
+                        <button type="button" className="btn col-1" onClick={createWish}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "rgba(255, 0, 0, 0.45)"}} height="28"
+                                 fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fillRule="evenodd"
+                                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                            </svg>
+                        </button>
+                    }
 
+
+                    <Variations product={product}/>
 
                     <div className="col-4 row">
-                        <div className="position-relative" style={{right: "15%"}}><FinishedTrackBtn product={product}/></div>
+                        <div className="position-relative" style={{right: "15%"}}>
+                            <FinishedTrackBtn product={product}/></div>
                     </div>
-                    <FinishedTrackBody product={product}/>
+                    <FinishedTrackBody product={product} price={price}/>
                 </div>
             </div>
         </div>

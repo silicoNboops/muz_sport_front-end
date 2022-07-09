@@ -8,8 +8,8 @@ import AdditionalTrackBtn from "../AdditionalTrack/AdditionalTrackBtn";
 import AdditionalTrackBody from "../AdditionalTrack/AdditionalTrackBody";
 
 const FinishedTrackBody = (props) => {
-    const {price} = props;
     const {product} = props;
+    const {price} = props;
     const [commentary, setCommentary] = useState('');
     const [sportsName, setSportsName] = useState([])
     const [auto, setAuto] = useState(true)
@@ -51,7 +51,7 @@ const FinishedTrackBody = (props) => {
     const addCount = () => {
         setCountSegment(CountSegment + 1)
     }
-    
+
     const deleteCount = () => {
         if (CountSegment >= 2) {
             setCountSegment(CountSegment - 1)
@@ -72,8 +72,8 @@ const FinishedTrackBody = (props) => {
             <div className="card background-accordion ps-5 container">
                 <h5 className="text-white position-absolute mt-2" style={{right:"78%"}}>Доработать трек</h5>
             <div className=" imgblock-accordion">
-                <img src='assets/icons/price-tag.png' style={{left: "900%"}} className='price-icon-accordion'/>
-                <span className="text-black" style={{left:"800px"}}>{product.price} ₽</span>
+                <img src='assets/icons/price-tag.png' style={{left: "740%"}} className='price-icon-accordion'/>
+                <span className="text-black" style={{left:"800px"}}>{price.price_finished_track} ₽</span>
             </div>
             <div className="accordion-body row container justify-content-center mt-4">
                 <div className="card style-accordion p-5" style={{borderRadius: "12px"}}>
@@ -239,13 +239,13 @@ const FinishedTrackBody = (props) => {
             </div>
             </div>
             <AdditionalTrackBtn product={product}/>
-            <AdditionalTrackBody product={product}/>
+            <AdditionalTrackBody product={product} price={price}/>
 
             <AddSuggestiveEffectBtn product={product}/>
-            <AddSuggestiveEffectBody product={product}/>
+            <AddSuggestiveEffectBody product={product} price={price}/>
 
             <UnloadingModuleBtn product={product}/>
-            <UnloadingModuleBody product={product}/>
+            <UnloadingModuleBody product={product} price={price}/>
         </div>
     )
 }

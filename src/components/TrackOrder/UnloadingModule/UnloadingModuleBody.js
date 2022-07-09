@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Form} from "react-bootstrap";
 
-const UnloadingModuleBody = (props) => {
-    const {product} = props
-    const {price} = props
+const UnloadingModuleBody = () => {
     const [directionEffect, setDirectionEffect] = useState([])
     const [link, setLink] = useState(true)
     const [file, setFile] = useState(false)
@@ -35,12 +33,12 @@ const UnloadingModuleBody = (props) => {
 
 
     return(
-            <div id={'unloading_module' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+            <div id={'unloading_module'} className="accordion-collapse collapse" aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <button type="button"
                         data-bs-toggle="collapse"
                         className="btn-close close-accordion"
-                        data-bs-target={'#unloading_module' + product.id}
+                        data-bs-target={'#unloading_module'}
                         aria-expanded="true"
                         style={{borderRadius:"12px"}}
                         aria-controls="collapseOne">
@@ -50,7 +48,7 @@ const UnloadingModuleBody = (props) => {
                     модуля</h5>
                     <div className="imgblock-accordion">
                     <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                    <span>{price.price_unloading_module} ₽</span>
+                    <span>540 ₽</span>
                 </div>
                 <div className="accordion-body row justify-content-center" >
                     <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>

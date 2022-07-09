@@ -1,7 +1,12 @@
 .header-height {
     max-height: 110px;
 }
-
+.heart-style{
+    color: rgba(255, 0, 0, 0.45);
+}
+.heart-style :hover{
+    color: red;
+}
 .icon-md {
     width: 60px;
     height: 60px;
@@ -198,6 +203,7 @@
     max-height: 30px;
     font-size: 13px;
 }
+
 .delete-track{
     background-color: white;
     color: black;
@@ -218,11 +224,11 @@
     color: black;
     position: relative;
     font-size: 34px;
-    left: 1000%;
+    left: 820%;
 }
 .price-icon-accordion{
     z-index: 1;
-    left: 930%;
+    left: 765%;
     position: absolute;
     height: 60px;
 }
@@ -246,6 +252,17 @@
     border-radius: 50%;
     width: 20px;
     height: 20px;
+}
+.variations-btn{
+    position: absolute;
+    bottom: 110px;
+    right: 200px;
+    max-width: 250px;
+    border-radius: 20px;
+}
+.finished_track_btn{
+    background-color: #6d669a;
+    color: white;
 }
 
 /* IMG WRAP */

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import FinishedTrackBody from "../components/Accordions/FinishedTrack/FinishedTrackBody";
 
 const ServicesPage = (props) => {
     const [price, setPrice] = useState([])
@@ -36,7 +35,9 @@ const ServicesPage = (props) => {
                         <h6 className="text-start ms-3 mb-4">минимальный тариф без экономии</h6>
                     </div>
                     <div className="imgblock-service">
-                        <a href="#" className="link-unstyled">
+                        <a href="/track_order_min" className="link-unstyled">
+                            <a href="/track_order_min" className="fs-5 link-unstyled position-absolute text-white">
+                                Сделать заказ</a>
                             <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
                             <span>{price.sports_programme_min} ₽</span>
                         </a>
@@ -73,7 +74,9 @@ const ServicesPage = (props) => {
                         <h6 className="text-start ms-3 mb-4">экономия 1000 руб.</h6>
                     </div>
                     <div className="imgblock-service">
-                        <a href="#" className="link-unstyled">
+                        <a href="/track_order_middle" className="link-unstyled">
+                            <a href="/track_order_middle" className="fs-5 link-unstyled position-absolute text-white">
+                                Сделать заказ</a>
                             <img src='assets/icons/price-tag.png' className="price-icon-services"/>
                             <span style={{bottom: '40px'}}>{price.sports_programme_medium} ₽</span>
                         </a>
@@ -109,15 +112,15 @@ const ServicesPage = (props) => {
                         <h6 className="text-start ms-3 mb-4">экономия 2000 руб.</h6>
                     </div>
                     <div className="imgblock-service">
-                        <a href="#" className="link-unstyled">
+                        <a href="/track_order_max" className="link-unstyled">
+                            <a href="/track_order_max" className="fs-5 link-unstyled position-absolute text-white">
+                                Сделать заказ</a>
                             <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
                             <span>{price.sports_programme_max} ₽</span>
                         </a>
                     </div>
                 </div>
-
             </div>
-
         </div>
     )
 }

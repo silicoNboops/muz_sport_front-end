@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 
-const AdditionalTrackBody = (props) => {
-    const {price} = props
-    const {product} = props
+const AdditionalTrackBody = () => {
     const [valueFile, setValueFile] = useState('')
     const [valueLink, setValueLink] = useState('')
     const [commentary, setCommentary] = useState('');
@@ -53,12 +51,12 @@ const AdditionalTrackBody = (props) => {
     };
 
     return(
-        <div id={'additional_track' + product.id} className="accordion-collapse collapse " aria-labelledby="headingOne"
+        <div id={'additional_track'} className="accordion-collapse collapse " aria-labelledby="headingOne"
              data-bs-parent="#accordionExample">
             <button type="button"
                     data-bs-toggle="collapse"
                     className="btn-close close-accordion"
-                    data-bs-target={'#additional_track' + product.id}
+                    data-bs-target={'#additional_track'}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
@@ -69,7 +67,7 @@ const AdditionalTrackBody = (props) => {
                     программе</h5>
                 <div className=" imgblock-accordion">
                 <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
-                <span>{price.price_additional_track} ₽</span>
+                <span>540 ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">
                 <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
