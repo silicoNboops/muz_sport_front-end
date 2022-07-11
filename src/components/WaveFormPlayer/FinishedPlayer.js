@@ -40,12 +40,12 @@ const NewPlayer = ({product}) => {
     const [price, setPrice] = useState([])
 
     const createWish = () => {
-        API.createWishlist({id : product.id})
-        setSelect(true)
+        API.createWishlist({id : product.id});
+        setSelect(true);
     }
     const deleteWish = () => {
-        API.deleteWishlist({id : product.id})
-        setSelect(false)
+        API.deleteWishlist({track_id : product.id});
+        setSelect(false);
     }
 
 
