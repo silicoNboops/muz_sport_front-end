@@ -1,41 +1,86 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
-const AdditionalTrackBody = (props) => {
-    const {product} = props
-    const [link, setLink] = useState(false)
-    const [file, setFile] = useState(false)
-    const [catalog, setCatalog] = useState(false)
+// TODO сеттер из родителя
+const AdditionalTrackBody = ({product, setAdditionalTracks}) => {
+    // методы загрузки трека
+    const [link, setLink] = useState(false);
+    const [file, setFile] = useState(false);
+    const [catalog, setCatalog] = useState(false);
+    const [trackLink, setTrackLink] = useState('');
+    const [trackFile, setTrackFile] = useState(null);
+    const [trackCatalog, setTrackCatalog] = useState(null);
+
+    // auto, manual
+    const [compositionType, setCompositionType] = useState('auto');
+    // TODO заносить в массив данные вида {'action', 'start', 'end'}
+    const [compositionSegments, setCompositionSegments] = useState(() => []);
+    const [compositionSegment1, setCompositionSegment1] = useState('');
+    const [compositionSegment2, setCompositionSegment2] = useState('');
+
     const [commentary, setCommentary] = useState('');
-    const [auto, setAuto] = useState(true)
-    const [manual, setManual] = useState(false)
 
+    useEffect(() => {
+        let orderSegmentAdd = []
+        let orderSegmentDelete = []
 
-    // const initData = () => {
-    //     setFile('');
-    //     setLink('');
-    //     setCommentary('');
-    // }
+        // TODO временное решение, потом пофиксить с единым массивом compositionSegments
+        if (compositionSegment1 === 'add') {
+            orderSegmentAdd.push(compositionSegment1);
+        } else {
+            orderSegmentDelete.push(compositionSegment1);
+        }
+
+        // TODO временное решение, потом пофиксить с единым массивом compositionSegments
+        if (compositionSegment2 === 'delete') {
+            orderSegmentAdd.push(compositionSegment2);
+        } else {
+            orderSegmentDelete.push(compositionSegment2);
+        }
+
+        let additionaTrackObj = {
+            'composition': compositionType,
+            'commentary': commentary,
+            'order_segment_add': orderSegmentAdd,
+            'order_segment_delete': orderSegmentDelete,
+        }
+
+        if (file) {
+            additionaTrackObj['file'] = trackFile;
+        }
+        if (link) {
+            additionaTrackObj['link'] = trackLink;
+        }
+        if (catalog) {
+            additionaTrackObj['track'] = trackCatalog;
+        }
+
+        // создаем объект в соответствии с полями на беке
+        setAdditionalTracks(additionaTrackObj);
+    },[trackLink, trackFile, trackCatalog, compositionType, commentary, compositionSegment1,
+        compositionSegment2, catalog, file, link, setAdditionalTracks])
+
     const handleAuto = () => {
-        setManual(false)
+        setCompositionType('auto');
     };
     const handleManual = () => {
-        setManual(true)
+        setCompositionType('manual');
     };
     const handleLink = () => {
-        setLink(true)
-        setFile(false)
-        setCatalog(false)
+        setLink(true);
+        setFile(false);
+        setCatalog(false);
     };
     const handleFile = () => {
-        setLink(false)
-        setFile(true)
-        setCatalog(false)
+        setLink(false);
+        setFile(true);
+        setCatalog(false);
     };
     const handleCatalog = () => {
-        setLink(false)
-        setFile(false)
-        setCatalog(true)    };
+        setLink(false);
+        setFile(false);
+        setCatalog(true);
+    };
 
     return(
         <div id={'additional_track' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
@@ -68,35 +113,35 @@ const AdditionalTrackBody = (props) => {
                     {link ?
                         <div className="col-6 pt-4 pb-2">
                             <input type="url" required
-                                // value={link}
+                                   value={trackLink}
                                    placeholder="Ссылка на файл..."
                                    className="form-control input-box"
-                                // onChange={(e) =>
-                                //     setLink(e.target.value)}
+                                   onChange={(e) => setTrackLink(e.target.value)}
                             />
                         </div>
                             :
                             null
                     }
 
+                    {/* TODO хз как запихивать файл в value, мб без этого обойдемся */}
                     {file ?
                         <div className="col-6 pt-2 pb-2">
                             <input type="file"
-                                // value={file}
                                    placeholder="формат mp3, mpeg"
                                    className="form-control input-box mt-3"
-                                // onChange={(e) =>
-                                //     setFile(e.target.value)}
+                                   onChange={(e) => setTrackFile(e.target.value)}
                             />
                         </div>
                         :
                         null
                     }
 
+                    {/* TODO доделать здесь поиск по имеющимся трекам на сайте */}
                     {catalog ?
                         <div className="col-6 pt-2 pb-2">
                             <h6>Вот так уот</h6>
                         </div>
+                        // TODO доделать тут еще выбор из существующих треков на сайте
                         :
                         null
                     }
@@ -113,17 +158,28 @@ const AdditionalTrackBody = (props) => {
                         </button>
                     </div>
 
-                    {auto ?
+                    {compositionType === 'auto' ?
                         null
                         :
                         null
                     }
-                    {manual ?
+                    {compositionType === 'manual' ?
+                        // TODO сделать цикл и добавлять в цикле новую строчку
                         <div className="float-start">
                             <div className="row">
                                 <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment" checked/>
-                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment"/>
+                                    <input label="Удалить отрезок" type="radio" name="segment-1" value="delete"
+                                           checked={compositionSegment1 === 'delete'}
+                                           onChange={(e) => {
+                                               setCompositionSegment1(e.target.value)
+                                           }}
+                                    />
+                                    <input label="Добавить отрезок" type="radio" name="segment-1" value="add"
+                                           checked={compositionSegment1 === 'add'}
+                                           onChange={(e) => {
+                                               setCompositionSegment1(e.target.value)
+                                           }}
+                                    />
                                 </div>
                                 <span className="font-weight-bold col-6 pt-5">от
                                         <input type="time" id="appt" name="appt" style={{
@@ -144,8 +200,18 @@ const AdditionalTrackBody = (props) => {
                             </div>
                             <div className="row col-12">
                                 <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment2" value="smooth" checked/>
-                                    <input label="Добавить отрезок" type="radio" name="segment2" value="sharp"/>
+                                    <input label="Удалить отрезок" type="radio" name="segment-2" value="delete"
+                                           checked={compositionSegment2 === 'delete'}
+                                           onChange={(e) => {
+                                               setCompositionSegment2(e.target.value)
+                                           }}
+                                    />
+                                    <input label="Добавить отрезок" type="radio" name="segment-2" value="add"
+                                           checked={compositionSegment2 === 'add'}
+                                           onChange={(e) => {
+                                               setCompositionSegment2(e.target.value)
+                                           }}
+                                    />
                                 </div>
                                 <span className="font-weight-bold col-7 pt-5">от
                                         <input type="time" id="appt" name="appt" style={{

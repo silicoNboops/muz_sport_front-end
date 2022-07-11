@@ -1,8 +1,6 @@
 import React from "react";
 
-const AdditionalTrackBtn = (props) => {
-    const {product} = props
-
+const AdditionalTrackBtn = ({product}) => {
     return(
         <div className="text-center">
             <button type="button"
