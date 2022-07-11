@@ -32,16 +32,15 @@ const SpecialWishes = () => {
                           -Понизить басы (низкие частоты)"
                           onChange={(e) =>
                               setCommentary(e.target.value)}/>
-
                 <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                    <input className="form-check-input" id="label" type="checkbox" value=""
                            // className="btn btn-light btn-lg dropdown-toggle dropdown-toggle-split"
                            data-bs-toggle="collapse"
                            data-bs-target="#collapseFive"
                            aria-expanded="true"
                            style={{borderRadius:"12px"}}
                            aria-controls="collapseOne"/>
-                    <label className="form-check-label text-start pb-3" htmlFor="flexCheckDefault">Отмечая данный пункт я подтверждаю, что
+                    <label id="label" style={{right:'10%'}} htmlFor="label" className="form-check-label text-start pb-3" >Отмечая данный пункт я подтверждаю, что
                     меня уведомили о сроке выполнения заказа (обычно от 5 до 7 рабочих дней).</label>
                 </div>
                 <div id="collapseFive" className="accordion-collapse collapse" aria-labelledby="headingOne"

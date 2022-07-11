@@ -34,7 +34,6 @@ const PlayButton = styled.button`
 
 const NewPlayer = ({product}) => {
     const [select, setSelect] = useState(false);
-    // const {items,totalItems, cartTotal,} = useCart();
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
     const [price, setPrice] = useState([])
@@ -47,7 +46,6 @@ const NewPlayer = ({product}) => {
         API.deleteWishlist({track_id : product.id});
         setSelect(false);
     }
-
 
     useEffect(() => {
         async function fetchData() {
@@ -114,20 +112,26 @@ const NewPlayer = ({product}) => {
                 </div>
 
                 <div className="row track-description">
-                    <p className="card col-2 me-2 text-white">{product.sports_name}</p>
+                    <p className="card col-2 me-2 text-white marquee"><span>{product.sports_name}</span></p>
                     {/* TODO track_length */}
-                    <p className="card col-2 me-2 text-white">
+                    <p className="card col-2 me-2 text-white marquee">
+                        <span>
                         {product.direction_music.map((dir, index) =>
                             <>{dir} {index < product.direction_music.length - 1 ? ", " : ""}</>
                         )}
+                        </span>
                     </p>
-                    <p className="card col-2 me-2 text-white">
+                    <p className="card col-2 me-2 text-white marquee">
+                        <span>
                         {product.mood_name.map((mood, index) =>
                             <>{mood} {index < product.mood_name.length - 1 ? ", " : ""}</>
                         )}
+                        </span>
                     </p>
                     {/* TODO with_words*/}
-                    <p className="card col-2 text-white">{product.country_name}</p>
+                    <p className="card col-2 text-white marquee">
+                        <span>{product.country_name}</span>
+                    </p>
                     {select?
                         <button type="button" className="btn col-1" onClick={deleteWish}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "red"}} height="28"

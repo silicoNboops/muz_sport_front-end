@@ -18,7 +18,6 @@ const FinishedTrackBody = (props) => {
     const [DeleteSegment, setDeleteSegment] = useState(false)
     const [CountSegment, setCountSegment] = (useState(1))
 
-
     useEffect(() => {
         async function fetchInitData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + '/sports_name/')

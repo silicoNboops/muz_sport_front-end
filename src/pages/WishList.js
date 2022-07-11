@@ -45,13 +45,21 @@ const WishList = () => {
                 setPending(false)
                 setWishes(res.data);
             });
-    });
-
+        async function fetchInitData() {
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/price/1')
+                .then(response => response.json())
+                .then(data => setPrice(data))
+        }
+        fetchInitData()
+    },[]);
 
 
     const deleteWish = () => {
-        API.deleteWishlist({id : wishes.id})
-        setSelect(false)
+        // {wishes.map(wishes =>
+        //     API.deleteWishlist({track_id : wishes.id})
+        // )}
+        // API.deleteWishlist({track_id : product.id});
+        setSelect(!select);
     }
 
     const handlePlay = () => {
@@ -98,20 +106,33 @@ const WishList = () => {
                             </div>
 
                             <div className="row track-description">
-                                <p className="card col-2 me-2 text-white">{wishes.wished_track.sports_name}</p>
+                                <p className="card col-2 me-2 text-white marquee">
+                                <span>
+                                    {wishes.wished_track.sports_name}
+                                </span>
+                                </p>
+
                                 {/* TODO track_length */}
-                                <p className="card col-2 me-2 text-white">
+                                <p className="card col-2 me-2 text-white marquee">
+                                    <span>
                                     {wishes.wished_track.direction_music.map((dir, index) =>
                                         <>{dir} {index < wishes.wished_track.direction_music.length - 1 ? ", " : ""}</>
                                     )}
+                                    </span>
                                 </p>
-                                <p className="card col-2 me-2 text-white">
+                                <p className="card col-2 me-2 text-white marquee">
+                                    <span>
                                     {wishes.wished_track.mood_name.map((mood, index) =>
                                         <>{mood} {index < wishes.wished_track.mood_name.length - 1 ? ", " : ""}</>
                                     )}
+                                    </span>
                                 </p>
                                 {/* TODO with_words*/}
-                                <p className="card col-2 text-white">{wishes.wished_track.country_name}</p>
+                                <p className="card col-2 text-white marquee">
+                                <span>
+                                    {wishes.wished_track.country_name}
+                                </span>
+                                </p>
                                 {select?
                                     <button type="button" className="btn col-1" onClick={deleteWish}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "red"}} height="28"

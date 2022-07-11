@@ -35,7 +35,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
             )
         } else {
             filters.push(
-                <Form.Group
+                <Form.Group className="col-2 container-fluid pt-5 text-white" as={TableRow}
                     key={filter.db_name + '_' + filter.verbose_name}
                     controlId={filter.db_name}
                 >

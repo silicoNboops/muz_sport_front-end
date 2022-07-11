@@ -42,14 +42,12 @@
     background-color: #282643;
 }
 
-
 .header{
     max-height: 70px;
     background-color: white !important;
 }
 .footer{
     height:170px;
-    /*margin-top: 50%;*/
     width:100%;
     background-color: #161433 !important;
 }
@@ -170,6 +168,9 @@
     position: relative;
     display: inline-block;
 }
+.imgblock-track a :hover {
+    opacity: 0.9;
+}
 .imgblock-track span {
     z-index: 1;
     color: black;
@@ -177,7 +178,7 @@
     right: 0;
     font-size: 34px;
     margin-top: 55px;
-    margin-right: 75px;
+    margin-right: 55px;
 }
 .track-image{
     height: 180px;
@@ -399,3 +400,51 @@ input[type="checkbox"]:checked + #label:after {
     opacity: 1;
 }
 
+/* RUNNING STRING */
+
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+
+@-moz-keyframes scroll {
+    0% {
+        -moz-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -moz-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0)
+    }
+}
+
+.marquee {
+    display: block;
+    width: 30%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 50%;
+    -webkit-animation: scroll 5s infinite linear;
+    -moz-animation: scroll 5s infinite linear;
+    animation: scroll 5s infinite linear;
+}

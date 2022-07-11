@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import AdditionalTrackBtn from "./AdditionalTrackBtn";
 
 const AdditionalTrackBody = (props) => {
     const {price} = props
@@ -214,8 +215,8 @@ const AdditionalTrackBody = (props) => {
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
     )
 }
 export default AdditionalTrackBody;
