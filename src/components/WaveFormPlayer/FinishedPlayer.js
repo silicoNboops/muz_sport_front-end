@@ -4,7 +4,6 @@ import styled from "styled-components";
 import FinishedTrackBtn from "../Accordions/FinishedTrack/FinishedTrackBtn";
 import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
-
 import Variations from "../Accordions/Variations";
 import API from "../../api/API";
 
@@ -132,15 +131,15 @@ const NewPlayer = ({product}) => {
                     {select?
                         <button type="button" className="btn col-1" onClick={deleteWish}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "red"}} height="28"
-                                 fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+                                 fill="currentColor" className="bi bi-heart-fill " viewBox="0 0 16 16">
                                 <path fillRule="evenodd"
                                       d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
                             </svg>
                         </button>
                         :
                         <button type="button" className="btn col-1" onClick={createWish}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "rgba(255, 0, 0, 0.45)"}} height="28"
-                                 fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                 fill="currentColor" className="bi bi-heart-fill heart-style" viewBox="0 0 16 16">
                                 <path fillRule="evenodd"
                                       d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
                             </svg>

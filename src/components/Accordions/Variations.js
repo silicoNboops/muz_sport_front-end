@@ -2,8 +2,7 @@ import React from "react";
 
 const Variations = (props) => {
     const {product} = props
-    const [variants] = product.variants
-    console.log(variants)
+    const variants = product.variants
 
     return(
         <div className="row text-end variations-btn card col-3">
@@ -20,9 +19,15 @@ const Variations = (props) => {
             </div>
             <div id={'variations' + product.id} className="accordion-collapse collapse text-start"
                  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <a href="#" className='text-black'>hello</a>
+
+                {variants.map(variant =>
+                    <li>
+                        <a href={"/track/" + variant.id} className='text-black'>{variant.title} - {variant.author}</a>
+                    </li>
+                    )}
             </div>
         </div>
+
     )
 }
 export default Variations;

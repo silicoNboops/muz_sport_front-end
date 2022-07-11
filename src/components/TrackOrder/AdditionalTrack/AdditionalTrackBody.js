@@ -13,7 +13,8 @@ const AdditionalTrackBody = ({price}) => {
 
     const [AddSegment, setAddSegment] = useState(false)
     const [DeleteSegment, setDeleteSegment] = useState(false)
-    const [CountSegment, setCountSegment] = (useState(1))
+    const [CountSegment, setCountSegment] = (useState([]))
+    const [addCount, setAddCount] = useState([])
 
 
     const initData = () => {
@@ -49,6 +50,10 @@ const AdditionalTrackBody = ({price}) => {
         setDeleteSegment(true)
         setAddSegment(false)
     };
+    const addBlock = () => {
+        setAddCount([{...addCount}])
+    }
+
 
     return(
         <div id={'additional_track'} className="accordion-collapse collapse " aria-labelledby="headingOne"
@@ -144,6 +149,16 @@ const AdditionalTrackBody = ({price}) => {
 
                         <div className="col-12 float-start">
                             <div className="row">
+                                {addCount.map(count =>
+                                    <div className="row">
+                                    <div className="buttons  d-grid pt-4">
+                                        <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
+                                               onClick={deleteSegment}/>
+                                        <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
+                                               onClick={addSegment}/>
+                                    </div>
+                                    </div>
+                                )}
                                 <div className="buttons d-grid pt-4">
                                     <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
                                            onClick={deleteSegment}/>
@@ -162,7 +177,7 @@ const AdditionalTrackBody = ({price}) => {
                                                 borderRadius: "10px"
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
-                                            <button type="button" className="btn mb-2">
+                                            <button type="button" className="btn mb-2" onClick={addBlock}>
                                                 <img src="assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                         </span>
@@ -183,7 +198,7 @@ const AdditionalTrackBody = ({price}) => {
                                                 borderRadius: "10px"
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
-                                            <button type="button" className="btn mb-2">
+                                            <button type="button" className="btn mb-2" onClick={addBlock}>
                                                 <img src="assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                             <button type="button" className="btn mb-2">
