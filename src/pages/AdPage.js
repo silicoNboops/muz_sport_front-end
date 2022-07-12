@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
 
 const AdPage = () => {
@@ -30,8 +30,8 @@ const AdPage = () => {
                         по маске)</h6>
                     <h6 className="text-white ">Формат размещения : статическое изображение (JPG, PNG, PDF, SVG)</h6>
                     <h6 className="text-white ">Стоимость : 1200/мес</h6>
-                    <div className="col-8">
-                        <div className="card-img img-wrap text-center pt-3">
+                    <div className="col-8 ">
+                        <div className="card-img img-wrap text-center pt-3 ">
                             <img src="assets/images/ad.png" className="elem-ad" height="345px" width="100%"/>
                             <p>Красивое платье - еще полдела...</p>
                             <h6>1225*440</h6>
@@ -46,7 +46,7 @@ const AdPage = () => {
                     <h6 className="text-white ">Стоимость : 700/мес</h6>
                 </div>
                 <div className="col-4 elem-ad card">
-                    <p className="p-3 text-white">Профессионально скомпанованная программа подчеркивает утонченность, или,
+                    <p className="p-3 text-white col-12">Профессионально скомпанованная программа подчеркивает утонченность, или,
                         наоборот, придаст современный пульсирующий энергией ритм - что позволит вашему чемпиону раскрыться!
                         <br/><br/>
                         А внедренный в программу элемент суггестивного воздействия и дополнительный разгрузочный модуль окажет

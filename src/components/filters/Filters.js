@@ -39,6 +39,10 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                     key={filter.db_name + '_' + filter.verbose_name}
                     controlId={filter.db_name}
                 >
+                    {/* TODO - styled for checkbox */}
+                    {/*<input type="checkbox" id="label"/>*/}
+                    {/*<label id="label" htmlFor="label">Добавить</label>*/}
+
                     <Form.Check name={filter.db_name}
                                 inline
                                 type='checkbox'
@@ -89,16 +93,18 @@ const FilterSelect = React.memo((props) => {
 
     // TODO подумать как тут предотвращать рендеры ВСЕХ затронутых элементов, мб через хендлер
     return (
+
         <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
             <Form.Label className="text-white">{name}</Form.Label>
             <Form.Control
                 as='select'
                 name={name}
+                className="filters"
                 value={selectedValue}
                 onChange={handler}
             >
                 <option value=''>
-                    Все
+                    {name}
                 </option>
                 {/* в key добавил индекс чтоб при ресете фильтров менялись значения */}
                 {values.map((filter, index) => {

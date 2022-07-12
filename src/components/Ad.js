@@ -21,8 +21,8 @@ const Ad = () => {
     },[])
 
     return (
-        <div className="container row pb-3">
-            <div className="col-8">
+        <div className="container-fluid justify-content-center row pb-3">
+            <div className="col-8 col-xxl-6">
                 <div className="card-img">
                     {!BigImage.photo ?
                         <div className="img-wrap">
@@ -35,7 +35,7 @@ const Ad = () => {
                     }
                 </div>
             </div>
-            <div className="col-4 elem-ad card">
+            <div className="col-4 elem-ad card col-xxl-4">
                 {!SmallImage.photo ?
                     <p className="p-3 text-white">Профессионально скомпанованная программа подчеркивает утонченность, или,
                         наоборот, придаст современный пульсирующий энергией ритм - что позволит вашему чемпиону раскрыться!
