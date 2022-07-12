@@ -7,12 +7,12 @@ const Ad = () => {
     useEffect(() => {
         // TODO картинка блочится расширением браузера!
         async function fetchInitData() {
-            await fetch(process.env.REACT_APP_MUZSPORT_API + '/adbig/1')
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/adbig/2')
                 .then(response => response.json())
                 .then(data => setBigImage(data))
         }
         async function fetchData() {
-            await fetch(process.env.REACT_APP_MUZSPORT_API + '/adsmall/1')
+            await fetch(process.env.REACT_APP_MUZSPORT_API + '/adsmall/2')
                 .then(response => response.json())
                 .then(data => setSmallImage(data))
         }

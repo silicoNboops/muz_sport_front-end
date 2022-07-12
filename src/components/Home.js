@@ -60,8 +60,8 @@ const Home = () => {
                     </ul>
 
                     <ul className="list-unstyled pt-5 ms-2 me-2">
-                            <img src="assets/icons/minus.PNG" className="ms-2 me-2" height="35px"/>
-                            <img src="assets/icons/minus.PNG" className="ms-2 me-2" height="35px"/>
+                            <img src="assets/icons/minus.png" className="ms-2 me-2" height="35px"/>
+                            <img src="assets/icons/minus.png" className="ms-2 me-2" height="35px"/>
                     </ul>
 
                     <ul className="list-unstyled ms-2 me-2">
