@@ -21,9 +21,10 @@ const Variations = (props) => {
                  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 
                 {variants.map(variant =>
-                    <li>
-                        <a href={"/track/" + variant.id} className='text-black'>{variant.title} - {variant.author}</a>
-                    </li>
+                        <a href={"/track/" + variant.id} className='text-black' style={{fontSize: '14px'}}>
+                            {variant.title} - {variant.author}
+                            <br/>
+                        </a>
                 )}
             </div>
         </div>
