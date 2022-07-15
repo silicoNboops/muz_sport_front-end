@@ -76,7 +76,7 @@ const Home = () => {
                 </div>
             </div>
             <Ad/>
-            {/*<CatalogTemplate/>*/}
+            <CatalogTemplate/>
         </div>
     )
 };

@@ -455,3 +455,6 @@ input[type="checkbox"]:checked + :after {
     color: white;
     text-align: center;
 }
+.btn_filter{
+    width: 185px;
+}

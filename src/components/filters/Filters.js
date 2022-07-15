@@ -43,7 +43,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
 
                     <Form.Check name={filter.db_name}
                                 inline
-                                className="checkbox-ex"
+                                // className="checkbox-ex"
                                 type='checkbox'
                                 id={filter.db_name + '_' + filter.verbose_name}
                                 label={filter.verbose_name}
@@ -54,7 +54,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
         }
     });
 
-    console.log(filters);
+    // console.log(filters);
 
     return filters;
 
