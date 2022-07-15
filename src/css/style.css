@@ -355,12 +355,12 @@ input[type=range]:focus {
 
 /* CHECKBOX */
 
-#label[type='checkbox']  {
+input[type='checkbox']  {
     visibility: hidden;
     display: block;
 }
 
-#label {
+.checkbox-ex {
     padding-left: 25px;
     position: relative;
     margin-bottom: 15px;
@@ -368,7 +368,7 @@ input[type=range]:focus {
     cursor:pointer;
 }
 
-#label:before {
+.checkbox-ex:before {
     background: #948eba;
     content: "";
     position: absolute;
@@ -379,7 +379,7 @@ input[type=range]:focus {
     border-radius: 100%;
 }
 
-#label:after {
+.checkbox-ex:after {
     content: "";
     position: absolute;
     width: 14px;
@@ -394,7 +394,7 @@ input[type=range]:focus {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked + #label:after {
+input[type="checkbox"]:checked + :after {
     opacity: 1;
 }
 

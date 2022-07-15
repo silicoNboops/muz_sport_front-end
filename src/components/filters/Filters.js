@@ -40,11 +40,10 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                     controlId={filter.db_name}
                 >
                     {/* TODO - styled for checkbox */}
-                    {/*<input type="checkbox" id="label"/>*/}
-                    {/*<label id="label" htmlFor="label">Добавить</label>*/}
 
                     <Form.Check name={filter.db_name}
                                 inline
+                                className="checkbox-ex"
                                 type='checkbox'
                                 id={filter.db_name + '_' + filter.verbose_name}
                                 label={filter.verbose_name}

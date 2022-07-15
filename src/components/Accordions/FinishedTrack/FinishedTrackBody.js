@@ -125,8 +125,8 @@ const FinishedTrackBody = (props) => {
                             <span className="font-weight-bolder">Пик в начале:</span>
                             <span className="font-weight-bold">
                                 <div className="position-relative" style={{right: "200%"}}>
-                                  <input type="checkbox" id="label"/>
-                                  <label id="label" htmlFor="label">Добавить</label>
+                                  <input type="checkbox" className="checkbox-ex" id="label1"/>
+                                  <label id="label1" htmlFor="label1" className="checkbox-ex">Добавить</label>
                                 </div>
                             </span>
                         </div>
