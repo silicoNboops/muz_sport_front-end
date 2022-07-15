@@ -39,6 +39,7 @@ const WishList = () => {
     const [playing, setPlaying] = useState(false);
     const [price, setPrice] = useState([])
 
+
     useEffect(() => {
         API.getWishlist()
             .then((res) => {
@@ -55,10 +56,10 @@ const WishList = () => {
 
 
     const deleteWish = () => {
-        // {wishes.map(wishes =>
-        //     API.deleteWishlist({track_id : wishes.id})
-        // )}
-        // API.deleteWishlist({track_id : product.id});
+        {wishes.map(wishes =>
+            // TODO сейчас удаляет все продукты
+            API.deleteWishlist({track_id : wishes.id})
+        )}
         setSelect(!select);
     }
 
@@ -67,12 +68,11 @@ const WishList = () => {
         waver?.playPause();
     };
 
-
     if(pending) return <div></div>
 
     return(
         <div>
-            {wishes.map(wishes => {
+            {wishes.map((wishes, index) => {
 
                 return(
                     <div className="container pt-2 pb-2">

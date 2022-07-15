@@ -254,8 +254,8 @@
 }
 .variations-btn{
     position: absolute;
-    bottom: 110px;
-    right: 200px;
+    bottom: 60px;
+    right: 15px;
     max-width: 250px;
     border-radius: 20px;
 }

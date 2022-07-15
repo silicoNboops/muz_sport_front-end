@@ -23,7 +23,7 @@ const Profile = ({setActiveSection}) => {
         const profileData = {name, email, phone, preferredSport};
 
         // TODO переписать под axios API.post...
-        fetch(process.env.REACT_APP_NKS_API + 'user/profile/save/', {
+        fetch(process.env.REACT_APP_MUZSPORT_API + 'user/profile/save/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

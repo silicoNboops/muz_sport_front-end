@@ -97,6 +97,7 @@ const NewPlayer = ({product}) => {
 
                 <div className="card mt-5 mb-5 p-3 col-9" style={{borderRadius: '12px'}}>
                     <WaveformContainer>
+                        <Variations product={product}/>
                         <Wave id={'wave' + product.id}/>
                         <audio id={'track' + product.id} src={product.file} />
                     </WaveformContainer>
@@ -149,10 +150,6 @@ const NewPlayer = ({product}) => {
                             </svg>
                         </button>
                     }
-
-
-                    <Variations product={product}/>
-
                     <div className="col-4 row">
                         <div className="position-relative" style={{right: "15%"}}>
                             <FinishedTrackBtn product={product}/></div>
