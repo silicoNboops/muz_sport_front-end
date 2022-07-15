@@ -52,6 +52,23 @@ const WishList = () => {
                 .then(data => setPrice(data))
         }
         fetchInitData()
+
+        const track = document.querySelector('#track' + wishes.id);
+
+        const wavesurfer = WaveSurfer.create({
+            barWidth: 2,
+            cursorWidth: 1,
+            container: document.querySelector('#wave' + wishes.id),
+            backend: 'MediaElement',
+            height: 60,
+            progressColor: '#000000',
+            responsive: true,
+            waveColor: '#EFEFEF',
+            cursorColor: 'transparent',
+        });
+
+        wavesurfer.load(track);
+        setWaver(wavesurfer);
     },[]);
 
 

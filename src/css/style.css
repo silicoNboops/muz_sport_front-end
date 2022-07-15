@@ -26,15 +26,12 @@
     align-items: center;
     vertical-align: middle;
 }
-
-
 .icontext .icon {
     position: relative;
     margin-right: 10px;
     flex-shrink: 0;
     flex-grow: 0;
 }
-
 
 .dropdown-block {
     background-color: #282643;

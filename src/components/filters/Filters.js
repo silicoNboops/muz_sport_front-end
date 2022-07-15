@@ -40,6 +40,8 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                     controlId={filter.db_name}
                 >
                     {/* TODO - styled for checkbox */}
+                    {/*<input type="checkbox" className="checkbox-ex" id="label2"/>*/}
+                    {/*<label id="label2" htmlFor="label2" style={{bottom:'25px'}} className="checkbox-ex">Со словами?</label>*/}
 
                     <Form.Check name={filter.db_name}
                                 inline
@@ -94,10 +96,11 @@ const FilterSelect = React.memo((props) => {
     return (
 
         <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
-            <Form.Label className="text-white">{name}</Form.Label>
+            <Form.Label style={{fontSize:'14px'}} className="text-white">{name}</Form.Label>
             <Form.Control
                 as='select'
                 name={name}
+                style={{fontSize:'14px'}}
                 className="filters"
                 value={selectedValue}
                 onChange={handler}

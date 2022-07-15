@@ -39,7 +39,7 @@ const Header = React.memo((props) => {
                     modal={props.modal}
                 /> : <></>}
 
-            <a href="/" className="align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
+            <a href="/" className="col-md-3 mb-md-0">
                 <img src="assets/images/logo.png" width="140px" alt="logo"/>
             </a>
 
@@ -48,7 +48,6 @@ const Header = React.memo((props) => {
                 <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>
                 <li><a href="/partnership" className="nav-link px-2 link-dark">Партнерство</a></li>
                 <li><a href="/project" className="nav-link px-2 link-dark">Проект</a></li>
-
             </ul>
 
             <div className="col-md-3">
