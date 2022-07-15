@@ -91,6 +91,7 @@ const WishList = () => {
 
                             <div className="card mt-5 mb-5 p-3 col-9" style={{borderRadius: '12px'}}>
                                 <WaveformContainer>
+                                    <Variations product={wishes.wished_track}/>
                                     <Wave id={'wave' + wishes.id}/>
                                     <audio id={'track' + wishes.id} src={wishes.wished_track.file} />
                                 </WaveformContainer>
@@ -150,9 +151,6 @@ const WishList = () => {
                                         </svg>
                                     </button>
                                 }
-
-
-                                <Variations product={wishes.wished_track}/>
 
                                 <div className="col-4 row">
                                     <div className="position-relative" style={{right: "15%"}}>

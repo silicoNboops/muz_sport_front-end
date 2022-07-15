@@ -15,10 +15,11 @@ const ServicesPage = (props) => {
     },[])
     return(
         <div className="container-fluid p-5">
+
             <h1 className="text-white">Индивидуальный заказ спортивной программы</h1>
             <h4 className="text-white">Выберите подходящее Вам пакетное предложение</h4>
 
-            <div className="row pt-4">
+            <div className="row pt-2">
                 <div className="container col-4" style={{marginTop:"119px"}}>
                     <div className="card col-10 mb-2 float-start" style={{borderRadius:"12px"}}>
                         <h5 className="service-style" style={{backgroundColor:"#d7d4e5"}}>Спортивная программа</h5>
