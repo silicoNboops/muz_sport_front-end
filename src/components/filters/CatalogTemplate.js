@@ -177,13 +177,13 @@ const CatalogTemplate = React.memo(() => {
 
                     <Row>
                         <Col xs={{offset: 8}}>
-                            <Button type="submit" className='btn btn-nks'>
+                            <Button type="submit" className='btn btn-nks shadow-none'>
                                 {/*TODO сделать из нее Spinner Buttons bootstrap*/}
                                 Применить фильтры
                             </Button>
                         </Col>
                         <Col xs={{order: 'last'}}>
-                            <Button variant="primary" className='btn btn-nks float-right'
+                            <Button variant="primary" className='btn btn-nks float-right shadow-none'
                                     onClick={clearFilters}>
                                 Сбросить фильтры
                             </Button>

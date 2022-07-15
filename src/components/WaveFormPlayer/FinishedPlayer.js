@@ -7,7 +7,6 @@ import {useEffect, useState} from "react";
 import Variations from "../Accordions/Variations";
 import API from "../../api/API";
 
-
 const WaveformContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -134,7 +133,7 @@ const NewPlayer = ({product}) => {
                         <span>{product.country_name}</span>
                     </p>
                     {select?
-                        <button type="button" className="btn col-1" onClick={deleteWish}>
+                        <button type="button" className="btn shadow-none col-1" onClick={deleteWish}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" style={{color: "red"}} height="28"
                                  fill="currentColor" className="bi bi-heart-fill " viewBox="0 0 16 16">
                                 <path fillRule="evenodd"
@@ -142,7 +141,7 @@ const NewPlayer = ({product}) => {
                             </svg>
                         </button>
                         :
-                        <button type="button" className="btn col-1" onClick={createWish}>
+                        <button type="button" className="btn shadow-none col-1" onClick={createWish}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                  fill="currentColor" className="bi bi-heart-fill heart-style" viewBox="0 0 16 16">
                                 <path fillRule="evenodd"

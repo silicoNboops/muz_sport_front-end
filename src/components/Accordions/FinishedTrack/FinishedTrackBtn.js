@@ -13,7 +13,7 @@ const FinishedTrackBtn = (props) => {
         <div className="container-fluid">
             <button type="button"
                     //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
-                    className="btn finished_track_btn btn-sm col-9 dropdown-toggle-split"
+                    className="btn shadow-none finished_track_btn btn-sm col-9 dropdown-toggle-split"
                     data-bs-toggle="collapse"
                     data-bs-target={'#finished_track' + product.id}
                     aria-expanded="true"

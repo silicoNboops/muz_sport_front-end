@@ -5,10 +5,10 @@ const Variations = (props) => {
     const variants = product.variants
 
     return(
-        <div className="row text-end variations-btn card col-3">
+        <div className="row variations-btn card col-4">
             <div>
                 <button type="button"
-                        className="btn btn-sm  dropdown-toggle-split "
+                        className="btn btn-sm shadow-none dropdown-toggle-split "
                         data-bs-toggle="collapse"
                         data-bs-target={'#variations' + product.id}
                         aria-expanded="true"
@@ -24,10 +24,9 @@ const Variations = (props) => {
                     <li>
                         <a href={"/track/" + variant.id} className='text-black'>{variant.title} - {variant.author}</a>
                     </li>
-                    )}
+                )}
             </div>
         </div>
-
     )
 }
 export default Variations;
