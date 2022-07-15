@@ -8,19 +8,10 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
 
     let filters = []
 
-    console.log(Object.entries(filterVariants));
+    console.log(typeof filterVariants);
 
-    for (const [filterName, filter] of Object.entries(filterVariants)) {
-        console.log([filterName, filter]);
-    }
-
-    filterNameSequence.map(filterName => {
-        // console.log(filterName);
-        // console.log(filterVariants[filterName]);
-        // console.log(Object.values(filterVariants))
-
+    for (const filterName of filterNameSequence) {
         let filter = filterVariants[filterName];
-        console.log(filter.type);
 
         if (filter.type === 'select') {
             filters.push(
@@ -40,52 +31,29 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                     controlId={filter.db_name}
                 >
                     {/* TODO - styled for checkbox */}
-                    {/*<input type="checkbox" className="checkbox-ex" id="label2"/>*/}
-                    {/*<label id="label2" htmlFor="label2" style={{bottom:'25px'}} className="checkbox-ex">Со словами?</label>*/}
+                    <input type="checkbox" className="checkbox-ex" id={filter.db_name}
+                           defaultChecked={selectedValues ? selectedValues[filter.product_prop] : false}
+                           onChange={handlerChangeSelect}
+                           />
+                    <label id={filter.db_name + '_label'} htmlFor={filter.db_name} style={{bottom:'25px'}}
+                           className="checkbox-ex">
+                        Со словами?
+                    </label>
 
-                    <Form.Check name={filter.db_name}
-                                inline
-                                // className="checkbox-ex"
-                                type='checkbox'
-                                id={filter.db_name + '_' + filter.verbose_name}
-                                label={filter.verbose_name}
-                                onChange={handlerChangeSelect}
-                    />
+                    {/*<Form.Check name={filter.db_name}*/}
+                    {/*            inline*/}
+                    {/*            className="checkbox-ex"*/}
+                    {/*            type='checkbox'*/}
+                    {/*            id={filter.db_name + '_' + filter.verbose_name}*/}
+                    {/*            label={filter.verbose_name}*/}
+                    {/*            onChange={handlerChangeSelect}*/}
+                    {/*/>*/}
                 </Form.Group>
             )
         }
-    });
-
-    // console.log(filters);
+    }
 
     return filters;
-
-    // return filterVariants.map((filter, index) => {
-    //     if (filter.type === 'select') {
-    //         return(
-    //             <FilterSelect
-    //                 key={filter + '_' + index}
-    //                 handler={handlerChangeSelect}
-    //                 product_prop={filter.product_prop}
-    //                 name={filter.name}
-    //                 values={filter.values}
-    //                 selectedValue={selectedValues ? selectedValues[filter.product_prop] : ''}
-    //             />);
-    //     } else {
-    //         return(
-    //             <Form.Group
-    //                 key={filter.db_name + '_' + index}
-    //                 controlId={filter.db_name}
-    //             >
-    //                 <Form.Check name={filter.db_name}
-    //                             inline
-    //                             type='checkbox'
-    //                             id={filter.db_name + '_' + index}
-    //                             label={filter.verbose_name}
-    //                 />
-    //             </Form.Group>);
-    //     }
-    // });
 });
 
 

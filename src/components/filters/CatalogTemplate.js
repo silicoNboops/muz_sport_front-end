@@ -103,7 +103,19 @@ const CatalogTemplate = React.memo(() => {
     }
 
     const handlerCHANGER = (event) => {
-        setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: event.target.value});
+        let value;
+
+        if (event.target.type === 'checkbox') {
+            value = event.target.checked;
+            value = value.toString();
+            value = value.charAt(0).toUpperCase() + value.slice(1)
+        } else {
+            value = event.target.value;
+        }
+
+        // console.log(value);
+
+        setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: value});
     }
 
     // TODO переделать по аналогии с селектами, сделать компоненты
