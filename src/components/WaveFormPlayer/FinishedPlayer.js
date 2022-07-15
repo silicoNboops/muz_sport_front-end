@@ -31,7 +31,7 @@ const PlayButton = styled.button`
 
 `;
 
-const NewPlayer = ({product}) => {
+const NewPlayer = ({product, isWished}) => {
     const [select, setSelect] = useState(false);
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
@@ -71,7 +71,9 @@ const NewPlayer = ({product}) => {
         wavesurfer.load(track);
         setWaver(wavesurfer);
 
-
+        if (isWished) {
+            setSelect(true);
+        }
     }, []);
 
     const handlePlay = () => {
