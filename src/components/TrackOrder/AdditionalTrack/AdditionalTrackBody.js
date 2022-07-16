@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import FinishedTrackBtn from "../../Accordions/FinishedTrack/FinishedTrackBtn";
+
 
 const AdditionalTrackBody = ({price}) => {
-    const [valueFile, setValueFile] = useState('')
     const [valueLink, setValueLink] = useState('')
+    const [valueFile, setValueFile] = useState('')
     const [commentary, setCommentary] = useState('');
     const [link, setLink] = useState(false)
     const [file, setFile] = useState(false)
@@ -14,8 +14,11 @@ const AdditionalTrackBody = ({price}) => {
 
     const [AddSegment, setAddSegment] = useState(false)
     const [DeleteSegment, setDeleteSegment] = useState(false)
-    const [CountSegment, setCountSegment] = (useState([]))
-    const [addCount, setAddCount] = useState([])
+
+    const [item, setItem] = useState(["ITEM_1"])
+
+
+    const newItem = ["ITEM_2", "ITEM_3", "ITEM_4", "ITEM_5", "ITEM_6", "ITEM_7"];
 
 
     const initData = () => {
@@ -51,10 +54,14 @@ const AdditionalTrackBody = ({price}) => {
         setDeleteSegment(true)
         setAddSegment(false)
     };
-    const addBlock = () => {
-        setAddCount([{...addCount}])
+    const addElem = () => {
+        setItem([...item, item.push(newItem.shift())])
+        console.log(item)
     }
-
+    const deleteElem = (event) => {
+        console.log(event.currentTarget.id)
+        setItem([...item, item.splice(event, 1)])
+    }
 
     return(
         <div id={'additional_track'} className="accordion-collapse collapse " aria-labelledby="headingOne"
@@ -106,8 +113,6 @@ const AdditionalTrackBody = ({price}) => {
                             :
                             null
                     }
-
-
                     {file ?
                         <div className="col-6 pt-2 pb-2">
                             <input type="file"
@@ -128,7 +133,6 @@ const AdditionalTrackBody = ({price}) => {
                         :
                         null
                     }
-
                     <h5 className="text-start">
                         <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                         Компоновка*</h5>
@@ -147,27 +151,19 @@ const AdditionalTrackBody = ({price}) => {
                         null
                     }
                     {manual ?
+                        <>
+                        {item.map(() =>
 
-                        <div className="col-12 float-start">
-                            <div className="row">
-                                {addCount.map(count =>
-                                    <div className="row">
-                                    <div className="buttons  d-grid pt-4">
-                                        <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
-                                               onClick={deleteSegment}/>
-                                        <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
-                                               onClick={addSegment}/>
-                                    </div>
-                                    </div>
-                                )}
-                                <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
-                                           onClick={deleteSegment}/>
-                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
-                                           onClick={addSegment}/>
-                                </div>
-                                {DeleteSegment ?
-                                    <span className="font-weight-bold ms-3 text-start d-block col pt-5">от
+                                <div className="col-12 float-start">
+                                <div className="row">
+                                        <div className="buttons d-grid pt-4">
+                                            <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
+                                                   onClick={deleteSegment}/>
+                                            <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
+                                                   onClick={addSegment}/>
+                                        </div>
+                                    {DeleteSegment ?
+                                        <span className="font-weight-bold ms-3 text-start d-block col pt-5">от
                                             <input type="time" id="appt" name="appt" style={{
                                                 backgroundColor: "#948eba",
                                                 borderRadius: "10px"
@@ -178,12 +174,12 @@ const AdditionalTrackBody = ({price}) => {
                                                 borderRadius: "10px"
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
-                                            <button type="button" className="btn mb-2" onClick={addBlock}>
+                                            <button type="button" className="btn mb-2" onClick={addElem}>
                                                 <img src="assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                         </span>
-                                    :
-                                    <span className="font-weight-bold d-block col pt-5">от
+                                        :
+                                        <span className="font-weight-bold d-block col pt-5">от
                                             <input type="time" id="appt" name="appt" style={{
                                                 backgroundColor: "#948eba",
                                                 borderRadius: "10px"
@@ -199,16 +195,20 @@ const AdditionalTrackBody = ({price}) => {
                                                 borderRadius: "10px"
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
-                                            <button type="button" className="btn mb-2" onClick={addBlock}>
+                                            <button type="button" className="btn mb-2" onClick={addElem}>
                                                 <img src="assets/icons/plus-purple.png" height="25px"/>
                                             </button>
-                                            <button type="button" className="btn mb-2">
+                                            <button id={'btn' + } type="button" className="btn mb-2" onClick={(event) => deleteElem(event)}>
                                                 <img src="assets/icons/minus-pink.png" height="25px"/>
                                             </button>
                                         </span>
-                                }
+                                    }
+                                </div>
                             </div>
-                        </div>
+                            )}
+                        </>
+
+
                         :
                         null
                     }
@@ -227,8 +227,6 @@ const AdditionalTrackBody = ({price}) => {
                                       setCommentary(e.target.value)}/>
                     </div>
                 </div>
-
-
             </div>
             </div>
         </div>
