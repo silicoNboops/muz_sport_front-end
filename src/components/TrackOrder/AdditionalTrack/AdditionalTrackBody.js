@@ -59,13 +59,15 @@ const AdditionalTrackBody = ({price}) => {
         console.log(item)
     }
     const deleteElem = (event) => {
-        console.log(item)
         console.log(event.currentTarget.id)
         const elemIndex = event.currentTarget.id.replace("btn_delete_segment_", "")
-        item.splice(parseInt(elemIndex), 1)
+        // item.splice(parseInt(elemIndex), 1)
         // setItem(item.splice(parseInt(elemIndex), 1))
         console.log(item)
-
+        let removableSegmentId = item.indexOf(elemIndex);
+        console.log(removableSegmentId);
+        setItem(item.filter((_, i) => i !== removableSegmentId))
+        console.log(item);
     }
 
     return(
