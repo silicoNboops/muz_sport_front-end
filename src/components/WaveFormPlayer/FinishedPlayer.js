@@ -98,7 +98,7 @@ const NewPlayer = ({product, isWished}) => {
 
                 <div className="card mt-5 mb-5 p-3 col-9" style={{borderRadius: '12px'}}>
                     <WaveformContainer>
-                        <Variations product={product}/>
+                        <Variations product={product} variants={product.variants}/>
                         <Wave id={'wave' + product.id}/>
                         <audio id={'track' + product.id} src={product.file} />
                     </WaveformContainer>
