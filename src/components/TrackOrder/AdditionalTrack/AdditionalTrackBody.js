@@ -152,7 +152,7 @@ const AdditionalTrackBody = ({price}) => {
                     }
                     {manual ?
                         <>
-                        {item.map(() =>
+                        {item.map((itemObj, index) =>
 
                                 <div className="col-12 float-start">
                                 <div className="row">
@@ -198,7 +198,9 @@ const AdditionalTrackBody = ({price}) => {
                                             <button type="button" className="btn mb-2" onClick={addElem}>
                                                 <img src="assets/icons/plus-purple.png" height="25px"/>
                                             </button>
-                                            <button id={'btn' + } type="button" className="btn mb-2" onClick={(event) => deleteElem(event)}>
+                                            <button id={'btn_delete_segment_' + index} type="button"
+                                                    className="btn mb-2"
+                                                    onClick={(event) => deleteElem(event)}>
                                                 <img src="assets/icons/minus-pink.png" height="25px"/>
                                             </button>
                                         </span>
