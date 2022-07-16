@@ -56,12 +56,13 @@ const AdditionalTrackBody = ({price}) => {
     };
     const addElem = () => {
         setItem([...item, item.push(newItem.shift())])
-        console.log(item)
-    }
+    };
     const deleteElem = (event) => {
-        const elemIndex = event.currentTarget.id.replace("btn_delete_segment_", "");
-        setItem(item.filter((_, i) => i !== parseInt(elemIndex)));
-    }
+        if (item.length > 1) {
+            const elemIndex = event.currentTarget.id.replace("btn_delete_segment_", "");
+            setItem(item.filter((_, i) => i !== parseInt(elemIndex)));
+        }
+    };
 
     return(
         <div id={'additional_track'} className="accordion-collapse collapse " aria-labelledby="headingOne"
@@ -88,13 +89,13 @@ const AdditionalTrackBody = ({price}) => {
                     <h5 className="text-start ">Материал (трек) для компановки программы*:</h5>
                     <div className="d-inline-flex pt-3">
                         <div className="float-start">
-                            <button className="btn btn-sm" onClick={handleLink}>
+                            <button className="btn btn-sm shadow-none" onClick={handleLink}>
                                 <img src="assets/icons/www.png" className="card p-1" height="50px"/>
                             </button>
-                            <button className="btn btn-sm" onClick={handleFile}>
+                            <button className="btn btn-sm shadow-none" onClick={handleFile}>
                                 <img src="assets/icons/download.png" className="card p-1" height="50px"/>
                             </button>
-                            <button className="btn btn-sm" onClick={handleCatalog}>
+                            <button className="btn btn-sm shadow-none" onClick={handleCatalog}>
                                 <img src="assets/icons/list.png" className="card p-1" height="50px"/>
                             </button>
                         </div>
@@ -137,10 +138,10 @@ const AdditionalTrackBody = ({price}) => {
                         <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                         Компоновка*</h5>
                     <div className="float-start d-flex">
-                        <button className="btn btn-sm" onClick={handleAuto}>
+                        <button className="btn btn-sm shadow-none" onClick={handleAuto}>
                             <img src="assets/icons/auto.png" className="float-start" height="50px"/>
                         </button>
-                        <button className="btn btn-sm" onClick={handleManual}>
+                        <button className="btn btn-sm shadow-none" onClick={handleManual}>
                             <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
                         </button>
                     </div>

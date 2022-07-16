@@ -88,10 +88,10 @@ const UnloadingModuleBody = ({price}) => {
                                 мин.
                                 </h6>
                         <div className="text-start pb-2">
-                            <button className="btn btn-sm" onClick={handleLink}>
+                            <button className="btn btn-sm shadow-none" onClick={handleLink}>
                                 <img src="assets/icons/www.png" className="card p-1" height="50px"/>
                             </button>
-                            <button className="btn btn-sm" onClick={handleFile}>
+                            <button className="btn btn-sm shadow-none" onClick={handleFile}>
                                 <img src="assets/icons/download.png" className="card p-1" height="50px"/>
                             </button>
                         </div>

@@ -145,10 +145,10 @@ const FinishedTrackBody = (props) => {
                             Компоновка*</h5>
 
                     <div className="float-start">
-                        <button className="btn btn-sm" onClick={handleAuto}>
+                        <button className="btn btn-sm shadow-none" onClick={handleAuto}>
                             <img src="assets/icons/auto.png" className="float-start" height="50px"/>
                         </button>
-                        <button className="btn btn-sm" onClick={handleManual}>
+                        <button className="btn btn-sm shadow-none" onClick={handleManual}>
                             <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
                         </button>
                     </div>

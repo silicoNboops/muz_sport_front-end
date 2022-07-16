@@ -159,13 +159,13 @@ const TrackOrderMiddle = () => {
                                 <h5 className="text-start">Материал (трек) для компановки программы*:</h5>
                                 <div className="pt-3 row">
                                     <div className="float-start pb-3">
-                                        <button className="btn btn-sm" onClick={handleLink}>
+                                        <button className="btn btn-sm shadow-none" onClick={handleLink}>
                                             <img src="assets/icons/www.png" className="card p-1" height="50px"/>
                                         </button>
-                                        <button className="btn btn-sm" onClick={handleFile}>
+                                        <button className="btn btn-sm shadow-none" onClick={handleFile}>
                                             <img src="assets/icons/download.png" className="card p-1" height="50px"/>
                                         </button>
-                                        <button className="btn btn-sm" onClick={handleCatalog}>
+                                        <button className="btn btn-sm shadow-none" onClick={handleCatalog}>
                                             <img src="assets/icons/list.png" className="card p-1" height="50px"/>
                                         </button>
                                     </div>
@@ -229,10 +229,10 @@ const TrackOrderMiddle = () => {
                                     Компоновка*</h5>
 
                                 <div className=" container">
-                                    <button className="btn btn-sm" onClick={handleAuto}>
+                                    <button className="btn btn-sm shadow-none" onClick={handleAuto}>
                                         <img src="assets/icons/auto.png" className="float-start" height="50px"/>
                                     </button>
-                                    <button className="btn btn-sm" onClick={handleManual}>
+                                    <button className="btn btn-sm shadow-none" onClick={handleManual}>
                                         <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
                                     </button>
                                 </div>
