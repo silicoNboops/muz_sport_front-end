@@ -6,7 +6,8 @@ import {useParams} from "react-router-dom";
 
 const VariationProductDetail = () => {
     const params = useParams();
-    const [track, setTrack] = useState({})
+    const [track, setTrack] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchInitData() {
@@ -14,8 +15,8 @@ const VariationProductDetail = () => {
             const trackData = await resTrack.json();
             console.log(trackData)
 
-
             setTrack(trackData);
+            setLoading(false);
         }
 
         fetchInitData();
@@ -26,7 +27,9 @@ const VariationProductDetail = () => {
         <Row>
             <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
                 <div>
-                    <NewPlayer product={track}/>
+                    {!loading && (
+                        <NewPlayer product={track}/>
+                    )}
                 </div>
             </Col>
         </Row>
