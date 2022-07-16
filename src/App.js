@@ -26,6 +26,8 @@ import TrackOrderMax from "./components/TrackOrder/TrackOrderMax";
 import TrackOrderMiddle from "./components/TrackOrder/TrackOrderMiddle";
 import TrackOrderMin from "./components/TrackOrder/TrackOrderMin";
 import FinishedPlayer from "./components/WaveFormPlayer/FinishedPlayer";
+import VariationProductCard from "./components/Variations/VariationProductCard";
+import VariationProductDetail from "./components/Variations/VariationProductDetail";
 // import {ToastContainer, Zoom} from "react-toastify";
 // import 'react-toastify/dist/ReactToastify.css';
 // import Authorization from "./components/Authorization";
@@ -67,7 +69,7 @@ function App() {
                     <Route exact path="/track_order_middle" element={<TrackOrderMiddle/>}/>
                     <Route exact path="/track_order_min" element={<TrackOrderMin/>}/>
 
-                    <Route path="/track/:id" element={<FinishedPlayer/>}/>
+                    <Route path="/track/:id" element={<VariationProductDetail/>}/>
 
 
                     {/*<Route exact path="/" element={<AuthChecker/>}>*/}

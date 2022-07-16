@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FinishedTrackBtn from "../Accordions/FinishedTrack/FinishedTrackBtn";
 import FinishedTrackBody from "../Accordions/FinishedTrack/FinishedTrackBody";
 import {useEffect, useState} from "react";
-import Variations from "../Accordions/Variations";
+import Variations from "../Variations/Variations";
 import API from "../../api/API";
 
 const WaveformContainer = styled.div`

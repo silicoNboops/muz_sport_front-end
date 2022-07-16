@@ -16,7 +16,7 @@ const Variations = (props) => {
                                 aria-expanded="true"
                                 style={{borderRadius:"12px"}}
                                 aria-controls="collapseOne">
-                            <span className="text-black">Вариации данного трека</span>
+                            <span>Вариации данного трека</span>
                         </button>
                     </div>
                     <div id={'variations' + product.id} className="accordion-collapse collapse text-start"

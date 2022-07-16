@@ -1,16 +1,16 @@
+import React from "react";
 import {Col, Row} from "react-bootstrap";
 import NewPlayer from "../WaveFormPlayer/FinishedPlayer";
-import React from "react";
 
-const WishedProducts = ({wishedProducts}) => {
+
+const VariationProductCard = ({variants}) => {
 
     return (
         <Row>
-            {wishedProducts.map((wishedTrackObj) => (
+            {variants.map((variant) => (
                 <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
                     <div>
-                        <NewPlayer product={wishedTrackObj.wished_track}
-                                   isWished={true}/>
+                        <NewPlayer product={variant.id}/>
                     </div>
                 </Col>
             ))}
@@ -18,4 +18,4 @@ const WishedProducts = ({wishedProducts}) => {
     );
 };
 
-export default WishedProducts;
+export default VariationProductCard;
