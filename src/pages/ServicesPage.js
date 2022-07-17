@@ -26,10 +26,10 @@ const ServicesPage = (props) => {
                     </div>
                     <div className="card service-card col-12 pb-2">
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
+                            <img src="/assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
+                            <img src="/assets/icons/check1.png" className="me-3" width="25px"/>
                             Две доработки программы в рамках согласованного трека</h6>
                         <p className="text-white mt-auto service-style" style={{backgroundColor:"#1e1950"}}>
                             каждый доп. трек к программе +1500 руб (но не более 2-ух)</p>
@@ -39,7 +39,7 @@ const ServicesPage = (props) => {
                         <a href="/track_order_min" className="link-unstyled">
                             <a href="/track_order_min" className="fs-5 link-unstyled position-absolute text-white">
                                 Сделать заказ</a>
-                            <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
+                            <img src='/assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
                             <span>{price.sports_programme_min} ₽</span>
                         </a>
                     </div>
@@ -58,17 +58,17 @@ const ServicesPage = (props) => {
 
                     <div className="card service-card col-12 block-services pb-3" style={{minHeight:"625px"}}>
                         <h6 className="pt-4 text-wrap ms-4" style={{width:"315px", marginTop:"60px"}}>
-                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
+                            <img src="/assets/icons/check1.png" className="me-3" width="25px"/>
                             Компановка спортивной программы из одного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
+                            <img src="/assets/icons/check1.png" className="me-3" width="25px"/>
                             Две доработки программы в рамках согласованного трека</h6>
                         <h6 className="pt-2 text-wrap ms-4" style={{width:"315px"}}>
-                            <img src="assets/icons/check1.png" className="me-3" width="25px"/>
+                            <img src="/assets/icons/check1.png" className="me-3" width="25px"/>
                             Введение суггестивной информации для повышения концетрации и мобилизации спортсмена на
                         соревнованиях <a href="#" className="text-muted">подробнее о методе</a></h6>
                         <p className="mt-auto" style={{paddingTop:"80px"}}>
-                            <img src="assets/icons/coupon.png" className="me-3" width="60px"/>
+                            <img src="/assets/icons/coupon.png" className="me-3" width="60px"/>
                             Промокод на будущий заказ 8%</p>
                         <p className="text-white mt-auto service-style" style={{backgroundColor:"#00bd00"}}>
                             каждый доп. трек к программе +1000 руб (но не более 2-ух)</p>

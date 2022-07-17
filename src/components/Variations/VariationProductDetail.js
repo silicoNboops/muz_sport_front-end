@@ -11,16 +11,14 @@ const VariationProductDetail = () => {
 
     useEffect(() => {
         async function fetchInitData() {
-            const resTrack = await fetch(process.env.REACT_APP_MUZSPORT_API + `track/${params.id}`);
+            const resTrack = await fetch(process.env.REACT_APP_MUZSPORT_API + `/tracks/${params.id}`);
             const trackData = await resTrack.json();
-            console.log(trackData)
 
             setTrack(trackData);
             setLoading(false);
         }
 
         fetchInitData();
-        console.log(track)
     }, []);
 
     return (

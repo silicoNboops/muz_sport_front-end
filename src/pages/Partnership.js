@@ -12,7 +12,7 @@ const Partnership = () => {
             <div className="p-5">
                 <div className="icon-link-badged">
                     <h5 className="text-white text-start">
-                        <img src="assets/icons/penny-whistle.png" width="70px"/>
+                        <img src="/assets/icons/penny-whistle.png" width="70px"/>
                         Тренерам:
                     </h5>
                     <h6 className="text-white">У вас подающие надежды спортсмены, которых вы хотите взрастить до
@@ -26,7 +26,7 @@ const Partnership = () => {
 
                 <div className="icon-link-badged pt-5">
                     <h5 className="text-white">
-                        <img src="assets/icons/medal.png" width="70px"/>
+                        <img src="/assets/icons/medal.png" width="70px"/>
                         Спортивным школам:
                     </h5>
                     <h6 className="text-white">Спортивные ученики всегда заинтересованы не только в высоких спортивных

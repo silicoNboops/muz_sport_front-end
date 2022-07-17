@@ -91,7 +91,7 @@ const TrackOrderMiddle = () => {
                 <div className="card background-accordion ps-5 container">
                     <h5 className="text-white position-absolute mt-2" style={{right:"83%"}}>Заказ трека</h5>
                     <div className=" imgblock-accordion">
-                        <img src='assets/icons/price-tag.png' style={{left: "750px"}} className='price-icon-accordion'/>
+                        <img src='/assets/icons/price-tag.png' style={{left: "750px"}} className='price-icon-accordion'/>
                         <span className="text-black" style={{left:"800px"}}>{price.sports_programme_medium} ₽</span>
                     </div>
                     <div className="accordion-body row container justify-content-center mt-4">
@@ -122,7 +122,7 @@ const TrackOrderMiddle = () => {
                                 </div>
                                 <div className="card-props card-text">
                                 <span className="font-weight-bolder">
-                                    <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                                    <img src="/assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                                     Хронометраж*:</span>
                                     <span className="font-weight-bold container col-6 pb-4">от
                                     <input type="time" id="appt" name="appt" style={{
@@ -160,13 +160,13 @@ const TrackOrderMiddle = () => {
                                 <div className="pt-3 row">
                                     <div className="float-start pb-3">
                                         <button className="btn btn-sm shadow-none" onClick={handleLink}>
-                                            <img src="assets/icons/www.png" className="card p-1" height="50px"/>
+                                            <img src="/assets/icons/www.png" className="card p-1" height="50px"/>
                                         </button>
                                         <button className="btn btn-sm shadow-none" onClick={handleFile}>
-                                            <img src="assets/icons/download.png" className="card p-1" height="50px"/>
+                                            <img src="/assets/icons/download.png" className="card p-1" height="50px"/>
                                         </button>
                                         <button className="btn btn-sm shadow-none" onClick={handleCatalog}>
-                                            <img src="assets/icons/list.png" className="card p-1" height="50px"/>
+                                            <img src="/assets/icons/list.png" className="card p-1" height="50px"/>
                                         </button>
                                     </div>
                                 </div>
@@ -225,15 +225,15 @@ const TrackOrderMiddle = () => {
                                     null
                                 }
                                 <h5 className="text-start">
-                                    <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                                    <img src="/assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                                     Компоновка*</h5>
 
                                 <div className=" container">
                                     <button className="btn btn-sm shadow-none" onClick={handleAuto}>
-                                        <img src="assets/icons/auto.png" className="float-start" height="50px"/>
+                                        <img src="/assets/icons/auto.png" className="float-start" height="50px"/>
                                     </button>
                                     <button className="btn btn-sm shadow-none" onClick={handleManual}>
-                                        <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
+                                        <img src="/assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
                                     </button>
                                 </div>
 
@@ -266,7 +266,7 @@ const TrackOrderMiddle = () => {
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
                                             <button type="button" className="btn mb-2" >
-                                                <img src="assets/icons/plus-purple.png" height="25px"/>
+                                                <img src="/assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                         </span>
                                                 :
@@ -287,10 +287,10 @@ const TrackOrderMiddle = () => {
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
                                             <button type="button" className="btn mb-2" onClick={addCount}>
-                                                <img src="assets/icons/plus-purple.png" height="25px"/>
+                                                <img src="/assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                             <button type="button" className="btn mb-2" onClick={deleteCount}>
-                                                <img src="assets/icons/minus-pink.png" height="25px"/>
+                                                <img src="/assets/icons/minus-pink.png" height="25px"/>
                                             </button>
                                         </span>
                                             }

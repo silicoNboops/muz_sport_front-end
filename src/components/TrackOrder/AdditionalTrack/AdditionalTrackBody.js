@@ -80,7 +80,7 @@ const AdditionalTrackBody = ({price}) => {
                 <h5 className="text-white position-relative" style={{right:"33%", top:"10px"}}>Добавить трек к
                     программе</h5>
                 <div className=" imgblock-accordion">
-                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                <img src='/assets/icons/price-tag.png' className='price-icon-accordion'/>
                 <span>{price} ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">
@@ -90,13 +90,13 @@ const AdditionalTrackBody = ({price}) => {
                     <div className="d-inline-flex pt-3">
                         <div className="float-start">
                             <button className="btn btn-sm shadow-none" onClick={handleLink}>
-                                <img src="assets/icons/www.png" className="card p-1" height="50px"/>
+                                <img src="/assets/icons/www.png" className="card p-1" height="50px"/>
                             </button>
                             <button className="btn btn-sm shadow-none" onClick={handleFile}>
-                                <img src="assets/icons/download.png" className="card p-1" height="50px"/>
+                                <img src="/assets/icons/download.png" className="card p-1" height="50px"/>
                             </button>
                             <button className="btn btn-sm shadow-none" onClick={handleCatalog}>
-                                <img src="assets/icons/list.png" className="card p-1" height="50px"/>
+                                <img src="/assets/icons/list.png" className="card p-1" height="50px"/>
                             </button>
                         </div>
                     </div>
@@ -135,14 +135,14 @@ const AdditionalTrackBody = ({price}) => {
                         null
                     }
                     <h5 className="text-start">
-                        <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                        <img src="/assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                         Компоновка*</h5>
                     <div className="float-start d-flex">
                         <button className="btn btn-sm shadow-none" onClick={handleAuto}>
-                            <img src="assets/icons/auto.png" className="float-start" height="50px"/>
+                            <img src="/assets/icons/auto.png" className="float-start" height="50px"/>
                         </button>
                         <button className="btn btn-sm shadow-none" onClick={handleManual}>
-                            <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
+                            <img src="/assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
                         </button>
                     </div>
 
@@ -176,7 +176,7 @@ const AdditionalTrackBody = ({price}) => {
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
                                             <button type="button" className="btn mb-2" onClick={addElem}>
-                                                <img src="assets/icons/plus-purple.png" height="25px"/>
+                                                <img src="/assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                         </span>
                                         :
@@ -197,12 +197,12 @@ const AdditionalTrackBody = ({price}) => {
                                             }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
                                                    required/>
                                             <button type="button" className="btn mb-2" onClick={addElem}>
-                                                <img src="assets/icons/plus-purple.png" height="25px"/>
+                                                <img src="/assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                             <button id={'btn_delete_segment_' + index} type="button"
                                                     className="btn mb-2"
                                                     onClick={(event) => deleteElem(event)}>
-                                                <img src="assets/icons/minus-pink.png" height="25px"/>
+                                                <img src="/assets/icons/minus-pink.png" height="25px"/>
                                             </button>
                                         </span>
                                     }

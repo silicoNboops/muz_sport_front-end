@@ -94,7 +94,7 @@ const TrackOrderMax = () => {
                 <div className="card background-accordion ps-5 container">
                     <h5 className="text-white position-absolute mt-2" style={{right:"83%"}}>Заказ трека</h5>
                     <div className=" imgblock-accordion">
-                        <img src='assets/icons/price-tag.png' style={{left: "750px"}} className='price-icon-accordion'/>
+                        <img src='/assets/icons/price-tag.png' style={{left: "750px"}} className='price-icon-accordion'/>
                         <span className="text-black" style={{left:"800px"}}>{price.sports_programme_max} ₽</span>
                     </div>
                     <div className="accordion-body row container justify-content-center mt-4">
@@ -125,7 +125,7 @@ const TrackOrderMax = () => {
                                 </div>
                                 <div className="card-props card-text">
                                 <span className="font-weight-bolder">
-                                    <img src="assets/icons/info.png" className="mb-1 me-1" width="12px"/>
+                                    <img src="/assets/icons/info.png" className="mb-1 me-1" width="12px"/>
                                     Хронометраж*:</span>
                                     <span className="font-weight-bold container col-6 pb-4">от
                                     <input type="time" id="appt" name="appt" style={{

@@ -40,7 +40,7 @@ const Header = React.memo((props) => {
                 /> : <></>}
 
             <a href="/" className="col-md-3 mb-md-0">
-                <img src="assets/images/logo.png" width="140px" alt="logo"/>
+                <img src="/assets/images/logo.png" width="140px" alt="logo"/>
             </a>
 
             <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -53,7 +53,7 @@ const Header = React.memo((props) => {
             <div className="col-md-3">
                 <div className="icon-link-badged px-2">
                     <a href="/order" className="text-black heart-style d-inline ps-2">
-                        <img src="assets/icons/cart.png" width="30px"/>
+                        <img src="/assets/icons/cart.png" width="30px"/>
                     </a>
                 </div>
 
@@ -61,7 +61,7 @@ const Header = React.memo((props) => {
                     <>
                         <div className="icon-link-badged mr-3 px-2">
                             <a href="/login" className="text-black">
-                                <img src="assets/icons/account.png" width="30px"/>
+                                <img src="/assets/icons/account.png" width="30px"/>
                                 Вход
                             </a>
                         </div>
@@ -81,7 +81,7 @@ const Header = React.memo((props) => {
 
                         <div className="icon-link-badged mr-3 px-2">
                             <a href="/account" className="text-black">
-                                <img src="assets/icons/account.png" width="35px"/>
+                                <img src="/assets/icons/account.png" width="35px"/>
                             </a>
                         </div>
                         <div className="icon-link-badged mr-3">

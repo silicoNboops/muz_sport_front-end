@@ -63,7 +63,7 @@ const Footer = () => {
                                     null
                                     :
                                     <a href="ad" className="text-white">
-                                        <img src="assets/icons/horn.png" width="30px"/>
+                                        <img src="/assets/icons/horn.png" width="30px"/>
                                         Реклама на сайте
                                     </a>
                                 }

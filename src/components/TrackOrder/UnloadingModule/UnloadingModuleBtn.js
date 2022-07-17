@@ -12,7 +12,7 @@ const UnloadingModuleBtn = () => {
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
                 <span className="text-white">
-                    <img src="assets/icons/relax.png" className="pe-3" width="50px"/>
+                    <img src="/assets/icons/relax.png" className="pe-3" width="50px"/>
                     Создание разгрузочного модуля</span>
             </button>
         </div>

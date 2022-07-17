@@ -89,9 +89,9 @@ const NewPlayer = ({product, isWished}) => {
                 <div className="col-1" style={{paddingTop: '35px'}}>
                     <PlayButton onClick={handlePlay} >
                         {!playing ?
-                            <img src="assets/icons/play-button-arrowhead.png" height="80px"/>
+                            <img src="/assets/icons/play-button-arrowhead.png" height="80px"/>
                             :
-                            <img src="assets/icons/pause.png" height="80px"/>
+                            <img src="/assets/icons/pause.png" height="80px"/>
                         }
                     </PlayButton>
                 </div>
@@ -106,7 +106,7 @@ const NewPlayer = ({product, isWished}) => {
 
                 <div className="col-2 imgblock-track">
                     <a href="#" className="link-unstyled">
-                        <img src='assets/icons/price-tag.png' className='price-icon'/>
+                        <img src="/assets/icons/price-tag.png" className='price-icon'/>
                         <span className="text-start text-white">{product.price} ₽</span>
                         <h6 className="text-white me-4">Купить</h6>
 

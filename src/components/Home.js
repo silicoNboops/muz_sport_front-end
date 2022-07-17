@@ -21,7 +21,7 @@ const Home = () => {
                 <div className="d-inline-flex m-3 pt-4">
                     <ul className="list-unstyled me-2">
                         <li>
-                            <img height="100px" src="assets/icons/magic.png"/>
+                            <img height="100px" src="/assets/icons/magic.png"/>
                         </li>
                         <li>
                             <p className="text-white text-wrap pt-3" style={{width:"185px"}}>Создается трек
@@ -31,7 +31,7 @@ const Home = () => {
 
                     <ul className="list-unstyled ms-2 me-2">
                         <li>
-                            <img height="100px" src="assets/icons/blockchain.png"/>
+                            <img height="100px" src="/assets/icons/blockchain.png"/>
                         </li>
                         <li>
                             <p className="text-white text-wrap pt-3" style={{width:"175px"}}>В него внедряется суггестивная
@@ -41,7 +41,7 @@ const Home = () => {
 
                     <ul className="list-unstyled ms-2 me-2">
                         <li>
-                            <img height="100px" src="assets/icons/relax.png"/>
+                            <img height="100px" src="/assets/icons/relax.png"/>
                         </li>
                         <li>
                             <p className="text-white text-wrap pt-3" style={{width:"185px"}}>Также создается релаксационный
@@ -51,7 +51,7 @@ const Home = () => {
 
                     <ul className="list-unstyled ms-2 me-2">
                         <li>
-                            <img height="100px" src="assets/icons/vinyl.png"/>
+                            <img height="100px" src="/assets/icons/vinyl.png"/>
                         </li>
                         <li>
                             <p className="text-white text-wrap pt-3" style={{width:"175px"}}>Регулярное выполение спортсменом
@@ -60,13 +60,13 @@ const Home = () => {
                     </ul>
 
                     <ul className="list-unstyled pt-5 ms-2 me-2">
-                            <img src="assets/icons/minus.png" className="ms-2 me-2" height="35px"/>
-                            <img src="assets/icons/minus.png" className="ms-2 me-2" height="35px"/>
+                            <img src="/assets/icons/minus.png" className="ms-2 me-2" height="35px"/>
+                            <img src="/assets/icons/minus.png" className="ms-2 me-2" height="35px"/>
                     </ul>
 
                     <ul className="list-unstyled ms-2 me-2">
                         <li>
-                            <img height="100px" src="assets/icons/goal.png"/>
+                            <img height="100px" src="/assets/icons/goal.png"/>
                         </li>
                         <li>
                             <p className="text-white text-wrap pt-3" style={{width:"205px"}}>Достижение поставленных

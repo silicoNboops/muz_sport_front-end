@@ -7,7 +7,7 @@ const AdPage = () => {
             <div className="p-5">
                 <div className="icon-link-badged">
                     <h5 className="text-white">
-                        <img src="assets/icons/horn.png" className="pe-3" width="80px"/>
+                        <img src="/assets/icons/horn.png" className="pe-3" width="80px"/>
                         Реклама на сайте
                     </h5>
                     <h6 className="text-white">Мы не стремимся "замусорить" сайт назойливой и нецелевой рекламой. Наша
@@ -18,7 +18,7 @@ const AdPage = () => {
 
                 <div className="icon-link-badged pt-5 pb-3">
                     <h5 className="text-white text-start">
-                        <img src="assets/icons/premium.png" className="pe-3" width="80px"/>
+                        <img src="/assets/icons/premium.png" className="pe-3" width="80px"/>
                         Рекламодателю
                     </h5>
                     <h6 className="text-white">На главной странице сайта в версии для ПК существует два слота в верхней
@@ -32,7 +32,7 @@ const AdPage = () => {
                     <h6 className="text-white ">Стоимость : 1200/мес</h6>
                     <div className="col-8 ">
                         <div className="card-img img-wrap text-center pt-3 ">
-                            <img src="assets/images/ad.png" className="elem-ad" height="345px" width="100%"/>
+                            <img src="/assets/images/ad.png" className="elem-ad" height="345px" width="100%"/>
                             <p>Красивое платье - еще полдела...</p>
                             <h6>1225*440</h6>
                         </div>

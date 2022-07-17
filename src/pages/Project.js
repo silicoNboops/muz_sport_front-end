@@ -13,7 +13,7 @@ const Project = () => {
             <div className="p-5">
                 <div className="icon-link-badged">
                     <h5 className="text-white">
-                        <img src="assets/icons/about-us.png" className="pe-3" width="80px"/>
+                        <img src="/assets/icons/about-us.png" className="pe-3" width="80px"/>
                         Кто мы:
                     </h5>
                     <h6 className="text-white pt-2">Сообщество профессиональных звукорежиссеров и специалистов в области
@@ -24,7 +24,7 @@ const Project = () => {
                 </div>
                 <div className="icon-link-badged pt-4">
                     <h5 className="text-white">
-                        <img src="assets/icons/premium.png" className="pe-3" width="80px"/>
+                        <img src="/assets/icons/premium.png" className="pe-3" width="80px"/>
                         Наша особенность:
                     </h5>
                     <h6 className="text-white pt-2">Уникальность проекта - создание спортивных программ с возможностью
@@ -42,7 +42,7 @@ const Project = () => {
 
                 <div className="icon-link-badged pt-4">
                     <h5 className="text-white">
-                        <img src="assets/icons/more.png" className="pe-3" width="80px"/>
+                        <img src="/assets/icons/more.png" className="pe-3" width="80px"/>
                         О сервисе:
                     </h5>
                     <h6 className="text-white pt-2">Для вашего удобства мы создали данную платформу по продаже, поиску и

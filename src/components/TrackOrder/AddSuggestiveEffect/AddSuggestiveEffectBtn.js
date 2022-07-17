@@ -12,7 +12,7 @@ const AddSuggestiveEffectBtn = () => {
                     style={{borderRadius:"12px"}}
                     aria-controls="collapseOne">
                 <span className="text-white">
-                    <img src="assets/icons/blockchain.png" className="pe-3" width="50px"/>
+                    <img src="/assets/icons/blockchain.png" className="pe-3" width="50px"/>
                     Добавление суггестивного эффекта к программе</span>
             </button>
         </div>

@@ -71,7 +71,6 @@ function App() {
 
                     <Route path="/track/:id" element={<VariationProductDetail/>}/>
 
-
                     {/*<Route exact path="/" element={<AuthChecker/>}>*/}
                     {/*    <Route exact path='/' element={<Home/>}/>*/}
                     {/*</Route>*/}
