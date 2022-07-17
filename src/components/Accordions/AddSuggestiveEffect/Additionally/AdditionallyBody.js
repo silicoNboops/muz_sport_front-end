@@ -37,10 +37,10 @@ const AdditionallyBody = (props) => {
 
                     <div className="float-start pb-3">
                         <button className="btn btn-sm shadow-none" onClick={handleLink}>
-                            <img src="assets/icons/www.png" className="card p-1" height="50px"/>
+                            <img src="/assets/icons/www.png" className="card p-1" height="50px"/>
                         </button>
                         <button className="btn btn-sm shadow-none" onClick={handleFile}>
-                            <img src="assets/icons/download.png" className="card p-1" height="50px"/>
+                            <img src="/assets/icons/download.png" className="card p-1" height="50px"/>
                         </button>
                     </div>
                 {link ?

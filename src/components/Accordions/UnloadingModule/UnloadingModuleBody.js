@@ -49,7 +49,7 @@ const UnloadingModuleBody = (props) => {
                     <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Создание разгрузочного
                     модуля</h5>
                     <div className="imgblock-accordion">
-                    <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                    <img src='/assets/icons/price-tag.png' className='price-icon-accordion'/>
                     <span>{price.price_unloading_module} ₽</span>
                 </div>
                 <div className="accordion-body row justify-content-center" >
@@ -91,10 +91,10 @@ const UnloadingModuleBody = (props) => {
                                 </h6>
                         <div className="text-start pb-2">
                             <button className="btn btn-sm shadow-none" onClick={handleLink}>
-                                <img src="assets/icons/www.png" className="card p-1" height="50px"/>
+                                <img src="/assets/icons/www.png" className="card p-1" height="50px"/>
                             </button>
                             <button className="btn btn-sm shadow-none" onClick={handleFile}>
-                                <img src="assets/icons/download.png" className="card p-1" height="50px"/>
+                                <img src="/assets/icons/download.png" className="card p-1" height="50px"/>
                             </button>
                         </div>
                         {link ?

@@ -39,7 +39,7 @@ const AddSuggestiveEffectBody = (props) => {
             <div className="card background-accordion ps-4 container">
                 <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Добавить суггестивный эффект</h5>
                 <div className="imgblock-accordion">
-                <img src='assets/icons/price-tag.png' className='price-icon-accordion'/>
+                <img src='/assets/icons/price-tag.png' className='price-icon-accordion'/>
                 <span>{price.price_suggestive_effect} ₽</span>
             </div>
             <div className="accordion-body row justify-content-center">

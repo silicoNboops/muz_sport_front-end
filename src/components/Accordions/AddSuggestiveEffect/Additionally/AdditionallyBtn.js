@@ -13,7 +13,7 @@ const AdditionallyBtn = (props) => {
                     style={{borderRadius: "12px"}}
                     aria-controls="collapseOne">
                                 <span>
-                                    <img src="assets/icons/plus-black.png" className="pe-3" width="50px"/>
+                                    <img src="/assets/icons/plus-black.png" className="pe-3" width="50px"/>
                                     Дополнительно</span>
             </button>
         </div>
