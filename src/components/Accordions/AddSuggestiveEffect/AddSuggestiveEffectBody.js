@@ -30,7 +30,7 @@ const AddSuggestiveEffectBody = (props) => {
              data-bs-parent="#accordionExample">
             <button type="button"
                     data-bs-toggle="collapse"
-                    className="btn-close close-accordion"
+                    className="btn-close shadow-none close-accordion"
                     data-bs-target={'#suggestive_effect' + product.id}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}

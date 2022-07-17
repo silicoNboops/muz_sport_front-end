@@ -4,9 +4,9 @@ const AddSuggestiveEffectBtn = (props) => {
     const {product} = props
 
     return(
-        <div>
+        <div className="text-start ms-5">
             <button type="button"
-                    className="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                    className="btn btn-sm dropdown-toggle dropdown-toggle-split shadow-none"
                     data-bs-toggle="collapse"
                     data-bs-target={'#suggestive_effect' + product.id}
                     aria-expanded="true"

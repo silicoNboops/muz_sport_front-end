@@ -69,7 +69,7 @@ const AdditionalTrackBody = ({price}) => {
              data-bs-parent="#accordionExample">
             <button type="button"
                     data-bs-toggle="collapse"
-                    className="btn-close close-accordion"
+                    className="btn-close close-accordion shadow-none"
                     data-bs-target={'#additional_track'}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}

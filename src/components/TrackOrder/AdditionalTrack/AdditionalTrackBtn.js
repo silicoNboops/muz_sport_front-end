@@ -5,7 +5,7 @@ const AdditionalTrackBtn = () => {
     return(
         <div>
             <button type="button"
-                    className="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                    className="btn btn-sm dropdown-toggle shadow-none dropdown-toggle-split"
                     data-bs-toggle="collapse"
                     data-bs-target={'#additional_track'}
                     aria-expanded="true"

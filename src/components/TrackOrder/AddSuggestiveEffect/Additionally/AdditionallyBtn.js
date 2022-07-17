@@ -5,7 +5,7 @@ const AdditionallyBtn = () => {
     return (
         <div className="text-start">
             <button type="button"
-                    className="btn btn-lg dropdown-toggle-split text-start pt-4"
+                    className="btn btn-lg shadow-none dropdown-toggle-split text-start pt-4"
                     data-bs-toggle="collapse"
                     data-bs-target={'#additionally'}
                     aria-expanded="true"

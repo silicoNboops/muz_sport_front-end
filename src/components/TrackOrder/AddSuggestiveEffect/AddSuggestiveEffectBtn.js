@@ -5,7 +5,7 @@ const AddSuggestiveEffectBtn = () => {
     return(
         <div>
             <button type="button"
-                    className="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                    className="btn shadow-none btn-sm dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="collapse"
                     data-bs-target={'#suggestive_effect'}
                     aria-expanded="true"

@@ -58,7 +58,7 @@ const OrderPage = () => {
                         <td>10.04.2022</td>
                         <td>560 руб</td>
                         <td>
-                            <button type="button" className="btn-close delete-track"
+                            <button type="button" className="btn-close shadow-none delete-track"
                                     onClick={() => removeItem}
                                     aria-label="Close">
                             </button>

@@ -62,7 +62,7 @@ const FinishedTrackBody = (props) => {
              data-bs-parent="#accordionExample">
             <button type="button"
                     data-bs-toggle="collapse"
-                    className="btn-close close-accordion"
+                    className="btn-close shadow-none close-accordion"
                     data-bs-target={'#finished_track' + product.id}
                     aria-expanded="true"
                     style={{borderRadius:"12px"}}
