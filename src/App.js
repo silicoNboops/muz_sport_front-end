@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './css/style.css';
 import './App.css';
 import Header from "./components/Header";
@@ -35,6 +35,8 @@ import VariationProductDetail from "./components/Variations/VariationProductDeta
 
 function App() {
     const [modal, setModal] = useState(false);
+    const [showButton, setShowButton] = useState(false);
+
 
     const [authToken, setAuthToken] = useState(() =>
         localStorage.getItem("authToken")
@@ -44,6 +46,25 @@ function App() {
         localStorage.setItem("authToken", token);
         setAuthToken(token);
     }
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            // TODO вот тут эта ебатория проверяет на скок мы скрольнули экран И НЕ СКРЫВАЕТ КНОПКУ ОБРАТНО СУКА
+            // TODO мб пробнуть screenY хз
+            if (window.screenTop > 20) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        });
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
         <div className="App">
             <BrowserRouter>
@@ -94,6 +115,12 @@ function App() {
                            element={<AuthChecker Component={Authorization} authUser={authUser}/>}
                     />
                 </Routes>
+
+                {showButton && (
+                    <button onClick={scrollToTop} className='back-to-top'>
+                        &#8679;
+                    </button>
+                )}
 
                 <Footer/>
 

@@ -10,7 +10,7 @@ const Variations = (props) => {
                 <div className="row variations-btn card col-4">
                     <div>
                         <button type="button"
-                                className="btn btn-sm shadow-none dropdown-toggle-split "
+                                className="btn btn-sm shadow-none dropdown-toggle-split"
                                 data-bs-toggle="collapse"
                                 data-bs-target={'#variations' + product.id}
                                 aria-expanded="true"
@@ -21,6 +21,10 @@ const Variations = (props) => {
                     </div>
                     <div id={'variations' + product.id} className="accordion-collapse collapse text-start"
                          aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+
+                        <a href={"/track/variations/" + product.id} style={{fontSize: '12px'}} className="d-block text-muted">
+                            Сравнить все
+                        </a>
 
                         {variants.map(variant =>
                             <a href={"/track/" + variant.id} className='text-black' style={{fontSize: '14px'}}>

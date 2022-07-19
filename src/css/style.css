@@ -455,3 +455,22 @@ input[type="checkbox"]:checked + :after {
 .btn_filter{
     width: 185px;
 }
+
+.back-to-top {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 26px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 5px 10px #ccc;
+}
+
+.back-to-top:hover {
+    background: #948eba;
+}
