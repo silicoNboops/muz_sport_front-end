@@ -332,7 +332,8 @@ const FinishedTrackBody = (props) => {
                                              setSuggestiveEffect={setSuggestiveEffect}/>
 
                     <UnloadingModuleBtn product={product}/>
-                    <UnloadingModuleBody product={product}/>
+                    <UnloadingModuleBody product={product}
+                                            setUnloadingModule={setUnloadingModule}/>
                 </div>
             </form>
         </div>

@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import { Form} from "react-bootstrap";
 
-const UnloadingModuleBody = (props) => {
-    const {product} = props
+const UnloadingModuleBody = ({product, setUnloadingModule}) => {
     const [directionEffect, setDirectionEffect] = useState([])
     const [link, setLink] = useState(true)
     const [file, setFile] = useState(false)
+    const [trackLink, setTrackLink] = useState('');
+    const [trackFile, setTrackFile] = useState(null);
 
     const handleLink = () => {
         setLink(true)
@@ -25,6 +26,21 @@ const UnloadingModuleBody = (props) => {
         }
         fetchInitData();
     },[])
+
+    useEffect(() => {
+        // создаем объект в соответствии с полями на беке
+        // direction_effect_track будем парсить на стороне сервера
+        setUnloadingModule({
+            'direction_effect': directionEffect,
+            // 'direction_effect_track': directionEffectTrack
+        });
+        // if (file) {
+        //     additionaTrackObj['file'] = trackFile;
+        // }
+        // if (link) {
+        //     additionaTrackObj['link'] = trackLink;
+        // }
+    },[directionEffect, setUnloadingModule])
 
 
     return(
