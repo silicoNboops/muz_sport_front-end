@@ -112,6 +112,13 @@
     box-shadow: 1px 1px 1px rgba(21, 21, 21, 0.45);
     background-color: rgba(21, 20, 51, 0.33);
 }
+.price-icon-wishes {
+    z-index: 1;
+    left: 35%;
+    bottom: 30px;
+    position: relative;
+    transform: rotate(10deg);
+}
 
 /* IMG-BLOCK // SERVICE */
 
