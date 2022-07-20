@@ -466,9 +466,9 @@ input[type="checkbox"]:checked + :after {
     background: white;
     color: black;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 50%;
     border: none;
-    box-shadow: 0 5px 10px #ccc;
+    box-shadow: 0 2px 5px #ccc;
 }
 
 .back-to-top:hover {
