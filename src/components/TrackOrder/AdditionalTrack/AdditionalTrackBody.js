@@ -15,10 +15,10 @@ const AdditionalTrackBody = ({price}) => {
     const [AddSegment, setAddSegment] = useState(false)
     const [DeleteSegment, setDeleteSegment] = useState(false)
 
-    const [item, setItem] = useState(["ITEM_1"])
+    const [item, setItem] = useState([{id: "ITEM_1", type: "add"}]);
 
 
-    const newItem = ["ITEM_2", "ITEM_3", "ITEM_4", "ITEM_5", "ITEM_6", "ITEM_7"];
+    const newItem = [{id: "ITEM_2", type: "add"}, "ITEM_3", "ITEM_4", "ITEM_5", "ITEM_6", "ITEM_7"];
 
 
     const initData = () => {
@@ -46,16 +46,35 @@ const AdditionalTrackBody = ({price}) => {
         setFile(false)
         setCatalog(true)
     };
-    const addSegment = () => {
-        setAddSegment(true)
-        setDeleteSegment(false)
+    const setSegmentTypeAdd = (event) => {
+        const segmentIndex = event.target.value;
+
+        item[segmentIndex].type = "add";
+        // item[segmentIndex] = {...item[segmentIndex], type: "wqeqe"};
+
+        setAddSegment(true);
+        setDeleteSegment(false);
     };
-    const deleteSegment = () => {
-        setDeleteSegment(true)
-        setAddSegment(false)
+    const setSegmentTypeDelete = (event) => {
+        const segmentIndex = event.target.value;
+
+        item[segmentIndex].type = "delete";
+
+        setDeleteSegment(true);
+        setAddSegment(false);
     };
-    const addElem = () => {
-        setItem([...item, item.push(newItem.shift())])
+    const addElem = (event) => {
+        const segmentIndex = event.target.value;
+
+        const newSegment = {id: `ITEM_${item.length + 1}`, type: "add"}
+
+        const newSegments = [...item];
+        newSegments.splice(segmentIndex + 1, 0, newSegment)
+
+        setItem(newSegments);
+
+        // setItem([...item, {id: `ITEM_${item.length + 1}`, type: "add"}])
+        console.log(item);
     };
     const deleteElem = (event) => {
         if (item.length > 1) {
@@ -157,13 +176,18 @@ const AdditionalTrackBody = ({price}) => {
 
                                 <div className="col-12 float-start">
                                 <div className="row">
+
                                         <div className="buttons d-grid pt-4">
-                                            <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
-                                                   onClick={deleteSegment}/>
-                                            <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
-                                                   onClick={addSegment}/>
+                                            <input label="Удалить отрезок" type="radio" name={"segment_" + index}
+                                                   value={index}
+                                                   onClick={setSegmentTypeDelete}/>
+                                            <input label="Добавить отрезок" type="radio" name={"segment_" + index}
+                                                   value={index}
+                                                   defaultChecked
+                                                   onClick={setSegmentTypeAdd}/>
                                         </div>
-                                    {DeleteSegment ?
+
+                                    {itemObj.type === "add" ?
                                         <span className="font-weight-bold ms-3 text-start d-block col pt-5">от
                                             <input type="time" id="appt" name="appt" style={{
                                                 backgroundColor: "#948eba",
@@ -179,7 +203,9 @@ const AdditionalTrackBody = ({price}) => {
                                                 <img src="/assets/icons/plus-purple.png" height="25px"/>
                                             </button>
                                         </span>
+
                                         :
+
                                         <span className="font-weight-bold d-block col pt-5">от
                                             <input type="time" id="appt" name="appt" style={{
                                                 backgroundColor: "#948eba",
