@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
 
 const VariationProductCard = () => {
     const params = useParams();
-    const [track, setTrack] = useState({});
+    const [track, setTrack] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -20,15 +20,20 @@ const VariationProductCard = () => {
 
         fetchInitData();
     }, []);
+    console.log(track.variants)
 
     return (
         <Row>
             <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
-                <div>
-                    {!loading && (
-                        <NewPlayer product={track}/>
-                    )}
-                </div>
+                {!loading && (
+                    track.variants.map(track => (
+                            <Col xxl={12} lg={12} md={12} sm={12} className='padding-bottom-sm'>
+                                <div>
+                                    <NewPlayer product={track}/>
+                                </div>
+                            </Col>
+                        )
+                    ))}
             </Col>
         </Row>
     );

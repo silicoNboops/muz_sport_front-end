@@ -64,7 +64,7 @@ const NewPlayer = ({product, isWished}) => {
             height: 60,
             progressColor: '#000000',
             responsive: true,
-            waveColor: '#EFEFEF',
+            waveColor: '#9e9e9e',
             cursorColor: 'transparent',
         });
 
@@ -114,25 +114,26 @@ const NewPlayer = ({product, isWished}) => {
                 </div>
 
                 <div className="row track-description">
-                    <p className="card col-2 me-2 text-white marquee"><span>{product.sports_name}</span></p>
+                    <p className="card col-2 me-2 text-white marquee">
+                        <span>{product.sports_name.sports_name}</span></p>
                     {/* TODO track_length */}
                     <p className="card col-2 me-2 text-white marquee">
                         <span>
                         {product.direction_music.map((dir, index) =>
-                            <>{dir} {index < product.direction_music.length - 1 ? ", " : ""}</>
+                            <>{dir.direction_music} {index < product.direction_music.length - 1 ? ", " : ""}</>
                         )}
                         </span>
                     </p>
                     <p className="card col-2 me-2 text-white marquee">
                         <span>
                         {product.mood_name.map((mood, index) =>
-                            <>{mood} {index < product.mood_name.length - 1 ? ", " : ""}</>
+                            <>{mood.mood_name} {index < product.mood_name.length - 1 ? ", " : ""}</>
                         )}
                         </span>
                     </p>
                     {/* TODO with_words*/}
                     <p className="card col-2 text-white marquee">
-                        <span>{product.country_name}</span>
+                        <span>{product.country_name.country_name}</span>
                     </p>
                     {select?
                         <button type="button" className="btn shadow-none col-1" onClick={deleteWish}>

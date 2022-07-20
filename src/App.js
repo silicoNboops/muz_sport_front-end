@@ -91,7 +91,7 @@ function App() {
                     <Route exact path="/track_order_min" element={<TrackOrderMin/>}/>
 
                     <Route path="/track/:id" element={<VariationProductDetail/>}/>
-                    <Route path="/track/variations/:id" element={<VariationProductCard/>}/>
+                    <Route path="/track/:id/variations/" element={<VariationProductCard/>}/>
 
                     {/*<Route exact path="/" element={<AuthChecker/>}>*/}
                     {/*    <Route exact path='/' element={<Home/>}/>*/}

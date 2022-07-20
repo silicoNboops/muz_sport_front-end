@@ -22,7 +22,7 @@ const Variations = (props) => {
                     <div id={'variations' + product.id} className="accordion-collapse collapse text-start"
                          aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 
-                        <a href={"/track/variations/" + product.id} style={{fontSize: '12px'}} className="d-block text-muted">
+                        <a href={"/track/" + product.id + "/variations/"} style={{fontSize: '12px'}} className="d-block text-muted">
                             Сравнить все
                         </a>
 
