@@ -49,8 +49,8 @@ const FinishedTrackBody = (props) => {
 
     // TODO отслеживать все вложенные блоки и засовывать в один большой объект заказа
     useEffect(() => {
-        console.log(additionalTracks);
-        console.log(suggestiveEffect);
+        // console.log(additionalTracks);
+        // console.log(suggestiveEffect);
         console.log(unloadingModule);
     },[additionalTracks, suggestiveEffect, unloadingModule]);
 

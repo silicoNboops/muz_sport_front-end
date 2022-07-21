@@ -21,7 +21,7 @@ const AddSuggestiveEffectBody = ({product, setSuggestiveEffect}) => {
     },[])
 
     useEffect(() => {
-        console.log(directionEffectTrack);
+        // console.log(directionEffectTrack);
 
         // создаем объект в соответствии с полями на беке
         // direction_effect_track будем парсить на стороне сервера

@@ -3,8 +3,9 @@ import { Form} from "react-bootstrap";
 
 const UnloadingModuleBody = ({product, setUnloadingModule}) => {
     const [directionEffect, setDirectionEffect] = useState([])
-    const [link, setLink] = useState(true)
-    const [file, setFile] = useState(false)
+    const [directionEffectList, setDirectionEffectList] = useState([]);
+    const [link, setLink] = useState(true);
+    const [file, setFile] = useState(false);
     const [trackLink, setTrackLink] = useState('');
     const [trackFile, setTrackFile] = useState(null);
 
@@ -22,7 +23,7 @@ const UnloadingModuleBody = ({product, setUnloadingModule}) => {
         async function fetchInitData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + '/direction_effect/')
                 .then(response => response.json())
-                .then(data => setDirectionEffect(data))
+                .then(data => setDirectionEffectList(data))
         }
         fetchInitData();
     },[])
@@ -30,17 +31,22 @@ const UnloadingModuleBody = ({product, setUnloadingModule}) => {
     useEffect(() => {
         // создаем объект в соответствии с полями на беке
         // direction_effect_track будем парсить на стороне сервера
+
+
+        let unloadingModuleObj = {};
+
+        if (file) {
+            unloadingModuleObj['file'] = trackFile;
+        }
+        if (link) {
+            unloadingModuleObj['link'] = trackLink;
+        }
+        // setUnloadingModule(unloadingModuleObj)
         setUnloadingModule({
             'direction_effect': directionEffect,
-            // 'direction_effect_track': directionEffectTrack
+             unloadingModuleObj
         });
-        // if (file) {
-        //     additionaTrackObj['file'] = trackFile;
-        // }
-        // if (link) {
-        //     additionaTrackObj['link'] = trackLink;
-        // }
-    },[directionEffect, setUnloadingModule])
+    },[directionEffect, trackLink, trackFile, file, link, setUnloadingModule])
 
 
     return(
@@ -63,12 +69,14 @@ const UnloadingModuleBody = ({product, setUnloadingModule}) => {
                                             className="text-center"
                                             style={{backgroundColor:"rgba(153,147,196,0.73)", borderRadius:"16px"}}
                                             as='select'
+                                            value={directionEffect}
+                                            onChange={(e) => setDirectionEffect(e.target.value)}
                                         >
                                             <option className="">
                                                 Выберите направление
                                             </option>
 
-                                            {directionEffect.map(directionEffectObj => {
+                                            {directionEffectList.map(directionEffectObj => {
                                                 return(
                                                     <option id={directionEffectObj.id}>
                                                         {directionEffectObj.direction_effect}
@@ -101,8 +109,7 @@ const UnloadingModuleBody = ({product, setUnloadingModule}) => {
                                     // value={link}
                                        placeholder="Ссылка на файл..."
                                        className="form-control input-box"
-                                    // onChange={(e) =>
-                                    //     setLink(e.target.value)}
+                                       onChange={(e) => setTrackLink(e.target.value)}
                                 />
                             </div>
                             :
@@ -115,8 +122,7 @@ const UnloadingModuleBody = ({product, setUnloadingModule}) => {
                                     // value={file}
                                        placeholder="формат mp3, mpeg"
                                        className="form-control input-box mt-3"
-                                    // onChange={(e) =>
-                                    //     setFile(e.target.value)}
+                                       onChange={(e) => setTrackFile(e.target.files)}
                                 />
                             </div>
                             :
