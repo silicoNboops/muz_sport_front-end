@@ -11,8 +11,8 @@ const FinishedTrackBody = (props) => {
     const {product} = props;
     const [commentary, setCommentary] = useState('');
     const [sportList, setSportList] = useState([])
-    const [compositionAuto, setCompositionAuto] = useState(true)
-    const [compositionManual, setCompositionManual] = useState(false)
+    const [compositionType, setCompositionType] = useState('auto');
+
 
     // TODO приходит с из пропсов с бека, но обновляется при доработке тут
     const [currentPrice, setCurrentPrice] = useState(0);
@@ -23,7 +23,7 @@ const FinishedTrackBody = (props) => {
     // TODO сделать чтобы принимал время
     const [timeEnd, setTimeEnd] = useState('');
     const [beginningPeak, setBeginningPeak] = useState(false);
-    const [end, setEnd] = useState('smooth');
+    const [end, setEnd] = useState('Плавное');
     const [compositionSegment1, setCompositionSegment1] = useState('');
     const [compositionSegment2, setCompositionSegment2] = useState('');
 
@@ -49,21 +49,22 @@ const FinishedTrackBody = (props) => {
 
     // TODO отслеживать все вложенные блоки и засовывать в один большой объект заказа
     useEffect(() => {
-        // console.log(additionalTracks);
+        console.log(additionalTracks);
         // console.log(suggestiveEffect);
-        console.log(unloadingModule);
+        // console.log(unloadingModule);
     },[additionalTracks, suggestiveEffect, unloadingModule]);
 
     const initData = () => {
         setCommentary('');
     }
 
-    const handleCompositionAuto = () => {
-        setCompositionManual(false)
+    const handleAuto = () => {
+        setCompositionType('auto');
     };
-    const handleCompositionManual = () => {
-        setCompositionManual(true)
+    const handleManual = () => {
+        setCompositionType('manual');
     };
+
 
     // TODO далее засовывать эти стейты в метод оформления заказа
     const placeOrder = (e) => {
@@ -72,10 +73,10 @@ const FinishedTrackBody = (props) => {
         // TODO цена заказа
         // const price = cartTotal
         // TODO составляющие заказа
-        // const order = {name, phone, email, city, commentary, price, delivery, items};
+        // типа такой \/ вид будет у этого акордиона, надо ток доработать хуйню с компоновкой
+        // const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary};
         // const order_new = {trackId, sport}
-        const order = {}
-
+        // const order = {}
         // TODO засовывать заказ в сессию на день
 
         fetch(process.env.REACT_APP_NKS_API + 'order/', {
@@ -132,12 +133,12 @@ const FinishedTrackBody = (props) => {
                                         value={sport}
                                         onChange={(e) => setSport(e.target.value)}
                                     >
-                                        <option value=''>
+                                        <option>
                                             Вид спорта
                                         </option>
 
                                         {sportList.map((sport, index) =>
-                                            <option key={sport.id + '_' + index} value={sport.id}>
+                                            <option key={sport.id + '_' + index} value={sport.sports_name}>
                                                 {sport.sports_name}
                                             </option>
                                         )}
@@ -160,11 +161,12 @@ const FinishedTrackBody = (props) => {
                                                onChange={(e) =>
                                                    setTimeStart(e.target.value)}/>
                                     до
-                                    <input type="time" id="appt" name="appt" required
-                                           style={{backgroundColor: "#948eba", borderRadius: "10px"}}
-                                           min="00:00" max="24:00"
+                                    <input type="time" required id="appt" name="appt"
+                                           placeholder="hrs:mins"
+                                           style={{ backgroundColor: "#948eba", borderRadius: "10px"}}
+                                           min="00:00:00" max="00:60:00"
                                            className="me-2 ms-2 text-white"
-                                           value={product.track_length}
+                                           defaultValue='00:00'
                                            onChange={(e) =>
                                                setTimeEnd(e.target.value)}/>
                                     </span>
@@ -191,14 +193,14 @@ const FinishedTrackBody = (props) => {
                                 <span className="font-weight-bolder">Окончание*:</span>
                                 <span className="font-weight-bold col-8 ps-4">
                                         <div className="buttons d-grid">
-                                                <input label="Плавное" type="radio" name="end" value="smooth"
-                                                       checked={end === 'smooth'}
+                                                <input label="Плавное" type="radio" name="end" value="Плавное"
+                                                       checked={end === 'Плавное'}
                                                        onChange={(e) => {
                                                            setEnd(e.target.value)
                                                        }}
                                                 />
-                                                <input label="Резкое" type="radio" name="end" value="sharp"
-                                                       checked={end === 'sharp'}
+                                                <input label="Резкое" type="radio" name="end" value="Резкое"
+                                                       checked={end === 'Резкое'}
                                                        onChange={(e) => {
                                                            setEnd(e.target.value)
                                                        }}
@@ -212,21 +214,21 @@ const FinishedTrackBody = (props) => {
                                 Компоновка*:</h5>
 
                             <div className="float-start">
-                                <button className="btn btn-sm" onClick={handleCompositionAuto}>
+                                <button className="btn btn-sm" onClick={handleAuto}>
                                     <img src="assets/icons/auto.png" className="float-start" height="50px"/>
                                 </button>
-                                <button className="btn btn-sm" onClick={handleCompositionManual}>
+                                <button className="btn btn-sm" onClick={handleManual}>
                                     <img src="assets/icons/palm-of-hand.png" className="float-start" height="50px"/>
                                 </button>
                             </div>
 
-                            {compositionAuto ?
+                            {compositionType === 'auto' ?
                                 null
-                            :
+                                :
                                 null
                             }
 
-                            {compositionManual ?
+                            {compositionType === 'manual' ?
                                 <div className="float-start">
                                     <div className="row">
                                         <div className="buttons d-grid pt-4">

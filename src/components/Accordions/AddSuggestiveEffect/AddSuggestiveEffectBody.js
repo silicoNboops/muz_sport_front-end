@@ -70,7 +70,7 @@ const AddSuggestiveEffectBody = ({product, setSuggestiveEffect}) => {
                                             value={directionEffect}
                                             onChange={(e) => setDirectionEffect(e.target.value)}
                                         >
-                                            <option className="">
+                                            <option>
                                                 Выберите направление
                                             </option>
                                             {directionEffectList.map(directionEffectObj => {
