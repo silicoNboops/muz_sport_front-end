@@ -76,7 +76,7 @@ const FinishedTrackBody = (props) => {
         // типа такой \/ вид будет у этого акордиона, надо ток доработать хуйню с компоновкой
         // const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary};
         // const order_new = {trackId, sport}
-        // const order = {}
+        const order = {}
         // TODO засовывать заказ в сессию на день
 
         fetch(process.env.REACT_APP_NKS_API + 'order/', {
