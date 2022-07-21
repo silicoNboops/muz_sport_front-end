@@ -129,7 +129,7 @@ const AdditionalTrackBody = ({product, setAdditionalTracks}) => {
                             <input type="file"
                                    placeholder="формат mp3, mpeg"
                                    className="form-control input-box mt-3"
-                                   onChange={(e) => setTrackFile(e.target.value)}
+                                   onChange={(e) => setTrackFile(e.target.files)}
                             />
                         </div>
                         :

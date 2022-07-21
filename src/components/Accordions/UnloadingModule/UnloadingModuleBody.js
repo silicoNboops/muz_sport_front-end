@@ -41,10 +41,9 @@ const UnloadingModuleBody = ({product, setUnloadingModule}) => {
         if (link) {
             unloadingModuleObj['link'] = trackLink;
         }
-        // setUnloadingModule(unloadingModuleObj)
         setUnloadingModule({
             'direction_effect': directionEffect,
-             unloadingModuleObj
+             'additional_track': unloadingModuleObj
         });
     },[directionEffect, trackLink, trackFile, file, link, setUnloadingModule])
 
