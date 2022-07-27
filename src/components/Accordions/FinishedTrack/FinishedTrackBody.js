@@ -49,7 +49,7 @@ const FinishedTrackBody = (props) => {
 
     // TODO отслеживать все вложенные блоки и засовывать в один большой объект заказа
     useEffect(() => {
-        console.log(additionalTracks);
+        // console.log(additionalTracks);
         // console.log(suggestiveEffect);
         // console.log(unloadingModule);
     },[additionalTracks, suggestiveEffect, unloadingModule]);
@@ -64,6 +64,10 @@ const FinishedTrackBody = (props) => {
     const handleManual = () => {
         setCompositionType('manual');
     };
+    const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary, additionalTracks};
+
+    console.log(order)
+
 
 
     // TODO далее засовывать эти стейты в метод оформления заказа
@@ -74,12 +78,12 @@ const FinishedTrackBody = (props) => {
         // const price = cartTotal
         // TODO составляющие заказа
         // типа такой \/ вид будет у этого акордиона, надо ток доработать хуйню с компоновкой
-        // const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary};
+        const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary, additionalTracks};
         // const order_new = {trackId, sport}
-        const order = {}
+        // const order = {}
         // TODO засовывать заказ в сессию на день
 
-        fetch(process.env.REACT_APP_NKS_API + 'order/', {
+        fetch(process.env.REACT_APP_MUZSPORT_API + 'order/', {
             method: 'POST',
             body: JSON.stringify(order)
         })
