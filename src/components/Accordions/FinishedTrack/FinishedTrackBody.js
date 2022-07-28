@@ -246,7 +246,7 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
             <UnloadingModuleBtn product={product}/>
             <UnloadingModuleBody product={product} price={price}/>
 
-            <SpecialWishes price={price}/>
+            {/*<SpecialWishes price={price}/>*/}
         </div>
     )
 }

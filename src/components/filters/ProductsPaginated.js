@@ -31,17 +31,17 @@ const ProductsPaginated = ({itemsReqUrl}) => {
         setPageOffset(0);
     }, [itemsReqUrl]);
 
-    // useEffect(() => {
-    //     let pageParamSeparator = '';
-    //     if (itemsReqUrl.charAt(itemsReqUrl.length - 1) === '/') {
-    //         pageParamSeparator = '?';
-    //     } else {
-    //         pageParamSeparator = '&';
-    //     }
-    //     const paginatedUrl = itemsReqUrl + pageParamSeparator + `page=${pageOffset + 1}`
-    //
-    //     getItems(paginatedUrl);
-    // }, [itemsReqUrl, pageOffset]);
+    useEffect(() => {
+        let pageParamSeparator = '';
+        if (itemsReqUrl.charAt(itemsReqUrl.length - 1) === '/') {
+            pageParamSeparator = '?';
+        } else {
+            pageParamSeparator = '&';
+        }
+        const paginatedUrl = itemsReqUrl + pageParamSeparator + `page=${pageOffset + 1}`
+
+        getItems(paginatedUrl);
+    }, [itemsReqUrl, pageOffset]);
 
     const getItems = (itemsReqUrl) => {
         console.log(itemsReqUrl);
