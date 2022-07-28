@@ -64,11 +64,11 @@ const FinishedTrackBody = (props) => {
     const handleManual = () => {
         setCompositionType('manual');
     };
-    const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary, additionalTracks};
 
+    // TODO Допилить
+    const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType,
+        commentary, additionalTracks};
     console.log(order)
-
-
 
     // TODO далее засовывать эти стейты в метод оформления заказа
     const placeOrder = (e) => {
@@ -78,12 +78,13 @@ const FinishedTrackBody = (props) => {
         // const price = cartTotal
         // TODO составляющие заказа
         // типа такой \/ вид будет у этого акордиона, надо ток доработать хуйню с компоновкой
-        const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType, commentary, additionalTracks};
+        const order = {sport, timeStart, timeEnd, beginningPeak, end, compositionType,
+            commentary, additionalTracks};
         // const order_new = {trackId, sport}
         // const order = {}
         // TODO засовывать заказ в сессию на день
 
-        fetch(process.env.REACT_APP_MUZSPORT_API + 'order/', {
+        fetch(process.env.REACT_APP_MUZSPORT_API + 'order/create/', {
             method: 'POST',
             body: JSON.stringify(order)
         })
