@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
-const SpecialWishes = () => {
+const SpecialWishes = ({price, placeOrder}) => {
     const [commentary, setCommentary] = useState('');
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
 
     const initData = () => {
         setCommentary('');
@@ -87,7 +87,15 @@ const SpecialWishes = () => {
                                 </div>
                             </div>
                         </div>
-                        <img src='/assets/icons/price-tag.png' className="price-icon-wishes"/>
+                        {/*<img src='/assets/icons/price-tag.png' className="price-icon-wishes"/>*/}
+                        <div className="imgblock-service">
+                            <a href="/order" className="link-unstyled">
+                                <a href="/order" className="fs-5 link-unstyled text-white">
+                                    Заказать и оплатить</a>
+                                <img src='assets/icons/price-tag.png' style={{bottom:'20px'}} className="price-icon-services"/>
+                                <span>{price} ₽</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

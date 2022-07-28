@@ -156,7 +156,7 @@ const NewPlayer = ({product, isWished}) => {
                         <div className="position-relative" style={{right: "15%"}}>
                             <FinishedTrackBtn product={product}/></div>
                     </div>
-                    <FinishedTrackBody product={product} price={price}/>
+                    <FinishedTrackBody product={product} price={price} setPrice={setPrice}/>
                 </div>
             </div>
         </div>

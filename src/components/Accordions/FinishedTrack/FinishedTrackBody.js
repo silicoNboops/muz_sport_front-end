@@ -6,10 +6,9 @@ import UnloadingModuleBtn from "../UnloadingModule/UnloadingModuleBtn";
 import UnloadingModuleBody from "../UnloadingModule/UnloadingModuleBody";
 import AdditionalTrackBtn from "../AdditionalTrack/AdditionalTrackBtn";
 import AdditionalTrackBody from "../AdditionalTrack/AdditionalTrackBody";
+import SpecialWishes from "../../SpecialWishes";
 
-const FinishedTrackBody = (props) => {
-    const {product} = props;
-    const {price} = props;
+const FinishedTrackBody = ({product, price, setPrice}) => {
     const [commentary, setCommentary] = useState('');
     const [sportsName, setSportsName] = useState([])
     const [auto, setAuto] = useState(true)
@@ -237,6 +236,7 @@ const FinishedTrackBody = (props) => {
 
             </div>
             </div>
+
             <AdditionalTrackBtn product={product}/>
             <AdditionalTrackBody product={product} price={price}/>
 
@@ -245,6 +245,8 @@ const FinishedTrackBody = (props) => {
 
             <UnloadingModuleBtn product={product}/>
             <UnloadingModuleBody product={product} price={price}/>
+
+            <SpecialWishes price={price}/>
         </div>
     )
 }

@@ -80,7 +80,7 @@ function App() {
                     <Route exact path="/ad" element={<AdPage/>}/>
                     <Route exact path="/project" element={<Project/>}/>
                     <Route exact path="/services" element={<ServicesPage/>}/>
-                    <Route exact path="/test4" element={<SpecialWishes/>}/>
+                    <Route exact path="/test4" element={<SpecialWishes price={123}/>}/>
                     <Route exact path="/player" element={<NewPlayer/>}/>
                     <Route exact path="/tracks" element={<CatalogTemplate/>}/>
                     <Route exact path="/wishlist" element={<WishList/>}/>
