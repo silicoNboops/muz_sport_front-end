@@ -34,6 +34,7 @@ export default {
     getWishlist: () => API.get("wishlist/"),
     createWishlist: (data) => API.post("wishlist/create/", data),
     deleteWishlist: (data) => API.delete("wishlist/delete/", {data: data}),
+    trackModificationCreate: (data) => API.post("track/modification/", {data: data}),
     accountProfileSave: (data) => API.post('account/profile/save/', data),
     accountSubscriptionInfo: () => API.get('account/subscription/'),
     accountSubscriptionOn: () => API.put('account/subscription/on/'),

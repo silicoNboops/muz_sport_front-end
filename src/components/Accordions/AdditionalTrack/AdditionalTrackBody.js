@@ -1,56 +1,85 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import AdditionalTrackBtn from "./AdditionalTrackBtn";
 
-const AdditionalTrackBody = (props) => {
-    const {price} = props
-    const {product} = props
-    const [valueFile, setValueFile] = useState('')
-    const [valueLink, setValueLink] = useState('')
+// TODO сеттер из родителя
+const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
+    // методы загрузки трека
+    const [link, setLink] = useState(false);
+    const [file, setFile] = useState(false);
+    const [catalog, setCatalog] = useState(false);
+    const [trackLink, setTrackLink] = useState('');
+    const [trackFile, setTrackFile] = useState(null);
+    const [trackCatalog, setTrackCatalog] = useState(null);
+
+    // auto, manual
+    const [compositionType, setCompositionType] = useState('auto');
+    // TODO заносить в массив данные вида {'action', 'start', 'end'}
+    const [compositionSegments, setCompositionSegments] = useState(() => []);
+    const [compositionSegment1, setCompositionSegment1] = useState('');
+    const [compositionSegment2, setCompositionSegment2] = useState('');
+
     const [commentary, setCommentary] = useState('');
-    const [link, setLink] = useState(false)
-    const [file, setFile] = useState(false)
-    const [catalog, setCatalog] = useState(false)
 
-    const [auto, setAuto] = useState(true)
-    const [manual, setManual] = useState(false)
+    useEffect(() => {
+        let orderSegmentAdd = []
+        let orderSegmentDelete = []
 
-    const [AddSegment, setAddSegment] = useState(false)
-    const [DeleteSegment, setDeleteSegment] = useState(false)
-    const [CountSegment, setCountSegment] = (useState(1))
+        // TODO временное решение, потом пофиксить с единым массивом compositionSegments
+        if (compositionSegment1 === 'add') {
+            orderSegmentAdd.push(compositionSegment1);
+        } else {
+            orderSegmentDelete.push(compositionSegment1);
+        }
 
+        // TODO временное решение, потом пофиксить с единым массивом compositionSegments
+        if (compositionSegment2 === 'delete') {
+            orderSegmentAdd.push(compositionSegment2);
+        } else {
+            orderSegmentDelete.push(compositionSegment2);
+        }
 
-    const initData = () => {
-        setValueFile('');
-        setValueLink('');
-    }
+        let additionaTrackObj = {
+            'composition': compositionType,
+            'commentary': commentary,
+            'order_segment_add': orderSegmentAdd,
+            'order_segment_delete': orderSegmentDelete,
+        }
+
+        if (file) {
+            additionaTrackObj['file'] = trackFile;
+        }
+        if (link) {
+            additionaTrackObj['link'] = trackLink;
+        }
+        if (catalog) {
+            additionaTrackObj['track'] = trackCatalog;
+        }
+
+        // создаем объект в соответствии с полями на беке
+        setAdditionalTracks(additionaTrackObj);
+    },[trackLink, trackFile, trackCatalog, compositionType, commentary, compositionSegment1,
+        compositionSegment2, catalog, file, link, setAdditionalTracks])
+
     const handleAuto = () => {
-        setManual(false)
+        setCompositionType('auto');
     };
     const handleManual = () => {
-        setManual(true)
+        setCompositionType('manual');
     };
     const handleLink = () => {
-        setLink(true)
-        setFile(false)
-        setCatalog(false)
+        setLink(true);
+        setFile(false);
+        setCatalog(false);
     };
     const handleFile = () => {
-        setLink(false)
-        setFile(true)
-        setCatalog(false)
+        setLink(false);
+        setFile(true);
+        setCatalog(false);
     };
     const handleCatalog = () => {
         setLink(false)
         setFile(false)
         setCatalog(true)
-    };
-    const addSegment = () => {
-        setAddSegment(true)
-        setDeleteSegment(false)
-    };
-    const deleteSegment = () => {
-        setDeleteSegment(true)
-        setAddSegment(false)
     };
 
     return(
@@ -93,35 +122,36 @@ const AdditionalTrackBody = (props) => {
                     {link ?
                         <div className="col-6 pt-4 pb-2">
                             <input type="url" required
-                                // value={valueLink}
+                                   value={trackLink}
                                    placeholder="Ссылка на файл..."
                                    className="form-control input-box"
-                                   onChange={(e) =>
-                                       setValueLink(e.target.value)}
+                                   onChange={(e) => setTrackLink(e.target.value)}
                             />
                         </div>
                             :
                             null
                     }
 
+                    {/* TODO хз как запихивать файл в value, мб без этого обойдемся */}
 
                     {file ?
                         <div className="col-6 pt-2 pb-2">
                             <input type="file"
                                    placeholder="формат mp3, mpeg"
                                    className="form-control input-box mt-3"
-                                   onChange={(e) =>
-                                       setValueFile(e.target.files)}
+                                   onChange={(e) => setTrackFile(e.target.files)}
                             />
                         </div>
                         :
                         null
                     }
 
+                    {/* TODO доделать здесь поиск по имеющимся трекам на сайте */}
                     {catalog ?
                         <div className="col-6 pt-2 pb-2">
                             <h6>Вот так уот</h6>
                         </div>
+                        // TODO доделать тут еще выбор из существующих треков на сайте
                         :
                         null
                     }
@@ -138,37 +168,30 @@ const AdditionalTrackBody = (props) => {
                         </button>
                     </div>
 
-                    {auto ?
+                    {compositionType === 'auto' ?
                         null
                         :
                         null
                     }
-                    {manual ?
 
-                        <div className="col-12 float-start">
+                    {compositionType === 'manual' ?
+                        // TODO сделать цикл и добавлять в цикле новую строчку
+                        <div className="float-start">
                             <div className="row">
                                 <div className="buttons d-grid pt-4">
-                                    <input label="Удалить отрезок" type="radio" name="segment1" value="delete_segment1"
-                                           onClick={deleteSegment}/>
-                                    <input label="Добавить отрезок" type="radio" name="segment1" value="add_segment1"
-                                           onClick={addSegment}/>
+                                    <input label="Удалить отрезок" type="radio" name="segment-1" value="delete"
+                                           checked={compositionSegment1 === 'delete'}
+                                           onChange={(e) => {
+                                               setCompositionSegment1(e.target.value)
+                                           }}
+                                    />
+                                    <input label="Добавить отрезок" type="radio" name="segment-1" value="add"
+                                           checked={compositionSegment1 === 'add'}
+                                           onChange={(e) => {
+                                               setCompositionSegment1(e.target.value)
+                                           }}
+                                    />
                                 </div>
-                                {DeleteSegment ?
-                                    <span className="font-weight-bold ms-3 text-start d-block col pt-5">от
-                                            <input type="time" id="appt" name="appt" style={{
-                                                backgroundColor: "#948eba",
-                                                borderRadius: "10px"
-                                            }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                                   required/>до
-                                            <input type="time" id="appt" name="appt" style={{
-                                                backgroundColor: "#948eba",
-                                                borderRadius: "10px"
-                                            }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
-                                                   required/>
-                                            <button type="button" className="btn mb-2">
-                                                <img src="/assets/icons/plus-purple.png" height="25px"/>
-                                            </button>
-                                        </span>
                                     :
                                     <span className="font-weight-bold d-block col pt-5">от
                                             <input type="time" id="appt" name="appt" style={{
@@ -192,6 +215,47 @@ const AdditionalTrackBody = (props) => {
                                             <button type="button" className="btn mb-2">
                                                 <img src="/assets/icons/minus-pink.png" height="25px"/>
                                             </button>
+
+                                    </span>
+                            </div>
+                            <div className="row col-12">
+                                <div className="buttons d-grid pt-4">
+                                    <input label="Удалить отрезок" type="radio" name="segment-2" value="delete"
+                                           checked={compositionSegment2 === 'delete'}
+                                           onChange={(e) => {
+                                               setCompositionSegment2(e.target.value)
+                                           }}
+                                    />
+                                    <input label="Добавить отрезок" type="radio" name="segment-2" value="add"
+                                           checked={compositionSegment2 === 'add'}
+                                           onChange={(e) => {
+                                               setCompositionSegment2(e.target.value)
+                                           }}
+                                    />
+                                </div>
+                                <span className="font-weight-bold col-7 pt-5">от
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>до
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>на
+                                        <input type="time" id="appt" name="appt" style={{
+                                            backgroundColor: "#948eba",
+                                            borderRadius: "10px"
+                                        }} min="00:00" max="24:00" className="me-2 ms-2 text-white"
+                                               required/>
+
+                                        <button type="button" className="btn mb-2">
+                                            <img src="assets/icons/plus-purple.png" height="25px"/>
+                                        </button>
+                                        <button type="button" className="btn mb-2">
+                                            <img src="assets/icons/minus-pink.png" height="25px"/>
+                                        </button>
                                         </span>
                                 }
                             </div>

@@ -1,19 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { Form} from "react-bootstrap";
 
-const UnloadingModuleBody = (props) => {
-    const {product} = props
-    const {price} = props
+const UnloadingModuleBody = ({product, setUnloadingModule, price}) => {
     const [directionEffect, setDirectionEffect] = useState([])
-    const [link, setLink] = useState(true)
-    const [file, setFile] = useState(false)
-    const [valueFile, setValueFile] = useState('')
-    const [valueLink, setValueLink] = useState('')
+    const [directionEffectList, setDirectionEffectList] = useState([]);
+    const [link, setLink] = useState(true);
+    const [file, setFile] = useState(false);
+    const [trackLink, setTrackLink] = useState('');
+    const [trackFile, setTrackFile] = useState(null);
 
-    const initData = () => {
-        setValueFile('');
-        setValueLink('');
-    }
     const handleLink = () => {
         setLink(true)
         setFile(false)
@@ -28,10 +23,29 @@ const UnloadingModuleBody = (props) => {
         async function fetchInitData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + '/direction_effect/')
                 .then(response => response.json())
-                .then(data => setDirectionEffect(data))
+                .then(data => setDirectionEffectList(data))
         }
         fetchInitData();
     },[])
+
+    useEffect(() => {
+        // создаем объект в соответствии с полями на беке
+        // direction_effect_track будем парсить на стороне сервера
+
+
+        let unloadingModuleObj = {};
+
+        if (file) {
+            unloadingModuleObj['file'] = trackFile;
+        }
+        if (link) {
+            unloadingModuleObj['link'] = trackLink;
+        }
+        setUnloadingModule({
+            'direction_effect': directionEffect,
+             'additional_track': unloadingModuleObj
+        });
+    },[directionEffect, trackLink, trackFile, file, link, setUnloadingModule])
 
 
     return(
@@ -65,12 +79,14 @@ const UnloadingModuleBody = (props) => {
                                             className="text-center"
                                             style={{backgroundColor:"rgba(153,147,196,0.73)", borderRadius:"16px"}}
                                             as='select'
+                                            value={directionEffect}
+                                            onChange={(e) => setDirectionEffect(e.target.value)}
                                         >
                                             <option className="">
                                                 Выберите направление
                                             </option>
 
-                                            {directionEffect.map(directionEffectObj => {
+                                            {directionEffectList.map(directionEffectObj => {
                                                 return(
                                                     <option id={directionEffectObj.id}>
                                                         {directionEffectObj.direction_effect}
@@ -102,8 +118,7 @@ const UnloadingModuleBody = (props) => {
                                 <input type="url" required
                                        placeholder="Ссылка на файл..."
                                        className="form-control input-box"
-                                       onChange={(e) =>
-                                           setValueLink(e.target.value)}
+                                       onChange={(e) => setTrackLink(e.target.value)}
                                 />
                             </div>
                             :
@@ -116,8 +131,7 @@ const UnloadingModuleBody = (props) => {
                                 <input type="file"
                                        placeholder="формат mp3, mpeg"
                                        className="form-control input-box mt-3"
-                                       onChange={(e) =>
-                                           setValueFile(e.target.files)}
+                                       onChange={(e) => setTrackFile(e.target.files)}
                                 />
                             </div>
                             :
@@ -130,4 +144,4 @@ const UnloadingModuleBody = (props) => {
                 </div>
     )
 }
-export default UnloadingModuleBody
+export default UnloadingModuleBody;

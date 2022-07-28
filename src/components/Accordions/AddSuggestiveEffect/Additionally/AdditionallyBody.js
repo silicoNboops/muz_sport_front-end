@@ -1,25 +1,31 @@
-import React, {useState} from "react";
-import UnloadingModuleBtn from "../../UnloadingModule/UnloadingModuleBtn";
-import UnloadingModuleBody from "../../UnloadingModule/UnloadingModuleBody";
+import React, {useState, useEffect} from "react";
 
-const AdditionallyBody = (props) => {
-    const {product} = props
-    const [link, setLink] = useState(true)
-    const [file, setFile] = useState(false)
-    const [valueFile, setValueFile] = useState('')
-    const [valueLink, setValueLink] = useState('')
+const AdditionallyBody = ({product, setDirectionEffectTrack}) => {
+    const [link, setLink] = useState(true);
+    const [file, setFile] = useState(false);
+    const [trackLink, setTrackLink] = useState('');
+    const [trackFile, setTrackFile] = useState(null);
 
-    const initData = () => {
-        setValueFile('');
-        setValueLink('');
-    }
+    useEffect(() => {
+        let directionEffectTrackObj = {};
+
+        if (file) {
+            directionEffectTrackObj['file'] = trackFile;
+        }
+        if (link) {
+            directionEffectTrackObj['link'] = trackLink;
+        }
+
+        setDirectionEffectTrack(directionEffectTrackObj);
+    },[trackLink, trackFile, file, link, setDirectionEffectTrack])
+
     const handleLink = () => {
-        setLink(true)
-        setFile(false)
+        setLink(true);
+        setFile(false);
     };
     const handleFile = () => {
-        setLink(false)
-        setFile(true)
+        setLink(false);
+        setFile(true);
     };
 
     return (
@@ -46,11 +52,10 @@ const AdditionallyBody = (props) => {
                 {link ?
                     <div className="col-6 pb-2">
                         <input type="url" required
-                            // value={valueLink}
+                               value={trackLink}
                                placeholder="Ссылка на файл..."
                                className="form-control input-box"
-                               onChange={(e) =>
-                                   setValueLink(e.target.value)}
+                               onChange={(e) => setTrackLink(e.target.value)}
                         />
                     </div>
                     :
@@ -60,10 +65,10 @@ const AdditionallyBody = (props) => {
                 {file ?
                     <div className="col-6 pb-2">
                         <input type="file"
+                               required
                                placeholder="формат mp3, mpeg"
                                className="form-control input-box mt-3"
-                               onChange={(e) =>
-                                   setValueFile(e.target.files)}
+                               onChange={(e) => setTrackFile(e.target.files)}
                         />
                     </div>
                     :
