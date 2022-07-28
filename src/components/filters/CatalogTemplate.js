@@ -10,9 +10,12 @@ const CatalogTemplate = React.memo(() => {
 
     const [filterVariants, setFilterVariants] = useState({});
     const [selectedFiltersValues, setSelectedFiltersValues] = useState({});
+    const [searchInput, setSearchInput] = useState('')
     const [loading, setLoading] = useState(true);
     const [filtersError, setFiltersError] = useState(null);
     const [itemsReqUrl, setItemsReqUrl] = useState(itemsReqUrlDefault);
+    const [product, setProduct] = useState([])
+
 
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
@@ -47,6 +50,13 @@ const CatalogTemplate = React.memo(() => {
         const reqUrl = process.env.REACT_APP_MUZSPORT_API + `/tracks/?${filtersQueryParams}`;
         setItemsReqUrl(reqUrl);
     };
+
+    const searchFetch = () => {
+        const searchResult = '?search=' + searchInput
+        const reqUrl = process.env.REACT_APP_MUZSPORT_API + `/tracks/` + searchResult;
+        setItemsReqUrl(reqUrl);
+    }
+    console.log(product)
 
     const handleSubmitFiltered = (event) => {
         // Event: Cancels Event (Stops HTML Default Form Submit)
@@ -117,6 +127,7 @@ const CatalogTemplate = React.memo(() => {
 
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: value});
     }
+    // console.log(searchResult)
 
     // TODO переделать по аналогии с селектами, сделать компоненты
     // const checkboxList = () => {
@@ -180,6 +191,28 @@ const CatalogTemplate = React.memo(() => {
         return (
             <>
                 <Form onSubmit={handleSubmitFiltered}>
+                    <div className="col-4 pt-3">
+                        <div className="input-group search">
+                            <input type="search"
+                                   value={searchInput}
+                                   className="form-control search shadow-none"
+                                   placeholder="Поиск по исполнителям и названиям треков"
+                                   aria-label="Search"
+                                   aria-describedby="search-addon"
+                                   onChange={(e) =>
+                                       setSearchInput(e.target.value)}
+                            />
+                            <button className="btn btn-sm shadow-none" id="search-addon" onClick={searchFetch}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     className="bi bi-search text-white" viewBox="0 0 16 16">
+                                  <path
+                                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1
+                                      1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0
+                                      5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                     <Row className="mb-3">
                         <Filters filterVariants={filterVariants}
                                  selectedValues={selectedFiltersValues}

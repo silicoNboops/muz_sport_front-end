@@ -87,7 +87,7 @@ const SpecialWishes = () => {
                                 </div>
                             </div>
                         </div>
-                        <img src='/assets/icons/price-tag.png' className="price-icon-wishes"/>
+                            <img src='/assets/icons/price-tag.png' className="price-icon-wishes"/>
                     </div>
                 </div>
             </div>
