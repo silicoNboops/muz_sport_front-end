@@ -348,19 +348,19 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                         </div>
                     </div>
 
-                    <AdditionalTrackBtn product={product}/>
-                    <AdditionalTrackBody product={product}
+                    <AdditionalTrackBtn product={product} price={price}/>
+                    <AdditionalTrackBody product={product} price={price}
                                          setAdditionalTracks={setAdditionalTracks} />
 
-                    <AddSuggestiveEffectBtn product={product}/>
-                    <AddSuggestiveEffectBody product={product}
+                    <AddSuggestiveEffectBtn product={product} price={price}/>
+                    <AddSuggestiveEffectBody product={product} price={price}
                                              setSuggestiveEffect={setSuggestiveEffect}/>
 
-                    <UnloadingModuleBtn product={product}/>
-                    <UnloadingModuleBody product={product}
+                    <UnloadingModuleBtn product={product} price={price}/>
+                    <UnloadingModuleBody product={product} price={price}
                                             setUnloadingModule={setUnloadingModule}/>
 
-                    <SpecialWishes price={price}/>
+                    {/*<SpecialWishes price={price}/>*/}
                 </div>
             </form>
         </div>
