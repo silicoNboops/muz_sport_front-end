@@ -186,7 +186,6 @@ const CatalogTemplate = React.memo(() => {
 
         return (
             <div className="container-fluid">
-                <Form onSubmit={handleSubmitFiltered}>
                     <div className="col-4 pt-3">
                     <div className="input-group search">
                         <input type="search"
@@ -209,7 +208,8 @@ const CatalogTemplate = React.memo(() => {
                         </button>
                     </div>
                     </div>
-                    <Row className="mb-3">
+                <Form onSubmit={handleSubmitFiltered}>
+                <Row className="mb-3">
                         <Filters filterVariants={filterVariants}
                                  selectedValues={selectedFiltersValues}
                                  handlerChangeSelect={handlerCHANGER}
