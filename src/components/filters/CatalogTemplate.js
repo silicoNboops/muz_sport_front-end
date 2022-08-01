@@ -44,10 +44,15 @@ const CatalogTemplate = React.memo(() => {
         if (!filtersQueryParams) {
             filtersQueryParams = '';
         }
-
         const reqUrl = process.env.REACT_APP_MUZSPORT_API + `/tracks/?${filtersQueryParams}`;
         setItemsReqUrl(reqUrl);
     };
+
+    const searchFetch = () => {
+        const searchResult = '?search=' + searchInput
+        const reqUrl = itemsReqUrlDefault + searchResult;
+        setItemsReqUrl(reqUrl);
+    }
 
     const handleSubmitFiltered = (event) => {
         // Event: Cancels Event (Stops HTML Default Form Submit)
@@ -115,15 +120,10 @@ const CatalogTemplate = React.memo(() => {
             value = event.target.value;
         }
 
-        // console.log(value);
 
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: value});
     }
-    const searchFetch = () => {
-        const searchResult = '?search=' + searchInput
-        const reqUrl = process.env.REACT_APP_MUZSPORT_API + `/tracks/` + searchResult;
-        setItemsReqUrl(reqUrl);
-    }
+
 
     // TODO переделать по аналогии с селектами, сделать компоненты
     // const checkboxList = () => {
@@ -187,7 +187,7 @@ const CatalogTemplate = React.memo(() => {
         return (
             <div className="container-fluid">
                 <Form onSubmit={handleSubmitFiltered}>
-                    <div className=" col-4 pt-3">
+                    <div className="col-4 pt-3">
                     <div className="input-group search">
                         <input type="search"
                                value={searchInput}
