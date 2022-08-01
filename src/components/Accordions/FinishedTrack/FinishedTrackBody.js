@@ -203,10 +203,10 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                                     <span className="font-weight-bold">
                                 <div className="position-relative" style={{right: "200%"}}>
 
-                                  <input type="checkbox" className="checkbox-ex" id="addPeak"
+                                  <input type="checkbox" className="checkbox-ex" id={'addPeak' + product.id}
                                          onChange={() => setBeginningPeak(!beginningPeak)}
                                   />
-                                  <label id="addPeak" htmlFor="addPeak" className="checkbox-ex">Добавить</label>
+                                  <label id="addPeak" htmlFor={'addPeak' + product.id} className="checkbox-ex">Добавить</label>
                                 </div>
                             </span>
                                 </div>
