@@ -66,6 +66,7 @@ const CatalogTemplate = React.memo(() => {
         convertedQueryParams = convertedQueryParams.substring(0, convertedQueryParams.length - 1);
         console.log(convertedQueryParams);
 
+
         // все отображение продуктов в компоненте-ребенке пагинационном - там все запросы к АПИ
         generateItemsReqUrl(convertedQueryParams);
 
@@ -184,9 +185,9 @@ const CatalogTemplate = React.memo(() => {
         }
 
         return (
-            <>
+            <div className="container-fluid">
                 <Form onSubmit={handleSubmitFiltered}>
-                    <div className="col-4 pt-3">
+                    <div className=" col-4 pt-3">
                     <div className="input-group search">
                         <input type="search"
                                value={searchInput}
@@ -233,7 +234,7 @@ const CatalogTemplate = React.memo(() => {
                     {/* TODO можно поюзать, для обратной отдачи юзеру при неправильном вводе данных формы */}
                     <Form.Control.Feedback type="invalid">НЕПРАВ</Form.Control.Feedback>
                 </Form>
-            </>
+            </div>
         );
     }
 

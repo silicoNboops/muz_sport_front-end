@@ -124,7 +124,6 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                     // notifyOrderError();
                 })
     };
-console.log(end)
     return (
         <div id={'finished_track' + product.id} className="accordion-collapse collapse pe-5"
              aria-labelledby="headingOne"

@@ -8,7 +8,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
 
     let filters = []
 
-    console.log(typeof filterVariants);
+    // console.log(typeof filterVariants);
 
     for (const filterName of filterNameSequence) {
         let filter = filterVariants[filterName];
