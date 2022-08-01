@@ -14,7 +14,6 @@ const CatalogTemplate = React.memo(() => {
     const [loading, setLoading] = useState(true);
     const [filtersError, setFiltersError] = useState(null);
     const [itemsReqUrl, setItemsReqUrl] = useState(itemsReqUrlDefault);
-    const [product, setProduct] = useState([])
 
 
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
@@ -56,7 +55,6 @@ const CatalogTemplate = React.memo(() => {
         const reqUrl = process.env.REACT_APP_MUZSPORT_API + `/tracks/` + searchResult;
         setItemsReqUrl(reqUrl);
     }
-    console.log(product)
 
     const handleSubmitFiltered = (event) => {
         // Event: Cancels Event (Stops HTML Default Form Submit)
