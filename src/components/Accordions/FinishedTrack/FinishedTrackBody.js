@@ -59,6 +59,7 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
         // console.log(unloadingModule);
     }, [additionalTracks, suggestiveEffect, unloadingModule]);
 
+
     const initData = () => {
         setCommentary('');
     }
@@ -123,6 +124,7 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                     // notifyOrderError();
                 })
     };
+console.log(end)
     return (
         <div id={'finished_track' + product.id} className="accordion-collapse collapse pe-5"
              aria-labelledby="headingOne"
@@ -218,7 +220,7 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                                             <input label="Плавное"
                                                    type="radio"
                                                    name="end"
-                                                   value="smooth"
+                                                   value="Плавное"
                                                    checked={end === 'Плавное'}
                                                    onChange={(e) => {
                                                        setEnd(e.target.value)
@@ -227,7 +229,7 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                                             <input label="Резкое"
                                                    type="radio"
                                                    name="end"
-                                                   value="sharp"
+                                                   value="Резкое"
                                                    checked={end === 'Резкое'}
                                                    onChange={(e) => {
                                                        setEnd(e.target.value)
