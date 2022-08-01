@@ -462,7 +462,18 @@ input[type="checkbox"]:checked + :after {
 .btn_filter{
     width: 185px;
 }
-
+.search{
+    background-color: #4a4472;
+    border-radius: 19px;
+    border: 1px  solid #655c99;
+    color: white;
+}
+.search :focus{
+    background-color: rgba(85, 79, 125, 0.75);
+    border-radius: 19px;
+    color: white;
+    border: 1px  solid #63589c;
+}
 .back-to-top {
     position: fixed;
     width: 45px;
