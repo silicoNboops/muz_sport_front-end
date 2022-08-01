@@ -9,6 +9,7 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
     const [catalog, setCatalog] = useState(false);
     const [trackLink, setTrackLink] = useState('');
     const [trackFile, setTrackFile] = useState(null);
+    const [searchInput, setSearchInput] = useState('')
     const [trackCatalog, setTrackCatalog] = useState(null);
 
     // auto, manual
@@ -66,6 +67,7 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
     const handleManual = () => {
         setCompositionType('manual');
     };
+
     const handleLink = () => {
         setLink(true);
         setFile(false);
@@ -81,6 +83,15 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
         setFile(false)
         setCatalog(true)
     };
+
+    const searchFetch = (event) => {
+        setSearchInput(event.target.value);
+        const searchResult = '?search=' + searchInput
+        fetch(process.env.REACT_APP_MUZSPORT_API + '/tracks/' + searchResult)
+            .then(response => response.json())
+            .then(data => setCatalog(data))
+    }
+    // console.log(catalog.results)
 
     return(
         <div id={'additional_track' + product.id} className="accordion-collapse collapse " aria-labelledby="headingOne"
@@ -148,8 +159,17 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
 
                     {/* TODO доделать здесь поиск по имеющимся трекам на сайте */}
                     {catalog ?
-                        <div className="col-6 pt-2 pb-2">
-                            <h6>Вот так уот</h6>
+                        <div className="col-6 pt-4 pb-2">
+                            <input type="search"
+                                   value={searchInput}
+                                   className="form-control shadow-none"
+                                   placeholder="Начните вводить название"
+                                   aria-label="Search"
+                                   aria-describedby="search-addon"
+                                   onChange={searchFetch}
+                            />
+                            <h6>Hello</h6>
+
                         </div>
                         // TODO доделать тут еще выбор из существующих треков на сайте
                         :

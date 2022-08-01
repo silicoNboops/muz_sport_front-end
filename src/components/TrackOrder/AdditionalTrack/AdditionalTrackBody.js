@@ -4,6 +4,7 @@ import React, {useState} from "react";
 const AdditionalTrackBody = ({price}) => {
     const [valueLink, setValueLink] = useState('')
     const [valueFile, setValueFile] = useState('')
+    const [searchInput, setSearchInput] = useState('')
     const [commentary, setCommentary] = useState('');
     const [link, setLink] = useState(false)
     const [file, setFile] = useState(false)
@@ -82,6 +83,13 @@ const AdditionalTrackBody = ({price}) => {
             setItem(item.filter((_, i) => i !== parseInt(elemIndex)));
         }
     };
+    const searchFetch = (event) => {
+        setSearchInput(event.target.value);
+        const searchResult = '?search=' + searchInput
+        fetch(process.env.REACT_APP_MUZSPORT_API + '/tracks/' + searchResult)
+            .then(response => response.json())
+            .then(data => setCatalog(data))
+    }
 
     return(
         <div id={'additional_track'} className="accordion-collapse collapse " aria-labelledby="headingOne"
@@ -148,7 +156,15 @@ const AdditionalTrackBody = ({price}) => {
 
                     {catalog ?
                         <div className="col-6 pt-2 pb-2">
-                            <h6>Вот так уот</h6>
+                            <input type="search"
+                                   value={searchInput}
+                                   className="form-control search shadow-none"
+                                   placeholder="Поиск по исполнителям и названиям треков"
+                                   aria-label="Search"
+                                   aria-describedby="search-addon"
+                                   onChange={searchFetch}
+                            />
+                            <h6>Hello</h6>
                         </div>
                         :
                         null
