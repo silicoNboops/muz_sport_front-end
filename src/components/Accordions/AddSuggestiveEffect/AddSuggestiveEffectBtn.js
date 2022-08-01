@@ -1,7 +1,6 @@
 import React from "react";
 
-const AddSuggestiveEffectBtn = (props) => {
-    const {product} = props
+const AddSuggestiveEffectBtn = ({product}) => {
 
     return(
         <div className="text-start ms-5">

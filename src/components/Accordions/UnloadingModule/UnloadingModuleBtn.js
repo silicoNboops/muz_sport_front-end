@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
-const UnloadingModuleBtn = (props) => {
-    const {product} = props
+const UnloadingModuleBtn = ({product}) => {
 
     return (
         <div className="text-start ms-5">
