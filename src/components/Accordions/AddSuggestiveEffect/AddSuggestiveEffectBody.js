@@ -162,7 +162,7 @@ const AddSuggestiveEffectBody = ({product, setSuggestiveEffect, price}) => {
                                             {directionEffectList.map(directionEffectObj => {
                                                 return(
                                                     <option id={directionEffectObj.id}>
-                                                        {directionEffectObj.direction_effect}
+                                                        {directionEffectObj.direction_effect_en}
                                                     </option>
                                                 );
                                             })}

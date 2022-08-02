@@ -418,8 +418,8 @@ const FinishedTrackBody = ({product, price, setPrice}) => {
                                                     </option>
 
                                                     {sportList.map((sport, index) =>
-                                                        <option key={sport.id + '_' + index} value={sport.sports_name}>
-                                                            {sport.sports_name}
+                                                        <option key={sport.id + '_' + index} value={sport.sports_name_en}>
+                                                            {sport.sports_name_en}
                                                         </option>
                                                     )}
                                                 </Form.Control>

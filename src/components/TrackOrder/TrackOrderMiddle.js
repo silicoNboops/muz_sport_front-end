@@ -361,7 +361,7 @@ const TrackOrderMiddle = () => {
                                                     {sportsName.map(sportsNameObj => {
                                                         return(
                                                             <option id={sportsNameObj.id}>
-                                                                {sportsNameObj.sports_name}
+                                                                {sportsNameObj.sports_name_en}
                                                             </option>
                                                         );
                                                     })}

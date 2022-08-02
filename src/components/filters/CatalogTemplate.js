@@ -29,6 +29,7 @@ const CatalogTemplate = React.memo(() => {
                 .then(res => res.json())
                 .then((filters) => {
                     setFilterVariants(filters);
+                    console.log(filters)
                     setFiltersError(null);
                 }, (error) => {
                     console.log('Не удалось получить список фильтров');
