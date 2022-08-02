@@ -138,7 +138,7 @@ const Header = React.memo((props) => {
                                 </>
                                 :
                                 <>
-                                    <button className="text-black me-3"
+                                    <button className="text-black"
                                             type="button"
                                             onClick={logout}>
                                         Log out
