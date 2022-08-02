@@ -166,11 +166,18 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
                                    placeholder="Начните вводить название"
                                    aria-label="Search"
                                    aria-describedby="search-addon"
+                                   list="tracks"
                                    onChange={searchFetch}
                             />
-                            <h6>Hello</h6>
+                            <datalist id="tracks">
+                                {catalog.results.map((track, index) =>
+                                    <option key={track.value + '_' + index} value={track.value}>
+                                        {track.author} - {track.title}
+                                    </option>
+                                )}
+                            </datalist>
 
-                        </div>
+                            </div>
                         // TODO доделать тут еще выбор из существующих треков на сайте
                         :
                         null
