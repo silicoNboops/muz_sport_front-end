@@ -11,6 +11,7 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
     const [trackFile, setTrackFile] = useState(null);
     const [searchInput, setSearchInput] = useState('')
     const [trackCatalog, setTrackCatalog] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // auto, manual
     const [compositionType, setCompositionType] = useState('auto');
@@ -89,7 +90,10 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
         const searchResult = '?search=' + searchInput
         fetch(process.env.REACT_APP_MUZSPORT_API + '/tracks/' + searchResult)
             .then(response => response.json())
-            .then(data => setCatalog(data))
+            .then(data => {
+                setCatalog(data)
+                setLoading(false)
+            })
     }
     // console.log(catalog.results)
 
@@ -170,12 +174,14 @@ const AdditionalTrackBody = ({product, setAdditionalTracks, price}) => {
                                    onChange={searchFetch}
                             />
                             <datalist id="tracks">
-                                {catalog.results.map((track, index) =>
+                                {!loading && (
+                                    catalog.results.map((track, index) =>
                                     <option key={track.value + '_' + index} value={track.value}>
                                         {track.author} - {track.title}
                                     </option>
-                                )}
+                                ))}
                             </datalist>
+
 
                             </div>
                         // TODO доделать тут еще выбор из существующих треков на сайте

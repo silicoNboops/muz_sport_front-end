@@ -3,9 +3,9 @@ import React from "react";
 const AddSuggestiveEffectBtn = () => {
 
     return(
-        <div>
-            <button type="button"
-                    className="btn shadow-none btn-sm dropdown-toggle dropdown-toggle-split"
+        <div className="text-start ms-5">
+            <button type=" button"
+                    className="btn shadow-none ms-4 ps-5 btn-sm dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="collapse"
                     data-bs-target={'#suggestive_effect'}
                     aria-expanded="true"

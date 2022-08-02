@@ -9,6 +9,7 @@ const AdditionalTrackBody = ({price}) => {
     const [link, setLink] = useState(false)
     const [file, setFile] = useState(false)
     const [catalog, setCatalog] = useState(false)
+    const [loading, setLoading] = useState(true);
 
     const [auto, setAuto] = useState(true)
     const [manual, setManual] = useState(false)
@@ -88,7 +89,10 @@ const AdditionalTrackBody = ({price}) => {
         const searchResult = '?search=' + searchInput
         fetch(process.env.REACT_APP_MUZSPORT_API + '/tracks/' + searchResult)
             .then(response => response.json())
-            .then(data => setCatalog(data))
+            .then(data => {
+                setCatalog(data)
+                setLoading(false)
+            })
     }
 
     return(
@@ -155,16 +159,25 @@ const AdditionalTrackBody = ({price}) => {
                     }
 
                     {catalog ?
-                        <div className="col-6 pt-2 pb-2">
+                        <div className="col-6 pt-4 pb-2">
                             <input type="search"
                                    value={searchInput}
-                                   className="form-control search shadow-none"
-                                   placeholder="Поиск по исполнителям и названиям треков"
+                                   className="form-control shadow-none"
+                                   placeholder="Начните вводить название"
                                    aria-label="Search"
                                    aria-describedby="search-addon"
+                                   list="tracks"
                                    onChange={searchFetch}
                             />
-                            <h6>Hello</h6>
+                            <datalist id="tracks">
+                                {!loading && (
+                                    catalog.results.map((track, index) =>
+                                        <option key={track.value + '_' + index} value={track.value}>
+                                            {track.author} - {track.title}
+                                        </option>
+                                    ))}
+                            </datalist>
+
                         </div>
                         :
                         null

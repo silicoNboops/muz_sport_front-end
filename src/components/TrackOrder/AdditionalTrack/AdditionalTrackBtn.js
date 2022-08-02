@@ -3,9 +3,9 @@ import React from "react";
 const AdditionalTrackBtn = () => {
 
     return(
-        <div>
+        <div className="text-start ps-5">
             <button type="button"
-                    className="btn btn-sm dropdown-toggle shadow-none dropdown-toggle-split"
+                    className="btn btn-sm dropdown-toggle ms-4 ps-5 shadow-none dropdown-toggle-split"
                     data-bs-toggle="collapse"
                     data-bs-target={'#additional_track'}
                     aria-expanded="true"
