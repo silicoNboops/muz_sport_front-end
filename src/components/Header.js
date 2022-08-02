@@ -1,10 +1,21 @@
-import React from "react";
+import React, {useContext} from "react";
 import {ModalAuth} from './auth/ModalAuth';
 import API from "../api/API";
 import {useNavigate} from "react-router-dom";
+import {LanguageContext} from "../LanguageProvider/LanguageProvider";
 
 const Header = React.memo((props) => {
+    const {language, setLanguage} = useContext(LanguageContext)
     const navigate = useNavigate();
+
+    const changeRus = () => {
+        setLanguage('Russian')
+    }
+    const changeEng = () => {
+        setLanguage('English')
+    }
+
+    console.log(language)
 
     const logout = (e) => {
         e.preventDefault();
@@ -78,6 +89,8 @@ const Header = React.memo((props) => {
                                 </svg>
                             </a>
                         </div>
+                        <button onClick={changeRus}>Ru</button>
+                        <button onClick={changeEng}>En</button>
 
                         <div className="icon-link-badged mr-3 px-2">
                             <a href="/account" className="text-black">

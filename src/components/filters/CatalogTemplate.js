@@ -61,6 +61,7 @@ const CatalogTemplate = React.memo(() => {
         event.stopPropagation();
 
         let convertedQueryParams = '';
+        console.log(selectedFiltersValues)
 
         Object.entries(selectedFiltersValues).forEach(([fieldName, value]) => {
             if (value !== '') {
