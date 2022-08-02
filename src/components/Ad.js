@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import LanguageContext from "../LanguageProvider/LanguageProvider";
 
 const Ad = () => {
     const [BigImage, setBigImage] = useState({})

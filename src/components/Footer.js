@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from "react";
+import {useContext} from "react";
+import LanguageContext from "../LanguageProvider/LanguageProvider";
 
 const Footer = () => {
     const [Footer, setFooter] = useState({})
+    const {language} = useContext(LanguageContext)
 
     useEffect(() => {
         async function fetchInitData() {
@@ -28,11 +31,20 @@ const Footer = () => {
 
                         <div className="col-4 text-end p-3">
                             <ul className="list-unstyled">
-                                <li>
-                                    <h6 className="text-white">Интернет-платформа по продаже, поиску и созданию
-                                    программ для спортивных выступлений с элементом суггестивного воздействия
-                                    и разгрузочным модулем</h6>
-                                </li>
+                                {language === 'Russian' ?
+                                    <li>
+                                        <h6 className="text-white">Интернет-платформа по продаже, поиску и созданию
+                                            программ для спортивных выступлений с элементом суггестивного воздействия
+                                            и разгрузочным модулем</h6>
+                                    </li>
+                                    :
+                                    <li>
+                                        <h6 className="text-white">An online platform for selling, finding and creating
+                                            sports performance programs with a suggestive element
+                                            and unloading module</h6>
+                                    </li>
+                                }
+
                                 <li>
                                     <h5 className="text-center text-muted">{Footer.year_count_start}-
                                         {Footer.year_count_end}</h5>
@@ -42,7 +54,11 @@ const Footer = () => {
 
                         <div className="col-3 p-3">
                             <ul>
+                                {language === 'Russian' ?
                                     <p className="text-white">К оплате принимаются:</p>
+                                    :
+                                    <p className="text-white">Fees are accepted for:</p>
+                                }
                                 <li className="d-inline-flex">
 
                                 {Footer.payment_icons && Footer.payment_icons.map((payment_icon) => {
@@ -62,10 +78,20 @@ const Footer = () => {
                                 {!Footer.link_icon ?
                                     null
                                     :
-                                    <a href="ad" className="text-white">
-                                        <img src="/assets/icons/horn.png" width="30px"/>
-                                        Реклама на сайте
-                                    </a>
+                                    <>
+                                    {language === 'Russian' ?
+                                        <a href="ad" className="text-white">
+                                            <img src="/assets/icons/horn.png" width="30px"/>
+                                            Реклама на сайте
+                                        </a>
+                                        :
+                                        <a href="ad" className="text-white">
+                                            <img src="/assets/icons/horn.png" width="30px"/>
+                                            Advertising on the site
+                                        </a>
+                                    }
+                                    </>
+
                                 }
 
                             </div>

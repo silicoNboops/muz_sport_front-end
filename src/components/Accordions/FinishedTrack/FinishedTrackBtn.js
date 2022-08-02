@@ -1,8 +1,11 @@
 import React, {useState} from "react";
+import {useContext} from "react";
+import LanguageContext from "../../../LanguageProvider/LanguageProvider";
 
 
 const FinishedTrackBtn = (props) => {
     const {product} = props
+    const {language} = useContext(LanguageContext)
     const [commentary, setCommentary] = useState('');
 
     const initData = () => {
@@ -10,18 +13,36 @@ const FinishedTrackBtn = (props) => {
     }
 
     return(
-        <div className="container-fluid">
-            <button type="button"
-                    //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
-                    className="btn shadow-none finished_track_btn btn-sm col-9 dropdown-toggle-split"
-                    data-bs-toggle="collapse"
-                    data-bs-target={'#finished_track' + product.id}
-                    aria-expanded="true"
-                    style={{borderRadius:"12px"}}
-                    aria-controls="collapseOne">
-                <span style={{fontSize: '15px'}}>Доработать этот трек</span>
-            </button>
-        </div>
+        <>
+            {language === 'Russian' ?
+                <div className="container-fluid">
+                    <button type="button"
+                        //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
+                            className="btn shadow-none finished_track_btn btn-sm col-9 dropdown-toggle-split"
+                            data-bs-toggle="collapse"
+                            data-bs-target={'#finished_track' + product.id}
+                            aria-expanded="true"
+                            style={{borderRadius:"12px"}}
+                            aria-controls="collapseOne">
+                        <span style={{fontSize: '15px'}}>Доработать этот трек</span>
+                    </button>
+                </div>
+                :
+                <div className="container-fluid">
+                    <button type="button"
+                        //#TODO dropdown-toggle - стрелочка , а нужно 'X'. хз как))
+                            className="btn shadow-none finished_track_btn btn-sm col-9 dropdown-toggle-split"
+                            data-bs-toggle="collapse"
+                            data-bs-target={'#finished_track' + product.id}
+                            aria-expanded="true"
+                            style={{borderRadius:"12px"}}
+                            aria-controls="collapseOne">
+                        <span style={{fontSize: '15px'}}>Develop this track</span>
+                    </button>
+                </div>
+            }
+
+        </>
     )
 }
 export default FinishedTrackBtn

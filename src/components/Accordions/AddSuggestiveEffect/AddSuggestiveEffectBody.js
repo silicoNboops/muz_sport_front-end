@@ -2,9 +2,12 @@ import {Dropdown, Form} from "react-bootstrap";
 import React, {useState, useEffect} from "react";
 import AdditionallyBtn from "./Additionally/AdditionallyBtn";
 import AdditionallyBody from "./Additionally/AdditionallyBody";
+import {useContext} from "react";
+import LanguageContext from "../../../LanguageProvider/LanguageProvider";
 
 
 const AddSuggestiveEffectBody = ({product, setSuggestiveEffect, price}) => {
+    const {language} = useContext(LanguageContext)
     const [directionEffectList, setDirectionEffectList] = useState([]);
     const [athleteName, setAthleteName] = useState('');
     const [directionEffect, setDirectionEffect] = useState('');
@@ -33,31 +36,33 @@ const AddSuggestiveEffectBody = ({product, setSuggestiveEffect, price}) => {
     },[athleteName, directionEffect, directionEffectTrack, setSuggestiveEffect])
 
     return(
-        <div id={'suggestive_effect' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
-             data-bs-parent="#accordionExample">
-            <button type="button"
-                    data-bs-toggle="collapse"
-                    className="btn-close shadow-none close-accordion"
-                    data-bs-target={'#suggestive_effect' + product.id}
-                    aria-expanded="true"
-                    style={{borderRadius:"12px"}}
-                    aria-controls="collapseOne">
-            </button>
-            <div className="card background-accordion ps-4 container">
-                <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Добавить суггестивный эффект</h5>
-                <div className="imgblock-accordion">
-                <img src='/assets/icons/price-tag.png' className='price-icon-accordion'/>
-                <span>{price.price_suggestive_effect} ₽</span>
-            </div>
-            <div className="accordion-body row justify-content-center">
-                <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
-                    <h6 className="text-start pb-4">Добавление суггестивного эффекта в спортивную программу позволит повысить концетрацию и
-                        мобилизацию спортсмена на соревновании, а так же окажет психологическую поддержку спортсмена во
-                        время выступления</h6>
-                    <figcaption className="card-props-column">
-                        <div className="card-props card-text">
-                            <span className="font-weight-bolder">Имя спортсмена:</span>
-                            <span className="font-weight-bold container col-7">
+        <>
+            {language === 'Russian' ?
+                <div id={'suggestive_effect' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+                     data-bs-parent="#accordionExample">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            className="btn-close shadow-none close-accordion"
+                            data-bs-target={'#suggestive_effect' + product.id}
+                            aria-expanded="true"
+                            style={{borderRadius:"12px"}}
+                            aria-controls="collapseOne">
+                    </button>
+                    <div className="card background-accordion ps-4 container">
+                        <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Добавить суггестивный эффект</h5>
+                        <div className="imgblock-accordion">
+                            <img src='/assets/icons/price-tag.png' className='price-icon-accordion'/>
+                            <span>{price.price_suggestive_effect} ₽</span>
+                        </div>
+                        <div className="accordion-body row justify-content-center">
+                            <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
+                                <h6 className="text-start pb-4">Добавление суггестивного эффекта в спортивную программу позволит повысить концетрацию и
+                                    мобилизацию спортсмена на соревновании, а так же окажет психологическую поддержку спортсмена во
+                                    время выступления</h6>
+                                <figcaption className="card-props-column">
+                                    <div className="card-props card-text">
+                                        <span className="font-weight-bolder">Имя спортсмена:</span>
+                                        <span className="font-weight-bold container col-7">
                                         <input type="text" required
                                                value={athleteName}
                                                placeholder="Указать имя (опционально)"
@@ -66,10 +71,10 @@ const AddSuggestiveEffectBody = ({product, setSuggestiveEffect, price}) => {
                                                    setAthleteName(e.target.value)}
                                         />
                                     </span>
-                        </div>
-                        <div className="card-props card-text">
-                            <span className="font-weight-bolder ">Направление воздействия эффекта:</span>
-                            <span className="font-weight-bold container pt-4 pb-2">
+                                    </div>
+                                    <div className="card-props card-text">
+                                        <span className="font-weight-bolder ">Направление воздействия эффекта:</span>
+                                        <span className="font-weight-bold container pt-4 pb-2">
                                     <Form.Group className="col-8 container">
                                         <Form.Control
                                             className="text-center"
@@ -94,15 +99,89 @@ const AddSuggestiveEffectBody = ({product, setSuggestiveEffect, price}) => {
                                         </Form.Control>
                                     </Form.Group>
                                 </span>
+                                    </div>
+                                </figcaption>
+                                <AdditionallyBtn product={product}/>
                             </div>
-                    </figcaption>
-                    <AdditionallyBtn product={product}/>
+                            <AdditionallyBody product={product}
+                                              setDirectionEffectTrack={setDirectionEffectTrack}/>
+                        </div>
+                    </div>
                 </div>
-                <AdditionallyBody product={product}
-                                  setDirectionEffectTrack={setDirectionEffectTrack}/>
-            </div>
-            </div>
-        </div>
+                :
+                <div id={'suggestive_effect' + product.id} className="accordion-collapse collapse" aria-labelledby="headingOne"
+                     data-bs-parent="#accordionExample">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            className="btn-close shadow-none close-accordion"
+                            data-bs-target={'#suggestive_effect' + product.id}
+                            aria-expanded="true"
+                            style={{borderRadius:"12px"}}
+                            aria-controls="collapseOne">
+                    </button>
+                    <div className="card background-accordion ps-4 container">
+                        <h5 className="text-white position-relative" style={{right:"31%", top:"10px"}}>Add a suggestive effect</h5>
+                        <div className="imgblock-accordion">
+                            <img src='/assets/icons/price-tag.png' className='price-icon-accordion'/>
+                            <span>{price.price_suggestive_effect} ₽</span>
+                        </div>
+                        <div className="accordion-body row justify-content-center">
+                            <div className="card style-accordion p-5" style={{borderRadius:"12px"}}>
+                                <h6 className="text-start pb-4">Adding a suggestive effect to a sport program will increase the concentration and
+                                    mobilization of the athlete at the competition, and will provide psychological support to the athlete during
+                                    during the performance</h6>
+                                <figcaption className="card-props-column">
+                                    <div className="card-props card-text">
+                                        <span className="font-weight-bolder">Athlete's name:</span>
+                                        <span className="font-weight-bold container col-7">
+                                        <input type="text" required
+                                               value={athleteName}
+                                               placeholder="Enter a name (optional)"
+                                               className="form-control input-box"
+                                               onChange={(e) =>
+                                                   setAthleteName(e.target.value)}
+                                        />
+                                    </span>
+                                    </div>
+                                    <div className="card-props card-text">
+                                        <span className="font-weight-bolder ">Direction of effect:</span>
+                                        <span className="font-weight-bold container pt-4 pb-2">
+                                    <Form.Group className="col-8 container">
+                                        <Form.Control
+                                            className="text-center"
+                                            required
+                                            style={{backgroundColor:"rgba(153,147,196,0.73)", borderRadius:"16px"}}
+                                            as='select'
+                                            name='name'
+                                            value={directionEffect}
+                                            onChange={(e) => setDirectionEffect(e.target.value)}
+                                        >
+                                            <option>
+                                                Choose a direction
+                                            </option>
+                                            {directionEffectList.map(directionEffectObj => {
+                                                return(
+                                                    <option id={directionEffectObj.id}>
+                                                        {directionEffectObj.direction_effect}
+                                                    </option>
+                                                );
+                                            })}
+
+                                        </Form.Control>
+                                    </Form.Group>
+                                </span>
+                                    </div>
+                                </figcaption>
+                                <AdditionallyBtn product={product}/>
+                            </div>
+                            <AdditionallyBody product={product}
+                                              setDirectionEffectTrack={setDirectionEffectTrack}/>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </>
     )
 }
 export default AddSuggestiveEffectBody;

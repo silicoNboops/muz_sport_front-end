@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './css/style.css';
 import './App.css';
 import Header from "./components/Header";
@@ -28,7 +28,7 @@ import TrackOrderMin from "./components/TrackOrder/TrackOrderMin";
 import FinishedPlayer from "./components/WaveFormPlayer/FinishedPlayer";
 import VariationProductCard from "./components/Variations/VariationProductCard";
 import VariationProductDetail from "./components/Variations/VariationProductDetail";
-import {LanguageProvider} from "./LanguageProvider/LanguageProvider";
+import LanguageContext from "./LanguageProvider/LanguageProvider";
 // import {ToastContainer, Zoom} from "react-toastify";
 // import 'react-toastify/dist/ReactToastify.css';
 // import Authorization from "./components/Authorization";
@@ -37,7 +37,6 @@ import {LanguageProvider} from "./LanguageProvider/LanguageProvider";
 function App() {
     const [modal, setModal] = useState(false);
     const [showButton, setShowButton] = useState(false);
-
 
     const [authToken, setAuthToken] = useState(() =>
         localStorage.getItem("authToken")
@@ -67,7 +66,6 @@ function App() {
     };
 
     return (
-        <LanguageProvider>
         <div className="App">
             <BrowserRouter>
                 <Header setModal={setModal} modal={modal} authToken={authToken} setAuthToken={setAuthToken}
@@ -129,7 +127,6 @@ function App() {
 
             </BrowserRouter>
         </div>
-        </LanguageProvider>
     );
 }
 

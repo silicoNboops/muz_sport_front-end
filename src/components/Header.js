@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {ModalAuth} from './auth/ModalAuth';
 import API from "../api/API";
 import {useNavigate} from "react-router-dom";
-import {LanguageContext} from "../LanguageProvider/LanguageProvider";
+import LanguageContext from "../LanguageProvider/LanguageProvider";
 
 const Header = React.memo((props) => {
     const {language, setLanguage} = useContext(LanguageContext)
@@ -54,12 +54,22 @@ const Header = React.memo((props) => {
                 <img src="/assets/images/logo.png" width="140px" alt="logo"/>
             </a>
 
-            <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/tracks" className="nav-link px-2 link-dark">Каталог</a></li>
-                <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>
-                <li><a href="/partnership" className="nav-link px-2 link-dark">Партнерство</a></li>
-                <li><a href="/project" className="nav-link px-2 link-dark">Проект</a></li>
-            </ul>
+                {language === 'Russian' ?
+                    <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="/tracks" className="nav-link px-2 link-dark">Каталог</a></li>
+                        <li><a href="/services" className="nav-link px-2 link-dark">Услуги</a></li>
+                        <li><a href="/partnership" className="nav-link px-2 link-dark">Партнерство</a></li>
+                        <li><a href="/project" className="nav-link px-2 link-dark">Проект</a></li>
+                    </ul>
+                    :
+                    <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="/tracks" className="nav-link px-2 link-dark">Catalog</a></li>
+                        <li><a href="/services" className="nav-link px-2 link-dark">Services</a></li>
+                        <li><a href="/partnership" className="nav-link px-2 link-dark">Partnership</a></li>
+                        <li><a href="/project" className="nav-link px-2 link-dark">Project</a></li>
+                    </ul>
+                }
+
 
             <div className="col-md-3">
                 <div className="icon-link-badged px-2">
@@ -67,16 +77,28 @@ const Header = React.memo((props) => {
                         <img src="/assets/icons/cart.png" width="30px"/>
                     </a>
                 </div>
+                <button onClick={changeRus}>Ru</button>
+                <button onClick={changeEng}>En</button>
 
                 {props.authToken === null ? (
                     <>
-                        <div className="icon-link-badged mr-3 px-2">
+                    <div className="icon-link-badged mr-3 px-2">
+                        {language === 'Russian' ?
                             <a href="/login" className="text-black">
                                 <img src="/assets/icons/account.png" width="30px"/>
                                 Вход
                             </a>
+                            :
+                            <a href="/login" className="text-black">
+                                <img src="/assets/icons/account.png" width="30px"/>
+                                Log in
+                            </a>
+                        }
+                        <button onClick={changeRus}>Ru</button>
+                        <button onClick={changeEng}>En</button>
                         </div>
                     </>
+
                 ) : (
                     <>
                         <div className="icon-link-badged px-2">
@@ -89,8 +111,6 @@ const Header = React.memo((props) => {
                                 </svg>
                             </a>
                         </div>
-                        <button onClick={changeRus}>Ru</button>
-                        <button onClick={changeEng}>En</button>
 
                         <div className="icon-link-badged mr-3 px-2">
                             <a href="/account" className="text-black">
@@ -102,11 +122,20 @@ const Header = React.memo((props) => {
                             {/*    <img src="assets/icons/account.png" width="35px"/>*/}
                             {/*    Выйти*/}
                             {/*</a>*/}
-                            <button className="text-black"
-                                    type="button"
-                                    onClick={logout}>
-                                Выйти
-                            </button>
+                            {language === 'Russian' ?
+                                <button className="text-black"
+                                        type="button"
+                                        onClick={logout}>
+                                    Выйти
+                                </button>
+                                :
+                                <button className="text-black"
+                                        type="button"
+                                        onClick={logout}>
+                                    Log out
+                                </button>
+                            }
+
                         </div>
                     </>
                 )}
