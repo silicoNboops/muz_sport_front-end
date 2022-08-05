@@ -1,27 +1,30 @@
 import React, {useEffect, useState} from "react";
 import {useCart} from "react-use-cart";
+import API from "../../api/API";
 
 
 const OrderPage = () => {
     const [coupon, setCoupon] = useState('');
+    const [orders, setOrders] = useState([])
     const {items, emptyCart, removeItem, isEmpty, updateItemQuantity,totalItems, cartTotal} = useCart();
     const [data, setData] = useState();
     // const discounted = (cartTotal * ((100 - data) / 100)
     const discounted = 560 * ((100 - data) / 100)
 
+    useEffect(() => {
+        API.getOrder()
+            .then((res) => {
+                console.log(res.data);
+            });
+    },[]);
 
     const getCoupon = (coupon) => {
         fetch(process.env.REACT_APP_MUZSPORT_API + '/coupon/' + coupon)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setData(data.percent)
             })
     }
-
-        const initData = () => {
-            setCoupon('');
-        }
 
         const runCallback = (cb) => {
             return cb();

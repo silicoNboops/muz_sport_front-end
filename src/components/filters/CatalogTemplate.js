@@ -122,7 +122,6 @@ const CatalogTemplate = React.memo(() => {
             value = event.target.value;
         }
 
-
         setSelectedFiltersValues({...selectedFiltersValues, [event.target.id]: value});
     }
 

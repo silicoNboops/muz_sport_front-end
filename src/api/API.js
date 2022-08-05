@@ -32,6 +32,7 @@ export default {
     addOrderSegment: (data) => API.post('order/segment/add/'),
     deleteOrderSegment: (data) => API.post('order/segment/delete/'),
     getWishlist: () => API.get("wishlist/"),
+    getOrder: () => API.get("order/"),
     createWishlist: (data) => API.post("wishlist/create/", data),
     deleteWishlist: (data) => API.delete("wishlist/delete/", {data: data}),
     trackModificationCreate: (data) => API.post("track/modification/", {data: data}),
