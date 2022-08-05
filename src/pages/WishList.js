@@ -18,8 +18,17 @@ const WishList = () => {
 
     if(pending) return <div></div>
 
+    if(wishes.length >= 1)
     return(
         <WishedProducts wishedProducts={wishes} />
 )
+    else {
+        return (
+            <div className="container pt-5 mt-5" style={{minHeight:'300px'}}>
+                <h1 className="text-white pt-4">WishList пуст!</h1>
+            </div>
+        )
+    }
+
 }
 export default WishList;

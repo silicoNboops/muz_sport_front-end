@@ -48,6 +48,7 @@ const NewPlayer = ({product, isWished}) => {
         setSelect(false);
     }
 
+
     useEffect(() => {
         async function fetchData() {
             await fetch(process.env.REACT_APP_MUZSPORT_API + '/price/1')
@@ -191,7 +192,7 @@ const NewPlayer = ({product, isWished}) => {
                             <a href="#" className="link-unstyled">
                                 <img src="/assets/icons/price-tag.png" className='price-icon'/>
                                 <span className="text-start text-white">{product.price} ₽</span>
-                                <h6 className="text-white me-4">Купить</h6>
+                                <h6 className="text-white me-4">Buy</h6>
 
                             </a>
                         </div>

@@ -11,7 +11,7 @@ const WishedProducts = ({wishedProducts}) => {
                     <div>
 
                         <NewPlayer product={wishedTrackObj.wished_track}
-                                   isWished={true}/>
+                                   isWished={true} />
                     </div>
                 </Col>
             ))}

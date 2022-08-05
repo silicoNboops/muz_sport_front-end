@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
+import LanguageContext from "../../LanguageProvider/LanguageProvider";
 
-const Variations = (props) => {
-    const {product} = props
-    const {variants} = props
+const Variations = ({variants, product}) => {
+   const {language} = useContext(LanguageContext)
 
     return(
         <>
@@ -16,15 +16,25 @@ const Variations = (props) => {
                                 aria-expanded="true"
                                 style={{borderRadius:"12px"}}
                                 aria-controls="collapseOne">
-                            <span>Вариации данного трека</span>
+                            {language === 'Russian' ?
+                                <span>Вариации данного трека</span>
+                                :
+                                <span>Variations of this track</span>
+                            }
                         </button>
                     </div>
                     <div id={'variations' + product.id} className="accordion-collapse collapse text-start"
                          aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 
-                        <a href={"/track/" + product.id + "/variations/"} style={{fontSize: '12px'}} className="d-block text-muted">
-                            Сравнить все
-                        </a>
+                        {language === 'Russian' ?
+                            <a href={"/track/" + product.id + "/variations/"} style={{fontSize: '12px'}} className="d-block text-muted">
+                                Сравнить все
+                            </a>
+                            :
+                            <a href={"/track/" + product.id + "/variations/"} style={{fontSize: '12px'}} className="d-block text-muted">
+                                Compare all
+                            </a>
+                        }
 
                         {variants.map(variant =>
                             <a href={"/track/" + variant.id} className='text-black' style={{fontSize: '14px'}}>
