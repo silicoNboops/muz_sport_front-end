@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import ProductsPaginated from "./ProductsPaginated";
 import Filters from "./Filters";
 import {toast} from "react-toastify";
+import LanguageContext from "../../LanguageProvider/LanguageProvider";
 
 
 const CatalogTemplate = React.memo(() => {
@@ -14,6 +15,8 @@ const CatalogTemplate = React.memo(() => {
     const [searchInput, setSearchInput] = useState('')
     const [filtersError, setFiltersError] = useState(null);
     const [itemsReqUrl, setItemsReqUrl] = useState(itemsReqUrlDefault);
+
+    const {language} = useContext(LanguageContext)
 
     // передавать вторым аргументом state, при изменении которого должна вызываться функция чтоб не было лишних
     useEffect(() => {
@@ -186,6 +189,7 @@ const CatalogTemplate = React.memo(() => {
         }
 
         return (
+
             <div className="container-fluid">
                     <div className="col-4 pt-3">
                     <div className="input-group search">

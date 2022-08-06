@@ -6,6 +6,7 @@ import LanguageContext from "../../LanguageProvider/LanguageProvider";
 
 const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect}) => {
     const filterNameSequence = ['sport', 'len', 'direction', 'character', 'words', 'country']
+    const {language} = useContext(LanguageContext)
 
     let filters = []
 
@@ -38,11 +39,20 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                            defaultChecked={selectedValues ? selectedValues[filter.product_prop] : false}
                            onChange={handlerChangeSelect}
                            />
-                    <label id={filter.db_name + '_label'} htmlFor={filter.db_name} style={{bottom:'25px'}}
-                           className="checkbox-ex">
-                        Со словами?
-                    </label>
+                    <>
+                        {language === 'Russian' ?
+                            <label id={filter.db_name + '_label'} htmlFor={filter.db_name} style={{bottom:'25px'}}
+                                   className="checkbox-ex">
+                                Со словами?
+                            </label>
+                            :
+                            <label id={filter.db_name + '_label'} htmlFor={filter.db_name} style={{bottom:'25px'}}
+                                   className="checkbox-ex">
+                                With words?
+                            </label>
+                        }
 
+                    </>
 
                     {/*/>*/}
                 </Form.Group>
