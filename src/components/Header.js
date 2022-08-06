@@ -15,8 +15,6 @@ const Header = React.memo((props) => {
         setLanguage('English')
     }
 
-    console.log(language)
-
     const logout = (e) => {
         e.preventDefault();
 
@@ -133,12 +131,12 @@ const Header = React.memo((props) => {
                                             onClick={logout}>
                                         Выйти
                                     </button>
-                                    <button onClick={changeRus}>Ru</button>
-                                    <button onClick={changeEng}>En</button>
+                                        <button onClick={changeRus}>Ru</button>
+                                        <button onClick={changeEng}>En</button>
                                 </>
                                 :
                                 <>
-                                    <button className="text-black"
+                                    <button className="text-black me-1"
                                             type="button"
                                             onClick={logout}>
                                         Log out

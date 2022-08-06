@@ -84,11 +84,11 @@ const Home = () => {
             </div>
             :
             <div className="container-fluid main-page p-5">
-                <h1 className="text-start text-white text-wrap ms-5"  style={{width:"750px"}}> Music for sports
+                <h1 className="text-start text-white text-wrap ps-5"  style={{width:"750px"}}> Music for sports
                     custom performances </h1>
-                <h4 className="text-white" style={{bottom:'20px'}}>with a suggestive element and a relaxation module</h4>
+                <h4 className="text-white text-start ps-5" style={{bottom:'20px'}}>with a suggestive element and a relaxation module</h4>
                 {/*<img src="assets/icons/imbit_tag.png" height="50px"/>*/}
-                <h6 className="text-white text-start ms-5 position-relative" style={{bottom:'0px'}}> created in partnership with
+                <h6 className="text-white pt-2 text-start ms-5 position-relative"> created in partnership with
                     with IMBIT Institute
                     <a className="text-white p-3" href="#">more</a>
                 </h6>

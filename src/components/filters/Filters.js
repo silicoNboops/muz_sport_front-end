@@ -1,6 +1,7 @@
 import {Form} from "react-bootstrap";
-import React from "react";
+import React, {useContext} from "react";
 import {TableRow} from "@mui/material";
+import LanguageContext from "../../LanguageProvider/LanguageProvider";
 
 
 const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect}) => {
@@ -20,6 +21,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                     handler={handlerChangeSelect}
                     product_prop={filter.product_prop}
                     name={filter.name}
+                    name_en={filter.name_en}
                     values={filter.values}
                     values_en={filter.values_en}
                     selectedValue={selectedValues ? selectedValues[filter.product_prop] : ''}
@@ -53,34 +55,63 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
 
 
 const FilterSelect = React.memo((props) => {
-    const {selectedValue, product_prop, name, values, handler} = props;
+    const {selectedValue, product_prop, name, name_en, values, values_en, handler} = props;
+    const {language} = useContext(LanguageContext)
 
     // TODO подумать как тут предотвращать рендеры ВСЕХ затронутых элементов, мб через хендлер
     return (
-
-        <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
-            <Form.Label style={{fontSize:'14px'}} className="text-white">{name}</Form.Label>
-            <Form.Control
-                as='select'
-                name={name}
-                style={{fontSize:'14px'}}
-                className="filters"
-                value={selectedValue}
-                onChange={handler}
-            >
-                <option value=''>
-                    {name}
-                </option>
-                {/* в key добавил индекс чтоб при ресете фильтров менялись значения */}
-                {values.map((filter, index) => {
-                    return(
-                        <option key={filter.id + '_' + index + '_' + product_prop} value={filter.id}>
-                            {filter.title}
+        <>
+            {language === 'Russian' ?
+                <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
+                    <Form.Label style={{fontSize:'14px'}} className="text-white">{name}</Form.Label>
+                    <Form.Control
+                        as='select'
+                        name={name}
+                        style={{fontSize:'14px'}}
+                        className="filters"
+                        value={selectedValue}
+                        onChange={handler}
+                    >
+                        <option value=''>
+                            {name}
                         </option>
-                    );
-                })}
-            </Form.Control>
-        </Form.Group>
+                        {/* в key добавил индекс чтоб при ресете фильтров менялись значения */}
+                        {values.map((filter, index) => {
+                            return(
+                                <option key={filter.id + '_' + index + '_' + product_prop} value={filter.id}>
+                                    {filter.title}
+                                </option>
+                            );
+                        })}
+                    </Form.Control>
+                </Form.Group>
+                :
+                <Form.Group className="col-2 container-fluid p-3" as={TableRow} controlId={product_prop}>
+                    <Form.Label style={{fontSize:'14px'}} className="text-white">{name_en}</Form.Label>
+                    <Form.Control
+                        as='select'
+                        name={name_en}
+                        style={{fontSize:'14px'}}
+                        className="filters"
+                        value={selectedValue}
+                        onChange={handler}
+                    >
+                        <option value=''>
+                            {name_en}
+                        </option>
+                        {/* в key добавил индекс чтоб при ресете фильтров менялись значения */}
+                        {values_en.map((filter, index) => {
+                            return(
+                                <option key={filter.id + '_' + index + '_' + product_prop} value={filter.id}>
+                                    {filter.title}
+                                </option>
+                            );
+                        })}
+                    </Form.Control>
+                </Form.Group>
+            }
+        </>
+
     )
 });
 
