@@ -21,6 +21,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                     product_prop={filter.product_prop}
                     name={filter.name}
                     values={filter.values}
+                    values_en={filter.values_en}
                     selectedValue={selectedValues ? selectedValues[filter.product_prop] : ''}
                 />
             )
@@ -40,13 +41,7 @@ const Filters = React.memo(({filterVariants, selectedValues, handlerChangeSelect
                         Со словами?
                     </label>
 
-                    {/*<Form.Check name={filter.db_name}*/}
-                    {/*            inline*/}
-                    {/*            className="checkbox-ex"*/}
-                    {/*            type='checkbox'*/}
-                    {/*            id={filter.db_name + '_' + filter.verbose_name}*/}
-                    {/*            label={filter.verbose_name}*/}
-                    {/*            onChange={handlerChangeSelect}*/}
+
                     {/*/>*/}
                 </Form.Group>
             )

@@ -14,7 +14,7 @@ const OrderPage = () => {
     useEffect(() => {
         API.getOrder()
             .then((res) => {
-                console.log(res.data);
+                setOrders(res.data);
             });
     },[]);
 
@@ -42,9 +42,9 @@ const OrderPage = () => {
     //     </div>
     // }
 
-
-    if(items) {
+    if(orders) {
         return (
+
             <div className="container-fluid row p-5">
                 <table className="table text-white">
                     <tbody>
@@ -55,6 +55,7 @@ const OrderPage = () => {
                         <td scope="col">Стоимость</td>
                         <td></td>
                     </tr>
+
                     <tr>
                         <td scope="row">Трек из каталога</td>
                         <td>RuPaul - Call Me Mother</td>
