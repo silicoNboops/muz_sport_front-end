@@ -30,17 +30,17 @@ const OrderPage = () => {
             return cb();
         }
 
-    // if(isEmpty) {
-    //     return <div className="empty-page">
-    //         <div className="pt-5">
-    //             <div className="container">
-    //                 <h1 className="text-center text-white pt-5">
-    //                     Ваша корзина пуста
-    //                 </h1>
-    //             </div>
-    //         </div>
-    //     </div>
-    // }
+    if(orders.length === 0) {
+        return <div className="empty-page">
+            <div className="pt-5">
+                <div className="container">
+                    <h1 className="text-center text-white pt-5">
+                        Ваша корзина пуста
+                    </h1>
+                </div>
+            </div>
+        </div>
+    }
 
     if(orders) {
         return (
