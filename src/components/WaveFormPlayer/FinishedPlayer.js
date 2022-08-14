@@ -38,6 +38,7 @@ const NewPlayer = ({product, isWished}) => {
     const [waver, setWaver] = useState(null);
     const [playing, setPlaying] = useState(false);
     const [price, setPrice] = useState([])
+    const [wishes, setWishes] = useState([])
 
     const createWish = () => {
         API.createWishlist({id : product.id});
@@ -56,6 +57,11 @@ const NewPlayer = ({product, isWished}) => {
                 .then(data => setPrice(data))
         }
         fetchData();
+
+        API.getWishlist()
+            .then((res) => {
+                setWishes(res.data.map((wishedTrack) => wishedTrack.wished_track.id));
+            });
 
         const track = document.querySelector('#track' + product.id);
 
@@ -79,10 +85,19 @@ const NewPlayer = ({product, isWished}) => {
         }
     }, []);
 
+    useEffect(() => {
+        for(let i = 0; i < wishes.length; i++) {
+            if (wishes[i] === product.id){
+                setSelect(true)
+            }
+        }
+    }, [wishes])
+
     const handlePlay = () => {
         setPlaying(!playing);
         waver?.playPause();
     };
+
 
     return (
         <>

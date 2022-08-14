@@ -22,7 +22,7 @@ const Ad = () => {
     },[])
 
     return (
-        <div className="container-fluid justify-content-center row pb-3">
+        <div className="container-fluid justify-content-center row pb-3 ad-image">
             <div className="col-8 col-xxl-6">
                 <div className="card-img">
                     {!BigImage.photo ?

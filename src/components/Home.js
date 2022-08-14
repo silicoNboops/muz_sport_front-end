@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <>
         {language === 'Russian' ?
-            <div className="container-fluid main-page p-5">
+            <div className="container-fluid p-5">
                 <h1 className="text-start text-white text-wrap ms-5"  style={{width:"700px"}}> Музыка для спортивных
                     выступлений на заказ </h1>
                 <h4 className="text-white me-5 text-home">с элементом суггестивного воздействия и релаксационным модулем</h4>

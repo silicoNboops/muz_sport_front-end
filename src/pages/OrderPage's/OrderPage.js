@@ -30,6 +30,11 @@ const OrderPage = () => {
             return cb();
         }
 
+    // const tracks = orders.map(e => e.track[0])
+    // const track = tracks[0]
+    // const track_custom = orders.map(e => e.track_custom);
+    // const track_modification = orders.map(e => e.track_modification);
+
     if(orders.length === 0) {
         return <div className="empty-page">
             <div className="pt-5">
@@ -58,9 +63,10 @@ const OrderPage = () => {
 
                     <tr>
                         <td scope="row">Трек из каталога</td>
-                        <td>RuPaul - Call Me Mother</td>
-                        <td>10.04.2022</td>
-                        <td>560 руб</td>
+                        {/*<td>{track.author} - {track.title}</td>*/}
+                        <td>Zaebal - Blya</td>
+                        <td>12321123</td>
+                        <td>123 руб</td>
                         <td>
                             <button type="button" className="btn-close shadow-none delete-track"
                                     onClick={() => removeItem}
@@ -68,6 +74,7 @@ const OrderPage = () => {
                             </button>
                         </td>
                     </tr>
+
                     </tbody>
                 </table>
 

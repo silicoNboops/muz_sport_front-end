@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import './css/style.css';
+import './css/adaptivity.css'
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
